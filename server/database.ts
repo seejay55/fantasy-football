@@ -2,21 +2,34 @@ import * as mysql from 'mysql';
 import { MysqlError } from 'mysql';
 
 class DB {
-    private con: mysql.Connection;
+    private pool: mysql.Pool;
 
     constructor(address: string, user: string, pass: string) {
-        this.con = mysql.createConnection({host: address, user: user, password: pass});
-        this.con.connect(function(err: MysqlError) {
-            if (err) { throw err; }
-            console.log('DB Connected');
+        this.pool = mysql.createPool({
+            host: address,
+            user: user,
+            password: pass,
+            connectionLimit: 10,
+            database: 'fantasyfootball18'
         });
     }
 
     private query(statement: string): any {
         let queryResult: any;
-        this.con.connect(function(err) {
-            if (err) { throw err; }
-            this.con.query(statement, (error: MysqlError, result: any) => { queryResult = result; });
+        this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
+            if (conError) {
+                console.log('DB Error(Conn):\n' + conError);
+            }
+            con.query(statement, (error: MysqlError, result: any) => {
+                if (error) {
+                    console.log('DB Error(Query):\n' + error);
+                }
+                queryResult = result;
+                con.release();
+                if (error) {
+                    throw error;
+                }
+            });
         });
         return queryResult;
     }
@@ -45,25 +58,28 @@ class DB {
         return this.query(statement);
     }
 
-    getUserRecord(userID: number, leagueID: number): [number, number, number] {
+    getUserRecord(userID: number, leagueID: number): any {
         const statement = mysql.format(
             `SELECT
-            COUNT(IF((player1_id = ? AND player1_score > player2_score) OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins, 
-            COUNT(IF((player1_id = ? AND player1_score < player2_score) OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses, 
-            COUNT(IF((player1_id = ? AND player1_score = player2_score) OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties
-            FROM fantasyfootball18.league_schedule
+            COUNT(IF((player1_id = ? AND player1_score > player2_score)
+                OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins,
+            COUNT(IF((player1_id = ? AND player1_score < player2_score)
+                OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses,
+            COUNT(IF((player1_id = ? AND player1_score = player2_score)
+                OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties
+            FROM league_schedule
             JOIN (
                 SELECT league_id, user_id, year, week, SUM(week_pts) AS player1_score
-                FROM fantasyfootball18.league_rosters
-                JOIN fantasyfootball18.nfl_stats ON league_rosters.player_id = nfl_stats.player_id
+                FROM league_rosters
+                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
                 GROUP BY league_id, user_id, year, week
             ) AS p1_scores
             ON (p1_scores.user_id = league_schedule.player1_id)
                 AND (p1_scores.week = league_schedule.week)
             JOIN (
                 SELECT league_id, user_id, year, week, SUM(week_pts) AS player2_score
-                FROM fantasyfootball18.league_rosters
-                JOIN fantasyfootball18.nfl_stats ON league_rosters.player_id = nfl_stats.player_id
+                FROM league_rosters
+                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
                 GROUP BY league_id, user_id, year, week
             ) AS p2_scores
             ON (p2_scores.user_id = league_schedule.player2_id)
@@ -74,5 +90,68 @@ class DB {
         );
         const result = this.query(statement);
         return [result['wins'], result['losses'], result['ties']];
+    }
+
+    getUserScore(userID: number, leagueID: number, week: number): number {
+        const statement = mysql.format(
+            `SELECT SUM(week_pts) AS score
+            FROM league_rosters
+            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
+            WHERE user_id = ? AND league_id = ? AND week = ?
+            GROUP BY league_id, user_id, year, week;`,
+            [userID, leagueID, week]
+        );
+        return this.query(statement)['score'];
+    }
+
+    getUserRoster(userID: number, leagueID: number): any {
+        const statement = mysql.format(
+            `SELECT player_name, player_pos, team_abbr
+            FROM league_rosters
+            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
+            WHERE user_id = ? AND league_id = ?;`,
+            [userID, leagueID]
+        );
+        return this.query(statement);
+    }
+
+    getUserSchedule(userID: number, leagueID: number): any {
+        const statement = mysql.format(
+            `SELECT week, player1_id, player2_id
+            FROM league_schedule
+            WHERE (player1_id = 1 OR player2_id = 1) AND league_id = 1;`,
+            [userID, userID, leagueID]
+        );
+        return this.query(statement);
+    }
+
+    getUsername(userID: number): string {
+        const statement = mysql.format(
+            `SELECT Username FROM userinfo WHERE ID = ?`,
+            [userID]
+        );
+        return this.query(statement)['Username'];
+    }
+
+    getPlayerInfo(playerID: number): any {
+        const statement = mysql.format(
+            `SELECT player_name, player_pos, team_abbr
+            FROM nfl_players
+            WHERE player_id = ?;`,
+            [playerID]
+        );
+        return this.query(statement);
+    }
+
+    getPlayerStats(playerID: number, year: number, week: number): any {
+        const statement = mysql.format(
+            `SELECT *
+            FROM nfl_stats
+            WHERE player_id = ?
+            AND year = ?
+            AND week = ?;`,
+            [playerID, year, week]
+        );
+        return this.query(statement);
     }
 }
