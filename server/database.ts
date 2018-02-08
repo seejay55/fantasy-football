@@ -1,7 +1,7 @@
 import * as mysql from 'mysql';
 import { MysqlError } from 'mysql';
 
-class DB {
+export class DB {
     private pool: mysql.Pool;
 
     constructor(address: string, user: string, pass: string) {
@@ -14,41 +14,18 @@ class DB {
         });
     }
 
-    private query(statement: string): any {
-        let queryResult: any;
+    query(statement: string, callback: (error: MysqlError, results?: any, fields?: mysql.FieldInfo[]) => void) {
         this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
             if (conError) {
                 console.log('DB Error(Conn):\n' + conError);
+            } else {
+                con.query(statement, callback).on('end', () => {
+                    con.release();
+                });
             }
-            con.query(statement, (error: MysqlError, result: any) => {
-                if (error) {
-                    console.log('DB Error(Query):\n' + error);
-                }
-                queryResult = result;
-                con.release();
-                if (error) {
-                    throw error;
-                }
-            });
         });
-        return queryResult;
     }
-
-    getLeagueInfo(leagueID: number): any {
-        const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['leagues', 'id', leagueID]
-        );
-        return this.query(statement);
-    }
-
-    getLeagueMembers(leagueID: number): any {
-        const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['league_members', 'league_id', leagueID]
-        );
-        return this.query(statement);
-    }
+    /*
 
     getUserInfo(userID: number): any {
         const statement = mysql.format(
@@ -130,7 +107,7 @@ class DB {
             `SELECT Username FROM userinfo WHERE ID = ?`,
             [userID]
         );
-        return this.query(statement)['Username'];
+        return this.query(statement);
     }
 
     getPlayerInfo(playerID: number): any {
@@ -154,4 +131,5 @@ class DB {
         );
         return this.query(statement);
     }
+    */
 }

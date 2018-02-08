@@ -2,50 +2,58 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mysql = require('mysql');
-var db = require('../config/config');
+var config = require('../config/config');
+var DB = require('./database')
 
+var db_host = config.db_HOST;
+var db_user = config.db_USER;
+var db_password = config.db_PASSWORD;
+var db_database = config.db_DATABASE;
 
-var db_host = db.db_HOST;
-var db_user = db.db_USER;
-var db_password = db.db_PASSWORD;
-var db_database = db.db_DATABASE;
+var db = new DB.DB(db_host, db_user, db_password);
 
 var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-var connection = mysql.createConnection({
-  host: db_host,
-  user: db_user,
-  password: db_password,
-  database: db_database
+var server = app.listen(8000, function () {
+    console.log('Server listening on port 8000');
 });
 
-connection.connect(function(err){
-if(err){
-  console.log('Connection failed' + err.stack);
-  return;
-}
-console.log('Connection established.');
+app.get("/api/league/:league_id", function (req, res) {
+    const statement = mysql.format(
+        'SELECT * FROM leagues WHERE id = ?',
+        [req.params.league_id]
+    );
+    db.query(statement, function(error, results, fields) {
+        if (error) {
+            console.log('DB Error(Query):\n' + error);
+        }
+        if (error) {
+            throw error;
+        }
+        var results = JSON.parse(JSON.stringify(results))
+        console.log(results);
+        res.send(results);
+    });
 });
 
-
-//var db_PATH = db.db_PATH; //Database connection path
-
-var server = app.listen(8000, function(){
-  console.log('Server listening on port 8000');
-});
-
-app.get("/api/stats/:week", function(req, res){
-  var id = req.params.week;
-  var query = 'SELECT * FROM nfl_stats WHERE week = ' + id;
-  connection.query(query, function(err, rows, fields){
-    if(err) console.log(err);
-    res.send(rows);
-
-    for(var i in rows)
-    {
-      console.log(rows[i]);
-    }
-  });
+app.get("/api/league/:league_id/members", function (req, res) {
+    const statement = mysql.format(
+        `SELECT user_id, team_name, commisioner, team_logo
+        FROM league_members
+        WHERE league_id = ?`,
+        [req.params.league_id]
+    );
+    db.query(statement, function(error, results, fields) {
+        if (error) {
+            console.log('DB Error(Query):\n' + error);
+        }
+        if (error) {
+            throw error;
+        }
+        var results = JSON.parse(JSON.stringify(results))
+        console.log(results);
+        res.send(results);
+    });
 });
