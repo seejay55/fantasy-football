@@ -27,60 +27,6 @@ export class DB {
     }
     /*
 
-    getUserInfo(userID: number): any {
-        const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['userinfo', 'id', userID]
-        );
-        return this.query(statement);
-    }
-
-    getUserRecord(userID: number, leagueID: number): any {
-        const statement = mysql.format(
-            `SELECT
-            COUNT(IF((player1_id = ? AND player1_score > player2_score)
-                OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins,
-            COUNT(IF((player1_id = ? AND player1_score < player2_score)
-                OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses,
-            COUNT(IF((player1_id = ? AND player1_score = player2_score)
-                OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties
-            FROM league_schedule
-            JOIN (
-                SELECT league_id, user_id, year, week, SUM(week_pts) AS player1_score
-                FROM league_rosters
-                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-                GROUP BY league_id, user_id, year, week
-            ) AS p1_scores
-            ON (p1_scores.user_id = league_schedule.player1_id)
-                AND (p1_scores.week = league_schedule.week)
-            JOIN (
-                SELECT league_id, user_id, year, week, SUM(week_pts) AS player2_score
-                FROM league_rosters
-                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-                GROUP BY league_id, user_id, year, week
-            ) AS p2_scores
-            ON (p2_scores.user_id = league_schedule.player2_id)
-                AND (p2_scores.week = league_schedule.week)
-            WHERE (player1_id = ? OR player2_id = ?)
-            AND league_schedule.league_id = ?;`,
-            [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]
-        );
-        const result = this.query(statement);
-        return [result['wins'], result['losses'], result['ties']];
-    }
-
-    getUserScore(userID: number, leagueID: number, week: number): number {
-        const statement = mysql.format(
-            `SELECT SUM(week_pts) AS score
-            FROM league_rosters
-            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-            WHERE user_id = ? AND league_id = ? AND week = ?
-            GROUP BY league_id, user_id, year, week;`,
-            [userID, leagueID, week]
-        );
-        return this.query(statement)['score'];
-    }
-
     getUserRoster(userID: number, leagueID: number): any {
         const statement = mysql.format(
             `SELECT player_name, player_pos, team_abbr
