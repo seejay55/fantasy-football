@@ -21,142 +21,48 @@ var server = app.listen(8000, function () {
 });
 
 app.get("/api/league/:league_id", function (req, res) {
-    const statement = mysql.format(
-        'SELECT * FROM leagues WHERE id = ?',
-        [req.params.league_id]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        console.log(results);
-        res.send(results);
-    });
+      var league_id = req.params.league_id;
+      db.getLeagueInfo(league_id).then(function(result){
+        res.send(result);
+      });
 });
 
 app.get("/api/league/:league_id/members", function (req, res) {
-    const statement = mysql.format(
-        `SELECT user_id, team_name, commisioner, team_logo
-        FROM league_members
-        WHERE league_id = ?`,
-        [req.params.league_id]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        res.send(results);
-    });
+      var league_id = req.params.league_id;
+      db.getLeagueMembers(league_id).then(function(result){
+        res.send(result);
+      });
 });
 
 app.get("/api/user/:user_id", function (req, res) {
-    const statement = mysql.format(
-        'SELECT * FROM userinfo WHERE id = ?',
-        [req.params.user_id]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        res.send(results);
-    });
+      var user_id = req.params.user_id;
+      db.getUserInfo(user_id).then(function(result){
+        res.send(result);
+      });
 });
 
-app.get("/api/records/league=:league_id&user=:user_id", function (req, res) {
-    const statement = mysql.format(
-        `SELECT
-        COUNT(IF((player1_id = ? AND player1_score > player2_score)
-            OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins,
-        COUNT(IF((player1_id = ? AND player1_score < player2_score)
-            OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses,
-        COUNT(IF((player1_id = ? AND player1_score = player2_score)
-            OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties
-        FROM league_schedule
-        JOIN (
-            SELECT league_id, user_id, year, week, SUM(week_pts) AS player1_score
-            FROM league_rosters
-            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-            GROUP BY league_id, user_id, year, week
-        ) AS p1_scores
-        ON (p1_scores.user_id = league_schedule.player1_id)
-            AND (p1_scores.week = league_schedule.week)
-        JOIN (
-            SELECT league_id, user_id, year, week, SUM(week_pts) AS player2_score
-            FROM league_rosters
-            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-            GROUP BY league_id, user_id, year, week
-        ) AS p2_scores
-        ON (p2_scores.user_id = league_schedule.player2_id)
-            AND (p2_scores.week = league_schedule.week)
-        WHERE (player1_id = ? OR player2_id = ?)
-        AND league_schedule.league_id = ?;`,
-        [req.params.user_id, req.params.user_id, req.params.user_id,
-        req.params.user_id, req.params.user_id, req.params.user_id,
-        req.params.user_id, req.params.user_id, req.params.league_id]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        res.send(results);
-    });
+app.get("/api/league/:league_id/records/user/:user_id", function (req, res) {
+      var league_id = req.params.league_id;
+      var user_id = req.params.user_id;
+      db.getUserRecord(user_id, league_id).then(function(result){
+        res.send(result);
+      });
 });
 
 app.get("/api/scores/league=:league_id&user=:user_id", function (req, res) {
-    const statement = mysql.format(
-        `SELECT week, SUM(week_pts) AS score
-        FROM league_rosters
-        JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-        WHERE user_id = ? AND league_id = ? AND year = 2016
-        GROUP BY league_id, user_id, year, week;`,
-        [req.params.user_id, req.params.league_id]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        res.send(results);
-    });
+      var league_id = req.params.league_id;
+      var user_id = req.params.user_id;
+      db.getUserScore(user_id, league_id, 1).then(function(result){
+        res.send(result);
+      });
 });
 
 app.get("/api/scores/league=:league_id&user=:user_id&week=:week", function (req, res) {
-    const statement = mysql.format(
-        `SELECT SUM(week_pts) AS score
-        FROM league_rosters
-        JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-        WHERE user_id = ? AND league_id = ? AND week = ? AND year = 2017
-        GROUP BY league_id, user_id, year, week;`,
-        [req.params.user_id, req.params.league_id, req.params.week]
-    );
-    db.query(statement, function(error, results, fields) {
-        if (error) {
-            console.log('DB Error(Query):\n' + error);
-        }
-        if (error) {
-            throw error;
-        }
-        var results = JSON.parse(JSON.stringify(results))
-        res.send(results);
-    });
+      var league_id = req.params.league_id;
+      var user_id = req.params.user_id;
+      var week = req.params.week;
+      db.getUserScore(user_id, league_id, week).then(function(result){
+        res.send(result);
+      });
 });
 
