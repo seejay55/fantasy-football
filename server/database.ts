@@ -18,44 +18,44 @@ export class DB {
     private query(statement: string): any {
         let queryResult: any;
         return new Promise((resolve, reject) => {
-        this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
-            if (conError) {
-                reject('DB Error(Conn):\n' + conError);
-            }
-            con.query(statement, (error: MysqlError, result: any) => {
-                if (error) {
-                    reject('DB Error(Query):\n' + error);
+            this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
+                if (conError) {
+                    reject('DB Error(Conn):\n' + conError);
                 }
-                queryResult = JSON.parse(JSON.stringify(result));
-                resolve(queryResult);
+                con.query(statement, (error: MysqlError, result: any) => {
+                    if (error) {
+                        reject('DB Error(Query):\n' + error);
+                    }
+                    queryResult = JSON.parse(JSON.stringify(result));
+                    resolve(queryResult);
 
-            }).on('end', () => {
-              con.release();
+                }).on('end', () => {
+                    con.release();
+                });
             });
         });
-      });
     }
 
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['leagues', 'id', leagueID]
+            'SELECT * FROM leagues WHERE id = ?',
+            [leagueID]
         );
         return this.query(statement);
     }
 
     getLeagueMembers(leagueID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['league_members', 'league_id', leagueID]
+            'SELECT * FROM league_members WHERE league_id = ?',
+            [leagueID]
         );
         return this.query(statement);
     }
 
     getUserInfo(userID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM ?? WHERE ?? = ?',
-            ['userinfo', 'id', userID]
+            'SELECT * FROM userinfo WHERE id = ?',
+            [userID]
         );
         return this.query(statement);
     }
@@ -90,20 +90,25 @@ export class DB {
             AND league_schedule.league_id = ?;`,
             [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]
         );
-        const result = this.query(statement);
-        return [result['wins'], result['losses'], result['ties']];
+        return this.query(statement);
     }
 
-    getUserScore(userID: number, leagueID: number, week: number): number {
+    getUserScore(userID: number, leagueID: number, week?: number): number {
+        const params = [userID, leagueID];
+        if (week) { params.push(week); }
+        params.push(leagueID);
         const statement = mysql.format(
             `SELECT SUM(week_pts) AS score
             FROM league_rosters
             JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-            WHERE user_id = ? AND league_id = ? AND week = ?
+            WHERE user_id = ?
+                AND league_id = ?
+                AND week ` + (week ? '= ?' : '') + `
+                AND year = (SELECT year FROM leagues WHERE id = ?)
             GROUP BY league_id, user_id, year, week;`,
-            [userID, leagueID, week]
+            params
         );
-        return this.query(statement)['score'];
+        return this.query(statement);
     }
 
     getUserRoster(userID: number, leagueID: number): any {

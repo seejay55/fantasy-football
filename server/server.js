@@ -21,48 +21,48 @@ var server = app.listen(8000, function () {
 });
 
 app.get("/api/league/:league_id", function (req, res) {
-      var league_id = req.params.league_id;
-      db.getLeagueInfo(league_id).then(function(result){
+    var league_id = req.params.league_id;
+    db.getLeagueInfo(league_id).then(function (result) {
         res.send(result);
-      });
+    });
 });
 
 app.get("/api/league/:league_id/members", function (req, res) {
-      var league_id = req.params.league_id;
-      db.getLeagueMembers(league_id).then(function(result){
+    var league_id = req.params.league_id;
+    db.getLeagueMembers(league_id).then(function (result) {
         res.send(result);
-      });
+    });
 });
 
 app.get("/api/user/:user_id", function (req, res) {
-      var user_id = req.params.user_id;
-      db.getUserInfo(user_id).then(function(result){
+    var user_id = req.params.user_id;
+    db.getUserInfo(user_id).then(function (result) {
         res.send(result);
-      });
+    });
 });
 
 app.get("/api/league/:league_id/records/user/:user_id", function (req, res) {
-      var league_id = req.params.league_id;
-      var user_id = req.params.user_id;
-      db.getUserRecord(user_id, league_id).then(function(result){
+    var league_id = req.params.league_id;
+    var user_id = req.params.user_id;
+    db.getUserRecord(user_id, league_id).then(function (result) {
         res.send(result);
-      });
-});
-
-app.get("/api/scores/league=:league_id&user=:user_id", function (req, res) {
-      var league_id = req.params.league_id;
-      var user_id = req.params.user_id;
-      db.getUserScore(user_id, league_id, 1).then(function(result){
-        res.send(result);
-      });
+    });
 });
 
 app.get("/api/scores/league=:league_id&user=:user_id&week=:week", function (req, res) {
-      var league_id = req.params.league_id;
-      var user_id = req.params.user_id;
-      var week = req.params.week;
-      db.getUserScore(user_id, league_id, week).then(function(result){
+    var league_id = req.params.league_id;
+    var user_id = req.params.user_id;
+    var week = req.params.week;
+    db.getUserScore(user_id, league_id, week).then(function (result) {
         res.send(result);
-      });
+    });
+});
+
+app.get("/api/scores/league=:league_id&user=:user_id", function (req, res) {
+    var league_id = req.params.league_id;
+    var user_id = req.params.user_id;
+    db.getUserScore(user_id, league_id, null).then(function (result) {
+        res.send(result);
+    });
 });
 
