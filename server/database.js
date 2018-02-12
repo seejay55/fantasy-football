@@ -2,13 +2,13 @@
 exports.__esModule = true;
 var mysql = require("mysql");
 var DB = /** @class */ (function () {
-    function DB(address, user, pass) {
+    function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
             user: user,
             password: pass,
             connectionLimit: 10,
-            database: 'fantasyfootball18'
+            database: database
         });
     }
     DB.prototype.query = function (statement) {
@@ -36,7 +36,23 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getLeagueMembers = function (leagueID) {
-        var statement = mysql.format('SELECT * FROM league_members WHERE league_id = ?', [leagueID]);
+        var statement = mysql.format("SELECT Username, team_name, commisioner\n            FROM league_members\n            JOIN userinfo ON user_id = userinfo.ID\n            WHERE league_id = ?;", [leagueID]);
+        return this.query(statement);
+    };
+    DB.prototype.getLeagueSchedule = function (leagueID, week) {
+        var params = [leagueID];
+        if (week) {
+            params.push(week);
+        }
+        var statement = mysql.format("SELECT week, player1_id, player2_id\n            FROM league_schedule\n            WHERE league_id = ?\n            AND week" + (week ? ' = ?' : '') + ';', params);
+        return this.query(statement);
+    };
+    DB.prototype.getLeagueRosters = function (leagueID) {
+        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id\n            WHERE league_id = ?;", [leagueID]);
+        return this.query(statement);
+    };
+    DB.prototype.getRoster = function (leagueID, userID) {
+        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id\n            WHERE league_id = ?\n            AND user_id = ?;", [leagueID, userID]);
         return this.query(statement);
     };
     DB.prototype.getUserInfo = function (userID) {

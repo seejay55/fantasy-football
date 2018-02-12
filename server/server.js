@@ -20,6 +20,36 @@ var server = app.listen(8000, function () {
     console.log('Server listening on port 8000');
 });
 
+app.get("/api/league/:league_id/schedule/:week", function (req, res) {
+    var league_id = req.params.league_id;
+    var week = req.params.week;
+    db.getLeagueSchedule(league_id, week).then(function (result) {
+        res.send(result);
+    });
+});
+
+app.get("/api/league/:league_id/schedule", function (req, res) {
+    var league_id = req.params.league_id;
+    db.getLeagueSchedule(league_id, null).then(function (result) {
+        res.send(result);
+    });
+});
+
+app.get("/api/league/:league_id/rosters/:user_id", function (req, res) {
+    var league_id = req.params.league_id;
+    var user_id = req.params.user_id;
+    db.getRoster(league_id, user_id).then(function (result) {
+        res.send(result);
+    });
+});
+
+app.get("/api/league/:league_id/rosters", function (req, res) {
+    var league_id = req.params.league_id;
+    db.getLeagueRosters(league_id).then(function (result) {
+        res.send(result);
+    });
+});
+
 app.get("/api/league/:league_id", function (req, res) {
     var league_id = req.params.league_id;
     db.getLeagueInfo(league_id).then(function (result) {

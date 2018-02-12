@@ -1,17 +1,18 @@
 import * as mysql from 'mysql';
 import { MysqlError } from 'mysql';
 import { resetFakeAsyncZone } from '@angular/core/testing';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 export class DB {
     private pool: mysql.Pool;
 
-    constructor(address: string, user: string, pass: string) {
+    constructor(address: string, user: string, pass: string, database: string) {
         this.pool = mysql.createPool({
             host: address,
             user: user,
             password: pass,
             connectionLimit: 10,
-            database: 'fantasyfootball18'
+            database: database
         });
     }
 
@@ -46,8 +47,47 @@ export class DB {
 
     getLeagueMembers(leagueID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM league_members WHERE league_id = ?',
+            `SELECT Username, team_name, commisioner
+            FROM league_members
+            JOIN userinfo ON user_id = userinfo.ID
+            WHERE league_id = ?;`,
             [leagueID]
+        );
+        return this.query(statement);
+    }
+
+    getLeagueSchedule(leagueID: number, week?: number): any {
+        const params = [leagueID];
+        if (week) { params.push(week); }
+        const statement = mysql.format(
+            `SELECT week, player1_id, player2_id
+            FROM league_schedule
+            WHERE league_id = ?
+            AND week` + (week ? ' = ?' : '') + ';',
+            params
+        );
+        return this.query(statement);
+    }
+
+    getLeagueRosters(leagueID: number): any {
+        const statement = mysql.format(
+            `SELECT player_name, player_pos, team_abbr
+            FROM league_rosters
+            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
+            WHERE league_id = ?;`,
+            [leagueID]
+        );
+        return this.query(statement);
+    }
+
+    getRoster(leagueID: number, userID: number): any {
+        const statement = mysql.format(
+            `SELECT player_name, player_pos, team_abbr
+            FROM league_rosters
+            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
+            WHERE league_id = ?
+            AND user_id = ?;`,
+            [leagueID, userID]
         );
         return this.query(statement);
     }
