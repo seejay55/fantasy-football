@@ -23,7 +23,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       { path: 'homepage',                    component: NavbarComponent },
       { path: 'create-league',               component: NavbarComponent },
       { path: 'league-requests',             component: NavbarComponent },
-      { path: 'settings',                    component: NavbarComponent },
+      { path: 'settings',                    component: NavbarComponent,
+      children: [
+        { path: 'settings/email-password',   component: NavbarComponent },
+        { path: 'settings/edit-profile',     component: NavbarComponent },
+        { path: 'settings/delete-profile',   component: NavbarComponent },
+      ]},
       { path: 'find-user',                   component: NavbarComponent },
     ])
   ],
