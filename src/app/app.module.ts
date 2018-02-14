@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FindCreateJoinPageComponent } from './pages/find-create-join-page/find-create-join-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FindCreateJoinPageComponent
   ],
   imports: [
     BrowserModule
