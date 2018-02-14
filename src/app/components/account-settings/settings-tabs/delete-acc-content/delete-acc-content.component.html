@@ -6,7 +6,7 @@
     <div class="card-body">
       <div class="card-text">
         <form>
-            <button type="button" class="btn btn-danger btn-lg btn-block" (click)="deleteClick()" confirm="Are you sure?">Delete Account</button>
+            <button type="button" class="btn btn-danger btn-lg btn-block" (click)="deleteClick()">Delete Account</button>
         </form>
       </div>
     </div>
@@ -16,6 +16,36 @@
 </div>
 
 <div *ngIf="bool">
+  <br/><br/><br/>
 
+    <div class="card w-95">
+        <div class="card-header" align="center">
+            <h4>Are you sure?</h4>
+            <p class="card-subtitle text-muted small">WARNING: This is final!</p>
+          </div>
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-6" align="center">
+                  <button type="button" class="btn btn-success btn-block">Cancel</button>
+              </div>
+              <div class="col-md-6" align="center">
+                  <button type="button" class="btn btn-danger btn-block">Yes</button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+  <!--
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <button type="button" class="btn btn-success btn-lg">No</button>
+      </div>
+      <div class="col-md-6">
+          <button type="button" class="btn btn-danger btn-lg">Yes</button>
+      </div>
+    </div>
+  </div>
+-->
 </div>
 

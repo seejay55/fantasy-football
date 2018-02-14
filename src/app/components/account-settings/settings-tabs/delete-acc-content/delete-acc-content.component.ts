@@ -16,7 +16,7 @@ export class DeleteAccContentComponent implements OnInit {
   }
 
   deleteClick(){
-    this.bool = false;
+    this.bool = true;
   }
 
 
