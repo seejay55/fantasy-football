@@ -7,18 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  names: {name: String, route: String}[];
+  user: {
+    firstName: string,
+    lastName: string,
+    userName: string
+  };
 
   constructor() {
-    this.names = [
-      { name: 'Create League', route: '/create-league'},
-      { name: 'League Requests', route: '/league-requests'},
-      { name: 'Find User', route: '/find-user'},
-      { name: 'Account Settings', route: '/settings'},
-    ];
+    this.user = null;
   }
 
   ngOnInit() {
+  }
+
+  private toggleTestUser() {
+    if (this.user == null) {
+      this.user = {
+        firstName: 'Test',
+        lastName: 'User',
+        userName: '@testUser'
+      };
+    } else { this.user = null; }
+    console.log(this.user);
   }
 
 }
