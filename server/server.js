@@ -10,7 +10,7 @@ var db_user = config.db_USER;
 var db_password = config.db_PASSWORD;
 var db_database = config.db_DATABASE;
 
-var db = new DB.DB(db_host, db_user, db_password);
+var db = new DB.DB(db_host, db_user, db_password, db_database);
 
 var app = express();
 app.use(bodyParser.json());

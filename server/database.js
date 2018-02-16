@@ -7,7 +7,7 @@ var DB = /** @class */ (function () {
             host: address,
             user: user,
             password: pass,
-            connectionLimit: 10,
+            connectionLimit: 100,
             database: database
         });
     }
