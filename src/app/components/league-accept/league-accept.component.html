@@ -1,0 +1,45 @@
+<div style="background-color:rgb(25, 25, 112) !important" class="jumbotron">
+  <div class="container">
+
+    <!-- big words at the top -->
+    <h1 class="display-3" style="font-variant:small-caps; color:whitesmoke">
+      League Invites
+    </h1>
+    <hr class="my-4">
+    <!-- no invite message -->
+    <p style="color:whitesmoke">
+      You have no pending invites!
+    </p>
+    <!-- list of invites-->
+    <div *ngFor="let user of incomingInvitesUsers" class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="request{{user}}">
+          <div class="row">
+            <div class="col-md-3">{{user}}</div>
+            <div class="col-md-3">LeagueName</div>
+            <div class="col-md-4"></div>
+            <div class="col-md-2">
+              <button type="button" id="request{{user}}" class="btn btn-primary" style="background-color:red;
+                          color:darkred;
+                          font-weight:bold;
+                          border-color:darkred;
+                          clear: left;
+                          float: right">
+                &#9747;
+              </button>
+              <button type="button" id="request{{user}}" class="btn btn-primary" style="background-color:lime;
+                          color:darkgreen;
+                          font-weight:bold;
+                          border-color:darkgreen;
+                          clear: left;
+                          float: right">
+                ACCEPT!
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
