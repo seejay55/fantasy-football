@@ -5,12 +5,16 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { LeagueAcceptComponent } from './components/league-accept/league-accept.component';
+import { ParticipantSearchComponent } from './components/participant-search/participant-search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LeagueAcceptComponent,
+    ParticipantSearchComponent
     NavbarComponent
   ],
   imports: [
