@@ -23,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       { path: 'homepage',                    component: NavbarComponent },
       { path: 'create-league',               component: NavbarComponent },
       { path: 'league-requests',             component: NavbarComponent },
+      { path: 'register',                    component: NavbarComponent },
       { path: 'settings',                    component: NavbarComponent,
       children: [
         { path: 'settings/email-password',   component: NavbarComponent },
