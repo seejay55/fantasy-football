@@ -30,7 +30,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     FindCreateJoinPageComponent,
-    FindCreateJoinPageContentComponent
+    FindCreateJoinPageContentComponent,
     AccountSettingsPageComponent,
     SettingsTabsComponent,
     ProfileCardComponent,
@@ -44,7 +44,8 @@ import { RouterModule } from '@angular/router';
     CreateLeaguePageComponent,
     LeagueAcceptComponent,
     LoginComponent,
-    ParticipantSearchComponent
+    ParticipantSearchComponent,
+    SearchLeaguePageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,15 +56,12 @@ import { RouterModule } from '@angular/router';
       { path: '', redirectTo: 'homepage', pathMatch: 'full'},
       { path: 'homepage',                    component: HomepageComponent },
       { path: 'create-league',               component: CreateLeaguePageComponent },
+      { path: 'find-league',                 component: SearchLeaguePageComponent },
       { path: 'league-requests',             component: LeagueAcceptComponent },
       { path: 'register',                    component: LoginComponent },
-      { path: 'settings',                    component: AccountSettingsPageComponent,
-      children: [
-        { path: 'settings/email-password',   component: NavbarComponent },
-        { path: 'settings/edit-profile',     component: NavbarComponent },
-        { path: 'settings/delete-profile',   component: NavbarComponent },
-      ]},
+      { path: 'settings',                    component: AccountSettingsPageComponent },
       { path: 'find-user',                   component: ParticipantSearchComponent },
+      { path: 'welcome',                     component: FindCreateJoinPageComponent }
     ])
   ],
   providers: [],
