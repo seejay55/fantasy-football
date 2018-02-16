@@ -1,0 +1,9 @@
+<div class="list-group" *ngFor="let item of data?.items">
+    <a href="{{item.link}}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{item.title}}</h5>
+        <small>{{item.pubDate | date: "M/d/yyyy"}}</small>
+      </div>
+      <p class="mb-1">{{item.content}}</p>
+    </a>
+  </div>
