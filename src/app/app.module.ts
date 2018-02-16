@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { FindCreateJoinPageComponent } from './pages/find-create-join-page/find-create-join-page.component';
+import { FindCreateJoinPageContentComponent } from './components/find-create-join-page-content/find-create-join-page-content.component';
 
 import { AccountSettingsPageComponent } from './pages/account-settings-page/account-settings-page.component';
 import { SettingsTabsComponent } from './components/account-settings/settings-tabs/settings-tabs.component';
@@ -27,6 +29,8 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
+    FindCreateJoinPageComponent,
+    FindCreateJoinPageContentComponent
     AccountSettingsPageComponent,
     SettingsTabsComponent,
     ProfileCardComponent,
