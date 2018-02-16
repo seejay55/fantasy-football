@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
+import { CreateLeaguePageComponent } from './create-league-page/create-league-page.component';
+
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { NewsFeedComponent } from './components/homepage/news-feed/news-feed.component';
@@ -22,6 +24,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
+    CreateLeaguePageComponent
     HomepageComponent,
     LoginComponent,
     NewsFeedComponent,
