@@ -1,13 +1,7 @@
 <div style="background-color:rgb(25, 25, 112) !important" class="jumbotron">
-  <div class="container">
-
-    <!-- big words at the top -->
-    <h1 class="display-3" style="font-variant:small-caps; color:whitesmoke">
-      League Invites
-    </h1>
-    <hr class="my-4">
+    <button class="btn btn-secondary" (click)="incomingInvitesUsers=[]">TEST NO INVITES</button>
     <!-- no invite message -->
-    <p style="color:whitesmoke">
+    <p style="color:whitesmoke" *ngIf="!incomingInvitesUsers.length">
       You have no pending invites!
     </p>
     <!-- list of invites-->
@@ -40,6 +34,4 @@
         </li>
       </ul>
     </div>
-
-  </div>
 </div>

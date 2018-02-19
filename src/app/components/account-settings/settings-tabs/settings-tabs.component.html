@@ -12,32 +12,27 @@
       <a class="nav-link" id="edit-profile-tab" data-toggle="pill" href="#edit-profile" role="tab" aria-selected="false">Edit Profile</a>
       <!-- TAB 3 - Delete Account -->
       <a class="nav-link" id="delete-account-tab" data-toggle="pill" href="#delete-account" role="tab" aria-selected="false">Delete Account</a>
-      <!-- TAB 3 - Test Thing -->
-      <a class="nav-link" id="test-thing-tab" data-toggle="pill" href="#delete-account" role="tab" aria-selected="false">Test Thing</a>
     </div>
   </div>
 
   <!-- Column for Tab Contents -->
   <div class="col-md-3">
     <!-- Tab Contents -->
-    <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-content">
       <!-- TAB CONTENT 1 - Username & Password -->
       <div class="tab-pane show active" id="user-pass" role="tabpanel" aria-labelledby="user-pass-tab">
-        <app-user-pass-content></app-user-pass-content>
         <!-- app/components/settings-tabs/user-pass-content -->
+        <app-user-pass-content></app-user-pass-content>
       </div>
       <!-- TAB CONTENT 2 - Edit Profile -->
       <div class="tab-pane" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
-        <app-edit-acc-content></app-edit-acc-content>
         <!-- app/components/settings-tabs/edit-profile-content -->
+        <app-edit-acc-content></app-edit-acc-content>
       </div>
       <!-- TAB CONTENT 3 - Delete Account -->
       <div class="tab-pane" id="delete-account" role="tabpanel" aria-labelledby="delete-account-tab">
+        <!-- app/components/settings-tabs/delete-account-content -->
         <app-delete-acc-content></app-delete-acc-content>
-        <!-- app/components/settings-tabs/delete-account-content -->
-      </div>
-      <div class="tab-pane" id="test-thing" role="tabpanel" aria-labelledby="test-thing-tab">
-        <!-- app/components/settings-tabs/delete-account-content -->
       </div>
     </div>
   </div>

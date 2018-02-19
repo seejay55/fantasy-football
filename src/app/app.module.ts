@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+
+
 import { FindCreateJoinPageComponent } from './pages/find-create-join-page/find-create-join-page.component';
 import { FindCreateJoinPageContentComponent } from './components/find-create-join-page-content/find-create-join-page-content.component';
-
-import { AccountSettingsPageComponent } from './pages/account-settings-page/account-settings-page.component';
 import { SettingsTabsComponent } from './components/account-settings/settings-tabs/settings-tabs.component';
 import { ProfileCardComponent } from './components/account-settings/profile-card/profile-card.component';
 import { UserPassContentComponent } from './components/account-settings/settings-tabs/user-pass-content/user-pass-content.component';
@@ -31,7 +31,6 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     FindCreateJoinPageComponent,
     FindCreateJoinPageContentComponent,
-    AccountSettingsPageComponent,
     SettingsTabsComponent,
     ProfileCardComponent,
     UserPassContentComponent,
@@ -54,12 +53,12 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-      { path: 'homepage',                    component: HomepageComponent },
+      { path: 'homepage',                    component: HomepageComponent, data: {bread: 'Homepage'}},
       { path: 'create-league',               component: CreateLeaguePageComponent },
       { path: 'find-league',                 component: SearchLeaguePageComponent },
       { path: 'league-requests',             component: LeagueAcceptComponent },
       { path: 'register',                    component: LoginComponent },
-      { path: 'settings',                    component: AccountSettingsPageComponent },
+      { path: 'settings',                    component: SettingsTabsComponent },
       { path: 'find-user',                   component: ParticipantSearchComponent },
       { path: 'welcome',                     component: FindCreateJoinPageComponent }
     ])
