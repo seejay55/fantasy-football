@@ -57,7 +57,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-      { path: 'homepage',                    component: HomepageComponent, data: {bread: 'Homepage'}},
+      { path: 'homepage',                    component: HomepageComponent},
       { path: 'create-league',               component: CreateLeagueComponent },
       { path: 'find-league',                 component: FindLeagueComponent },
       { path: 'league-invites',              component: LeagueInvitesComponent },
