@@ -1,0 +1,69 @@
+<div style="background-color:rgb(25, 25, 112) !important" class="jumbotron">
+
+    <!-- search bar -->
+    <div class="col-lg-6 p-0">
+      <div class="input-group">
+        <input #searchTerm type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" (click)="searchListener(searchTerm.value)">
+              Go!
+            </button>
+          </span>
+      </div>
+    </div>
+
+    <!-- no search results message -->
+    <p style="color:whitesmoke">
+      No users match your search!
+    </p>
+
+    <!-- clicky bit -->
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let user of searchResultsUsers">
+
+          <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div>
+              <div role="tab" id="heading{{user}}">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{user}}">
+                      {{user}}
+                      <button type="button" class="btn btn-primary" style="background-color:darkgrey;
+                                color:darkslateblue;
+                                font-weight:bold;
+                                border-color:darkslategray;
+                                clear: left;
+                                float: right">
+                        Invite
+                      </button>
+                    </a>
+                </h5>
+              </div>
+
+              <!-- drop down bit -->
+              <div id="collapse{{user}}" class="collapse" role="tabpanel">
+                <div class="card-block">
+                  Select the league(s) you want to send an invite for:
+                  <div class="form-check" *ngFor="let i of [0,1,2]">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value=""> LeagueName
+                      </label>
+                  </div>
+                </div>
+                <button id="InviteSubmit" type="button" class="btn btn-primary" style="background-color:darkgrey;
+                                color:darkslateblue;
+                                font-weight:bold;
+                                border-color:darkslategray;
+                                float: left">
+                    Send!
+                  </button>
+              </div>
+
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>

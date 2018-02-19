@@ -25,8 +25,8 @@ export class NavbarComponent implements OnInit {
           dividerBelow: false
         },
         {
-          name: 'League Requests',
-          route: '/league-requests',
+          name: 'League Invites',
+          route: '/league-invites',
           active: true,
           dividerBelow: false
         }
@@ -51,14 +51,12 @@ export class NavbarComponent implements OnInit {
     userName: string
   };
 
-  breadcrumbName: string;
-  routeUrl: string;
+  routeEvents: any;
 
 
   constructor(private router: Router) {
     this.user = null;
-    router.events.subscribe((routeData: any) => {this.routeUrl = routeData; console.log(routeData); });
-    this.breadcrumbName = this.routeUrl;
+    router.events.subscribe((routeEvents: any) => this.routeEvents = routeEvents);
   }
 
   ngOnInit() {
@@ -73,16 +71,6 @@ export class NavbarComponent implements OnInit {
       };
     } else { this.user = null; }
     console.log(this.user);
-  }
-
-  private route(route: string, breadcrumbName: string) {
-    this.router.navigate([route]);
-    this.setBreadCrumb(breadcrumbName);
-  }
-
-  private setBreadCrumb(breadcrumbName: string) {
-    console.log(this.routeUrl);
-    this.breadcrumbName = this.routeUrl;
   }
 
 }

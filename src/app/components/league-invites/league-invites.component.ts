@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-league-accept',
-  templateUrl: './league-accept.component.html',
-  styleUrls: ['./league-accept.component.css']
+  selector: 'app-league-invites',
+  templateUrl: './league-invites.component.html',
+  styleUrls: ['./league-invites.component.css']
 })
-export class LeagueAcceptComponent implements OnInit {
+export class LeagueInvitesComponent implements OnInit {
 
   private incomingInvitesUsers = [
     'Greyhound',

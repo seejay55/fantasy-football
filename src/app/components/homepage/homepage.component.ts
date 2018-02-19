@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() { }
 
   rodgerTime() {
-    console.log('rodger time!');
+    console.log('Rodger time!');
     this.backgroundPicture = 'http://media.bizj.us/view/img/7247332/100715aaron-rodgersprevea-2015*1200xx4396-2473-0-227.jpg';
   }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchLeaguePageComponent } from './search-league-page.component';
+import { RegisterAccountComponent } from './register-account.component';
 
-describe('SearchLeaguePageComponent', () => {
-  let component: SearchLeaguePageComponent;
-  let fixture: ComponentFixture<SearchLeaguePageComponent>;
+describe('RegisterAccountComponent', () => {
+  let component: RegisterAccountComponent;
+  let fixture: ComponentFixture<RegisterAccountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchLeaguePageComponent ]
+      declarations: [ RegisterAccountComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchLeaguePageComponent);
+    fixture = TestBed.createComponent(RegisterAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
