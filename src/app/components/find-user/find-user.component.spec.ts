@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindCreateJoinPageComponent } from './find-create-join-page.component';
+import { FindUserComponent } from './find-user.component';
 
-describe('FindCreateJoinPageComponent', () => {
-  let component: FindCreateJoinPageComponent;
-  let fixture: ComponentFixture<FindCreateJoinPageComponent>;
+describe('FindUserComponent', () => {
+  let component: FindUserComponent;
+  let fixture: ComponentFixture<FindUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FindCreateJoinPageComponent ]
+      declarations: [ FindUserComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FindCreateJoinPageComponent);
+    fixture = TestBed.createComponent(FindUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

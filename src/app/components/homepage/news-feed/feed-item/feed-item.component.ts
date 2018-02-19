@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Http } from "@angular/http";
+import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
@@ -14,7 +14,7 @@ export class FeedItemComponent implements OnInit {
 
   data;
 
-  constructor(private http: Http) { 
+  constructor(private http: Http) {
 
   }
 
@@ -23,8 +23,7 @@ export class FeedItemComponent implements OnInit {
       .map(res => res.json())
       .subscribe(res => {
         this.data = res;
-        console.log(res);
-      })
+      });
   }
 
 }

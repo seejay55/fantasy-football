@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <!-- Brand -->
   <a class="navbar-brand" routerLink="/homepage">FANTASY FOOTBALL</a>
+
+  <!-- Bootstrap Collapse Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <span class="navbar-toggler-icon"></span>
   </button>
 
+  <!-- Left Side Nav Dropdowns (Using variable navMenu) -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          LEAGUES
+      <!-- Parent Menu -->
+      <li class="nav-item dropdown" *ngFor="let parent of navMenu">
+        <!-- Parent Menu Item -->
+        <a class="nav-link dropdown-toggle" [routerLink]="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{parent.name | uppercase}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item disabled" href="#">MY LEAGUES</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" routerLink="/find-league">FIND LEAGUE</a>
-          <a class="dropdown-item" href="#" routerLink="/create-league">CREATE LEAGUE</a>
-          <a class="dropdown-item" href="#" routerLink="/league-requests">LEAGUE REQUESTS</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          FIND USERS
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" routerLink="/find-user">FIND USER</a>
+        <!-- Child Menu -->
+        <div class="dropdown-menu">
+          <!-- Child Menu Item -->
+          <ng-template ngFor let-child [ngForOf]="parent.children">
+            <a class="dropdown-item" routerLink="{{child.route}}">{{child.name | uppercase}}</a>
+            <div class="dropdown-divider" *ngIf="child.dividerBelow"></div>
+          </ng-template>
         </div>
       </li>
     </ul>
+
+    <!-- Log in/Log out Nav Item -->
     <ul class="navbar-nav">
       <button class="nav-item btn btn-secondary" (click)="toggleTestUser()">Toggle Test User</button>
       <li class="nav-item dropdown" *ngIf="user">
@@ -38,8 +38,8 @@
           {{ user.userName | uppercase}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">{{ user.firstName + ' ' + user.lastName | uppercase}}</a>
-          <a class="dropdown-item" href="#" routerLink="/settings">ACCOUNT SETTINGS</a>
+          <a class="dropdown-item" [routerLink]="">{{ user.firstName + ' ' + user.lastName | uppercase}}</a>
+          <a class="dropdown-item" routerLink="/settings">ACCOUNT SETTINGS</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">LOG OUT</a>
         </div>
@@ -63,7 +63,7 @@
               </div>
               <div class="form-group text-center">
                 <small>No account?
-                  <a href="#" data-toggle="dropdown" routerLink="/register">Register now.</a>
+                  <a href="#" data-toggle="dropdown" routerLink="/register-account">Register now.</a>
                 </small>
               </div>
             </form>
@@ -71,5 +71,15 @@
         </ul>
       </li>
     </ul>
+
   </div>
+</nav>
+
+<!-- Breadcrumb Page Identifier -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">{{routeEvents?.urlAfterRedirects}}</li>
+    <!--<li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>-->
+  </ol>
 </nav>
