@@ -75,11 +75,22 @@
   </div>
 </nav>
 
+<!-- Breadcrumb Page Identifier (angular-crumbs) -->
+<breadcrumb #parent>
+  <nav class="breadcrumb">
+    <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+      <a    *ngIf="!route.terminal" class="breadcrumb-item" href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+      <span *ngIf="route.terminal"  class="breadcrumb-item active">{{ route.displayName }}</span>
+    </ng-template>
+  </nav>
+</breadcrumb>
+
 <!-- Breadcrumb Page Identifier -->
+<!--
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">{{routeEvents?.urlAfterRedirects}}</li>
-    <!--<li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>-->
   </ol>
 </nav>
+-->
+

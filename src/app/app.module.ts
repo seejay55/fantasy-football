@@ -30,6 +30,7 @@ import { LeagueInvitesComponent } from './components/league-invites/league-invit
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BreadcrumbModule } from 'angular-crumbs';
 
 @NgModule({
   declarations: [
@@ -54,17 +55,18 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpModule,
     FormsModule,
+    BreadcrumbModule,
     RouterModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-      { path: 'homepage',                    component: HomepageComponent},
-      { path: 'create-league',               component: CreateLeagueComponent },
-      { path: 'find-league',                 component: FindLeagueComponent },
-      { path: 'league-invites',              component: LeagueInvitesComponent },
-      { path: 'register-account',            component: RegisterAccountComponent },
-      { path: 'settings',                    component: SettingsTabsComponent },
-      { path: 'find-user',                   component: FindUserComponent },
-      { path: 'welcome',                     component: RegisterWelcomeComponent }
+      { path: 'homepage',           component: HomepageComponent,         data: { breadcrumb: 'Homepage'}},
+      { path: 'create-league',      component: CreateLeagueComponent,     data: { breadcrumb: 'Create League'}},
+      { path: 'find-league',        component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
+      { path: 'league-invites',     component: LeagueInvitesComponent,    data: { breadcrumb: 'League Invites'}},
+      { path: 'register-account',   component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
+      { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
+      { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
+      { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}}
     ])
   ],
   providers: [],
