@@ -36,7 +36,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getLeagueMembers = function (leagueID) {
-        var statement = mysql.format("SELECT Username, team_name, commisioner\n            FROM league_members\n            JOIN userinfo ON user_id = userinfo.ID\n            WHERE league_id = ?;", [leagueID]);
+        var statement = mysql.format("SELECT Username, TeamName, Commisioner\n            FROM league_members\n            JOIN userinfo ON UserID = userinfo.ID\n            WHERE LeagueID = ?;", [leagueID]);
         return this.query(statement);
     };
     DB.prototype.getLeagueSchedule = function (leagueID, week) {
@@ -44,15 +44,15 @@ var DB = /** @class */ (function () {
         if (week) {
             params.push(week);
         }
-        var statement = mysql.format("SELECT week, player1_id, player2_id\n            FROM league_schedule\n            WHERE league_id = ?\n            AND week" + (week ? ' = ?' : '') + ';', params);
+        var statement = mysql.format("SELECT Week, Player1ID, Player2ID\n            FROM league_schedule\n            WHERE LeagueID = ?\n            AND Week" + (week ? ' = ?' : '') + ';', params);
         return this.query(statement);
     };
     DB.prototype.getLeagueRosters = function (leagueID) {
-        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id\n            WHERE league_id = ?;", [leagueID]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE LeagueID = ?;", [leagueID]);
         return this.query(statement);
     };
     DB.prototype.getRoster = function (leagueID, userID) {
-        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id\n            WHERE league_id = ?\n            AND user_id = ?;", [leagueID, userID]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE LeagueID = ?\n            AND UserID = ?;", [leagueID, userID]);
         return this.query(statement);
     };
     DB.prototype.getUserInfo = function (userID) {
@@ -63,8 +63,12 @@ var DB = /** @class */ (function () {
         var statement = mysql.format('SELECT * FROM userlogin WHERE Email = ?', [userEmail]);
         return this.query(statement);
     };
+    DB.prototype.getUserLoginInfo = function (userEmail) {
+        var statement = mysql.format('SELECT * FROM userlogin where Email = ?', [userEmail]);
+        return this.query(statement);
+    };
     DB.prototype.getUserRecord = function (userID, leagueID) {
-        var statement = mysql.format("SELECT\n            COUNT(IF((player1_id = ? AND player1_score > player2_score)\n                OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins,\n            COUNT(IF((player1_id = ? AND player1_score < player2_score)\n                OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses,\n            COUNT(IF((player1_id = ? AND player1_score = player2_score)\n                OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties\n            FROM league_schedule\n            JOIN (\n                SELECT league_id, user_id, year, week, SUM(week_pts) AS player1_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id\n                GROUP BY league_id, user_id, year, week\n            ) AS p1_scores\n            ON (p1_scores.user_id = league_schedule.player1_id)\n                AND (p1_scores.week = league_schedule.week)\n            JOIN (\n                SELECT league_id, user_id, year, week, SUM(week_pts) AS player2_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id\n                GROUP BY league_id, user_id, year, week\n            ) AS p2_scores\n            ON (p2_scores.user_id = league_schedule.player2_id)\n                AND (p2_scores.week = league_schedule.week)\n            WHERE (player1_id = ? OR player2_id = ?)\n            AND league_schedule.league_id = ?;", [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]);
+        var statement = mysql.format("SELECT\n            COUNT(IF((Player1ID = ? AND player1_score > player2_score)\n                OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,\n            COUNT(IF((Player1ID = ? AND player1_score < player2_score)\n                OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,\n            COUNT(IF((Player1ID = ? AND player1_score = player2_score)\n                OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties\n            FROM league_schedule\n            JOIN (\n                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player1_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                GROUP BY LeagueID, UserID, year, week\n            ) AS p1_scores\n            ON (p1_scores.UserID = league_schedule.Player1ID)\n                AND (p1_scores.week = league_schedule.week)\n            JOIN (\n                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player2_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                GROUP BY LeagueID, UserID, year, week\n            ) AS p2_scores\n            ON (p2_scores.UserID = league_schedule.Player2ID)\n                AND (p2_scores.week = league_schedule.week)\n            WHERE (Player1ID = ? OR Player2ID = ?)\n            AND league_schedule.LeagueID = ?;", [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]);
         return this.query(statement);
     };
     DB.prototype.getUserScore = function (userID, leagueID, week) {
@@ -73,15 +77,15 @@ var DB = /** @class */ (function () {
             params.push(week);
         }
         params.push(leagueID);
-        var statement = mysql.format("SELECT SUM(week_pts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id\n            WHERE user_id = ?\n                AND league_id = ?\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY league_id, user_id, year, week;", params);
+        var statement = mysql.format("SELECT SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            WHERE UserID = ?\n                AND LeagueID = ?\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY LeagueID, UserID, year, week;", params);
         return this.query(statement);
     };
     DB.prototype.getUserRoster = function (userID, leagueID) {
-        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id\n            WHERE user_id = ? AND league_id = ?;", [userID, leagueID]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE UserID = ? AND LeagueID = ?;", [userID, leagueID]);
         return this.query(statement);
     };
     DB.prototype.getUserSchedule = function (userID, leagueID) {
-        var statement = mysql.format("SELECT week, player1_id, player2_id\n            FROM league_schedule\n            WHERE (player1_id = 1 OR player2_id = 1) AND league_id = 1;", [userID, userID, leagueID]);
+        var statement = mysql.format("SELECT week, Player1ID, Player2ID\n            FROM league_schedule\n            WHERE (Player1ID = 1 OR Player2ID = 1) AND LeagueID = 1;", [userID, userID, leagueID]);
         return this.query(statement);
     };
     DB.prototype.getUsername = function (userID) {
@@ -89,11 +93,11 @@ var DB = /** @class */ (function () {
         return this.query(statement)['Username'];
     };
     DB.prototype.getPlayerInfo = function (playerID) {
-        var statement = mysql.format("SELECT player_name, player_pos, team_abbr\n            FROM nfl_players\n            WHERE player_id = ?;", [playerID]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM nfl_players\n            WHERE player_id = ?;", [playerID]);
         return this.query(statement);
     };
     DB.prototype.getPlayerStats = function (playerID, year, week) {
-        var statement = mysql.format("SELECT *\n            FROM nfl_stats\n            WHERE player_id = ?\n            AND year = ?\n            AND week = ?;", [playerID, year, week]);
+        var statement = mysql.format("SELECT *\n            FROM nfl_stats\n            WHERE PlayerID = ?\n            AND year = ?\n            AND week = ?;", [playerID, year, week]);
         return this.query(statement);
     };
     return DB;

@@ -47,10 +47,10 @@ export class DB {
 
     getLeagueMembers(leagueID: number): any {
         const statement = mysql.format(
-            `SELECT Username, team_name, commisioner
+            `SELECT Username, TeamName, Commisioner
             FROM league_members
-            JOIN userinfo ON user_id = userinfo.ID
-            WHERE league_id = ?;`,
+            JOIN userinfo ON UserID = userinfo.ID
+            WHERE LeagueID = ?;`,
             [leagueID]
         );
         return this.query(statement);
@@ -60,10 +60,10 @@ export class DB {
         const params = [leagueID];
         if (week) { params.push(week); }
         const statement = mysql.format(
-            `SELECT week, player1_id, player2_id
+            `SELECT Week, Player1ID, Player2ID
             FROM league_schedule
-            WHERE league_id = ?
-            AND week` + (week ? ' = ?' : '') + ';',
+            WHERE LeagueID = ?
+            AND Week` + (week ? ' = ?' : '') + ';',
             params
         );
         return this.query(statement);
@@ -71,10 +71,10 @@ export class DB {
 
     getLeagueRosters(leagueID: number): any {
         const statement = mysql.format(
-            `SELECT player_name, player_pos, team_abbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr
             FROM league_rosters
-            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
-            WHERE league_id = ?;`,
+            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
+            WHERE LeagueID = ?;`,
             [leagueID]
         );
         return this.query(statement);
@@ -82,11 +82,11 @@ export class DB {
 
     getRoster(leagueID: number, userID: number): any {
         const statement = mysql.format(
-            `SELECT player_name, player_pos, team_abbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr
             FROM league_rosters
-            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
-            WHERE league_id = ?
-            AND user_id = ?;`,
+            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
+            WHERE LeagueID = ?
+            AND UserID = ?;`,
             [leagueID, userID]
         );
         return this.query(statement);
@@ -102,8 +102,8 @@ export class DB {
 
     getUserLoginInfo(userEmail: string): any {
         const statement = mysql.format(
-            'SELECT * FROM userlogin WHERE Email = ?',
-            [userEmail]
+          'SELECT * FROM userlogin where Email = ?',
+          [userEmail]
         );
         return this.query(statement);
     }
@@ -111,31 +111,31 @@ export class DB {
     getUserRecord(userID: number, leagueID: number): any {
         const statement = mysql.format(
             `SELECT
-            COUNT(IF((player1_id = ? AND player1_score > player2_score)
-                OR (player2_id = ? AND player2_score > player1_score),1,NULL)) AS wins,
-            COUNT(IF((player1_id = ? AND player1_score < player2_score)
-                OR (player2_id = ? AND player2_score < player1_score),1,NULL)) AS losses,
-            COUNT(IF((player1_id = ? AND player1_score = player2_score)
-                OR (player2_id = ? AND player2_score = player1_score),1,NULL)) AS ties
+            COUNT(IF((Player1ID = ? AND player1_score > player2_score)
+                OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,
+            COUNT(IF((Player1ID = ? AND player1_score < player2_score)
+                OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,
+            COUNT(IF((Player1ID = ? AND player1_score = player2_score)
+                OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties
             FROM league_schedule
             JOIN (
-                SELECT league_id, user_id, year, week, SUM(week_pts) AS player1_score
+                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player1_score
                 FROM league_rosters
-                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-                GROUP BY league_id, user_id, year, week
+                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+                GROUP BY LeagueID, UserID, year, week
             ) AS p1_scores
-            ON (p1_scores.user_id = league_schedule.player1_id)
+            ON (p1_scores.UserID = league_schedule.Player1ID)
                 AND (p1_scores.week = league_schedule.week)
             JOIN (
-                SELECT league_id, user_id, year, week, SUM(week_pts) AS player2_score
+                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player2_score
                 FROM league_rosters
-                JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-                GROUP BY league_id, user_id, year, week
+                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+                GROUP BY LeagueID, UserID, year, week
             ) AS p2_scores
-            ON (p2_scores.user_id = league_schedule.player2_id)
+            ON (p2_scores.UserID = league_schedule.Player2ID)
                 AND (p2_scores.week = league_schedule.week)
-            WHERE (player1_id = ? OR player2_id = ?)
-            AND league_schedule.league_id = ?;`,
+            WHERE (Player1ID = ? OR Player2ID = ?)
+            AND league_schedule.LeagueID = ?;`,
             [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]
         );
         return this.query(statement);
@@ -146,14 +146,14 @@ export class DB {
         if (week) { params.push(week); }
         params.push(leagueID);
         const statement = mysql.format(
-            `SELECT SUM(week_pts) AS score
+            `SELECT SUM(WeekPts) AS score
             FROM league_rosters
-            JOIN nfl_stats ON league_rosters.player_id = nfl_stats.player_id
-            WHERE user_id = ?
-                AND league_id = ?
+            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+            WHERE UserID = ?
+                AND LeagueID = ?
                 AND week ` + (week ? '= ?' : '') + `
                 AND year = (SELECT year FROM leagues WHERE id = ?)
-            GROUP BY league_id, user_id, year, week;`,
+            GROUP BY LeagueID, UserID, year, week;`,
             params
         );
         return this.query(statement);
@@ -161,10 +161,10 @@ export class DB {
 
     getUserRoster(userID: number, leagueID: number): any {
         const statement = mysql.format(
-            `SELECT player_name, player_pos, team_abbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr
             FROM league_rosters
-            JOIN nfl_players ON league_rosters.player_id = nfl_players.player_id
-            WHERE user_id = ? AND league_id = ?;`,
+            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
+            WHERE UserID = ? AND LeagueID = ?;`,
             [userID, leagueID]
         );
         return this.query(statement);
@@ -172,9 +172,9 @@ export class DB {
 
     getUserSchedule(userID: number, leagueID: number): any {
         const statement = mysql.format(
-            `SELECT week, player1_id, player2_id
+            `SELECT week, Player1ID, Player2ID
             FROM league_schedule
-            WHERE (player1_id = 1 OR player2_id = 1) AND league_id = 1;`,
+            WHERE (Player1ID = 1 OR Player2ID = 1) AND LeagueID = 1;`,
             [userID, userID, leagueID]
         );
         return this.query(statement);
@@ -190,7 +190,7 @@ export class DB {
 
     getPlayerInfo(playerID: number): any {
         const statement = mysql.format(
-            `SELECT player_name, player_pos, team_abbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr
             FROM nfl_players
             WHERE player_id = ?;`,
             [playerID]
@@ -202,7 +202,7 @@ export class DB {
         const statement = mysql.format(
             `SELECT *
             FROM nfl_stats
-            WHERE player_id = ?
+            WHERE PlayerID = ?
             AND year = ?
             AND week = ?;`,
             [playerID, year, week]
