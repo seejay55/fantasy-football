@@ -45,7 +45,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logIn(userName: string, password: string) {
     console.log({userName, password});
+<<<<<<< HEAD
     const requestingUser = new User(0, 'test@testuser.com' , userName, 'Nick', 'Grey');
+=======
+    const requestingUser = new User(0, userName, 'Nick', 'Grey');
+>>>>>>> Initial persistent user sign in functionality
     this.authService.login(requestingUser);
   }
 
