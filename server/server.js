@@ -64,13 +64,6 @@ app.get("/api/league/:league_id/members", function (req, res) {
     });
 });
 
-app.get("/api/user/:user_id", function (req, res) {
-    var user_id = req.params.user_id;
-    db.getUserInfo(user_id).then(function (result) {
-        res.send(result);
-    });
-});
-
 app.get("/api/league/:league_id/records/user/:user_id", function (req, res) {
     var league_id = req.params.league_id;
     var user_id = req.params.user_id;
@@ -96,3 +89,31 @@ app.get("/api/scores/league=:league_id&user=:user_id", function (req, res) {
     });
 });
 
+app.get("/api/user/authenticate", function (req, res) {
+    var email = req.body.email;
+    db.getUserLoginInfo(email).then(function (result) {
+        if (req.body.password === result[0].Password) {
+            user_id = result[0].ID;
+            db.getUserInfo(user_id).then(function (result2) {
+                res.setHeader('Content-Type', 'application/json');
+                res.json({
+                    _id: user_id,
+                    email: email,
+                    userName: result2[0].Username,
+                    firstName: result2[0].FirstName,
+                    lastName: result2[0].LastName
+                });
+            });  
+        }
+        else {
+            res.status(500).json({error: 'Email or Password is Incorrect'});
+        }
+    });
+});
+
+app.get("/api/user/:user_id", function (req, res) {
+    var user_id = req.params.user_id;
+    db.getUserInfo(user_id).then(function (result) {
+        res.send(result);
+    });
+});

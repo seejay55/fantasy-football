@@ -7,7 +7,7 @@ var DB = /** @class */ (function () {
             host: address,
             user: user,
             password: pass,
-            connectionLimit: 100,
+            connectionLimit: 10,
             database: database
         });
     }
@@ -56,7 +56,11 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getUserInfo = function (userID) {
-        var statement = mysql.format('SELECT * FROM userinfo WHERE id = ?', [userID]);
+        var statement = mysql.format('SELECT * FROM userinfo WHERE ID = ?', [userID]);
+        return this.query(statement);
+    };
+    DB.prototype.getUserLoginInfo = function (userEmail) {
+        var statement = mysql.format('SELECT * FROM userlogin WHERE Email = ?', [userEmail]);
         return this.query(statement);
     };
     DB.prototype.getUserRecord = function (userID, leagueID) {

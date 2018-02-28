@@ -94,8 +94,16 @@ export class DB {
 
     getUserInfo(userID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM userinfo WHERE id = ?',
+            'SELECT * FROM userinfo WHERE ID = ?',
             [userID]
+        );
+        return this.query(statement);
+    }
+
+    getUserLoginInfo(userEmail: string): any {
+        const statement = mysql.format(
+            'SELECT * FROM userlogin WHERE Email = ?',
+            [userEmail]
         );
         return this.query(statement);
     }
