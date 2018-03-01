@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logIn(userName: string, password: string) {
     console.log({userName, password});
-    const requestingUser = new User(0, userName, 'Nick', 'Grey');
+    const requestingUser = new User(0, 'test@testuser.com' , userName, 'Nick', 'Grey');
     this.authService.login(requestingUser);
   }
 

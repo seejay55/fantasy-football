@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject, Observable } from 'rxjs/bundles/Rx';
+import { BehaviorSubject, Observable } from 'rxjs/bundles/Rx';
+
 import { User } from '../../models/user';
+
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
@@ -8,7 +11,7 @@ export class AuthService {
   isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken()); // sets initial loggedIn token value
   currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))); // sets initial currentUser value
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   // Returns boolean based on localStorage token validitiy
   private hasToken(): boolean {
