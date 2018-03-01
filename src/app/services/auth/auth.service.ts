@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs/bundles/Rx';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { User } from '../../models/user';
-
-import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
 
+  endpoint = 'http://localhost:8000/api/user';
+
   isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken()); // sets initial loggedIn token value
   currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))); // sets initial currentUser value
 
-  constructor(private userService: UserService) { }
+  constructor(private http: HttpClient) { }
 
   // Returns boolean based on localStorage token validitiy
   private hasToken(): boolean {
     return !!localStorage.getItem('token');
+  }
+
+  private userAuth(email: string, password: string): Observable {
+    return this.http.get(`${this.endpoint}/authenticate?email=${email}?password=${password}`);
   }
 
   // Returns boolean based on sign in status
@@ -23,7 +28,17 @@ export class AuthService {
     return this.isLoggedInSubject.asObservable().share(); // returns loggedIn value to all subscribers
   }
 
-  login(user: User): void {
+
+  login(email: string, password: string): void {
+    let user: User;
+    this.userAuth(email, password)
+      .subscribe(data => {
+        user = <User>data;
+      },
+      (err: HttpErrorResponse) => { console.log(err), console.log('There was an error'); }
+    );
+
+    user = new User(0, email, 'testUser', 'Test', 'User');
     localStorage.setItem('token', 'JWT');                         // adds token to localStorage
     localStorage.setItem('currentUser', JSON.stringify(user));    // adds user information to localStorage
     this.isLoggedInSubject.next(true);                            // sets loggedIn next value to true
