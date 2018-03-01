@@ -6,7 +6,7 @@ import { User } from '../../models/user';
 @Injectable()
 export class UserService {
 
-  endpoint = 'localhost:8000/api/user';
+  endpoint = 'http://localhost:8000/api/user';
 
   constructor(private http: HttpClient) { }
 
