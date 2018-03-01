@@ -1,27 +1,17 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import { BehaviorSubject, Observable } from 'rxjs/bundles/Rx';
 
 import { User } from '../../models/user';
 
 import { UserService } from '../user/user.service';
 
-=======
-import { BehaviorSubject, Subject, Observable } from 'rxjs/bundles/Rx';
-import { User } from '../../models/user';
-
->>>>>>> Initial persistent user sign in functionality
 @Injectable()
 export class AuthService {
 
   isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken()); // sets initial loggedIn token value
   currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))); // sets initial currentUser value
 
-<<<<<<< HEAD
   constructor(private userService: UserService) { }
-=======
-  constructor() { }
->>>>>>> Initial persistent user sign in functionality
 
   // Returns boolean based on localStorage token validitiy
   private hasToken(): boolean {
