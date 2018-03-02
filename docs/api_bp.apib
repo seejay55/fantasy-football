@@ -50,18 +50,24 @@ Get a User by it's unique ID
         }
     ]
 
-## Update [PATCH]
+### Create a User [PUT]
 + Request (application/json)
-    [
-        {
-            "ID": 1,
-            "Username": "test1",
-            "ProfilePic": null,
-        }
-    ]
+    {
+        "Username": "new_user",
+        "Password": "super_secret_password"
+    }
 + Response 204
 
-### Delete [DELETE]
+## Update a User [PATCH]
++ Request (application/json)
+    {
+        "ID": 1,
+        "Username": "test1",
+        "ProfilePic": null,
+    }
++ Response 204
+
+### Delete a User [DELETE]
 + Response 204
 
 # Group Leagues
