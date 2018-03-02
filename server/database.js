@@ -31,6 +31,57 @@ var DB = /** @class */ (function () {
             });
         });
     };
+    DB.prototype.commandQuery = function (statement, insert) {
+        var _this = this;
+        var queryResult;
+        return new Promise(function (resolve, reject) {
+            _this.pool.getConnection(function (conError, con) {
+                if (conError) {
+                    reject('DB Error(Conn):\n' + conError);
+                }
+                con.query(statement, insert, function (error, result) {
+                    if (error) {
+                        reject('DB Error(Query):\n' + error);
+                    }
+                    queryResult = console.log('Command compelete');
+                    resolve(queryResult);
+                }).on('end', function () {
+                    con.release();
+                });
+            });
+        })["catch"](function (e) {
+            console.log(e);
+        });
+    };
+    // Users
+    DB.prototype.getAllUsers = function () {
+        var statement = 'SELECT * FROM userinfo';
+        return this.query(statement);
+    };
+    DB.prototype.insertUser = function (userEmail, userPassword, username) {
+        var _this = this;
+        var userLogin = [[userEmail, userPassword]];
+        var userInfo = [username];
+        var insertLogin = 'INSERT INTO userlogin (Email, Password) VALUES (?)';
+        var insertUsername = 'INSERT INTO userinfo (ID, Username) VALUES ((Select ID from userlogin order by ID desc limit 0,1), ?)';
+        this.commandQuery(insertLogin, userLogin).then(function () {
+            _this.commandQuery(insertUsername, userInfo);
+        });
+    };
+    DB.prototype.updateUser = function (ID, userName, userPassword) {
+        var updateLogin = 'UPDATE userlogin SET Password = ? WHERE ID = ?';
+        var updateInfo = 'UPDATE userinfo SET Username = ? WHERE ID = ?';
+        this.commandQuery(updateLogin, [userPassword, ID]);
+        this.commandQuery(updateInfo, [userName, ID]);
+    };
+    DB.prototype.updateUserPersonal = function (ID, firstName, lastName, favoriteTeam) {
+        var updatePersonal = 'UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?';
+        this.commandQuery(updatePersonal, [firstName, lastName, favoriteTeam, ID]);
+    };
+    DB.prototype.deleteUser = function (ID) {
+        var statement = 'DELETE FROM userlogin WHERE ID = ?';
+        this.commandQuery(statement, ID);
+    };
     DB.prototype.getLeagueInfo = function (leagueID) {
         var statement = mysql.format('SELECT * FROM leagues WHERE id = ?', [leagueID]);
         return this.query(statement);
@@ -57,10 +108,6 @@ var DB = /** @class */ (function () {
     };
     DB.prototype.getUserInfo = function (userID) {
         var statement = mysql.format('SELECT * FROM userinfo WHERE ID = ?', [userID]);
-        return this.query(statement);
-    };
-    DB.prototype.getUserLoginInfo = function (userEmail) {
-        var statement = mysql.format('SELECT * FROM userlogin WHERE Email = ?', [userEmail]);
         return this.query(statement);
     };
     DB.prototype.getUserLoginInfo = function (userEmail) {
