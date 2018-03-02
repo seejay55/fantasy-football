@@ -124,40 +124,11 @@ app.get("/api/users", function (req, res) {
   });
 });
 
-// test for insert
-/*app.get("/api/user/insertUser/email=:emailTest&password=:passwordTest&username=:usernameTest", function (req, res) {
-  // var email = req.body.Email;
-  // var passsword = req.body.Password;
-  // var username = req.body.Username;
-  var email = req.params.emailTest;
-  var password = req.params.passwordTest;
-  var username = req.params.usernameTest;
-
-  db.insertUser(email, password, username);
+app.post("/api/users", function (req, res) {
+    var email = req.body.Email;
+    var password = req.body.Password;
+    var username = req.body.Username;
+    db.createUser(email, password, username).then(function (result) {
+        res.status(204);
+    })
 });
-
-// test for update user
-app.get("/api/user/updateUser/ID=:user_id&username=:user_username&password=:user_password", function(req, res){
-  var id = req.params.user_id;
-  var username = req.params.user_username;
-  var password = req.params.user_password;
-
-  db.updateUser(id, username, password);
-});
-
-
-// test for delete user
-app.get("/api/user/deleteUser/ID=:user_id", function(req, res){
-  var id = req.params.user_id;
-  db.deleteUser(id);
-});*/
-
-// test for update user
-// app.get("/api/user/updateUser/ID=:user_id&firstName=:firstname&lastName=:lastname&favoriteTeam=:favoriteTeam", function(req, res){
-//   var id = req.params.user_id;
-//   var firstName = req.params.firstname;
-//   var lastName = req.params.lastname;
-//   var favoriteTeam = req.params.favoriteTeam;
-
-//   db.updateUserPersonal(id, firstName, lastName, favoriteTeam);
-// });

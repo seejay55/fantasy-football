@@ -28,6 +28,7 @@ export class DB {
                         reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
+                    console.log(queryResult);
                     resolve(queryResult);
 
                 }).on('end', () => {
@@ -67,31 +68,48 @@ export class DB {
         return this.query(statement);
     }
 
-    insertUser(userEmail: string, userPassword: string, username: string) {
-        const userLogin = [ [userEmail, userPassword] ];
-        const userInfo = [username];
-        const insertLogin = 'INSERT INTO userlogin (Email, Password) VALUES (?)';
-        const insertUsername = 'INSERT INTO userinfo (ID, Username) VALUES ((Select ID from userlogin order by ID desc limit 0,1), ?)';
-        this.commandQuery(insertLogin, userLogin).then(() => {
-          this.commandQuery(insertUsername, userInfo);
+    createUser(userEmail: string, userPassword: string, userName: string): any {
+        const statement = mysql.format(
+            'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
+            [userEmail, userPassword]
+        );
+        const statement2 = mysql.format(
+            'INSERT INTO userinfo (ID, Username) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?)',
+            [userEmail, userName]
+        );
+        return this.query(statement).then(() => {
+            this.query(statement2);
         });
     }
 
-    updateUser(ID: number, userName: string, userPassword: string) {
-        const updateLogin = 'UPDATE userlogin SET Password = ? WHERE ID = ?';
-        const updateInfo = 'UPDATE userinfo SET Username = ? WHERE ID = ?';
-        this.commandQuery(updateLogin, [userPassword, ID]);
-        this.commandQuery(updateInfo, [userName, ID]);
+    updateUser(ID: number, userName: string, userPassword: string): any {
+        const statement = mysql.format(
+            'UPDATE userlogin SET Password = ? WHERE ID = ?',
+            [userPassword, ID]
+        );
+        const statement2 = mysql.format(
+            'UPDATE userinfo SET Username = ? WHERE ID = ?',
+            [userName, ID]
+        );
+        return this.query(statement).then(() => {
+            this.query(statement2);
+        });
     }
 
-    updateUserPersonal(ID: number, firstName: string, lastName: string, favoriteTeam: string) {
-      const updatePersonal = 'UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?';
-      this.commandQuery(updatePersonal, [firstName, lastName, favoriteTeam, ID]);
+    updateUserPersonal(ID: number, firstName: string, lastName: string, favoriteTeam: string): any {
+        const statement = mysql.format(
+            'UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?',
+            [firstName, lastName, favoriteTeam, ID]
+        );
+        return this.query(statement);
     }
 
-    deleteUser(ID: number) {
-      const statement = 'DELETE FROM userlogin WHERE ID = ?';
-      this.commandQuery(statement, ID);
+    deleteUser(ID: number): any {
+        const statement = mysql.format(
+            'DELETE FROM userlogin WHERE ID = ?',
+            [ID]
+        );
+        return this.query(statement);
     }
 
     getLeagueInfo(leagueID: number): any {
