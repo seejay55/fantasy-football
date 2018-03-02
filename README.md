@@ -30,7 +30,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 `$ git stash`
 
 ## API Documentation
-[https://seejay55.github.io/fantasy-football/]
+https://seejay55.github.io/fantasy-football/
 
 # Future Documentation
 
