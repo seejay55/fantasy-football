@@ -37,6 +37,63 @@ export class DB {
         });
     }
 
+    private commandQuery(statement: string, insert: any): any {
+      let queryResult: any;
+      return new Promise((resolve, reject) => {
+        this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
+              if (conError) {
+                 reject('DB Error(Conn):\n' + conError);
+                }
+              con.query(statement, insert, (error: MysqlError, result: any) => {
+                  if (error) {
+                      reject('DB Error(Query):\n' + error);
+                    }
+                    queryResult = console.log('Command compelete');
+                    resolve(queryResult);
+
+              }).on('end', () => {
+                  con.release();
+              });
+          });
+        }).catch(e => {
+            console.log(e);
+        });
+    }
+
+    // Users
+    getAllUsers(): any {
+        const statement =
+        'SELECT * FROM userinfo';
+        return this.query(statement);
+    }
+
+    insertUser(userEmail: string, userPassword: string, username: string) {
+        const userLogin = [ [userEmail, userPassword] ];
+        const userInfo = [username];
+        const insertLogin = 'INSERT INTO userlogin (Email, Password) VALUES (?)';
+        const insertUsername = 'INSERT INTO userinfo (ID, Username) VALUES ((Select ID from userlogin order by ID desc limit 0,1), ?)';
+        this.commandQuery(insertLogin, userLogin).then(() => {
+          this.commandQuery(insertUsername, userInfo);
+        });
+    }
+
+    updateUser(ID: number, userName: string, userPassword: string) {
+        const updateLogin = 'UPDATE userlogin SET Password = ? WHERE ID = ?';
+        const updateInfo = 'UPDATE userinfo SET Username = ? WHERE ID = ?';
+        this.commandQuery(updateLogin, [userPassword, ID]);
+        this.commandQuery(updateInfo, [userName, ID]);
+    }
+
+    updateUserPersonal(ID: number, firstName: string, lastName: string, favoriteTeam: string) {
+      const updatePersonal = 'UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?';
+      this.commandQuery(updatePersonal, [firstName, lastName, favoriteTeam, ID]);
+    }
+
+    deleteUser(ID: number) {
+      const statement = 'DELETE FROM userlogin WHERE ID = ?';
+      this.commandQuery(statement, ID);
+    }
+
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
             'SELECT * FROM leagues WHERE id = ?',
