@@ -10,28 +10,28 @@ Resources related to users in the API.
 
 ### List All Users [GET]
 + Response 200 (application/json)
-    [
-        {
-            "ID": 1,
-            "Username": "test1",
-            "ProfilePic": null
-        },
-        {
-            "ID": 2,
-            "Username": "test2",
-            "ProfilePic": null
-        }
-    ]
+
+        [
+            {
+                "ID": 1,
+                "Username": "test1",
+                "ProfilePic": null
+            },
+            {
+                "ID": 2,
+                "Username": "test2",
+                "ProfilePic": null
+            }
+        ]
 
 ## Authentication [/user/authenticate]
 + Request (application/json)
-    [
+
         {
             "ID": 1,
             "Username": "test1",
             "ProfilePic": null,
         }
-    ]
 + Response 200 (application/json)
 
 
@@ -42,29 +42,34 @@ Resources related to users in the API.
 ### Get a User [GET]
 Get a User by it's unique ID
 + Response 200 (application/json)
-    [
+
+        [
+            {
+                "ID": 1,
+                "Username": "test1",
+                "ProfilePic": null,
+            }
+        ]
+
+### Create a User [PUT]
++ Request (application/json)
+
+        {
+            "Username": "new_user",
+            "Password": "super_secret_password"
+        }
+
++ Response 204
+
+## Update a User [PATCH]
++ Request (application/json)
+
         {
             "ID": 1,
             "Username": "test1",
             "ProfilePic": null,
         }
-    ]
 
-### Create a User [PUT]
-+ Request (application/json)
-    {
-        "Username": "new_user",
-        "Password": "super_secret_password"
-    }
-+ Response 204
-
-## Update a User [PATCH]
-+ Request (application/json)
-    {
-        "ID": 1,
-        "Username": "test1",
-        "ProfilePic": null,
-    }
 + Response 204
 
 ### Delete a User [DELETE]
@@ -77,18 +82,19 @@ Resources related to users in the API.
 
 ### List All Leagues [GET]
 + Response 200 (application/json)
-    [
-        {
-            "id": 1,
-            "name": "Test League",
-            "year": 2016
-        },
-        {
-            "id": 2,
-            "name": "Test League 2",
-            "year": 2016
-        }
-    ]
+
+        [
+            {
+                "id": 1,
+                "name": "Test League",
+                "year": 2016
+            },
+            {
+                "id": 2,
+                "name": "Test League 2",
+                "year": 2016
+            }
+        ]
 
 ## League [/league/{league_id}]
 + Parameters
@@ -97,13 +103,14 @@ Resources related to users in the API.
 ### Get a League [GET]
 Get a League by it's unique ID
 + Response 200 (application/json)
-    [
-        {
-            "id": 1,
-            "name": "Test League",
-            "year": 2016
-        }
-    ]
+
+        [
+            {
+                "id": 1,
+                "name": "Test League",
+                "year": 2016
+            }
+        ]
 
 ## League Members Collection [/league/{league_id}/members]
 + Parameters
@@ -111,20 +118,21 @@ Get a League by it's unique ID
     
 ### List All Members [GET]
 + Response 200 (application/json)
-    [
-        {
-            "user_id": 1,
-            "team_name": "Team 1",
-            "commisioner": 1,
-            "team_logo": null
-        },
-        {
-            "user_id": 2,
-            "team_name": "Team 2",
-            "commisioner": 0,
-            "team_logo": null
-        }
-    ]
+
+        [
+            {
+                "user_id": 1,
+                "team_name": "Team 1",
+                "commisioner": 1,
+                "team_logo": null
+            },
+            {
+                "user_id": 2,
+                "team_name": "Team 2",
+                "commisioner": 0,
+                "team_logo": null
+            }
+        ]
 
 ## League Rosters Collection [/league/{league_id}/rosters]
 + Parameters
@@ -132,9 +140,10 @@ Get a League by it's unique ID
 
 ### List all Rosters [GET]
 + Response 200 (application/json)
-    [
 
-    ]
+        [
+
+        ]
 
 ## Team Roster [/league/{league_id}/roster/{user_id}]
 + Parameters
@@ -143,6 +152,7 @@ Get a League by it's unique ID
 
 ### View User Roster [GET]
 + Response 200 (application/json)
-    [
 
-    ]
+        [
+
+        ]
