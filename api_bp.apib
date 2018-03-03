@@ -10,59 +10,67 @@ Resources related to users in the API.
 
 ### List All Users [GET]
 + Response 200 (application/json)
-    [
-        {
-            "ID": 1,
-            "Username": "test1",
-            "ProfilePic": null
-        },
-        {
-            "ID": 2,
-            "Username": "test2",
-            "ProfilePic": null
-        }
-    ]
 
-## Authentication [/user/authenticate]
+        [
+            {
+                "ID": 1,
+                "Username": "test1",
+                "ProfilePic": null
+            },
+            {
+                "ID": 2,
+                "Username": "test2",
+                "ProfilePic": null
+            }
+        ]
+
+## Create User [POST]
 + Request (application/json)
-    [
-        {
-            "ID": 1,
-            "Username": "test1",
-            "ProfilePic": null,
-        }
-    ]
-+ Response 200 (application/json)
 
+        {
+            "Email": "example@example.com",
+            "Username": "example_user",
+            "Password": "super_secret_password",
+        }
+
++ Response 204
 
 ## User [/user/{user_id}]
 + Parameters
-    + user_id (number) - ID of the user as an integer
+    + user_id (number) - ID of the user
 
-### Get a User [GET]
-Get a User by it's unique ID
+### Get User [GET]
 + Response 200 (application/json)
-    [
-        {
-            "ID": 1,
-            "Username": "test1",
-            "ProfilePic": null,
-        }
-    ]
 
-## Update [PATCH]
+        [
+            {
+                "ID": 1,
+                "Username": "test1",
+                "ProfilePic": null,
+            }
+        ]
+
+## Update User [PATCH]
 + Request (application/json)
-    [
+
         {
-            "ID": 1,
             "Username": "test1",
             "ProfilePic": null,
         }
-    ]
+
 + Response 204
 
-### Delete [DELETE]
+### Delete User [DELETE]
 + Response 204
+
+## Authentication [/user/authenticate]
++ Request (application/json)
+        {
+            "Email": "example@example.com",
+            "Password": "super_secret_password"
+        }
+
++ Response 200 (application/json)
 
 # Group Leagues
 Resources related to users in the API.
@@ -71,72 +79,701 @@ Resources related to users in the API.
 
 ### List All Leagues [GET]
 + Response 200 (application/json)
-    [
-        {
-            "id": 1,
-            "name": "Test League",
-            "year": 2016
-        },
-        {
-            "id": 2,
-            "name": "Test League 2",
-            "year": 2016
-        }
-    ]
+
+        [
+            {
+                "id": 1,
+                "name": "Test League",
+                "year": 2016
+            },
+            {
+                "id": 2,
+                "name": "Test League 2",
+                "year": 2016
+            }
+        ]
 
 ## League [/league/{league_id}]
 + Parameters
-    + league_id (number) - ID of the league as an integer
+    + league_id (number) - ID of the league
 
 ### Get a League [GET]
-Get a League by it's unique ID
 + Response 200 (application/json)
-    [
-        {
-            "id": 1,
-            "name": "Test League",
-            "year": 2016
-        }
-    ]
+
+        [
+            {
+                "id": 1,
+                "name": "Test League",
+                "year": 2016
+            }
+        ]
 
 ## League Members Collection [/league/{league_id}/members]
 + Parameters
-    + league_id (number) - ID of the league as an integer
+    + league_id (number) - ID of the league
     
 ### List All Members [GET]
 + Response 200 (application/json)
-    [
-        {
-            "user_id": 1,
-            "team_name": "Team 1",
-            "commisioner": 1,
-            "team_logo": null
-        },
-        {
-            "user_id": 2,
-            "team_name": "Team 2",
-            "commisioner": 0,
-            "team_logo": null
-        }
-    ]
+
+        [
+            {
+                "user_id": 1,
+                "team_name": "Team 1",
+                "commisioner": 1,
+                "team_logo": null
+            },
+            {
+                "user_id": 2,
+                "team_name": "Team 2",
+                "commisioner": 0,
+                "team_logo": null
+            }
+        ]
 
 ## League Rosters Collection [/league/{league_id}/rosters]
 + Parameters
-    + league_id (number) - ID of the league as an integer
+    + league_id (number) - ID of the league
 
 ### List all Rosters [GET]
 + Response 200 (application/json)
-    [
 
-    ]
+        [
+            {
+                "UserID": 1,
+                "PlayerName": "Harry Douglas",
+                "PlayerPos": "WR",
+                "TeamAbbr": "TEN"
+            },
+            {
+                "UserID": 1,
+                "PlayerName": "Matt Forte",
+                "PlayerPos": "RB",
+                "TeamAbbr": "NYJ"
+            },
+            {
+                "UserID": 1,
+                "PlayerName": "Matt Ryan",
+                "PlayerPos": "QB",
+                "TeamAbbr": "ATL"
+            },
+            {
+                "UserID": 4,
+                "PlayerName": "Los Angeles Rams",
+                "PlayerPos": "DEF",
+                "TeamAbbr": "LA"
+            },
+            {
+                "UserID": 3,
+                "PlayerName": "Miami Dolphins",
+                "PlayerPos": "DEF",
+                "TeamAbbr": "MIA"
+            },
+            {
+                "UserID": 2,
+                "PlayerName": "Minnesota Vikings",
+                "PlayerPos": "DEF",
+                "TeamAbbr": "MIN"
+            },
+            {
+                "UserID": 4,
+                "PlayerName": "Julian Edelman",
+                "PlayerPos": "WR",
+                "TeamAbbr": "NE"
+            },
+            {
+                "UserID": 2,
+                "PlayerName": "DeMarco Murray",
+                "PlayerPos": "RB",
+                "TeamAbbr": "TEN"
+            },
+            {
+                "UserID": 3,
+                "PlayerName": "Antonio Gates",
+                "PlayerPos": "TE",
+                "TeamAbbr": "LAC"
+            },
+            {
+                "UserID": 4,
+                "PlayerName": "Eli Manning",
+                "PlayerPos": "QB",
+                "TeamAbbr": "NYG"
+            },
+            {
+                "UserID": 2,
+                "PlayerName": "Alex Smith",
+                "PlayerPos": "QB",
+                "TeamAbbr": "KC"
+            },
+            {
+                "UserID": 3,
+                "PlayerName": "Travis Kelce",
+                "PlayerPos": "TE",
+                "TeamAbbr": "KC"
+            }
+        ]
 
 ## Team Roster [/league/{league_id}/roster/{user_id}]
 + Parameters
-    + league_id (number) - ID of the league as an integer
+    + league_id (number) - ID of the league
     + user_id (number) - ID of the user who this roster belongs to
 
-### View User Roster [GET]
+### Get User Roster [GET]
 + Response 200 (application/json)
-    [
+    
+        [
+            {
+                "PlayerName": "Harry Douglas",
+                "PlayerPos": "WR",
+                "TeamAbbr": "TEN"
+            },
+            {
+                "PlayerName": "Matt Forte",
+                "PlayerPos": "RB",
+                "TeamAbbr": "NYJ"
+            },
+            {
+                "PlayerName": "Matt Ryan",
+                "PlayerPos": "QB",
+                "TeamAbbr": "ATL"
+            }
+        ]
 
-    ]
+## League Schedule [/league/{league_id}/schedule{?week}]
++ Parameters
+    + league_id (number) - ID of the league
+    + week (number, optional) - ID of the user who this roster belongs to
+
+### Get League Schedule [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "Week": 1,
+                "Player1ID": 1,
+                "Player2ID": 2
+            },
+            {
+                "Week": 1,
+                "Player1ID": 3,
+                "Player2ID": 4
+            },
+            {
+                "Week": 2,
+                "Player1ID": 1,
+                "Player2ID": 3
+            },
+            {
+                "Week": 2,
+                "Player1ID": 2,
+                "Player2ID": 4
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "Week": 1,
+                "Player1ID": 1,
+                "Player2ID": 2
+            },
+            {
+                "Week": 1,
+                "Player1ID": 3,
+                "Player2ID": 4
+            }
+        ]
+
+## League Record [/league/{league_id}/record/{user_id}]
++ Parameters
+    + league_id (number) - ID of the league
+    + user_id (number) - ID of the user who this record belongs to 
+
+### Get User Record [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "Wins": 4,
+                "Losses": 4,
+                "Ties": 0
+            }
+        ]
+
+## League Scores [/league/{league_id}/scores{?week,user}]
++ Parameters
+    + league_id (number) - ID of the league
+    + week (number, optional) - Specify which week the scores are from
+    + user (number, optional) - ID of the user who these scores belong to
+
+### Get League Scores [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "UserID": 1,
+                "Week": 1,
+                "score": 42
+            },
+            {
+                "UserID": 1,
+                "Week": 2,
+                "score": 57
+            },
+            {
+                "UserID": 1,
+                "Week": 3,
+                "score": 28
+            },
+            {
+                "UserID": 1,
+                "Week": 4,
+                "score": 40
+            },
+            {
+                "UserID": 1,
+                "Week": 5,
+                "score": 21
+            },
+            {
+                "UserID": 1,
+                "Week": 6,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 7,
+                "score": 39
+            },
+            {
+                "UserID": 1,
+                "Week": 8,
+                "score": 46
+            },
+            {
+                "UserID": 1,
+                "Week": 9,
+                "score": 49
+            },
+            {
+                "UserID": 1,
+                "Week": 10,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 11,
+                "score": 0
+            },
+            {
+                "UserID": 1,
+                "Week": 12,
+                "score": 29
+            },
+            {
+                "UserID": 1,
+                "Week": 13,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 14,
+                "score": 23
+            },
+            {
+                "UserID": 1,
+                "Week": 15,
+                "score": 22
+            },
+            {
+                "UserID": 1,
+                "Week": 16,
+                "score": 25
+            },
+            {
+                "UserID": 1,
+                "Week": 17,
+                "score": 29
+            },
+            {
+                "UserID": 2,
+                "Week": 1,
+                "score": 67
+            },
+            {
+                "UserID": 2,
+                "Week": 2,
+                "score": 31
+            },
+            {
+                "UserID": 2,
+                "Week": 3,
+                "score": 61
+            },
+            {
+                "UserID": 2,
+                "Week": 4,
+                "score": 50
+            },
+            {
+                "UserID": 2,
+                "Week": 5,
+                "score": 30
+            },
+            {
+                "UserID": 2,
+                "Week": 6,
+                "score": 22
+            },
+            {
+                "UserID": 2,
+                "Week": 7,
+                "score": 44
+            },
+            {
+                "UserID": 2,
+                "Week": 8,
+                "score": 31
+            },
+            {
+                "UserID": 2,
+                "Week": 9,
+                "score": 17
+            },
+            {
+                "UserID": 2,
+                "Week": 10,
+                "score": 37
+            },
+            {
+                "UserID": 2,
+                "Week": 11,
+                "score": 53
+            },
+            {
+                "UserID": 2,
+                "Week": 12,
+                "score": 26
+            },
+            {
+                "UserID": 2,
+                "Week": 13,
+                "score": 21
+            },
+            {
+                "UserID": 2,
+                "Week": 14,
+                "score": 31
+            },
+            {
+                "UserID": 2,
+                "Week": 15,
+                "score": 25
+            },
+            {
+                "UserID": 2,
+                "Week": 16,
+                "score": 28
+            },
+            {
+                "UserID": 2,
+                "Week": 17,
+                "score": 49
+            },
+            {
+                "UserID": 3,
+                "Week": 1,
+                "score": 20
+            },
+            {
+                "UserID": 3,
+                "Week": 2,
+                "score": 14
+            },
+            {
+                "UserID": 3,
+                "Week": 3,
+                "score": 22
+            },
+            {
+                "UserID": 3,
+                "Week": 4,
+                "score": 9
+            },
+            {
+                "UserID": 3,
+                "Week": 5,
+                "score": 12
+            },
+            {
+                "UserID": 3,
+                "Week": 6,
+                "score": 12
+            },
+            {
+                "UserID": 3,
+                "Week": 7,
+                "score": 10
+            },
+            {
+                "UserID": 3,
+                "Week": 8,
+                "score": 25
+            },
+            {
+                "UserID": 3,
+                "Week": 9,
+                "score": 33
+            },
+            {
+                "UserID": 3,
+                "Week": 10,
+                "score": 34
+            },
+            {
+                "UserID": 3,
+                "Week": 11,
+                "score": 17
+            },
+            {
+                "UserID": 3,
+                "Week": 12,
+                "score": 16
+            },
+            {
+                "UserID": 3,
+                "Week": 13,
+                "score": 18
+            },
+            {
+                "UserID": 3,
+                "Week": 14,
+                "score": 29
+            },
+            {
+                "UserID": 3,
+                "Week": 15,
+                "score": 26
+            },
+            {
+                "UserID": 3,
+                "Week": 16,
+                "score": 38
+            },
+            {
+                "UserID": 3,
+                "Week": 17,
+                "score": 9
+            },
+            {
+                "UserID": 4,
+                "Week": 1,
+                "score": 27
+            },
+            {
+                "UserID": 4,
+                "Week": 2,
+                "score": 31
+            },
+            {
+                "UserID": 4,
+                "Week": 3,
+                "score": 31
+            },
+            {
+                "UserID": 4,
+                "Week": 4,
+                "score": 27
+            },
+            {
+                "UserID": 4,
+                "Week": 5,
+                "score": 16
+            },
+            {
+                "UserID": 4,
+                "Week": 6,
+                "score": 28
+            },
+            {
+                "UserID": 4,
+                "Week": 7,
+                "score": 18
+            },
+            {
+                "UserID": 4,
+                "Week": 8,
+                "score": 10
+            },
+            {
+                "UserID": 4,
+                "Week": 9,
+                "score": 31
+            },
+            {
+                "UserID": 4,
+                "Week": 10,
+                "score": 36
+            },
+            {
+                "UserID": 4,
+                "Week": 11,
+                "score": 39
+            },
+            {
+                "UserID": 4,
+                "Week": 12,
+                "score": 28
+            },
+            {
+                "UserID": 4,
+                "Week": 13,
+                "score": 22
+            },
+            {
+                "UserID": 4,
+                "Week": 14,
+                "score": 14
+            },
+            {
+                "UserID": 4,
+                "Week": 15,
+                "score": 28
+            },
+            {
+                "UserID": 4,
+                "Week": 16,
+                "score": 29
+            },
+            {
+                "UserID": 4,
+                "Week": 17,
+                "score": 32
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "UserID": 1,
+                "Week": 1,
+                "score": 42
+            },
+            {
+                "UserID": 1,
+                "Week": 2,
+                "score": 57
+            },
+            {
+                "UserID": 1,
+                "Week": 3,
+                "score": 28
+            },
+            {
+                "UserID": 1,
+                "Week": 4,
+                "score": 40
+            },
+            {
+                "UserID": 1,
+                "Week": 5,
+                "score": 21
+            },
+            {
+                "UserID": 1,
+                "Week": 6,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 7,
+                "score": 39
+            },
+            {
+                "UserID": 1,
+                "Week": 8,
+                "score": 46
+            },
+            {
+                "UserID": 1,
+                "Week": 9,
+                "score": 49
+            },
+            {
+                "UserID": 1,
+                "Week": 10,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 11,
+                "score": 0
+            },
+            {
+                "UserID": 1,
+                "Week": 12,
+                "score": 29
+            },
+            {
+                "UserID": 1,
+                "Week": 13,
+                "score": 24
+            },
+            {
+                "UserID": 1,
+                "Week": 14,
+                "score": 23
+            },
+            {
+                "UserID": 1,
+                "Week": 15,
+                "score": 22
+            },
+            {
+                "UserID": 1,
+                "Week": 16,
+                "score": 25
+            },
+            {
+                "UserID": 1,
+                "Week": 17,
+                "score": 29
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "UserID": 1,
+                "Week": 1,
+                "score": 42
+            },
+            {
+                "UserID": 2,
+                "Week": 1,
+                "score": 67
+            },
+            {
+                "UserID": 3,
+                "Week": 1,
+                "score": 20
+            },
+            {
+                "UserID": 4,
+                "Week": 1,
+                "score": 27
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "UserID": 1,
+                "Week": 1,
+                "score": 42
+            }
+        ]
+
