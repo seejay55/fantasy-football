@@ -38,30 +38,6 @@ export class DB {
         });
     }
 
-    private commandQuery(statement: string, insert: any): any {
-      let queryResult: any;
-      return new Promise((resolve, reject) => {
-        this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
-              if (conError) {
-                 reject('DB Error(Conn):\n' + conError);
-                }
-              con.query(statement, insert, (error: MysqlError, result: any) => {
-                  if (error) {
-                      reject('DB Error(Query):\n' + error);
-                    }
-                    queryResult = console.log('Command compelete');
-                    resolve(queryResult);
-
-              }).on('end', () => {
-                  con.release();
-              });
-          });
-        }).catch(e => {
-            console.log(e);
-        });
-    }
-
-    // Users
     getAllUsers(): any {
         const statement =
         'SELECT * FROM userinfo';

@@ -32,29 +32,6 @@ var DB = /** @class */ (function () {
             });
         });
     };
-    DB.prototype.commandQuery = function (statement, insert) {
-        var _this = this;
-        var queryResult;
-        return new Promise(function (resolve, reject) {
-            _this.pool.getConnection(function (conError, con) {
-                if (conError) {
-                    reject('DB Error(Conn):\n' + conError);
-                }
-                con.query(statement, insert, function (error, result) {
-                    if (error) {
-                        reject('DB Error(Query):\n' + error);
-                    }
-                    queryResult = console.log('Command compelete');
-                    resolve(queryResult);
-                }).on('end', function () {
-                    con.release();
-                });
-            });
-        })["catch"](function (e) {
-            console.log(e);
-        });
-    };
-    // Users
     DB.prototype.getAllUsers = function () {
         var statement = 'SELECT * FROM userinfo';
         return this.query(statement);
