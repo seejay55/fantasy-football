@@ -1,28 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app.routing';
+
 
 import { AppComponent } from './app.component';
 
-// Nick
-import { NavbarComponent } from './components/navbar/navbar.component';
-
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { BreadcrumbModule } from 'angular-crumbs';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule,
-    FormsModule,
-    BreadcrumbModule,
-    AppRoutingModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
