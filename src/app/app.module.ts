@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app.routing';
 
@@ -20,6 +21,7 @@ import { BreadcrumbModule } from 'angular-crumbs';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     BreadcrumbModule,
     AppRoutingModule
