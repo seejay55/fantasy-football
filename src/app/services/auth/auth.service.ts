@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   private userAuth(email: string, password: string): Observable {
-    return this.http.get(`${this.endpoint}/authenticate?email=${email}?password=${password}`);
+    return this.http.get(`${this.endpoint}/authenticate?email=${email}&password=${password}`);
   }
 
   // Returns boolean based on sign in status
@@ -32,17 +32,20 @@ export class AuthService {
   login(email: string, password: string): void {
     let user: User;
     this.userAuth(email, password)
-      .subscribe(data => {
-        user = <User>data;
+      .subscribe(
+        (data) => {
+          console.log('email and password both match a user');
+          user = <User>data;
+          console.log(user);
+          this.setCurrentUser(user);
       },
-        (err: HttpErrorResponse) => { console.log(err), console.log('There was an error'); }
+        (err) => {
+          console.log(err.error);
+          window.alert(err.error);
+        }
       );
 
-    user = new User(0, email, 'testUser', 'Test', 'User');
-    localStorage.setItem('token', 'JWT');                         // adds token to localStorage
-    localStorage.setItem('currentUser', JSON.stringify(user));    // adds user information to localStorage
-    this.isLoggedInSubject.next(true);                            // sets loggedIn next value to true
-    this.currentUserSubject.next(user);                           // sets currentUser next value to given information
+    // user = new User(0, email, 'testUser', 'Test', 'User');
   }
 
   logout(): void {
@@ -50,6 +53,13 @@ export class AuthService {
     localStorage.removeItem('currentUser');                       // removes currentUser from localStorage
     this.isLoggedInSubject.next(false);                           // sets loggedIn next value to false
     this.currentUserSubject.next(null);                           // sets currentUser next value to null
+  }
+
+  setCurrentUser(user: User): void {
+    localStorage.setItem('token', 'JWT');                         // adds token to localStorage
+    localStorage.setItem('currentUser', JSON.stringify(user));    // adds user information to localStorage
+    this.isLoggedInSubject.next(true);                            // sets loggedIn next value to true
+    this.currentUserSubject.next(user);                           // sets currentUser next value to given information
   }
 
   // returns currentUser to all subscribers

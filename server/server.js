@@ -90,9 +90,10 @@ app.get("/api/scores/league=:league_id&user=:user_id", function (req, res) {
 });
 
 app.get("/api/user/authenticate", function (req, res) {
-    var email = req.body.email;
+    var email = req.query.email;
+    console.log(req.query);
     db.getUserLoginInfo(email).then(function (result) {
-        if (req.body.password === result[0].Password) {
+        if (result.length > 0 && req.query.password === result[0].Password) {
             user_id = result[0].ID;
             db.getUserInfo(user_id).then(function (result2) {
                 res.setHeader('Content-Type', 'application/json');
@@ -103,10 +104,10 @@ app.get("/api/user/authenticate", function (req, res) {
                     firstName: result2[0].FirstName,
                     lastName: result2[0].LastName
                 });
-            });  
+            });
         }
         else {
-            res.status(500).json({error: 'Email or Password is Incorrect'});
+            res.status(500).json('Email or Password is Incorrect');
         }
     });
 });
