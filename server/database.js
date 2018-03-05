@@ -62,7 +62,7 @@ var DB = /** @class */ (function () {
     // Leagues
     DB.prototype.createLeague = function (leagueName, userID, numberTeams, typeScoring, leaguePrivacy, maxTrades) {
         var _this = this;
-        var statement = mysql.format("INSERT INTO leagues (Name, Year, NumTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
+        var statement = mysql.format("INSERT INTO leagues (Name, Year, MaxTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
         // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
         var staetment2 = mysql.format("INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner)\n            VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)", [leagueName, userID, leagueName]);
         return this.query(statement).then(function () {
@@ -99,13 +99,13 @@ var DB = /** @class */ (function () {
     };
     // LeagueInvites
     DB.prototype.getAllLeagueInvites = function (userID) {
-        var statement = mysql.format("SELECT Username, Name, Date, NumTeams, TeamsInLeague FROM league_invites\n           JOIN leagues ON league_invites.leagueID = leagues.ID\n           JOIN userinfo ON league_invites.SenderID = userinfo.ID\n           WHERE RecieveID = ?", [userID]);
+        var statement = mysql.format("SELECT Username, Name, Date, MaxTeams, TeamsInLeague FROM league_invites\n           JOIN leagues ON league_invites.leagueID = leagues.ID\n           JOIN userinfo ON league_invites.SenderID = userinfo.ID\n           WHERE RecieveID = ?", [userID]);
     };
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     DB.prototype.insertUserIntoLeague = function (recieveID, leagueID, numTeams) {
         var _this = this;
         var statement = mysql.format('UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?', [numTeams, leagueID]);
-        var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)', [leagueID, recieveID]);
+        var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement).then(function () {
             _this.query(statement1).then(function () {

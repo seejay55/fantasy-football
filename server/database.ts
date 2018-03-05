@@ -94,7 +94,7 @@ export class DB {
     createLeague(leagueName: string, userID: number, numberTeams: number, typeScoring: string,
         leaguePrivacy: string, maxTrades: number): any {
         const statement = mysql.format(
-            `INSERT INTO leagues (Name, Year, NumTeams,
+            `INSERT INTO leagues (Name, Year, MaxTeams,
             TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
             [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
         // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
@@ -166,7 +166,7 @@ export class DB {
     // LeagueInvites
     getAllLeagueInvites(userID: number): any {
         const statement = mysql.format(
-            `SELECT Username, Name, Date, NumTeams, TeamsInLeague FROM league_invites
+            `SELECT Username, Name, Date, MaxTeams, TeamsInLeague FROM league_invites
            JOIN leagues ON league_invites.leagueID = leagues.ID
            JOIN userinfo ON league_invites.SenderID = userinfo.ID
            WHERE RecieveID = ?`,
@@ -181,7 +181,7 @@ export class DB {
             [numTeams, leagueID]
         );
         const statement1 = mysql.format(
-            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)',
+            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
             [leagueID, recieveID]
         );
 
