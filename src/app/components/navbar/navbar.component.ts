@@ -44,11 +44,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnDestroy() { this.userSubscription.unsubscribe(); }
 
   logIn(email: string, password: string) {
-<<<<<<< HEAD
     console.log('Sending email and password to authenticate: ', { email, password });
-=======
-    console.log('Sending email and password to authenticate: ', {email, password});
->>>>>>> f0724800674dd24e1a7b6ce73229cd27ef27b9b8
     this.authService.login(email, password);
   }
 
