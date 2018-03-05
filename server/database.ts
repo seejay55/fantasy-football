@@ -31,7 +31,6 @@ export class DB {
                         reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    console.log(queryResult);
                     resolve(queryResult);
 
                 }).on('end', () => {
@@ -41,33 +40,9 @@ export class DB {
         });
     }
 
-    private commandQuery(statement: string, insert: any): any {
-      let queryResult: any;
-      return new Promise((resolve, reject) => {
-        this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
-              if (conError) {
-                 reject('DB Error(Conn):\n' + conError);
-                }
-              con.query(statement, insert, (error: MysqlError, result: any) => {
-                  if (error) {
-                      reject('DB Error(Query):\n' + error);
-                    }
-                    queryResult = console.log('Command compelete');
-                    resolve(queryResult);
-
-              }).on('end', () => {
-                  con.release();
-              });
-          });
-        }).catch(e => {
-            console.log(e);
-        });
-    }
-
-    // Users
     getAllUsers(): any {
         const statement =
-        'SELECT * FROM userinfo';
+            'SELECT * FROM userinfo';
         return this.query(statement);
     }
 
@@ -117,55 +92,64 @@ export class DB {
 
     // Leagues
     createLeague(leagueName: string, userID: number, numberTeams: number, typeScoring: string,
-      leaguePrivacy: string, maxTrades: number): any {
+        leaguePrivacy: string, maxTrades: number): any {
         const statement = mysql.format(
-          `INSERT INTO leagues (Name, Year, NumTeams,
-          TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
-          [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
+            `INSERT INTO leagues (Name, Year, NumTeams,
+            TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
+            [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
         // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
         const staetment2 = mysql.format(
-          'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)',
-          [leagueName, userID, leagueName]
+            `INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner)
+            VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)`,
+            [leagueName, userID, leagueName]
         );
         return this.query(statement).then(() => {
-          this.query(staetment2);
+            this.query(staetment2);
         });
     }
 
     deleteLeague(leagueID: number): any {
         const statement = mysql.format(
-          'DELETE FROM leagues WHERE ID = ?',
-          [leagueID]);
+            'DELETE FROM leagues WHERE ID = ?',
+            [leagueID]);
         return this.query(statement);
     }
 
     // Find User
     getUsersToInvite(senderID: number): any {
         const statement = mysql.format(
-          'SELECT ID, Username from userinfo WHERE ID != ?',
-          [senderID]
+            'SELECT ID, Username from userinfo WHERE ID != ?',
+            [senderID]
         );
         return this.query(statement);
     }
 
-      // Makes sure the user isn't already in one of their leagues that they commision when inviting
-      // Change if there is a better way of doing this
+    // Makes sure the user isn't already in one of their leagues that they commision when inviting
+    // Change if there is a better way of doing this
     getLeaguesToInvite(senderID: number, inviteeID: number): any {
         const statement = mysql.format(
-           `SELECT parsedTable.ID, parsedTable.Name FROM
+            `SELECT parsedTable.ID, parsedTable.Name FROM
             (SELECT distinct(ID), Name FROM leagues
             JOIN league_members ON league_members.LeagueID = leagues.ID
             WHERE ID NOT IN (Select LeagueID from league_members WHERE UserID = ?)) as parsedTable
             JOIN league_members ON league_members.LeagueID = parsedTable.ID WHERE Commisioner = 1 AND UserID = ?`,
-           [inviteeID, senderID]
+            [inviteeID, senderID]
         );
         return this.query(statement);
     }
 
     sendInvite(senderID: number, recieveID: number, leagueID: number, date: string): any {
         const statement = mysql.format(
-          'INSERT INTO league_invites (SenderID, RecieveID, LeagueID, Date) VALUES (?, ?, ?, ?)',
-          [senderID, recieveID, leagueID, date]
+            'INSERT INTO league_invites (SenderID, RecieveID, LeagueID, Date) VALUES (?, ?, ?, ?)',
+            [senderID, recieveID, leagueID, date]
+        );
+        return this.query(statement);
+    }
+
+    getAllLeagues(): any {
+        const statement = mysql.format(
+            'SELECT * FROM leagues',
+            []
         );
         return this.query(statement);
     }
@@ -173,8 +157,8 @@ export class DB {
     searchUserResults(senderID: number, searchParams: string): any {
         searchParams = '%' + searchParams + '%';
         const statement = mysql.format(
-          'SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?',
-          [senderID, searchParams]
+            'SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?',
+            [senderID, searchParams]
         );
         return this.query(statement);
     }
@@ -182,54 +166,44 @@ export class DB {
     // LeagueInvites
     getAllLeagueInvites(userID: number): any {
         const statement = mysql.format(
-          `SELECT Username, Name, Date, NumTeams, TeamsInLeague FROM league_invites
+            `SELECT Username, Name, Date, NumTeams, TeamsInLeague FROM league_invites
            JOIN leagues ON league_invites.leagueID = leagues.ID
            JOIN userinfo ON league_invites.SenderID = userinfo.ID
            WHERE RecieveID = ?`,
-           [userID]
+            [userID]
         );
     }
 
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     insertUserIntoLeague(recieveID: number, leagueID: number, numTeams: number): any {
         const statement = mysql.format(
-          'UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?',
-          [numTeams, leagueID]
+            'UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?',
+            [numTeams, leagueID]
         );
         const statement1 = mysql.format(
-          'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)',
-          [leagueID, recieveID]
+            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)',
+            [leagueID, recieveID]
         );
 
         const statement2 = mysql.format(
-          'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
-          [recieveID, leagueID]
+            'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
+            [recieveID, leagueID]
         );
 
         return this.query(statement).then(() => {
-          this.query(statement1).then(() => {
-            this.query(statement2);
-          });
+            this.query(statement1).then(() => {
+                this.query(statement2);
+            });
         });
     }
 
     deleteInvite(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
-          'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
-          [recieveID, leagueID]
+            'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
+            [recieveID, leagueID]
         );
         return this.query(statement);
     }
-
-
-    // Find Leagues
-    getAllLeagueInfo(): any {
-        const statement = 'SELECT * from Leagues';
-        return this.query(statement);
-    }
-
-
-
 
     // Miscellaneous queries to be used
     getLeagueInfo(leagueID: number): any {
@@ -266,7 +240,7 @@ export class DB {
 
     getLeagueRosters(leagueID: number): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr
+            `SELECT UserID, PlayerName, PlayerPos, TeamAbbr
             FROM league_rosters
             JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
             WHERE LeagueID = ?;`,
@@ -297,8 +271,8 @@ export class DB {
 
     getUserLoginInfo(userEmail: string): any {
         const statement = mysql.format(
-          'SELECT * FROM userlogin where Email = ?',
-          [userEmail]
+            'SELECT * FROM userlogin where Email = ?',
+            [userEmail]
         );
         return this.query(statement);
     }
@@ -307,11 +281,11 @@ export class DB {
         const statement = mysql.format(
             `SELECT
             COUNT(IF((Player1ID = ? AND player1_score > player2_score)
-                OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,
+                OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS Wins,
             COUNT(IF((Player1ID = ? AND player1_score < player2_score)
-                OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,
+                OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS Losses,
             COUNT(IF((Player1ID = ? AND player1_score = player2_score)
-                OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties
+                OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS Ties
             FROM league_schedule
             JOIN (
                 SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player1_score
@@ -336,16 +310,17 @@ export class DB {
         return this.query(statement);
     }
 
-    getUserScore(userID: number, leagueID: number, week?: number): number {
-        const params = [userID, leagueID];
+    getUserScore(leagueID: number, userID?: number, week?: number): number {
+        const params = [leagueID];
+        if (userID) { params.push(userID); }
         if (week) { params.push(week); }
         params.push(leagueID);
         const statement = mysql.format(
-            `SELECT SUM(WeekPts) AS score
+            `SELECT UserID, week as Week, SUM(WeekPts) AS score
             FROM league_rosters
             JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
-            WHERE UserID = ?
-                AND LeagueID = ?
+            WHERE LeagueID = ?
+                AND UserID ` + (userID ? '= ?' : '') + `
                 AND week ` + (week ? '= ?' : '') + `
                 AND year = (SELECT year FROM leagues WHERE id = ?)
             GROUP BY LeagueID, UserID, year, week;`,
