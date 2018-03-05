@@ -35,8 +35,8 @@ export class AuthService {
       .subscribe(data => {
         user = <User>data;
       },
-      (err: HttpErrorResponse) => { console.log(err), console.log('There was an error'); }
-    );
+        (err: HttpErrorResponse) => { console.log(err), console.log('There was an error'); }
+      );
 
     user = new User(0, email, 'testUser', 'Test', 'User');
     localStorage.setItem('token', 'JWT');                         // adds token to localStorage
