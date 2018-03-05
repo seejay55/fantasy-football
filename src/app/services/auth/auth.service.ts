@@ -20,11 +20,7 @@ export class AuthService {
   }
 
   private userAuth(email: string, password: string): Observable {
-<<<<<<< HEAD
     return this.http.get(`${this.endpoint}/authenticate?email=${email}&password=${password}`);
-=======
-    return this.http.get(`${this.endpoint}/authenticate?email=${email}?password=${password}`);
->>>>>>> f0724800674dd24e1a7b6ce73229cd27ef27b9b8
   }
 
   // Returns boolean based on sign in status
@@ -36,7 +32,6 @@ export class AuthService {
   login(email: string, password: string): void {
     let user: User;
     this.userAuth(email, password)
-<<<<<<< HEAD
       .subscribe(
         (data) => {
           console.log('email and password both match a user');
@@ -51,19 +46,6 @@ export class AuthService {
       );
 
     // user = new User(0, email, 'testUser', 'Test', 'User');
-=======
-      .subscribe(data => {
-        user = <User>data;
-      },
-      (err: HttpErrorResponse) => { console.log(err), console.log('There was an error'); }
-    );
-
-    user = new User(0, email, 'testUser', 'Test', 'User');
-    localStorage.setItem('token', 'JWT');                         // adds token to localStorage
-    localStorage.setItem('currentUser', JSON.stringify(user));    // adds user information to localStorage
-    this.isLoggedInSubject.next(true);                            // sets loggedIn next value to true
-    this.currentUserSubject.next(user);                           // sets currentUser next value to given information
->>>>>>> f0724800674dd24e1a7b6ce73229cd27ef27b9b8
   }
 
   logout(): void {
