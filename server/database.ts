@@ -2,6 +2,9 @@ import * as mysql from 'mysql';
 import { MysqlError } from 'mysql';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { state } from '@angular/core';
+import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
+import { stat } from 'fs';
 
 export class DB {
     private pool: mysql.Pool;
@@ -112,6 +115,123 @@ export class DB {
         return this.query(statement);
     }
 
+    // Leagues
+    createLeague(leagueName: string, userID: number, numberTeams: number, typeScoring: string,
+      leaguePrivacy: string, maxTrades: number): any {
+        const statement = mysql.format(
+          `INSERT INTO leagues (Name, Year, NumTeams,
+          TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
+          [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
+        // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
+        const staetment2 = mysql.format(
+          'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)',
+          [leagueName, userID, leagueName]
+        );
+        return this.query(statement).then(() => {
+          this.query(staetment2);
+        });
+    }
+
+    deleteLeague(leagueID: number): any {
+        const statement = mysql.format(
+          'DELETE FROM leagues WHERE ID = ?',
+          [leagueID]);
+        return this.query(statement);
+    }
+
+    // Find User
+    getUsersToInvite(senderID: number): any {
+        const statement = mysql.format(
+          'SELECT ID, Username from userinfo WHERE ID != ?',
+          [senderID]
+        );
+        return this.query(statement);
+    }
+
+      // Makes sure the user isn't already in one of their leagues that they commision when inviting
+      // Change if there is a better way of doing this
+    getLeaguesToInvite(senderID: number, inviteeID: number): any {
+        const statement = mysql.format(
+           `SELECT parsedTable.ID, parsedTable.Name FROM
+            (SELECT distinct(ID), Name FROM leagues
+            JOIN league_members ON league_members.LeagueID = leagues.ID
+            WHERE ID NOT IN (Select LeagueID from league_members WHERE UserID = ?)) as parsedTable
+            JOIN league_members ON league_members.LeagueID = parsedTable.ID WHERE Commisioner = 1 AND UserID = ?`,
+           [inviteeID, senderID]
+        );
+        return this.query(statement);
+    }
+
+    sendInvite(senderID: number, recieveID: number, leagueID: number, date: string): any {
+        const statement = mysql.format(
+          'INSERT INTO league_invites (SenderID, RecieveID, LeagueID, Date) VALUES (?, ?, ?, ?)',
+          [senderID, recieveID, leagueID, date]
+        );
+        return this.query(statement);
+    }
+
+    searchUserResults(senderID: number, searchParams: string): any {
+        searchParams = '%' + searchParams + '%';
+        const statement = mysql.format(
+          'SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?',
+          [senderID, searchParams]
+        );
+        return this.query(statement);
+    }
+
+    // LeagueInvites
+    getAllLeagueInvites(userID: number): any {
+        const statement = mysql.format(
+          `SELECT Username, Name, Date, NumTeams, TeamsInLeague FROM league_invites
+           JOIN leagues ON league_invites.leagueID = leagues.ID
+           JOIN userinfo ON league_invites.SenderID = userinfo.ID
+           WHERE RecieveID = ?`,
+           [userID]
+        );
+    }
+
+    // Preston needs to add 1 to the current team count for the 'numTeams' parameter
+    insertUserIntoLeague(recieveID: number, leagueID: number, numTeams: number): any {
+        const statement = mysql.format(
+          'UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?',
+          [numTeams, leagueID]
+        );
+        const statement1 = mysql.format(
+          'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)',
+          [leagueID, recieveID]
+        );
+
+        const statement2 = mysql.format(
+          'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
+          [recieveID, leagueID]
+        );
+
+        return this.query(statement).then(() => {
+          this.query(statement1).then(() => {
+            this.query(statement2);
+          });
+        });
+    }
+
+    deleteInvite(recieveID: number, leagueID: number): any {
+        const statement = mysql.format(
+          'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
+          [recieveID, leagueID]
+        );
+        return this.query(statement);
+    }
+
+
+    // Find Leagues
+    getAllLeagueInfo(): any {
+        const statement = 'SELECT * from Leagues';
+        return this.query(statement);
+    }
+
+
+
+
+    // Miscellaneous queries to be used
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
             'SELECT * FROM leagues WHERE id = ?',

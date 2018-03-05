@@ -118,17 +118,21 @@ app.get("/api/user/:user_id", function (req, res) {
     });
 });
 
-app.get("/api/users", function (req, res) {
-  db.getAllUsers().then(function (result) {
-    res.send(result);
-  });
-});
-
 app.post("/api/users", function (req, res) {
     var email = req.body.Email;
     var password = req.body.Password;
     var username = req.body.Username;
     db.createUser(email, password, username).then(function (result) {
         res.status(204);
-    })
+    });
+});
+
+// Tests
+
+app.get("/api/userLeagues/:sender_id/:searchParams", function(req, res) {
+    var senderID = req.params.sender_id;
+    var search = req.params.searchParams;
+    db.searchUserResults(senderID, search).then(function(result) {
+       res.send(result);
+    });
 });

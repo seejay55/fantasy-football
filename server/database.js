@@ -83,6 +83,57 @@ var DB = /** @class */ (function () {
         var statement = mysql.format('DELETE FROM userlogin WHERE ID = ?', [ID]);
         return this.query(statement);
     };
+    // Leagues
+    DB.prototype.createLeague = function (leagueName, userID, numberTeams, typeScoring, leaguePrivacy, maxTrades) {
+        var _this = this;
+        var statement = mysql.format("INSERT INTO leagues (Name, Year, NumTeams,\n          TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
+        // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
+        var staetment2 = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)', [leagueName, userID, leagueName]);
+        return this.query(statement).then(function () {
+            _this.query(staetment2);
+        });
+    };
+    DB.prototype.deleteLeague = function (leagueID) {
+        var statement = mysql.format('DELETE FROM leagues WHERE ID = ?', [leagueID]);
+        return this.query(statement);
+    };
+    // Find User
+    DB.prototype.getUsersToInvite = function (senderID) {
+        var statement = mysql.format('SELECT ID, Username from userinfo WHERE ID != ?', [senderID]);
+        return this.query(statement);
+    };
+    // Makes sure the user isn't already in one of their leagues that they commision when inviting
+    // Change if there is a better way of doing this
+    DB.prototype.getLeaguesToInvite = function (senderID, inviteeID) {
+        var statement = mysql.format("SELECT parsedTable.ID, parsedTable.Name FROM\n            (SELECT distinct(ID), Name FROM leagues\n            JOIN league_members ON league_members.LeagueID = leagues.ID\n            WHERE ID NOT IN (Select LeagueID from league_members WHERE UserID = ?)) as parsedTable\n            JOIN league_members ON league_members.LeagueID = parsedTable.ID WHERE Commisioner = 1 AND UserID = ?", [inviteeID, senderID]);
+        return this.query(statement);
+    };
+    DB.prototype.sendInvite = function (senderID, recieveID, leagueID, date) {
+        var statement = mysql.format('INSERT INTO league_invites (SenderID, RecieveID, LeagueID, Date) VALUES (?, ?, ?, ?)', [senderID, recieveID, leagueID, date]);
+        return this.query(statement);
+    };
+    DB.prototype.searchUserResults = function (senderID, searchParams) {
+        searchParams = '%' + searchParams + '%';
+        var statement = mysql.format('SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?', [senderID, searchParams]);
+        return this.query(statement);
+    };
+    // LeagueInvites
+    DB.prototype.getAllLeagueInvites = function (userID) {
+        var statement = mysql.format("SELECT Username, Name, Date FROM league_invites\n           JOIN leagues ON league_invites.leagueID = leagues.ID\n           JOIN userinfo ON league_invites.SenderID = userinfo.ID\n           WHERE RecieveID = ?", [userID]);
+    };
+    DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
+        var _this = this;
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 1)', [leagueID, recieveID]);
+        var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
+        return this.query(statement).then(function () {
+            _this.query(statement2);
+        });
+    };
+    DB.prototype.deleteInvite = function (recieveID, leagueID) {
+        var statement = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
+        return this.query(statement);
+    };
+    // Miscellaneous queries to be used
     DB.prototype.getLeagueInfo = function (leagueID) {
         var statement = mysql.format('SELECT * FROM leagues WHERE id = ?', [leagueID]);
         return this.query(statement);
