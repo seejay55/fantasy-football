@@ -11,6 +11,9 @@ import { SettingsTabsComponent } from './components/account-settings/settings-ta
 import { UserPassContentComponent } from './components/account-settings/settings-tabs/user-pass-content/user-pass-content.component';
 import { EditAccContentComponent } from './components/account-settings/settings-tabs/edit-acc-content/edit-acc-content.component';
 import { DeleteAccContentComponent } from './components/account-settings/settings-tabs/delete-acc-content/delete-acc-content.component';
+import { LeagueInformationPageComponent } from './pages/league-information-page/league-information-page.component';
+
+
 // Luke
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NewsFeedComponent } from './components/homepage/news-feed/news-feed.component';
@@ -34,9 +37,10 @@ const routes: Routes = [
   { path: 'league-invites',     component: LeagueInvitesComponent,    data: { breadcrumb: 'League Invites'}},
   { path: 'register-account',   component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
   { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
-  { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
-  { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
-  { path: '404',                component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
+  { path: 'find-user',          component: FindUserComponent,              data: { breadcrumb: 'Find User'}},
+  { path: 'welcome',            component: RegisterWelcomeComponent,       data: { breadcrumb: 'Welcome'}},
+  { path: 'league-information', component: LeagueInformationPageComponent, data: { breadcrumb: 'League Information'}},
+  { path: '404',                component: NotFoundPageComponent,          data: { breadcrumb: '404: Page Not Found!'}},
   { path: '**', redirectTo: '404'},
 
 ];
