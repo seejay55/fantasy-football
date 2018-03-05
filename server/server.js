@@ -41,7 +41,7 @@ app.post("/api/users", function (req, res) {
 app.get("/api/user/authenticate", function (req, res) {
     var email = req.headers.email;
     db.getUserLoginInfo(email).then(function (result) {
-        if (req.headers.password === result[0].Password) {
+        if (result.length > 0 && req.headers.password === result[0].Password) {
             user_id = result[0].ID;
             db.getUserInfo(user_id).then(function (result2) {
                 res.setHeader('Content-Type', 'application/json');
@@ -55,7 +55,7 @@ app.get("/api/user/authenticate", function (req, res) {
             });
         }
         else {
-            res.status(500).json({error: 'Email or Password is Incorrect'});
+            res.status(500).json('Email or Password is Incorrect');
         }
     });
 });
@@ -134,24 +134,6 @@ app.get("/api/league/:league_id/record/:user_id", function (req, res) {
     });
 });
 
-app.post("/api/users", function (req, res) {
-    var email = req.body.Email;
-    var password = req.body.Password;
-    var username = req.body.Username;
-    db.createUser(email, password, username).then(function (result) {
-        res.status(204);
-    });
-});
-
-// Tests
-
-app.get("/api/userLeagues/:sender_id/:searchParams", function(req, res) {
-    var senderID = req.params.sender_id;
-    var search = req.params.searchParams;
-    db.searchUserResults(senderID, search).then(function(result) {
-       res.send(result);
-    });
-});
 app.get("/api/league/:league_id", function (req, res) {
     var league_id = req.params.league_id;
     db.getLeagueInfo(league_id).then(function (result) {
