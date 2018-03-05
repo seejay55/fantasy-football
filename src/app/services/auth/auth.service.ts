@@ -55,7 +55,6 @@ export class AuthService {
     this.currentUserSubject.next(null);                           // sets currentUser next value to null
   }
 
-<<<<<<< HEAD
   setCurrentUser(user: User): void {
     localStorage.setItem('token', 'JWT');                         // adds token to localStorage
     localStorage.setItem('currentUser', JSON.stringify(user));    // adds user information to localStorage
@@ -63,8 +62,6 @@ export class AuthService {
     this.currentUserSubject.next(user);                           // sets currentUser next value to given information
   }
 
-=======
->>>>>>> f0724800674dd24e1a7b6ce73229cd27ef27b9b8
   // returns currentUser to all subscribers
   getCurrentUser(): Observable<User> {
     return this.currentUserSubject.asObservable().share();
