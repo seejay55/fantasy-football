@@ -20,14 +20,13 @@ export class AuthService {
   }
 
   private userAuth(email: string, password: string): Observable {
-    return this.http.get(`${this.endpoint}/authenticate?email=${email}&password=${password}`);
+    return this.http.get(`${this.endpoint}/authenticate`, { headers: {email: email, password: password }});
   }
 
   // Returns boolean based on sign in status
   isLoggedIn(): Observable<boolean> {
     return this.isLoggedInSubject.asObservable().share(); // returns loggedIn value to all subscribers
   }
-
 
   login(email: string, password: string): void {
     let user: User;
@@ -44,8 +43,6 @@ export class AuthService {
           window.alert(err.error);
         }
       );
-
-    // user = new User(0, email, 'testUser', 'Test', 'User');
   }
 
   logout(): void {
