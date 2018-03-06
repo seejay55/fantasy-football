@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ user?.firstName }} {{ user?.lastName }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@{{ user?.userName }}</h6>
+        <a href="#" class="card-link small" routerLink="/settings">Account Settings</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <table class="table table-sm table-hover">
+      <caption>Leagues I Own</caption>
+      <thead>
+        <tr>
+          <td>League Name</td>
+          <td>Owner</td>
+          <td># of Members</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of [0,1,2,3,4]">
+          <td>
+            <a routerLink="league/:id">League {{ i }}</a>
+          </td>
+          <td>
+            <a routerLink="/user/ngrey5">League Owner</a>
+          </td>
+          <td>{{ i }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 border">?</div>
+  <div class="col-md-9">
+    <table class="table table-sm table-hover">
+      <caption>Leagues I'm In</caption>
+      <thead>
+        <tr>
+          <td>League Name</td>
+          <td>Owner</td>
+          <td># of Members</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of [0,1,2,3,4]">
+          <td>
+            <a routerLink="league/:id">League {{ i }}</a>
+          </td>
+          <td>
+            <a routerLink="/user/ngrey5">League Owner</a>
+          </td>
+          <td>{{ i }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 border">?</div>
+  <div class="col-md-9 border">MY INVITES</div>
+</div>
