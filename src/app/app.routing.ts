@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 // Nick
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 // Austin
 import { RegisterWelcomeComponent } from './components/register-welcome/register-welcome.component';
 import { ProfileCardComponent } from './components/account-settings/profile-card/profile-card.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
   { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
   { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
+  { path: 'user/:userName',          component: UserProfilePageComponent,  data: { breadcrumb: 'My Profile'}},
   { path: '404',                component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
   { path: '**', redirectTo: '404'},
 
@@ -57,6 +59,7 @@ const routes: Routes = [
     CreateLeagueComponent,
     FindLeagueComponent,
     FindUserComponent,
+    UserProfilePageComponent,
     NotFoundPageComponent
   ],
   imports: [
