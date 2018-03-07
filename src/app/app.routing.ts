@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'find-league',        component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
   { path: 'league-invites',     component: LeagueInvitesComponent,    data: { breadcrumb: 'League Invites'}},
   { path: 'register-account',   component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
-  { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
+  { path: 'user/:userName/account-settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
   { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
   { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
   { path: 'user/:userName',          component: UserProfilePageComponent,  data: { breadcrumb: 'My Profile'}},

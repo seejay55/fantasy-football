@@ -37,8 +37,8 @@
           {{user?.userName}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="">{{ user?.firstName + ' ' + user?.lastName}}</a>
-          <a class="dropdown-item" routerLink="/settings">ACCOUNT SETTINGS</a>
+          <a class="dropdown-item" [routerLink]="['/user', user?.userName]">MY PROFILE</a>
+          <a class="dropdown-item" [routerLink]="['/user', user?.userName, 'account-settings']">ACCOUNT SETTINGS</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" (click)="logOut()">LOG OUT</a>
         </div>
