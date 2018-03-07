@@ -23,7 +23,6 @@ export class FeedItemComponent implements OnInit {
       .map(res => res.json())
       .subscribe(res => {
         this.data = res;
-        console.log(this.data);
       });
   }
 

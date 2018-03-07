@@ -16,6 +16,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NewsFeedComponent } from './components/homepage/news-feed/news-feed.component';
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { FeedItemComponent } from './components/homepage/news-feed/feed-item/feed-item.component';
+import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scoring-leaders-page.component';
 // CJ
 // Josh
 // Riley
@@ -28,15 +29,16 @@ import { LeagueInvitesComponent } from './components/league-invites/league-invit
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-  { path: 'homepage',           component: HomepageComponent,         data: { breadcrumb: 'Homepage'}},
-  { path: 'create-league',      component: CreateLeagueComponent,     data: { breadcrumb: 'Create League'}},
-  { path: 'find-league',        component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
-  { path: 'league-invites',     component: LeagueInvitesComponent,    data: { breadcrumb: 'League Invites'}},
-  { path: 'register-account',   component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
-  { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
-  { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
-  { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
-  { path: '404',                component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
+  { path: 'homepage',           component: HomepageComponent,           data: { breadcrumb: 'Homepage'}},
+  { path: 'create-league',      component: CreateLeagueComponent,       data: { breadcrumb: 'Create League'}},
+  { path: 'find-league',        component: FindLeagueComponent,         data: { breadcrumb: 'Find League'}},
+  { path: 'league-invites',     component: LeagueInvitesComponent,      data: { breadcrumb: 'League Invites'}},
+  { path: 'register-account',   component: RegisterAccountComponent,    data: { breadcrumb: 'Register Account'}},
+  { path: 'settings',           component: SettingsTabsComponent,       data: { breadcrumb: 'Account Settings'}},
+  { path: 'find-user',          component: FindUserComponent,           data: { breadcrumb: 'Find User'}},
+  { path: 'welcome',            component: RegisterWelcomeComponent,    data: { breadcrumb: 'Welcome'}},
+  { path: '404',                component: NotFoundPageComponent,       data: { breadcrumb: '404: Page Not Found!'}},
+  { path: 'scoring-leaders',    component: ScoringLeadersPageComponent, data: { breadcrumb: 'Scoring Leaders'}},
   { path: '**', redirectTo: '404'},
 
 ];
