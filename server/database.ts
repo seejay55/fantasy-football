@@ -166,19 +166,23 @@ export class DB {
     // LeagueInvites
     getAllLeagueInvites(userID: number): any {
         const statement = mysql.format(
-            `SELECT Username, Name, Date, MaxTeams, TeamsInLeague FROM league_invites
-           JOIN leagues ON league_invites.leagueID = leagues.ID
-           JOIN userinfo ON league_invites.SenderID = userinfo.ID
-           WHERE RecieveID = ?`,
+            `SELECT SenderID, Username AS SenderUsername, FirstName AS SenderFirstName, LastName AS SenderLastName,
+            LeagueID, Name AS LeagueName, Date, datediff(NOW(), Date) AS Age
+        FROM league_invites
+        JOIN leagues ON league_invites.leagueID = leagues.ID
+        JOIN userinfo ON league_invites.SenderID = userinfo.ID
+        WHERE RecieveID = ?`,
             [userID]
         );
+
+        return this.query(statement);
     }
 
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
-    insertUserIntoLeague(recieveID: number, leagueID: number, numTeams: number): any {
+    insertUserIntoLeague(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
-            'UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?',
-            [numTeams, leagueID]
+            'UPDATE leagues SET TeamsInLeague = TeamsInLeague+1 WHERE ID = ?',
+            [leagueID]
         );
         const statement1 = mysql.format(
             'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
@@ -261,10 +265,18 @@ export class DB {
         return this.query(statement);
     }
 
-    getUserInfo(userID: number): any {
+    getUserInfoById(userID: number): any {
         const statement = mysql.format(
             'SELECT * FROM userinfo WHERE ID = ?',
             [userID]
+        );
+        return this.query(statement);
+    }
+
+    getUserInfoByUsername(userName: string): any {
+        const statement = mysql.format(
+            'SELECT * FROM userinfo WHERE Username = ?',
+            [userName]
         );
         return this.query(statement);
     }
