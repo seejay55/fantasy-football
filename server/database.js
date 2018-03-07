@@ -31,6 +31,58 @@ var DB = /** @class */ (function () {
             });
         });
     };
+    DB.prototype.query2 = function (statement) {
+        var _this = this;
+        var queryResult;
+        var formatedJSON = '[';
+        var previousName;
+        var check = 0;
+        return new Promise(function (resolve, reject) {
+            _this.pool.getConnection(function (conError, con) {
+                if (conError) {
+                    reject('DB Error(Conn):\n' + conError);
+                }
+                con.query(statement, function (error, result) {
+                    if (error) {
+                        reject('DB Error(Query):\n' + error);
+                    }
+                    previousName = '';
+                    queryResult = JSON.parse(JSON.stringify(result));
+                    for (var i = 0; i < queryResult.length; i++) {
+                        if (queryResult[i].PlayerName === previousName) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                        }
+                        else if (i === 0) {
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        }
+                        else if (check === 0) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                            check = 1;
+                        }
+                        else {
+                            check = 0;
+                            formatedJSON = formatedJSON.slice(0, -1);
+                            formatedJSON = formatedJSON + (']},');
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        }
+                    }
+                    formatedJSON = formatedJSON.slice(0, -1);
+                    formatedJSON = formatedJSON + ']}]';
+                    resolve(JSON.parse(formatedJSON));
+                }).on('end', function () {
+                    con.release();
+                });
+            });
+        });
+    };
     DB.prototype.getAllUsers = function () {
         var statement = 'SELECT * FROM userinfo';
         return this.query(statement);
@@ -117,7 +169,7 @@ var DB = /** @class */ (function () {
         var statement = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement);
     };
-    // Miscellaneous queries to be used
+    //  Find League
     DB.prototype.getLeagueInfo = function (leagueID) {
         var statement = mysql.format('SELECT * FROM leagues WHERE id = ?', [leagueID]);
         return this.query(statement);
@@ -185,6 +237,11 @@ var DB = /** @class */ (function () {
     DB.prototype.getPlayerStats = function (playerID, year, week) {
         var statement = mysql.format("SELECT *\n            FROM nfl_stats\n            WHERE PlayerID = ?\n            AND year = ?\n            AND week = ?;", [playerID, year, week]);
         return this.query(statement);
+    };
+    // Luke Stats
+    DB.prototype.getStats = function () {
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM nfl_players\n            JOIN game_stats_totals ON nfl_players.player_id = game_stats_totals.PlayerID\n            JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID", []);
+        return this.query2(statement);
     };
     return DB;
 }());
