@@ -35,9 +35,9 @@ Resources related to users in the API.
 
 + Response 204
 
-## User [/user/{user_id}]
+## User [/user/{user}]
 + Parameters
-    + user_id (number) - ID of the user
+    + user (number/string) - ID of the user if Number, Username if String
 
 ### Get User [GET]
 + Response 200 (application/json)
@@ -71,6 +71,41 @@ Resources related to users in the API.
         }
 
 + Response 200 (application/json)
+
+## Invite Collection [/user/{user_id}/invites]
++ Parameters
+    + user_id (number) - ID of the user that is being invited
+
+### Get All League Invites [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "SenderID": 2,
+                "SenderUsername": "test2",
+                "SenderFirstName": null,
+                "SenderLastName": null,
+                "LeagueID": 2,
+                "LeagueName": "TestLeague2",
+                "Date": "10/10/17",
+                "Age": 2698
+            }
+        ]
+
+## Invites [/user/{user_id}/invites/{league_id}]
++ Parameters
+    + user_id (number) - ID of the user that is being invited
+    + league_id (number) - ID of the league that the user is being invited too
+
+## Accept Invite [POST]
++ Response 200 (text/html)
+
+    "Successfully Accepted Invite"
+
+## Delete Invite [POST]
++ Response 200 (text/html)
+
+    "Successfully Deleted Invite"
 
 # Group Leagues
 Resources related to users in the API.
