@@ -99,12 +99,13 @@ var DB = /** @class */ (function () {
     };
     // LeagueInvites
     DB.prototype.getAllLeagueInvites = function (userID) {
-        var statement = mysql.format("SELECT Username, Name, Date, MaxTeams, TeamsInLeague FROM league_invites\n           JOIN leagues ON league_invites.leagueID = leagues.ID\n           JOIN userinfo ON league_invites.SenderID = userinfo.ID\n           WHERE RecieveID = ?", [userID]);
+        var statement = mysql.format("SELECT SenderID, Username AS SenderUsername, FirstName AS SenderFirstName, LastName AS SenderLastName,\n            LeagueID, Name AS LeagueName, Date, datediff(NOW(), Date) AS Age\n        FROM league_invites\n        JOIN leagues ON league_invites.leagueID = leagues.ID\n        JOIN userinfo ON league_invites.SenderID = userinfo.ID\n        WHERE RecieveID = ?", [userID]);
+        return this.query(statement);
     };
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
-    DB.prototype.insertUserIntoLeague = function (recieveID, leagueID, numTeams) {
+    DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
         var _this = this;
-        var statement = mysql.format('UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?', [numTeams, leagueID]);
+        var statement = mysql.format('UPDATE leagues SET TeamsInLeague = TeamsInLeague+1 WHERE ID = ?', [leagueID]);
         var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement).then(function () {
@@ -142,8 +143,12 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE LeagueID = ?\n            AND UserID = ?;", [leagueID, userID]);
         return this.query(statement);
     };
-    DB.prototype.getUserInfo = function (userID) {
+    DB.prototype.getUserInfoById = function (userID) {
         var statement = mysql.format('SELECT * FROM userinfo WHERE ID = ?', [userID]);
+        return this.query(statement);
+    };
+    DB.prototype.getUserInfoByUsername = function (userName) {
+        var statement = mysql.format('SELECT * FROM userinfo WHERE Username = ?', [userName]);
         return this.query(statement);
     };
     DB.prototype.getUserLoginInfo = function (userEmail) {

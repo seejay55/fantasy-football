@@ -60,11 +60,29 @@ app.get("/api/user/authenticate", function (req, res) {
     });
 });
 
-app.get("/api/user/:user_id", function (req, res) {
-    var user_id = req.params.user_id;
-    db.getUserInfo(user_id).then(function (result) {
-        res.send(result);
-    });
+app.get("/api/user/:user", function (req, res) {
+    var user = req.params.user;
+    var isId = !isNaN(parseInt(user));
+    if (isId) {
+        db.getUserInfoById(parseInt(user)).then(function (result) {
+            if (result.length == 0) {
+                res.status(500).send("No user exists with ID: " + user);
+            }
+            else {
+                res.send(result);
+            }
+        });
+    }
+    else {
+        db.getUserInfoByUsername(user).then(function (result) {
+            if (result.length == 0) {
+                res.status(500).send("No user exists with Username: " + user);
+            }
+            else {
+                res.send(result);
+            }
+        });
+    }
 });
 
 app.patch("/api/user/:user_id", function (req, res) {
@@ -73,6 +91,41 @@ app.patch("/api/user/:user_id", function (req, res) {
     var profilePic = req.body.ProfilePic;
     db.updateUser(id, username, password).then(function (result) {
         res.status(204);
+    });
+});
+
+//Get incoming invites (sender id, sender name, league id, league name, sent date)
+app.get("/api/user/:user_id/invites", function (req, res) {
+    var id = req.params.user_id;
+    db.getAllLeagueInvites(id).then(function (result) {
+        res.setHeader('Content-Type', 'application/json');
+        res.json(result);
+    });
+});
+//Accept invite
+app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
+    var user_id = req.params.user_id;
+    var league_id = req.params.league_id;
+    db.insertUserIntoLeague(user_id, league_id).then(function (result) {
+        if (result == undefined) {
+            res.status(500).send("Error Accepting Invite");
+        }
+        else {
+            res.status(200).send("Successfully Accepted Invite");
+        }
+    });
+});
+//Decline invite
+app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
+    var user_id = req.params.user_id;
+    var league_id = req.params.league_id;
+    db.deleteInvite(user_id, league_id).then(function (result) {
+        if (result == undefined) {
+            res.status(500).send("Error Deleting Invite");
+        }
+        else {
+            res.status(200).send("Successfully Deleted Invite");
+        }
     });
 });
 
