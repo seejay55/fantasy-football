@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/bundles/Rx';
+
 
 import { User } from '../../models/user';
 
@@ -17,10 +19,6 @@ export class UserService {
     return this.http.get(`${this.endpoint}/users`);
   }
 
-  // return json of all users LIKE @userName
-  public getUserByUserName(userName: string) {
-    return this.http.get(`${this.endpoint}/users/${userName}`);
-  }
 
   // send new user data, create that user, and return that user after database creation
   public createUser(user: User, password: string) {
@@ -31,8 +29,13 @@ export class UserService {
   // /user
 
   // send user id, get user pertaining to that id
-  public getUser(id: number) {
+  public getUser(id: number): Observable<User> {
     return this.http.get(`${this.endpoint}/user/${id}`);
+  }
+
+  // return json of all users LIKE @userName
+  public getUserByUserName(userName: string): Observable<User> {
+    return this.http.get(`${this.endpoint}/user/${userName}`);
   }
 
   // send updated user data, update that user, and return that user after database update
@@ -43,6 +46,18 @@ export class UserService {
   // send id of user to be deleted, delete that user, then return status code.
   public deleteUser(id: number) {
     return this.http.delete(`${this.endpoint}/user/${id}`);
+  }
+
+  public getInvites(userId: number) {
+    return this.http.get(`${this.endpoint}/user/${userId}/invites`);
+  }
+
+  public acceptInvite(userId: number, leagueId: number) {
+    return this.http.get(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
+  }
+
+  public deleteInvite(userId: number, leagueId: number) {
+    return this.http.get(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
   }
 
 }

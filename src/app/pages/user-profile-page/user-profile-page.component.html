@@ -1,64 +1,97 @@
-<div class="row">
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ user?.firstName }} {{ user?.lastName }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">@{{ user?.userName }}</h6>
-        <a href="#" class="card-link small" *ngIf="sameAs" [routerLink]="['/user', user?.userName, 'account-settings']">Account Settings</a>
+<!-- the entire page will only load if there is a valid user -->
+<div *ngIf="pageUser">
+
+  <div class="row">
+    <!-- COLUMN 1 -->
+    <div class="col-md-3">
+
+      <!-- PROFILE CARD WITH ACTIONS LIST -->
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ pageUser?.firstName }} {{ pageUser?.lastName }}</h2>
+          <h6 class="card-subtitle mb-2 text-muted">@{{ pageUser?.userName }}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <a class="list-group-item list-group-item-action" [routerLink]="['/user', currentUser.userName, 'account-settings']"
+            *ngIf="isSame">Account Settings</a>
+          <a class="list-group-item list-group-item-action text-danger d-flex justify-content-between align-items-center" routerLink="/404"
+            *ngIf="isSame">
+            Leagues
+            <span class="badge badge-primary">{{leagues.length}}</span>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngIf="isSame" [routerLink]="['/user', currentUser.userName, 'invites']">
+            My Invites
+            <span class="badge badge-danger">0</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Invite to a League</a>
+          <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Send Message</a>
+        </ul>
       </div>
     </div>
+
+    <!-- COLUMN 2 -->
+    <div class="col-md-7 p-3 card bg-light rounded box-shadow">
+
+      <!-- CREATED LEAGUES TABLE -->
+      <table class="table table-sm table-secondary table-hover table-striped">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th colspan="3" class="text-center" *ngIf="!isSame">LEAGUES @{{ pageUser?.userName | uppercase }} HAS CREATED</th>
+            <th colspan="3" class="text-center" *ngIf="isSame">LEAGUES YOU'VE CREATED</th>
+          </tr>
+          <tr class="bg-dark text-white">
+            <th style="width: 50%">League Name</th>
+            <th style="width: 25%">Owner</th>
+            <th style="width: 25%"># of Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let league of leaguesCreated">
+            <td>
+              <a class="text-dark" routerLink="league/:id">{{league.name}}</a>
+            </td>
+            <td>
+              <a class="text-dark" [routerLink]="['/user', league.ownerUserName]">{{league.ownerUserName}}</a>
+            </td>
+            <td>{{league.numMembers}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ALL USER LEAGUES TABLE -->
+      <table class="table table-sm table-secondary table-hover table-striped">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th colspan="3" class="text-center" *ngIf="!isSame">LEAGUES @{{ pageUser?.userName | uppercase }} HAS JOINED</th>
+            <th colspan="3" class="text-center" *ngIf="isSame">LEAGUES YOU'VE JOINED</th>
+          </tr>
+          <tr class="bg-dark text-white">
+            <th style="width: 50%">League Name</th>
+            <th style="width: 25%">Owner</th>
+            <th style="width: 25%"># of Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let league of leagues">
+            <td>
+              <a class="text-dark" routerLink="league/:id">{{league.name}}</a>
+            </td>
+            <td>
+              <a class="text-dark" [routerLink]="['/user', league.ownerUserName]">{{league.ownerUserName}}</a>
+            </td>
+            <td>{{league.numMembers}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-2">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action text-right" routerLink="/find-league">Find a League</a>
+        <a href="#" class="list-group-item list-group-item-action text-right" routerLink="/create-league">Create a League</a>
+      </div>
+    </div>
+
   </div>
-  <div class="col-md-9">
-    <table class="table table-sm table-hover">
-      <caption>Leagues {{userName}} owns.</caption>
-      <thead>
-        <tr class="bg-dark text-white">
-          <td>League Name</td>
-          <td>Owner</td>
-          <td># of Members</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let league of leaguesCreated">
-          <td>
-            <a routerLink="league/:id">{{league.name}}</a>
-          </td>
-          <td>
-            <a routerLink="/user/ngrey5">{{league.ownerUserName}}</a>
-          </td>
-          <td>{{league.numMembers}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3 border">?</div>
-  <div class="col-md-9">
-    <table class="table table-sm table-hover">
-      <caption>Leagues {{userName}} is in.</caption>
-      <thead>
-        <tr class="bg-dark text-white">
-          <td>League Name</td>
-          <td>Owner</td>
-          <td># of Members</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let league of leagues">
-          <td>
-            <a routerLink="league/:id">{{league.name}}</a>
-          </td>
-          <td>
-            <a [routerLink]="['/user', league.ownerUserName]">{{league.ownerUserName}}</a>
-          </td>
-          <td>{{league.numMembers}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3 border">?</div>
-  <div class="col-md-9 border" *ngIf="sameAs">MY INVITES</div>
+
 </div>
