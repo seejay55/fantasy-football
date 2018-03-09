@@ -7,6 +7,7 @@ import { User } from '../../models/user';
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
 import { BreadcrumbService } from 'angular-crumbs';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-user-profile-page',
@@ -62,7 +63,8 @@ export class UserProfilePageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private location: Location,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -88,7 +90,7 @@ export class UserProfilePageComponent implements OnInit {
         this.isSame = this.isSameUser();
         this.filterLeagues();
       },
-      (err) => { this.userNotExist(); }
+      (err) => { this.userNotExist(userName); }
     );
   }
 
@@ -106,8 +108,8 @@ export class UserProfilePageComponent implements OnInit {
     }
   }
 
-  private userNotExist(): void {
-    window.alert('User Not Found');
+  private userNotExist(userName: string): void {
+    this.alertService.danger('Error', `User @${userName} does not exist`, true);
     this.location.back();
   }
 
