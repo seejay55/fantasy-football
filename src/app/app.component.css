@@ -1,0 +1,9 @@
+.website {
+  background-color: #edeef0;
+  min-height: 100vh;
+  position: relative;
+}
+.container {
+  background-color: white;
+}
+
