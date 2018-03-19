@@ -1,7 +1,7 @@
 .alert {
   border-radius: 0px;
   padding: 6px 15px;
-  margin-bottom: 0px;
+  margin: 0px -10px 5px;
 }
 
 .alert:hover {

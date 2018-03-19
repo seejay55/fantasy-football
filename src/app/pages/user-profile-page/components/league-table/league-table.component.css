@@ -25,5 +25,5 @@
 }
 
 .table-body tr:hover {
-  background-color: black;
+  background-color: var(--nav-color);
 }
