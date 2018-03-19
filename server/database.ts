@@ -198,7 +198,19 @@ export class DB {
 
     getAllLeagues(): any {
         const statement = mysql.format(
-            'SELECT * FROM leagues',
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = ID`,
             []
         );
         return this.query(statement);
@@ -262,7 +274,20 @@ export class DB {
     //  Find League
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM leagues WHERE id = ?',
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = ID
+            WHERE ID = ?`,
             [leagueID]
         );
         return this.query(statement);

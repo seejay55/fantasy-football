@@ -106,7 +106,6 @@ app.get("/api/user/:user_id/invites", function (req, res) {
 });
 
 app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
-<<<<<<< HEAD
     var user_id = req.params.user_id;
     var league_id = req.params.league_id;
     db.insertUserIntoLeague(user_id, league_id).then(function (result) {
@@ -117,21 +116,9 @@ app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
             res.send("Successfully Accepted Invite");
         }
     });
-=======
-  var user_id = req.params.user_id;
-  var league_id = req.params.league_id;
-  db.insertUserIntoLeague(user_id, league_id).then(function (result) {
-    if (result == undefined) {
-      res.status(500).send("Error Accepting Invite");
-    } else {
-      res.status(200).send("Successfully Accepted Invite");
-    }
-  });
->>>>>>> 6809d4c1bebf59a1b5d7dc6bc2e58a73eb218c2c
 });
 
 app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
-<<<<<<< HEAD
     var user_id = req.params.user_id;
     var league_id = req.params.league_id;
     db.deleteInvite(user_id, league_id).then(function (result) {
@@ -144,26 +131,6 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
     });
 });
 
-=======
-  var user_id = req.params.user_id;
-  var league_id = req.params.league_id;
-  db.deleteInvite(user_id, league_id).then(function (result) {
-    if (result == undefined) {
-      res.status(500).send("Error Deleting Invite");
-    } else {
-      res.status(200).send("Successfully Deleted Invite");
-    }
-  });
-});
-
-app.delete("/api/user/:user_id", function (req, res) {
-  var id = req.params.user_id;
-  db.deleteUser(id).then(function (result) {
-    res.status(204);
-  });
-});
-
->>>>>>> 6809d4c1bebf59a1b5d7dc6bc2e58a73eb218c2c
 /**
  * Leagues
  */
