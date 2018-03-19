@@ -218,7 +218,8 @@ export class DB {
 
     getAllLeaguesForUser(userID: number): any {
         const statement = mysql.format(
-            `FROM fantasyfootball18.league_members
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM fantasyfootball18.league_members
             LEFT JOIN (
                 SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
                 FROM leagues
@@ -233,7 +234,7 @@ export class DB {
                     WHERE Commisioner = TRUE
                     GROUP BY LeagueID
                 ) AS league_owner ON league_owner.LeagueID = ID
-            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID 
+            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID
             WHERE UserID = ?`,
             [userID]
         );

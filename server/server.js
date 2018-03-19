@@ -43,7 +43,7 @@ app.get("/api/user/authenticate", function (req, res) {
   db.getUserLoginInfo(email).then(function (result) {
     if (result.length > 0 && req.headers.password === result[0].Password) {
       user_id = result[0].ID;
-      db.getUserInfo(user_id).then(function (result2) {
+      db.getUserInfoById(user_id).then(function (result2) {
         res.setHeader('Content-Type', 'application/json');
         res.json({
           _id: user_id,
