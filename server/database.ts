@@ -233,7 +233,7 @@ export class DB {
                     WHERE Commisioner = TRUE
                     GROUP BY LeagueID
                 ) AS league_owner ON league_owner.LeagueID = ID
-            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID 
+            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID
             WHERE UserID = ?`,
             [userID]
         );
