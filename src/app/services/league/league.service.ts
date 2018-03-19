@@ -6,6 +6,12 @@ import { League } from '../../models/league';
 @Injectable()
 export class LeagueService {
 
-  constructor() { }
+  endpoint = 'http://localhost:8000/api';
+
+  constructor(private http: HttpClient) { }
+
+  public getUserLeagues(userId: number) {
+    return this.http.get(`${this.endpoint}/user/${userId}/leagues`);
+  }
 
 }
