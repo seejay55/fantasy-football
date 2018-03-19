@@ -1,6 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Hind');
+
+/* Setting custom colors for overall theme */
+:root {
+  --background-color: #141d26;
+  --block-color: #1b2836;
+  --primary-color: #007bff;
+}
+
 * {
   font-size: 14px;
   font-family: 'Hind', sans-serif;
+}
+
+.content-block {
+  background-color: var(--block-color);
+  position: relative;
+  margin: 5px -10px;
+  padding: 10px;
+  border: 1px solid black;
 }

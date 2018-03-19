@@ -1,4 +1,71 @@
+.navbar {
+  padding: 4px 15px;
+  background-color: var(--block-color);
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: #007bff;
+  -webkit-transition: .15s ease-in;
+  transition: .15s ease-in;
+}
+
+.navbar .navbar-brand:hover {
+  font-weight: bold;
+  color: white;
+  -webkit-transition: .15s ease-in;
+  transition: .15s ease-in;
+}
+
 .breadcrumb {
   border-radius: 0px;
   padding: 6px 15px;
+  margin-bottom: 0px;
+}
+
+.dropdown .nav-link {
+  font-size: 15px;
+  color: white;
+}
+
+.dropdown .nav-link:hover {
+  border-radius: 2px;
+  background-color: #007bff;
+  color: white;
+  -webkit-transition: .20s ease-in;
+  transition: .20s ease-in;
+}
+
+.dropdown .dropdown-menu {
+  border-color: silver;
+  background-color: var(--block-color);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown .dropdown-menu .dropdown-item {
+  color: white;
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:focus {
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+.dropdown .form input {
+  background-color: var(--background-color);
+  color: white;
+}
+
+.dropdown .form small {
+  color: white;
 }
