@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-user-pass-content',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPassContentComponent implements OnInit {
 
+  @Input() user: User;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submitUsername(){
+    
+  }
+
+  submitPassword(){
+
   }
 
 }

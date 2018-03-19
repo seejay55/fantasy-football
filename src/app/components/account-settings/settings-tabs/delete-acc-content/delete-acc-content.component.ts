@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../../../models/user';
+import {UserService} from '../../../../services/user/user.service'
 
 @Component({
   selector: 'app-delete-acc-content',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteAccContentComponent implements OnInit {
 
+  @Input() user: User;
+
   bool : boolean;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.bool = false;
@@ -17,6 +21,8 @@ export class DeleteAccContentComponent implements OnInit {
 
   deleteClick(){
     this.bool = true;
+    //this.userService.deleteUser(this.user._id);
+    
   }
 
 

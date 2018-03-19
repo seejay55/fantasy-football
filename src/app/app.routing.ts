@@ -61,6 +61,7 @@ const routes: Routes = [
     CreateLeagueComponent,
     FindLeagueComponent,
     FindUserComponent,
+    LeagueInformationPageComponent,
     NotFoundPageComponent
   ],
   imports: [

@@ -8,15 +8,11 @@
         <form>
           <label>First Name</label>
           <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="First Name">
+            <input type="text" class="form-control" placeholder="{{user?.firstName}}">
           </div>
           <label>Last Name</label>
           <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="Last Name">
-          </div>
-          <label>Edit Birthday</label>
-          <div class="input-group mb-2">
-            <input type="date" class="form-control">
+            <input type="text" class="form-control" placeholder="{{user?.lastName}}">
           </div>
           <label>Edit Favorite Team</label>
           <select class="form-control">
@@ -27,6 +23,6 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-success btn-block">Submit</button>
+      <button type="submit" class="btn btn-success btn-block" (click)="submitProfileInfo()">Submit</button>
     </div>
   </div>
