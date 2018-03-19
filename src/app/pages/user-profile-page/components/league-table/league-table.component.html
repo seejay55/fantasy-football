@@ -12,12 +12,12 @@
   <tbody class="table-body">
     <tr *ngFor="let league of leagues">
       <td>
-        <a class="text-white" routerLink="league/:id">{{league.name}}</a>
+        <a class="link" routerLink="league/:id">{{league.name}}</a>
       </td>
       <td>
-        <a class="text-white" [routerLink]="['/user', league.ownerUserName]">{{league.ownerUserName}}</a>
+        <a class="link" [routerLink]="['/user', league.ownerUserName]">{{league.ownerUserName}}</a>
       </td>
-      <td>{{league.numMembers}}</td>
+      <td><a class="link" routerLink="league/:id/members">{{league.numMembers}}</a></td>
     </tr>
   </tbody>
 </table>

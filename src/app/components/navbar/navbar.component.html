@@ -57,7 +57,7 @@
         <li class="nav-item dropdown" *ngIf="!(authService.isLoggedIn() | async)">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            Log In
+            LOG IN
           </a>
           <ul class="dropdown-menu dropdown-menu-right" style="width: 250px">
             <li class="p-3">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group text-center">
                   <small>No account?
-                    <a href="#" data-toggle="dropdown" routerLink="/register-account">Register now.</a>
+                    <a class="link" style="color: var(--primary-color)" data-toggle="dropdown" routerLink="/register-account">Register now.</a>
                   </small>
                 </div>
               </form>

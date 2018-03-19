@@ -4,7 +4,14 @@
 :root {
   --background-color: #141d26;
   --block-color: #1b2836;
+  --nav-color: #243447;
+
   --primary-color: #007bff;
+  --secondary-color: ;
+  --success-color: ;
+  --danger-color: ;
+  --warning-color: ;
+  --info-color: ;
 }
 
 * {
@@ -14,8 +21,18 @@
 
 .content-block {
   background-color: var(--block-color);
+  color: white;
   position: relative;
-  margin: 5px -10px;
+  margin: 0px -10px 5px;
   padding: 10px;
   border: 1px solid black;
+}
+
+.link, .link:visited {
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+  text-decoration: underline;
 }

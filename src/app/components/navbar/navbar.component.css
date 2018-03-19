@@ -1,6 +1,6 @@
 .navbar {
   padding: 4px 15px;
-  background-color: var(--block-color);
+  background-color: var(--nav-color);
 }
 
 .navbar .navbar-brand {
@@ -20,7 +20,7 @@
 .breadcrumb {
   border-radius: 0px;
   padding: 6px 15px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .dropdown .nav-link {
@@ -37,10 +37,8 @@
 }
 
 .dropdown .dropdown-menu {
-  border-color: silver;
-  background-color: var(--block-color);
-  padding-left: 5px;
-  padding-right: 5px;
+  background-color: var(--nav-color);
+  border-radius: 5px;
 }
 
 .dropdown:hover>.dropdown-menu {
@@ -49,21 +47,39 @@
 
 .dropdown .dropdown-menu .dropdown-item {
   color: white;
+  border-radius: 0px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #007bff;
-  border-radius: 2px;
 }
 
 .dropdown .dropdown-menu .dropdown-item:focus {
   background-color: #007bff;
-  border-radius: 2px;
+}
+
+.dropdown .dropdown-menu .dropdown-divider {
+  border-color: black;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 .dropdown .form input {
-  background-color: var(--background-color);
+  background-color: var(--block-color);
+  border-color: var(--block-color);
   color: white;
+}
+
+.dropdown .form input:focus {
+  background-color: var(--block-color);
+  border-color: var(--primary-color);
+  color: white;
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .dropdown .form small {
