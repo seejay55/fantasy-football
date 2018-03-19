@@ -59,6 +59,13 @@ app.get("/api/user/authenticate", function (req, res) {
   });
 });
 
+app.get("/api/user/:user_id/leagues", function(req, res) {
+    var id = req.params.user_id;
+    db.getAllLeaguesForUser(id).then(function (result) {
+        res.send(result);
+    });
+});
+
 app.get("/api/user/:user", function (req, res) {
   var user = req.params.user;
   var isId = !isNaN(parseInt(user));
