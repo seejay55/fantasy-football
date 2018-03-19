@@ -41,7 +41,7 @@ export class AuthService {
           this.setCurrentUser(user);
       },
         (err) => {
-          this.alertService.danger('Error', err.error, false);
+          this.alertService.danger(err.name, err.message, false);
         }
       );
   }

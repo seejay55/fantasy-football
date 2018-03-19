@@ -1,0 +1,21 @@
+.card {
+  color: white;
+  background-color: var(--block-color);
+  border-color: var(--block-color);
+}
+
+.card .list-group .list-group-item .badge {
+  font-size: 13px;
+}
+
+.list-group .list-group-item {
+  color: white;
+  background-color: var(--block-color);
+  border-color: var(--background-color);
+  border-radius: 0px;
+}
+
+.list-group .list-group-item:hover {
+  color: white;
+  background-color: var(--primary-color);
+}

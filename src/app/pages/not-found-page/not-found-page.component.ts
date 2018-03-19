@@ -22,7 +22,7 @@ export class NotFoundPageComponent implements OnInit {
     },
     {
       header: 'Congrats.',
-      lead: `You managed to, once again, screw up this entire website.`,
+      lead: `You managed to, once again, to screw up this entire website.`,
       small: `We're getting really sick of you...`,
       button: `I'm getting sick of me too.`
     },
@@ -36,7 +36,7 @@ export class NotFoundPageComponent implements OnInit {
       header: 'Really?',
       lead: `You see that button? Click it.`,
       small: `(Hint: it's the one right below this.)`,
-      button: `Yes, me.`
+      button: `Yes, this one.`
     },
     {
       header: 'Oh. You again...',

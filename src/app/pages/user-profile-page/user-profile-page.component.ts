@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
 import { BreadcrumbService } from 'angular-crumbs';
 import { AlertService } from '../../shared/services/alert.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile-page',
@@ -22,10 +23,10 @@ export class UserProfilePageComponent implements OnInit {
 
   isSame: Boolean = false;
 
-  invites;
+  invites: number[] = [];
 
-  leaguesCreated;
-  leagues = [
+  createdLeagues;
+  allLeagues = [
     {
       name: 'Super Cool League',
       ownerUserName: 'NGrey5',
@@ -90,12 +91,14 @@ export class UserProfilePageComponent implements OnInit {
         this.isSame = this.isSameUser();
         this.filterLeagues();
       },
-      (err) => { this.userNotExist(userName); }
+      (err) => {
+        this.errorHandler(err);
+      }
     );
   }
 
   private filterLeagues(): void {
-    this.leaguesCreated = this.leagues.filter(
+    this.createdLeagues = this.allLeagues.filter(
       league => league.ownerUserName === this.pageUser.userName
     );
   }
@@ -108,8 +111,9 @@ export class UserProfilePageComponent implements OnInit {
     }
   }
 
-  private userNotExist(userName: string): void {
-    this.alertService.danger('Error', `User @${userName} does not exist`, true);
+  private errorHandler(err: HttpErrorResponse) {
+    if (err.error) { this.alertService.danger(err.statusText, err.error, true); } else {
+      this.alertService.danger(err.statusText, err.message, true); }
     this.location.back();
   }
 
