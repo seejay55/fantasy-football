@@ -157,13 +157,10 @@ var DB = /** @class */ (function () {
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
         var _this = this;
-        var statement = mysql.format('UPDATE leagues SET TeamsInLeague = TeamsInLeague+1 WHERE ID = ?', [leagueID]);
-        var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement).then(function () {
-            _this.query(statement1).then(function () {
-                _this.query(statement2);
-            });
+            _this.query(statement2);
         });
     };
     DB.prototype.deleteInvite = function (recieveID, leagueID) {

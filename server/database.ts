@@ -232,10 +232,6 @@ export class DB {
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     insertUserIntoLeague(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
-            'UPDATE leagues SET TeamsInLeague = TeamsInLeague+1 WHERE ID = ?',
-            [leagueID]
-        );
-        const statement1 = mysql.format(
             'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
             [leagueID, recieveID]
         );
@@ -246,9 +242,7 @@ export class DB {
         );
 
         return this.query(statement).then(() => {
-            this.query(statement1).then(() => {
-                this.query(statement2);
-            });
+            this.query(statement2);
         });
     }
 
