@@ -43,7 +43,11 @@ app.get("/api/user/authenticate", function (req, res) {
   db.getUserLoginInfo(email).then(function (result) {
     if (result.length > 0 && req.headers.password === result[0].Password) {
       user_id = result[0].ID;
+<<<<<<< HEAD
       db.getUserInfo(user_id).then(function (result2) {
+=======
+      db.getUserInfoById(user_id).then(function (result2) {
+>>>>>>> a16069768e6b949f5e5d915ad42c19e9b40074f3
         res.setHeader('Content-Type', 'application/json');
         res.json({
           _id: user_id,
@@ -57,6 +61,16 @@ app.get("/api/user/authenticate", function (req, res) {
       res.status(500).json('Email or Password is Incorrect');
     }
   });
+<<<<<<< HEAD
+=======
+});
+
+app.get("/api/user/:user_id/leagues", function(req, res) {
+    var id = req.params.user_id;
+    db.getAllLeaguesForUser(id).then(function (result) {
+        res.send(result);
+    });
+>>>>>>> a16069768e6b949f5e5d915ad42c19e9b40074f3
 });
 
 app.get("/api/user/:user", function (req, res) {

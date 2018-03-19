@@ -216,6 +216,31 @@ export class DB {
         return this.query(statement);
     }
 
+    getAllLeaguesForUser(userID: number): any {
+        const statement = mysql.format(
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM fantasyfootball18.league_members
+            LEFT JOIN (
+                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+                FROM leagues
+                LEFT JOIN (
+                    SELECT LeagueID, COUNT(UserID) AS NumTeams
+                    FROM league_members
+                    GROUP BY LeagueID
+                ) AS member_count ON member_count.LeagueID = ID
+                LEFT JOIN (
+                    SELECT LeagueID, UserID AS OwnerID
+                    FROM league_members
+                    WHERE Commisioner = TRUE
+                    GROUP BY LeagueID
+                ) AS league_owner ON league_owner.LeagueID = ID
+            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID
+            WHERE UserID = ?`,
+            [userID]
+        );
+        return this.query(statement);
+    }
+
     searchUserResults(senderID: number, searchParams: string): any {
         searchParams = '%' + searchParams + '%';
         const statement = mysql.format(
