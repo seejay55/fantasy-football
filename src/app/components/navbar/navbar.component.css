@@ -5,7 +5,7 @@
 
 .navbar .navbar-brand {
   font-weight: bold;
-  color: #007bff;
+  color: var(--primary-color);
   -webkit-transition: .15s ease-in;
   transition: .15s ease-in;
 }
@@ -21,6 +21,7 @@
   border-radius: 0px;
   padding: 6px 15px;
   margin-bottom: 5px;
+  background-color: var(--primary-color);
 }
 
 .dropdown .nav-link {

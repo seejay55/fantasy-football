@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../../models/user';
+import { Invite } from '../../models/invite';
 
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
@@ -23,7 +24,7 @@ export class UserProfilePageComponent implements OnInit {
 
   isSame: Boolean = false;
 
-  invites: number[] = [];
+  invites: Invite[] = [];
 
   createdLeagues;
   allLeagues = [
@@ -89,6 +90,7 @@ export class UserProfilePageComponent implements OnInit {
         this.breadcrumbService.changeBreadcrumb(this.activatedRoute.snapshot, this.pageUser.userName);
 
         this.isSame = this.isSameUser();
+        this.getUserInvites();
         this.filterLeagues();
       },
       (err) => {
@@ -111,9 +113,32 @@ export class UserProfilePageComponent implements OnInit {
     }
   }
 
+  private getUserInvites() {
+    this.invites = [];
+    if (this.isSame) {
+      this.userService.getInvites(this.currentUser._id).subscribe(
+        (invites) => {
+          invites.forEach(invite => {
+            const temp = new Invite(
+              invite.SenderID,
+              invite.SenderUsername,
+              invite.SenderFirstName,
+              invite.SenderLastName,
+              invite.LeagueID,
+              invite.LeagueName,
+              invite.Date,
+              invite.Age );
+            this.invites.push(temp);
+          });
+         }
+      );
+    }
+  }
+
   private errorHandler(err: HttpErrorResponse) {
     if (err.error) { this.alertService.danger(err.statusText, err.error, true); } else {
-      this.alertService.danger(err.statusText, err.message, true); }
+      this.alertService.danger(err.statusText, err.message, true);
+    }
     this.location.back();
   }
 

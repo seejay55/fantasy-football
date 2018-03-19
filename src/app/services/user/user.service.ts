@@ -49,7 +49,7 @@ export class UserService {
   }
 
   public getInvites(userId: number) {
-    return this.http.get(`${this.endpoint}/user/${userId}/invites`);
+    return this.http.get<any[]>(`${this.endpoint}/user/${userId}/invites`);
   }
 
   public acceptInvite(userId: number, leagueId: number) {

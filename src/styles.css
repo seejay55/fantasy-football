@@ -7,18 +7,20 @@
   --nav-color: #243447;
 
   --primary-color: #007bff;
-  --secondary-color: ;
+  --secondary-color: silver;
   --success-color: ;
   --danger-color: ;
   --warning-color: ;
   --info-color: ;
 }
 
+/* GLOBAL STYLE FOR ALL TAGS, CLASSES, AND IDs */
 * {
   font-size: 14px;
   font-family: 'Hind', sans-serif;
 }
 
+/* CONTENT SECTION FOR ITEMS INSIDE COL TAG */
 .content-block {
   background-color: var(--block-color);
   color: white;
@@ -27,11 +29,19 @@
   padding: 10px;
   border: 1px solid black;
 }
+/* BORDERLESS */
+.content-block-borderless {
+  background-color: var(--block-color);
+  color: white;
+  position: relative;
+  margin: 0px -10px 5px;
+  padding: 10px;
+}
 
+/* GLOBAL OVERRIDDEN LINK STYLE */
 .link, .link:visited {
   color: inherit;
 }
-
 .link:hover {
   color: inherit;
   text-decoration: underline;
