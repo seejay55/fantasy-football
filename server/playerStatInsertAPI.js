@@ -31,43 +31,31 @@ connection.connect(function (err) {
   console.log('Connection established.');
 });
 
+var check = 0;
 fetch('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=' + season + '&week=' + number + '&format=json')
   .then(function (data) {
     return (data.json());
 
   })
   .then(function (json) {
-    console.log('Now inserting player and player stats for Season: ' + season + ', week ' + number + '.');
-    var playerQuery = 'INSERT INTO nfl_players SET ? ON DUPLICATE KEY UPDATE player_id = player_id';
     for (var i = 0; i < json.players.length; i++) {
-      const player = {
-        player_id: json.players[i].id,
-        player_name: json.players[i].name,
-        player_pos: json.players[i].position,
-        team_abbr: json.players[i].teamAbbr
-      };
-      const playerStats = {
-        year: json.season,
-        week: json.week,
-        player_id: json.players[i].id,
-        season_pts: json.players[i].seasonPts,
-        season_predicted_pts: json.players[i].seasonProjectedPts,
-        week_pts: json.players[i].weekPts,
-        week_predicted_pts: json.players[i].weekProjectedPts
-      };
-      connection.query(playerQuery, player, (err, res) => {
-        if (err) {
-          throw err;
-        }
-      });
-      connection.query('INSERT INTO nfl_stats SET ?', playerStats, (error, res) => {
-        if (error) {
-          throw error;
-        }
-      });
+      var playerID = json.players[i].id;
+      for (const prop in json.players[i].stats) {
+        check++;
+        console.log(check);
+        const statValues = {
+          PlayerID: playerID,
+          StatID: prop,
+          GameStatValue: json.players[i].stats[prop]
+        };
+        connection.query('INSERT INTO game_stats_totals SET ?', statValues, (error, res) => {
+          if (error) {
+            throw error;
+          }
+        });
+      }
     }
     connection.end();
-    console.log('Completed insert command.');
   })
   .catch(function (error) {
     console.log(error);

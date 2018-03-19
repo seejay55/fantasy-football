@@ -39,6 +39,57 @@ export class DB {
         });
     }
 
+    private query2(statement: string): any {
+        let queryResult: any;
+        let formatedJSON = '[';
+        let previousName: any;
+        let check = 0;
+        return new Promise((resolve, reject) => {
+            this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
+                if (conError) {
+                    reject('DB Error(Conn):\n' + conError);
+                }
+                con.query(statement, (error: MysqlError, result: any) => {
+                    if (error) {
+                        reject('DB Error(Query):\n' + error);
+                    }
+                    previousName = '';
+                    queryResult = JSON.parse(JSON.stringify(result));
+                    for (let i = 0; i < queryResult.length; i++) {
+                        if (queryResult[i].PlayerName === previousName) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                        } else if (i === 0) {
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        } else if (check === 0) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                            check = 1;
+                        } else {
+                            check = 0;
+                            formatedJSON = formatedJSON.slice(0, -1);
+                            formatedJSON = formatedJSON + (']},');
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        }
+                    }
+                    formatedJSON = formatedJSON.slice(0, -1);
+                    formatedJSON = formatedJSON + ']}]';
+
+                    resolve(JSON.parse(formatedJSON));
+
+                }).on('end', () => {
+                    con.release();
+                });
+            });
+        });
+    }
+
     getAllUsers(): any {
         const statement =
             'SELECT * FROM userinfo';
@@ -208,7 +259,7 @@ export class DB {
         return this.query(statement);
     }
 
-    // Miscellaneous queries to be used
+    //  Find League
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
             'SELECT * FROM leagues WHERE id = ?',
@@ -389,5 +440,16 @@ export class DB {
             [playerID, year, week]
         );
         return this.query(statement);
+    }
+
+    // Luke Stats
+    getStats(): any {
+        const statement = mysql.format(
+            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM nfl_players
+            JOIN game_stats_totals ON nfl_players.player_id = game_stats_totals.PlayerID
+            JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID`,
+            []
+        );
+        return this.query2(statement);
     }
 }
