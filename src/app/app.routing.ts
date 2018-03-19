@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 // Nick
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 // Austin
 import { RegisterWelcomeComponent } from './components/register-welcome/register-welcome.component';
 import { ProfileCardComponent } from './components/account-settings/profile-card/profile-card.component';
@@ -28,15 +29,16 @@ import { LeagueInvitesComponent } from './components/league-invites/league-invit
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-  { path: 'homepage',           component: HomepageComponent,         data: { breadcrumb: 'Homepage'}},
-  { path: 'create-league',      component: CreateLeagueComponent,     data: { breadcrumb: 'Create League'}},
-  { path: 'find-league',        component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
-  { path: 'league-invites',     component: LeagueInvitesComponent,    data: { breadcrumb: 'League Invites'}},
-  { path: 'register-account',   component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
-  { path: 'settings',           component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
-  { path: 'find-user',          component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
-  { path: 'welcome',            component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
-  { path: '404',                component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
+  { path: 'homepage',                         component: HomepageComponent,         data: { breadcrumb: 'Homepage'}},
+  { path: 'create-league',                    component: CreateLeagueComponent,     data: { breadcrumb: 'Create League'}},
+  { path: 'find-league',                      component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
+  { path: 'user/:userName/invites',           component: LeagueInvitesComponent,    data: { breadcrumb: 'My Invites'}},
+  { path: 'register-account',                 component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
+  { path: 'user/:userName/account-settings',  component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
+  { path: 'find-user',                        component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
+  { path: 'welcome',                          component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
+  { path: 'user/:userName',                   component: UserProfilePageComponent,  data: { breadcrumb: 'Profile Page'}},
+  { path: '404',                              component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
   { path: '**', redirectTo: '404'},
 
 ];
@@ -57,6 +59,7 @@ const routes: Routes = [
     CreateLeagueComponent,
     FindLeagueComponent,
     FindUserComponent,
+    UserProfilePageComponent,
     NotFoundPageComponent
   ],
   imports: [

@@ -12,23 +12,6 @@ import { User } from '../../models/user';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  navMenu = [
-    {
-      name: 'Leagues',
-      children: [
-        { name: 'Find League', route: '/find-league', active: true, dividerBelow: false },
-        { name: 'Create League', route: '/create-league', active: true, dividerBelow: false },
-        { name: 'League Invites', route: '/league-invites', active: true, dividerBelow: false }
-      ]
-    },
-    {
-      name: 'Find Users',
-      children: [
-        { name: 'Find User', route: '/find-user', active: true, dividerBelow: false },
-      ]
-    }
-  ];
-
   user: User;
   userSubscription: any;
 
