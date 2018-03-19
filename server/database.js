@@ -106,7 +106,7 @@ var DB = /** @class */ (function () {
     DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
         var _this = this;
         var statement = mysql.format('UPDATE leagues SET TeamsInLeague = TeamsInLeague+1 WHERE ID = ?', [leagueID]);
-        var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
+        var statement1 = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, "NO TEAM NAME", 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement).then(function () {
             _this.query(statement1).then(function () {

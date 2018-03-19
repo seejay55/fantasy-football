@@ -32,7 +32,6 @@ export class DB {
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
                     resolve(queryResult);
-
                 }).on('end', () => {
                     con.release();
                 });
@@ -185,7 +184,7 @@ export class DB {
             [leagueID]
         );
         const statement1 = mysql.format(
-            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
+            'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, "NO TEAM NAME", 0)',
             [leagueID, recieveID]
         );
 

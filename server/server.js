@@ -94,7 +94,13 @@ app.patch("/api/user/:user_id", function (req, res) {
     });
 });
 
-//Get incoming invites (sender id, sender name, league id, league name, sent date)
+app.delete("/api/user/:user_id", function (req, res) {
+    var id = req.params.user_id;
+    db.deleteUser(id).then(function (result) {
+        res.status(204);
+    });
+});
+
 app.get("/api/user/:user_id/invites", function (req, res) {
     var id = req.params.user_id;
     db.getAllLeagueInvites(id).then(function (result) {
@@ -102,7 +108,7 @@ app.get("/api/user/:user_id/invites", function (req, res) {
         res.json(result);
     });
 });
-//Accept invite
+
 app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
     var user_id = req.params.user_id;
     var league_id = req.params.league_id;
@@ -111,11 +117,11 @@ app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
             res.status(500).send("Error Accepting Invite");
         }
         else {
-            res.status(200).send("Successfully Accepted Invite");
+            res.send("Successfully Accepted Invite");
         }
     });
 });
-//Decline invite
+
 app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
     var user_id = req.params.user_id;
     var league_id = req.params.league_id;
@@ -124,15 +130,8 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
             res.status(500).send("Error Deleting Invite");
         }
         else {
-            res.status(200).send("Successfully Deleted Invite");
+            res.send("Successfully Deleted Invite");
         }
-    });
-});
-
-app.delete("/api/user/:user_id", function (req, res) {
-    var id = req.params.user_id;
-    db.deleteUser(id).then(function (result) {
-        res.status(204);
     });
 });
 
