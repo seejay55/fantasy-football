@@ -11,7 +11,11 @@ export class LeagueService {
   constructor(private http: HttpClient) { }
 
   public getUserLeagues(userId: number) {
+<<<<<<< HEAD
     return this.http.get<any[]>(`${this.endpoint}/user/${userId}/leagues`);
+=======
+    return this.http.get(`${this.endpoint}/user/${userId}/leagues`);
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
   }
 
 }

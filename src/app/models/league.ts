@@ -11,6 +11,7 @@ export class League {
   leaguePrivacy: string;
   maxTrades: number;
 
+<<<<<<< HEAD
   constructor(
     _id: number,
     name: string,
@@ -34,5 +35,8 @@ export class League {
       this.leaguePrivacy = leaguePrivacy;
       this.maxTrades = maxTrades;
     }
+=======
+  constructor() {}
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
 
 }

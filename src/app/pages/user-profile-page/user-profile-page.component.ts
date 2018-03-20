@@ -3,7 +3,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../../models/user';
+<<<<<<< HEAD
 import { League } from '../../models/league';
+=======
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
 import { Invite } from '../../models/invite';
 
 import { AuthService } from '../../services/auth/auth.service';
@@ -29,8 +32,12 @@ export class UserProfilePageComponent implements OnInit {
   invites: Invite[] = [];
 
   createdLeagues;
+<<<<<<< HEAD
   allLeagues: League[] = [];
   /* allLeagues = [
+=======
+  allLeagues = [
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
     {
       name: 'Super Cool League',
       ownerUserName: 'NGrey5',
@@ -94,12 +101,18 @@ export class UserProfilePageComponent implements OnInit {
         this.breadcrumbService.changeBreadcrumb(this.activatedRoute.snapshot, this.pageUser.userName);
 
         this.isSame = this.isSameUser();
+<<<<<<< HEAD
         this.getUserLeagues();
         this.getUserInvites();
+=======
+        this.getUserInvites();
+        this.filterLeagues();
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
       },
       (err) => {
         this.errorHandler(err);
       }
+<<<<<<< HEAD
     );
   }
 
@@ -123,13 +136,19 @@ export class UserProfilePageComponent implements OnInit {
         });
         this.filterLeagues();
       }
+=======
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
     );
     console.log(this.allLeagues);
   }
 
   private filterLeagues(): void {
     this.createdLeagues = this.allLeagues.filter(
+<<<<<<< HEAD
       league => league.ownerId === this.pageUser._id
+=======
+      league => league.ownerUserName === this.pageUser.userName
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
     );
     console.log(this.createdLeagues);
   }
@@ -156,10 +175,17 @@ export class UserProfilePageComponent implements OnInit {
               invite.LeagueID,
               invite.LeagueName,
               invite.Date,
+<<<<<<< HEAD
               invite.Age);
             this.invites.push(temp);
           });
         }
+=======
+              invite.Age );
+            this.invites.push(temp);
+          });
+         }
+>>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
       );
     }
   }
