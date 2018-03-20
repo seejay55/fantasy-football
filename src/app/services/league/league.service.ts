@@ -11,7 +11,7 @@ export class LeagueService {
   constructor(private http: HttpClient) { }
 
   public getUserLeagues(userId: number) {
-    return this.http.get(`${this.endpoint}/user/${userId}/leagues`);
+    return this.http.get<any[]>(`${this.endpoint}/user/${userId}/leagues`);
   }
 
 }

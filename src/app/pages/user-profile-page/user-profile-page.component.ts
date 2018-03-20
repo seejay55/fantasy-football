@@ -3,10 +3,12 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../../models/user';
+import { League } from '../../models/league';
 import { Invite } from '../../models/invite';
 
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
+import { LeagueService } from '../../services/league/league.service';
 import { BreadcrumbService } from 'angular-crumbs';
 import { AlertService } from '../../shared/services/alert.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -15,7 +17,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'app-user-profile-page',
   templateUrl: './user-profile-page.component.html',
   styleUrls: ['./user-profile-page.component.css'],
-  providers: [UserService]
+  providers: [UserService, LeagueService]
 })
 export class UserProfilePageComponent implements OnInit {
 
@@ -27,7 +29,8 @@ export class UserProfilePageComponent implements OnInit {
   invites: Invite[] = [];
 
   createdLeagues;
-  allLeagues = [
+  allLeagues: League[] = [];
+  /* allLeagues = [
     {
       name: 'Super Cool League',
       ownerUserName: 'NGrey5',
@@ -58,7 +61,7 @@ export class UserProfilePageComponent implements OnInit {
       ownerUserName: 'Superman69',
       numMembers: Math.floor(Math.random() * 20)
     }
-  ];
+  ]; */
 
   constructor(
     public authService: AuthService,
@@ -66,7 +69,8 @@ export class UserProfilePageComponent implements OnInit {
     private userService: UserService,
     private location: Location,
     private breadcrumbService: BreadcrumbService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private leagueService: LeagueService
   ) { }
 
   ngOnInit() {
@@ -90,8 +94,8 @@ export class UserProfilePageComponent implements OnInit {
         this.breadcrumbService.changeBreadcrumb(this.activatedRoute.snapshot, this.pageUser.userName);
 
         this.isSame = this.isSameUser();
+        this.getUserLeagues();
         this.getUserInvites();
-        this.filterLeagues();
       },
       (err) => {
         this.errorHandler(err);
@@ -99,10 +103,35 @@ export class UserProfilePageComponent implements OnInit {
     );
   }
 
+  private getUserLeagues(): void {
+    this.leagueService.getUserLeagues(this.pageUser._id).subscribe(
+      (leagues) => {
+        leagues.forEach(league => {
+          const temp = new League(
+            league.ID,
+            league.Name,
+            league.OwnerID,
+            'Owner Name',
+            99,
+            league.Year,
+            league.MaxTeams,
+            league.TypeScoring,
+            league.LeaguePrivacy,
+            league.MaxTrades
+          );
+          this.allLeagues.push(temp);
+        });
+        this.filterLeagues();
+      }
+    );
+    console.log(this.allLeagues);
+  }
+
   private filterLeagues(): void {
     this.createdLeagues = this.allLeagues.filter(
-      league => league.ownerUserName === this.pageUser.userName
+      league => league.ownerId === this.pageUser._id
     );
+    console.log(this.createdLeagues);
   }
 
   private isSameUser(): Boolean {
@@ -127,10 +156,10 @@ export class UserProfilePageComponent implements OnInit {
               invite.LeagueID,
               invite.LeagueName,
               invite.Date,
-              invite.Age );
+              invite.Age);
             this.invites.push(temp);
           });
-         }
+        }
       );
     }
   }
