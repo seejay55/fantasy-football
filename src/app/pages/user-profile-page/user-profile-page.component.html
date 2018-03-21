@@ -13,8 +13,7 @@
           </div>
           <ul class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action" [routerLink]="['/user', currentUser.userName, 'account-settings']" *ngIf="isSame">Account Settings</a>
-            <a class="list-group-item list-group-item-action text-danger d-flex justify-content-between align-items-center" routerLink="/404"
-              *ngIf="isSame">
+            <a class="list-group-item list-group-item-action text-danger d-flex justify-content-between align-items-center" routerLink="/404">
               Leagues
               <span class="badge badge-primary">{{allLeagues.length}}</span>
             </a>
@@ -32,6 +31,17 @@
     <!-- COLUMN 2 -->
     <div class="col-md-7">
       <div class="content-block">
+        <!-- NOT IN ANY LEAGUES MESSAGES -->
+        <div *ngIf="!allLeagues.length && !createdLeagues.length">
+          <div *ngIf="isSame" class="alert alert-dark text-center" role="alert">
+            You are not in any leagues.
+            <a routerLink="/find-league">Join one!</a>
+          </div>
+          <div *ngIf="!isSame" class="alert alert-dark text-center" role="alert">
+            <strong>@{{pageUser.userName}}</strong> is not in any leagues.
+          </div>
+        </div>
+
         <!-- CREATED LEAGUES TABLE -->
         <app-league-table *ngIf="!isSame" [tableHeader]="'Leagues @' + pageUser.userName + ' has created'" [leagues]="createdLeagues"></app-league-table>
         <app-league-table *ngIf="isSame" [tableHeader]="'Leagues you have created'" [leagues]="createdLeagues"></app-league-table>

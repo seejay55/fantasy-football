@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="website">
-  <app-navbar></app-navbar>
+  <app-navbar (setTheme)="setTheme($event)" [themes]="themes" [currentTheme]="currentTheme"></app-navbar>
   <div class="container">
     <app-alert></app-alert>
     <router-outlet></router-outlet>

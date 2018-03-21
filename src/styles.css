@@ -1,48 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Hind');
+@import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css');
 
-/* Setting custom colors for overall theme */
-:root {
-  --background-color: #141d26;
-  --block-color: #1b2836;
-  --nav-color: #243447;
-
-  --primary-color: #007bff;
-  --secondary-color: silver;
-  --success-color: ;
-  --danger-color: ;
-  --warning-color: ;
-  --info-color: ;
-}
+@import url('./styles/themes.css'); /* Light & Dark Themes for application */
+@import url('./styles/content-block.css'); /* .content-block class styles for individual content sections */
+@import url('./styles/global/bundle.css');
 
 /* GLOBAL STYLE FOR ALL TAGS, CLASSES, AND IDs */
 * {
   font-size: 14px;
   font-family: 'Hind', sans-serif;
-}
-
-/* CONTENT SECTION FOR ITEMS INSIDE COL TAG */
-.content-block {
-  background-color: var(--block-color);
-  color: white;
-  position: relative;
-  margin: 0px -10px 5px;
-  padding: 10px;
-  border: 1px solid black;
-}
-/* BORDERLESS */
-.content-block-borderless {
-  background-color: var(--block-color);
-  color: white;
-  position: relative;
-  margin: 0px -10px 5px;
-  padding: 10px;
-}
-
-/* GLOBAL OVERRIDDEN LINK STYLE */
-.link, .link:visited {
-  color: inherit;
-}
-.link:hover {
-  color: inherit;
-  text-decoration: underline;
 }

@@ -1,6 +1,6 @@
 .navbar {
   padding: 4px 15px;
-  background-color: var(--nav-color);
+  background-color: var(--nav-background-color);
 }
 
 .navbar .navbar-brand {
@@ -12,7 +12,7 @@
 
 .navbar .navbar-brand:hover {
   font-weight: bold;
-  color: white;
+  color: var(--nav-foreground-color);
   -webkit-transition: .15s ease-in;
   transition: .15s ease-in;
 }
@@ -22,23 +22,24 @@
   padding: 6px 15px;
   margin-bottom: 5px;
   background-color: var(--primary-color);
+  color: var(--nav-foreground-color);
 }
 
 .dropdown .nav-link {
   font-size: 15px;
-  color: white;
+  color: var(--nav-foreground-color);
 }
 
 .dropdown .nav-link:hover {
   border-radius: 2px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--nav-foreground-color);
   -webkit-transition: .20s ease-in;
   transition: .20s ease-in;
 }
 
 .dropdown .dropdown-menu {
-  background-color: var(--nav-color);
+  background-color: var(--nav-background-color);
   border-radius: 5px;
 }
 
@@ -47,36 +48,34 @@
 }
 
 .dropdown .dropdown-menu .dropdown-item {
-  color: white;
+  color: var(--nav-foreground-color);
   border-radius: 0px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
 .dropdown .dropdown-menu .dropdown-item:hover {
-  background-color: #007bff;
+  background-color: var(--primary-color);
 }
 
 .dropdown .dropdown-menu .dropdown-item:focus {
-  background-color: #007bff;
+  background-color: var(--primary-color);
 }
 
 .dropdown .dropdown-menu .dropdown-divider {
-  border-color: black;
+  border-color: var(--outline-color);
   margin-left: 1px;
   margin-right: 1px;
 }
 
 .dropdown .form input {
-  background-color: var(--block-color);
-  border-color: var(--block-color);
-  color: white;
+  background-color: var(--content-block-color);
+  border-color: var(--content-block-color);
+  color: var(--foreground-color);
 }
 
 .dropdown .form input:focus {
-  background-color: var(--block-color);
   border-color: var(--primary-color);
-  color: white;
   outline: none;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -84,5 +83,5 @@
 }
 
 .dropdown .form small {
-  color: white;
+  color: var(--nav-foreground-color);
 }

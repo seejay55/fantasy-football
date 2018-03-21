@@ -3,10 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../../models/user';
-<<<<<<< HEAD
 import { League } from '../../models/league';
-=======
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
 import { Invite } from '../../models/invite';
 
 import { AuthService } from '../../services/auth/auth.service';
@@ -31,44 +28,8 @@ export class UserProfilePageComponent implements OnInit {
 
   invites: Invite[] = [];
 
-  createdLeagues;
-<<<<<<< HEAD
+  createdLeagues: League[] = [];
   allLeagues: League[] = [];
-  /* allLeagues = [
-=======
-  allLeagues = [
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
-    {
-      name: 'Super Cool League',
-      ownerUserName: 'NGrey5',
-      numMembers: Math.floor(Math.random() * 20)
-    },
-    {
-      name: 'Not So Cool League',
-      ownerUserName: 'Idiot',
-      numMembers: Math.floor(Math.random() * 20)
-    },
-    {
-      name: 'Football Tissue Paper',
-      ownerUserName: 'test',
-      numMembers: Math.floor(Math.random() * 20)
-    },
-    {
-      name: 'Yeah',
-      ownerUserName: 'NGrey5',
-      numMembers: Math.floor(Math.random() * 20)
-    },
-    {
-      name: 'Just naming names now',
-      ownerUserName: 'test2',
-      numMembers: Math.floor(Math.random() * 20)
-    },
-    {
-      name: 'A Name and a Half',
-      ownerUserName: 'Superman69',
-      numMembers: Math.floor(Math.random() * 20)
-    }
-  ]; */
 
   constructor(
     public authService: AuthService,
@@ -82,77 +43,38 @@ export class UserProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getCurrentUser()
-      .subscribe(user => {
-        this.currentUser = user;
-      }
-      );
-    this.activatedRoute.params.subscribe(
-      (params: Params) => {
-        const pageUserName = params['userName'];
-        this.getPageUser(pageUserName);
-      });
+    .subscribe(user => {
+      this.currentUser = user;
+    }
+  );
+  this.activatedRoute.params.subscribe(
+    (params: Params) => {
+      const pageUserName = params['userName'];
+      this.setPageUser(pageUserName);
+    });
   }
 
-  private getPageUser(userName: string): void {
+  // Set pageUser
+  private setPageUser(userName: string): void {
+    // Get User from database by username
     this.userService.getUserByUserName(userName).subscribe(
+      // Successful Data
       (user) => {
-        const temp = new User(user['0'].ID, '', user['0'].Username, user['0'].FirstName, user['0'].LastName);
-        this.pageUser = temp;
-        this.breadcrumbService.changeBreadcrumb(this.activatedRoute.snapshot, this.pageUser.userName);
+        user = user['0']; // set user = first item in array
+        const temp = new User(user.ID, '', user.Username, user.FirstName, user.LastName); // create user object off properties from database
+        this.pageUser = temp; // set the page user
+        this.breadcrumbService.changeBreadcrumb(this.activatedRoute.snapshot, this.pageUser.userName); // change breadcrumb to be page user
 
-        this.isSame = this.isSameUser();
-<<<<<<< HEAD
-        this.getUserLeagues();
-        this.getUserInvites();
-=======
-        this.getUserInvites();
-        this.filterLeagues();
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
+        this.isSame = this.isSameUser(); // check if pageUser is the same as currentUser and return true or false
+        this.setUserLeagues(); // get the leagues for the page user
+        this.setUserInvites(); // get the invites for the current user (if current user is same as page user)
       },
-      (err) => {
-        this.errorHandler(err);
-      }
-<<<<<<< HEAD
+      // Unsuccessful Data
+      (err) => { this.errorHandler(err); } // handle the error
     );
   }
 
-  private getUserLeagues(): void {
-    this.leagueService.getUserLeagues(this.pageUser._id).subscribe(
-      (leagues) => {
-        leagues.forEach(league => {
-          const temp = new League(
-            league.ID,
-            league.Name,
-            league.OwnerID,
-            'Owner Name',
-            99,
-            league.Year,
-            league.MaxTeams,
-            league.TypeScoring,
-            league.LeaguePrivacy,
-            league.MaxTrades
-          );
-          this.allLeagues.push(temp);
-        });
-        this.filterLeagues();
-      }
-=======
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
-    );
-    console.log(this.allLeagues);
-  }
-
-  private filterLeagues(): void {
-    this.createdLeagues = this.allLeagues.filter(
-<<<<<<< HEAD
-      league => league.ownerId === this.pageUser._id
-=======
-      league => league.ownerUserName === this.pageUser.userName
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
-    );
-    console.log(this.createdLeagues);
-  }
-
+  // Check if pageUser === currentUser
   private isSameUser(): Boolean {
     if (this.pageUser.userName === this.currentUser.userName) {
       return true;
@@ -161,9 +83,49 @@ export class UserProfilePageComponent implements OnInit {
     }
   }
 
-  private getUserInvites() {
-    this.invites = [];
+  // Set pageUser leagues if any
+  private setUserLeagues(): void {
+    this.allLeagues = []; // Clear all leagues for the page
+    // Get all leagues that user is in from database
+    this.leagueService.getUserLeagues(this.pageUser._id).subscribe(
+      // Successful Data
+      (leagues) => {
+        // For every league in array, create League Object
+        leagues.forEach(league => {
+          const temp = new League(
+            league.ID,
+            league.Name,
+            league.OwnerID,
+            league.OwnerName || 'Placeholder Owner',
+            league.NumMembers || 99,
+            league.Year,
+            league.MaxTeams,
+            league.TypeScoring,
+            league.LeaguePrivacy,
+            league.MaxTrades
+          );
+          this.allLeagues.push(temp); // Push current League Object to allLeagues array
+        });
+        this.filterLeagues(); // filter leagues based on owner
+      },
+      // Unsuccessful Data
+      (err) => { this.errorHandler(err); } // handle error
+    );
+  }
+
+  // Filter leagues based on owner
+  private filterLeagues(): void {
+    this.createdLeagues = this.allLeagues.filter(
+      league => league.ownerId === this.pageUser._id
+    );
+    // Set username for created leagues as current user
+    this.createdLeagues.forEach(league => league.ownerName = this.currentUser.userName);
+  }
+
+  // Set user invites if pageUser === currentUser
+  private setUserInvites(): void {
     if (this.isSame) {
+      this.invites = [];
       this.userService.getInvites(this.currentUser._id).subscribe(
         (invites) => {
           invites.forEach(invite => {
@@ -175,21 +137,15 @@ export class UserProfilePageComponent implements OnInit {
               invite.LeagueID,
               invite.LeagueName,
               invite.Date,
-<<<<<<< HEAD
               invite.Age);
             this.invites.push(temp);
           });
         }
-=======
-              invite.Age );
-            this.invites.push(temp);
-          });
-         }
->>>>>>> 617cc7059cb5b87cd1a61d636c61306fd48929dd
       );
     }
   }
 
+  // Handle any and all errors
   private errorHandler(err: HttpErrorResponse) {
     if (err.error) { this.alertService.danger(err.statusText, err.error, true); } else {
       this.alertService.danger(err.statusText, err.message, true);

@@ -51,6 +51,14 @@
             <a class="dropdown-item" [routerLink]="['/user', user?.userName]">My Profile</a>
             <a class="dropdown-item" [routerLink]="['/user', user?.userName, 'account-settings']">Account Settings</a>
             <div class="dropdown-divider"></div>
+            <ng-template ngFor let-theme [ngForOf]="themes">
+              <a href="javascript:;"
+                 *ngIf="!(theme.themeName === currentTheme.themeName)"
+                 class="dropdown-item"
+                 (click)="changeTheme(theme)"
+              >{{theme.themeName}}</a>
+            </ng-template>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" (click)="logOut()">Log Out</a>
           </div>
         </li>
@@ -89,7 +97,7 @@
   <breadcrumb #parent>
     <nav class="breadcrumb">
       <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
-        <a *ngIf="!route.terminal" class="breadcrumb-item text-white" href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+        <a *ngIf="!route.terminal" class="breadcrumb-item" href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
         <span *ngIf="route.terminal" class="breadcrumb-item active text-white">{{ route.displayName }}</span>
       </ng-template>
     </nav>

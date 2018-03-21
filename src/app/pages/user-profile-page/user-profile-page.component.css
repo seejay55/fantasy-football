@@ -1,7 +1,7 @@
 .card {
-  color: white;
+  color: var(--foreground-color);
   background-color: var(--block-color);
-  border-color: var(--block-color);
+  border-color: var(--content-block-color);
 }
 
 .card .list-group .list-group-item .badge {
@@ -9,8 +9,8 @@
 }
 
 .list-group .list-group-item {
-  color: white;
-  background-color: var(--block-color);
+  color: inherit;
+  background-color: var(--content-block-color);
   border-color: var(--background-color);
   border-radius: 0px;
 }
