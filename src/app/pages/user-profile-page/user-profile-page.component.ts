@@ -53,7 +53,7 @@ export class UserProfilePageComponent implements OnInit {
       this.setPageUser(pageUserName);
     });
 
-    //this.userService.updateUser(5, 'test5', 'test5', null).subscribe(user => console.log(user) );
+    // this.userService.updateUser(5, 'test5', 'test5', null).subscribe(user => console.log(user) );
     this.userService.createUser('createdUser1', 'createdUser1', 'createdUser1').subscribe(user => console.log(user));
   }
 
