@@ -20,8 +20,8 @@ export class UserService {
   }
 
   // send new user data, create that user, and return that user after database creation
-  public createUser(user: User, password: string) {
-    return this.http.post(`${this.endpoint}/users`, { body: { email: user.email, userName: user.userName, password: password } });
+  public createUser(email: string, userName: string, password: string) {
+    return this.http.post(`${this.endpoint}/users`, { body: { Email: email, Username: userName, Password: password } });
   }
 
 
@@ -39,7 +39,7 @@ export class UserService {
 
   // send updated user data, update that user, and return that user after database update
   public updateUser(userId: number, userName: string, password: string, profilePic: string) {
-    return this.http.patch(`${this.endpoint}/user/${userId}`, { body: { UserName: userName, Password: password , ProfilePic: profilePic} });
+    return this.http.patch(`${this.endpoint}/user/${userId}`, { body: { Username: userName, Password: password , ProfilePic: profilePic} });
   }
 
   // send id of user to be deleted, delete that user, then return status code.
