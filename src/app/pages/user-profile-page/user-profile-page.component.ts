@@ -52,6 +52,7 @@ export class UserProfilePageComponent implements OnInit {
       const pageUserName = params['userName'];
       this.setPageUser(pageUserName);
     });
+
   }
 
   // Set pageUser
