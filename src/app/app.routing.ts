@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 // Nick
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
+import { LeagueTableComponent } from './pages/user-profile-page/components/league-table/league-table.component';
 // Austin
 import { RegisterWelcomeComponent } from './components/register-welcome/register-welcome.component';
 import { ProfileCardComponent } from './components/account-settings/profile-card/profile-card.component';
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'homepage',                         component: HomepageComponent,         data: { breadcrumb: 'Homepage'}},
   { path: 'create-league',                    component: CreateLeagueComponent,     data: { breadcrumb: 'Create League'}},
   { path: 'find-league',                      component: FindLeagueComponent,       data: { breadcrumb: 'Find League'}},
-  { path: 'user/:userName/invites',           component: LeagueInvitesComponent,    data: { breadcrumb: 'My Invites'}},
+  { path: 'user/:userName/invites',           component: LeagueInvitesComponent,    data: { breadcrumb: 'Invites'}},
   { path: 'register-account',                 component: RegisterAccountComponent,  data: { breadcrumb: 'Register Account'}},
   { path: 'user/:userName/account-settings',  component: SettingsTabsComponent,     data: { breadcrumb: 'Account Settings'}},
   { path: 'find-user',                        component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
@@ -60,7 +61,8 @@ const routes: Routes = [
     FindLeagueComponent,
     FindUserComponent,
     UserProfilePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    LeagueTableComponent
   ],
   imports: [
     CommonModule,

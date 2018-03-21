@@ -1,0 +1,7 @@
+a.link, a.link:visited {
+  color: inherit;
+}
+a.link:hover {
+  color: inherit;
+  text-decoration: underline;
+}
