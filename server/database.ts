@@ -198,7 +198,7 @@ export class DB {
 
     getAllLeagues(): any {
         const statement = mysql.format(
-            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM leagues
             LEFT JOIN (
                 SELECT LeagueID, COUNT(UserID) AS NumTeams
@@ -210,7 +210,8 @@ export class DB {
                 FROM league_members
                 WHERE Commisioner = TRUE
                 GROUP BY LeagueID
-            ) AS league_owner ON league_owner.LeagueID = ID`,
+            ) AS league_owner ON league_owner.LeagueID = ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID`,
             []
         );
         return this.query(statement);
@@ -218,7 +219,7 @@ export class DB {
 
     getAllLeaguesForUser(userID: number): any {
         const statement = mysql.format(
-            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            `SELECT get_league_info.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM fantasyfootball18.league_members
             LEFT JOIN (
                 SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
@@ -235,6 +236,7 @@ export class DB {
                     GROUP BY LeagueID
                 ) AS league_owner ON league_owner.LeagueID = ID
             ) AS get_league_info ON league_members.LeagueID = get_league_info.ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID
             WHERE UserID = ?`,
             [userID]
         );
@@ -293,20 +295,21 @@ export class DB {
     //  Find League
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
-            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            `SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, UserName AS OwnerUserName
             FROM leagues
             LEFT JOIN (
                 SELECT LeagueID, COUNT(UserID) AS NumTeams
                 FROM league_members
                 GROUP BY LeagueID
-            ) AS member_count ON member_count.LeagueID = ID
+            ) AS member_count ON member_count.LeagueID = leagues.ID
             LEFT JOIN (
                 SELECT LeagueID, UserID AS OwnerID
                 FROM league_members
                 WHERE Commisioner = TRUE
                 GROUP BY LeagueID
-            ) AS league_owner ON league_owner.LeagueID = ID
-            WHERE ID = ?`,
+            ) AS league_owner ON league_owner.LeagueID = leagues.ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID
+            WHERE leagues.ID = ?`,
             [leagueID]
         );
         return this.query(statement);
