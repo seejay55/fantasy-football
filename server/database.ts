@@ -312,6 +312,28 @@ export class DB {
         return this.query(statement);
     }
 
+    searchLeaguesByName(leagueName: string, searchParams: string): any {
+        searchParams = '%' + searchParams + '%';
+        const statement = mysql.format(
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = ID
+            WHERE Name LIKE ?`,
+            [leagueName, searchParams]
+        );
+        return this.query(statement);
+    }
+
     getLeagueMembers(leagueID: number): any {
         const statement = mysql.format(
             `SELECT Username, TeamName, Commisioner

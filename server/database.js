@@ -176,6 +176,11 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = ID\n            WHERE ID = ?", [leagueID]);
         return this.query(statement);
     };
+    DB.prototype.searchLeaguesByName = function (leagueName, searchParams) {
+        searchParams = '%' + searchParams + '%';
+        var statement = mysql.format("SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = ID\n            WHERE Name LIKE ?", [leagueName, searchParams]);
+        return this.query(statement);
+    };
     DB.prototype.getLeagueMembers = function (leagueID) {
         var statement = mysql.format("SELECT Username, TeamName, Commisioner\n            FROM league_members\n            JOIN userinfo ON UserID = userinfo.ID\n            WHERE LeagueID = ?;", [leagueID]);
         return this.query(statement);
