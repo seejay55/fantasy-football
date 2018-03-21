@@ -7,35 +7,45 @@
         <h4 class="text-primary text-center">Register</h4>
         <p class="card-subtitle text-muted text-center small">Enter your desired information.</p>
       </div>
-      <div class="card-body">
-        <div class="card-text">
-          <form>
+      <form>
+        <div class="card-body">
+          <div class="card-text">
             <div class="form-group">
               <label for="newPassInput">Email</label>
-              <input type="text" class="form-control" id="emailEnterInput">
+              <input #email type="text" class="form-control" required>
             </div>
             <label>Username</label>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">@</div>
               </div>
-              <input type="text" class="form-control" placeholder="" id="usernameInput">
+              <input #userName type="text" class="form-control" placeholder="" required>
+            </div>
+            <hr />
+            <div class="form-group">
+              <label for="newPassInput">First Name</label>
+              <input #first type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="newPassInput">Last Name</label>
+              <input #last type="text" class="form-control" required>
             </div>
             <hr />
             <div class="form-group">
               <label for="newPassInput">Password</label>
-              <input type="password" class="form-control" id="passInput">
+              <input #pass type="password" class="form-control" id="passInput" required>
             </div>
             <div class="form-group">
               <label for="confirmPassInput">Confirm Password</label>
-              <input type="password" class="form-control" id="confirmPassInput">
+              <input #cPass type="password" class="form-control" id="confirmPassInput" required>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="card-footer">
-        <button type="submit" routerLink="/welcome" class="btn btn-primary btn-block">Submit</button>
-      </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary btn-block"
+          (submit)="registerAccount(email.value, userName.value, first.value, last.value, pass.value, cPass.value)">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
   <div class="col-md-3"></div>
