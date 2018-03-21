@@ -39,7 +39,11 @@ export class UserService {
 
   // send updated user data, update that user, and return that user after database update
   public updateUser(userId: number, userName: string, password: string, profilePic: string) {
+<<<<<<< HEAD
     return this.http.patch(`${this.endpoint}/user/${userId}`, { body: { Username: userName, Password: password , ProfilePic: profilePic} });
+=======
+    return this.http.patch(`${this.endpoint}/user/${userId}`, { body: { UserName: userName, Password: password , ProfilePic: profilePic} });
+>>>>>>> e18e84887af88e19edc95a2fb8d0faa54ef417cd
   }
 
   // send id of user to be deleted, delete that user, then return status code.
