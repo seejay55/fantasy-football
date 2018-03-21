@@ -99,6 +99,7 @@ var DB = /** @class */ (function () {
         var _this = this;
         var statement = mysql.format('UPDATE userlogin SET Password = ? WHERE ID = ?', [userPassword, ID]);
         var statement2 = mysql.format('UPDATE userinfo SET Username = ? WHERE ID = ?', [userName, ID]);
+        console.log(statement + "\n" + statement2);
         return this.query(statement).then(function () {
             _this.query(statement2);
         });

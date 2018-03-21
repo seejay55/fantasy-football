@@ -119,6 +119,7 @@ export class DB {
             'UPDATE userinfo SET Username = ? WHERE ID = ?',
             [userName, ID]
         );
+        console.log(statement + "\n" + statement2);
         return this.query(statement).then(() => {
             this.query(statement2);
         });
