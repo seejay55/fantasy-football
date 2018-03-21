@@ -315,7 +315,7 @@ export class DB {
         return this.query(statement);
     }
 
-    searchLeaguesByName(leagueName: string, searchParams: string): any {
+    searchLeaguesByName(searchParams: string): any {
         searchParams = '%' + searchParams + '%';
         const statement = mysql.format(
             `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
@@ -332,7 +332,7 @@ export class DB {
                 GROUP BY LeagueID
             ) AS league_owner ON league_owner.LeagueID = ID
             WHERE Name LIKE ?`,
-            [leagueName, searchParams]
+            [searchParams]
         );
         return this.query(statement);
     }
