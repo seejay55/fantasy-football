@@ -92,6 +92,7 @@ app.patch("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   var username = req.body.Username;
   var profilePic = req.body.ProfilePic;
+  var password = req.body.Password;
   db.updateUser(id, username, password).then(function (result) {
     res.status(204);
   });
