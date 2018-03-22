@@ -2,8 +2,8 @@
 @import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css');
 
 @import url('./styles/themes.css'); /* Light & Dark Themes for application */
-@import url('./styles/content-block.css'); /* .content-block class styles for individual content sections */
-@import url('./styles/global/bundle.css');
+@import url('./styles/content-block.css'); /* .content-block class styles for individual content sections and all child elements */
+@import url('./styles/global/bundle.css'); /*
 
 /* GLOBAL STYLE FOR ALL TAGS, CLASSES, AND IDs */
 * {
