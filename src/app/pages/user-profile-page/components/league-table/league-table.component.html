@@ -1,12 +1,14 @@
 <table class="table table-sm" *ngIf="leagues.length">
   <thead>
     <tr>
-      <th colspan="3" class="text-center" *ngIf="!isSame">{{tableHeader | uppercase}}</th>
+      <th colspan="5" class="text-center" *ngIf="!isSame">{{tableHeader | uppercase}}</th>
     </tr>
     <tr>
-      <th style="width: 50%">League Name</th>
-      <th style="width: 25%">Owner</th>
-      <th style="width: 25%">Members</th>
+      <th style="width: 35%">League Name</th>
+      <th style="width: 20%">Owner</th>
+      <th style="width: 15%">Scoring</th>
+      <th style="width: 15%">Teams</th>
+      <th style="width: 15%">Privacy</th>
     </tr>
   </thead>
   <tbody>
@@ -15,10 +17,16 @@
         <a class="link" [routerLink]="['/league', league._id]">{{league.name}}</a>
       </td>
       <td>
-        <a class="link" [routerLink]="['/user', league.ownerName]">{{league.ownerName}}</a>
+        <a class="link" [routerLink]="['/user', league.ownerName]">@{{league.ownerName}}</a>
       </td>
       <td>
-        <a class="link" [routerLink]="['/league', league._id, 'members']">{{league.numMembers}}</a>
+        <a>{{league.typeScoring}}</a>
+      </td>
+      <td>
+        <a class="link" [routerLink]="['/league', league._id, 'members']">{{league.numTeams}}</a>
+      </td>
+      <td>
+        <a>{{league.leaguePrivacy}}</a>
       </td>
     </tr>
   </tbody>

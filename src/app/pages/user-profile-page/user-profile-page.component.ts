@@ -99,12 +99,12 @@ export class UserProfilePageComponent implements OnInit {
             league.ID,
             league.Name,
             league.OwnerID,
-            league.OwnerName || 'Placeholder Owner',
-            league.NumMembers || 99,
+            league.OwnerUserName || 'Placeholder Owner',
+            league.NumTeams || 99,
             league.Year,
             league.MaxTeams,
-            league.TypeScoring,
-            league.LeaguePrivacy,
+            league.TypeScoring || 'N/A',
+            league.LeaguePrivacy || 'N/A',
             league.MaxTrades
           );
           this.allLeagues.push(temp); // Push current League Object to allLeagues array
