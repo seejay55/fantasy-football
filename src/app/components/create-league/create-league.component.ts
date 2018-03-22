@@ -9,7 +9,9 @@ export class CreateLeagueComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  send() {
   }
 
 }
