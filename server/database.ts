@@ -110,16 +110,16 @@ export class DB {
         });
     }
 
-    updateUser(ID: number, userName: string, userPassword: string): any {
+    updateUser(ID: number, email: string, userName: string, userPassword: string): any {
         const statement = mysql.format(
-            'UPDATE userlogin SET Password = ? WHERE ID = ?',
-            [userPassword, ID]
+            'UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?',
+            [userPassword, email, ID]
         );
         const statement2 = mysql.format(
             'UPDATE userinfo SET Username = ? WHERE ID = ?',
             [userName, ID]
         );
-        console.log(statement + "\n" + statement2);
+        // console.log(statement + "\n" + statement2);
         return this.query(statement).then(() => {
             this.query(statement2);
         });

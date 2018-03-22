@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var mysql = require("mysql");
-var DB = /** @class */ (function () {
+var mysql = require('mysql');
+var DB = (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -95,11 +93,11 @@ var DB = /** @class */ (function () {
             _this.query(statement2);
         });
     };
-    DB.prototype.updateUser = function (ID, userName, userPassword) {
+    DB.prototype.updateUser = function (ID, email, userName, userPassword) {
         var _this = this;
-        var statement = mysql.format('UPDATE userlogin SET Password = ? WHERE ID = ?', [userPassword, ID]);
+        var statement = mysql.format('UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?', [userPassword, email, ID]);
         var statement2 = mysql.format('UPDATE userinfo SET Username = ? WHERE ID = ?', [userName, ID]);
-        console.log(statement + "\n" + statement2);
+        // console.log(statement + "\n" + statement2);
         return this.query(statement).then(function () {
             _this.query(statement2);
         });
@@ -256,5 +254,5 @@ var DB = /** @class */ (function () {
         return this.query2(statement);
     };
     return DB;
-}());
+})();
 exports.DB = DB;

@@ -13,10 +13,10 @@ var db_database = config.db_DATABASE;
 var db = new DB.DB(db_host, db_user, db_password, db_database);
 
 var app = express();
-//app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(bodyParser.json());
+/*app.use(bodyParser.urlencoded({
     extended: true
-}));
+}));*/
 app.use(cors());
 
 var server = app.listen(8000, function () {
@@ -93,11 +93,11 @@ app.get("/api/user/:user", function (req, res) {
 
 app.patch("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
-  console.log(req);
   var username = req.body.Username;
+  var email = req.body.Email;
   var profilePic = req.body.ProfilePic;
   var password = req.body.Password;
-  db.updateUser(id, username, password).then(function (result) {
+  db.updateUser(id, email, username, password).then(function (result) {
     db.getUserInfoById(id).then(function(result) {
         res.status(200).send(result);
     });
