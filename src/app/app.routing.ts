@@ -18,6 +18,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NewsFeedComponent } from './components/homepage/news-feed/news-feed.component';
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { FeedItemComponent } from './components/homepage/news-feed/feed-item/feed-item.component';
+import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scoring-leaders-page.component';
 // CJ
 // Josh
 // Riley
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'find-user',                        component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
   { path: 'welcome',                          component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
   { path: 'user/:userName',                   component: UserProfilePageComponent,  data: { breadcrumb: 'Profile Page'}},
+  { path: 'scoring-leaders',    component: ScoringLeadersPageComponent, data: { breadcrumb: 'Scoring Leaders'}},
   { path: '404',                              component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
   { path: '**', redirectTo: '404'},
 
@@ -62,7 +64,8 @@ const routes: Routes = [
     FindUserComponent,
     UserProfilePageComponent,
     NotFoundPageComponent,
-    LeagueTableComponent
+    LeagueTableComponent,
+    ScoringLeadersPageComponent
   ],
   imports: [
     CommonModule,
