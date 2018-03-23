@@ -1,0 +1,29 @@
+.content-block .table {
+  border: 1px solid var(--outline-color);
+}
+
+.content-block .table thead th {
+  background-color: var(--primary-color);
+  color: var(--foreground-color);
+  border-top: 1px solid var(--outline-color);
+  border-bottom: 1px solid var(--outline-color);
+}
+
+.content-block tbody tr:nth-child(odd) {
+  background-color: var(--content-block-color);
+}
+
+
+.content-block tbody tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.content-block tbody tr:hover {
+  background-color: var(--content-hover-color);
+}
+
+.content-block .table tbody td {
+  border-top: 1px solid var(--outline-color);
+  border-bottom: 1px solid var(--outline-color);
+  color: var(--foreground-color);
+}

@@ -1,0 +1,13 @@
+.website {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  position: relative;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.progress {
+  border-radius: 0px;
+}

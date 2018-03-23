@@ -1,0 +1,9 @@
+.alert {
+  border-radius: 0px;
+  padding: 6px 15px;
+  margin: 0px -10px 5px;
+}
+
+.alert:hover {
+  filter: brightness(85%);
+}

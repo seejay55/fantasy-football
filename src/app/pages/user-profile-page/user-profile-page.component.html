@@ -1,0 +1,68 @@
+<!-- the entire page will only load if there is a valid user -->
+<div *ngIf="pageUser">
+
+  <div class="row">
+    <!-- COLUMN 1 -->
+    <div class="col-md-3">
+      <div class="content-block">
+        <!-- PROFILE CARD WITH ACTIONS LIST -->
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">{{ pageUser?.firstName }} {{ pageUser?.lastName }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">@{{ pageUser?.userName }}</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action" [routerLink]="['/user', currentUser.userName, 'account-settings']" *ngIf="isSame">Account Settings</a>
+            <a class="list-group-item list-group-item-action text-danger d-flex justify-content-between align-items-center" routerLink="/404">
+              Leagues
+              <span class="badge badge-primary">{{allLeagues.length}}</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngIf="isSame" [routerLink]="['/user', currentUser.userName, 'invites']">
+              My Invites
+              <span class="badge badge-danger">{{invites?.length}}</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Invite to a League</a>
+            <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Send Message</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 2 -->
+    <div class="col-md-7">
+      <div class="content-block">
+        <!-- NOT IN ANY LEAGUES MESSAGES -->
+        <div *ngIf="!allLeagues.length && !createdLeagues.length">
+          <div *ngIf="isSame" class="alert alert-dark text-center" role="alert">
+            You are not in any leagues.
+            <a routerLink="/find-league">Join one!</a>
+          </div>
+          <div *ngIf="!isSame" class="alert alert-dark text-center" role="alert">
+            <strong>@{{pageUser.userName}}</strong> is not in any leagues.
+          </div>
+        </div>
+
+        <!-- CREATED LEAGUES TABLE -->
+        <app-league-table *ngIf="!isSame" [tableHeader]="'Leagues @' + pageUser.userName + ' has created'" [leagues]="createdLeagues"></app-league-table>
+        <app-league-table *ngIf="isSame" [tableHeader]="'Leagues you have created'" [leagues]="createdLeagues"></app-league-table>
+
+        <!-- ALL USER LEAGUES TABLE -->
+        <app-league-table *ngIf="!isSame" [tableHeader]="'Leagues @' + pageUser.userName + ' has joined'" [leagues]="allLeagues"></app-league-table>
+        <app-league-table *ngIf="isSame" [tableHeader]="'Leagues you have joined'" [leagues]="allLeagues"></app-league-table>
+      </div>
+    </div>
+
+    <!-- COLUMN 3 -->
+    <div class="col-md-2">
+      <div class="content-block">
+        <!-- LEAGUE ACTIONS -->
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action text-right" routerLink="/find-league">Find a League</a>
+          <a href="#" class="list-group-item list-group-item-action text-right" routerLink="/create-league">Create a League</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

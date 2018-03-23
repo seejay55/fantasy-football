@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../services/auth/auth.service';
@@ -12,22 +12,9 @@ import { User } from '../../models/user';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  navMenu = [
-    {
-      name: 'Leagues',
-      children: [
-        { name: 'Find League', route: '/find-league', active: true, dividerBelow: false },
-        { name: 'Create League', route: '/create-league', active: true, dividerBelow: false },
-        { name: 'League Invites', route: '/league-invites', active: true, dividerBelow: false }
-      ]
-    },
-    {
-      name: 'Find Users',
-      children: [
-        { name: 'Find User', route: '/find-user', active: true, dividerBelow: false },
-      ]
-    }
-  ];
+  @Output() setTheme = new EventEmitter<any>();
+  @Input() currentTheme;
+  @Input() themes;
 
   user: User;
   userSubscription: any;
@@ -43,13 +30,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() { this.userSubscription.unsubscribe(); }
 
-  logIn(email: string, password: string) {
-    console.log('Sending email and password to authenticate: ', { email, password });
+  private logIn(email: string, password: string): void {
     this.authService.login(email, password);
   }
 
-  logOut() {
+  private logOut(): void {
     this.authService.logout();
+  }
+
+  private changeTheme(theme: any) {
+    this.setTheme.emit(theme);
   }
 
 }

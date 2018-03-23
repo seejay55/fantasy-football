@@ -1,0 +1,19 @@
+@import url('./content-block-elements/bundle.css'); /* Tables for .content-block */
+
+/* CONTENT SECTION FOR ITEMS INSIDE COL TAG */
+.content-block {
+  background-color: var(--content-block-color);
+  color: var(--foreground-color);
+  position: relative;
+  margin: 0px -10px 5px;
+  padding: 10px;
+  border: 1px solid var(--outline-color);
+}
+/* BORDERLESS */
+.content-block-borderless {
+  background-color: var(--content-block-color);
+  color: var(--foreground-color);
+  position: relative;
+  margin: 0px -10px 5px;
+  padding: 10px;
+}

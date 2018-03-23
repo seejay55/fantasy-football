@@ -1,0 +1,28 @@
+.content-block .feed.list-group > .list-group-item {
+  min-height: 50px;
+  max-height: fit-content ;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  outline: 1px solid var(--background-color);
+  border-radius: 0px !important;
+  margin-bottom: 3px !important;
+}
+
+.content-block .feed.list-group > .list-group-item:hover {
+  background-color: var(--content-hover-color);
+}
+
+.content-block .feed.list-group > .list-group-item:hover div * {
+  background-color: inherit;
+}
+
+.content-block .feed.list-group > .list-group-item div * {
+  color: var(--primary-color);
+}
+
+.content-block .feed.list-group > .list-group-item p {
+  color: var(--foreground-color);
+  background-color: inherit;
+  font-size: 13px;
+}
+
