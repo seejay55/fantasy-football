@@ -3,7 +3,7 @@ export class League {
   name: string;
   ownerId: number;
   ownerName: string;
-  numMembers: number;
+  numTeams: number;
 
   year: string;
   maxTeams: number;
@@ -16,7 +16,7 @@ export class League {
     name: string,
     ownerId: number,
     ownerName: string,
-    numMembers: number,
+    numTeams: number,
     year: string,
     maxTeams: number,
     typeScoring: number,
@@ -27,7 +27,7 @@ export class League {
       this.name = name;
       this.ownerId = ownerId;
       this.ownerName = ownerName;
-      this.numMembers = numMembers;
+      this.numTeams = numTeams;
       this.year = year;
       this.maxTeams = maxTeams;
       this.typeScoring = typeScoring;
