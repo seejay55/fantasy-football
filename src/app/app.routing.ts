@@ -59,7 +59,10 @@ const routes: Routes = [
     CreateLeagueComponent,
     FindLeagueComponent,
     FindUserComponent,
+<<<<<<< HEAD
     ScoringLeadersPageComponent,
+=======
+>>>>>>> origin/luke_scoringleaders
     NotFoundPageComponent
   ],
   imports: [

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoringLeadersPageComponent implements OnInit {
 
+<<<<<<< HEAD
   teams;
   positions;
 
@@ -37190,4 +37191,11 @@ export class ScoringLeadersPageComponent implements OnInit {
 
 
 
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> origin/luke_scoringleaders
 }
