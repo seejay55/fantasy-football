@@ -1,5 +1,7 @@
-var mysql = require('mysql');
-var DB = (function () {
+"use strict";
+exports.__esModule = true;
+var mysql = require("mysql");
+var DB = /** @class */ (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -85,10 +87,10 @@ var DB = (function () {
         var statement = 'SELECT * FROM userinfo';
         return this.query(statement);
     };
-    DB.prototype.createUser = function (userEmail, userPassword, userName) {
+    DB.prototype.createUser = function (userEmail, userPassword, userName, firstName, lastName) {
         var _this = this;
         var statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
-        var statement2 = mysql.format('INSERT INTO userinfo (ID, Username) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?)', [userEmail, userName]);
+        var statement2 = mysql.format('INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)', [userEmail, userName, firstName, lastName]);
         return this.query(statement).then(function () {
             _this.query(statement2);
         });
@@ -254,5 +256,5 @@ var DB = (function () {
         return this.query2(statement);
     };
     return DB;
-})();
+}());
 exports.DB = DB;

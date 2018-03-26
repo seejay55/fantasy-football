@@ -36,7 +36,9 @@ app.post("/api/users", function (req, res) {
   var email = req.body.Email;
   var password = req.body.Password;
   var username = req.body.Username;
-  db.createUser(email, password, username).then(function (result) {
+  var firstName = req.body.FirstName;
+  var lastName = req.body.LastName;
+  db.createUser(email, password, username, firstName, lastName).then(function (result) {
     res.status(200);
   });
 });
