@@ -155,6 +155,17 @@ app.get("/api/leagues", function (req, res) {
   });
 });
 
+app.post("/api/leagues", function (req, res) {
+    league_name = req.body.LeagueName;
+    owner_id = req.body.UserID;
+    privacy = req.body.LeaguePrivacy;
+    max_trades = req.body.MaxTrades;
+    max_teams = req.body.MaxTeams;
+    db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades).then(function(result) {
+        res.status(204).send();
+    });
+  });
+
 app.get("/api/leagues/search", function (req, res) {
     var query = "";
     if (req.query.query != undefined) {
