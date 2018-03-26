@@ -26,25 +26,18 @@
   box-shadow: none !important;
 }
 
-.content-block .input-group-prepend .input-group-text {
+.content-block .input-group-prepend.label .input-group-text {
   background-color: var(--background-color);
   border-color: var(--background-color);
   color: var(--foreground-color);
-  min-width: 150px;
+  min-width: 10em;
   text-align: right;
   border-bottom: 1px solid var(--primary-color);
   border-radius: 0px;
 }
 
-/* put in own file */
-
-.content-block form label.col-form-label {
-  background-color: var(--background-color);
-  text-align: right;
-  position: relative;
-}
-
-.content-block form {
-  margin: 5px;
-  border: 1px solid red;
+.content-block .input-group-prepend .input-group-text {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--foreground-color);
 }

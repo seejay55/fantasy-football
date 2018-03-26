@@ -1,28 +1,30 @@
 <div class="card">
-    <div class="card-header">
-      <h4>Account Information</h4>
-      <p class="card-subtitle text-muted small">Edit your account information.</p>
-    </div>
-    <div class="card-body">
-      <div class="card-text">
-        <form>
-          <label>First Name</label>
-          <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="{{user?.firstName}}">
-          </div>
-          <label>Last Name</label>
-          <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="{{user?.lastName}}">
-          </div>
-          <label>Edit Favorite Team</label>
+  <div class="card-header">
+    <h4>Account Information</h4>
+    <p class="card-subtitle text-muted small">Edit your account information.</p>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <form>
+        <label>First Name</label>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" placeholder="{{user?.firstName}}">
+        </div>
+        <label>Last Name</label>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" placeholder="{{user?.lastName}}">
+        </div>
+        <label>Edit Favorite Team</label>
+        <div class="input-group mb-2">
           <select class="form-control">
-            <option *ngFor="let team of teams" >{{team}}</option>
+            <option *ngFor="let team of teams">{{team}}</option>
           </select>
+        </div>
 
-        </form>
-      </div>
-    </div>
-    <div class="card-footer">
-      <button type="submit" class="btn btn-success btn-block" (click)="submitProfileInfo()">Submit</button>
+      </form>
     </div>
   </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-success btn-block" (click)="submitProfileInfo()">Submit</button>
+  </div>
+</div>

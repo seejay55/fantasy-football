@@ -3,13 +3,14 @@
   max-height: fit-content ;
   color: var(--foreground-color);
   background-color: var(--content-block-color);
-  outline: 1px solid var(--background-color);
+  border: 1px solid var(--background-color);
   border-radius: 0px !important;
-  margin-bottom: 3px !important;
+  margin-bottom: 2px !important;
 }
 
 .content-block .feed.list-group > .list-group-item:hover {
   background-color: var(--content-hover-color);
+  border-color: var(--content-hover-color);
 }
 
 .content-block .feed.list-group > .list-group-item:hover div * {
