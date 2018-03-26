@@ -15,7 +15,7 @@ export class LeagueService {
     return this.http.get<any[]>(`${this.endpoint}/leagues`);
   }
 
-  public getLeaguesByName(term: string) {
+  public getLeaguesBySearchTerm(term: string) {
     return this.http.get<any[]>(`${this.endpoint}/leagues/search/?query=${term}`);
   }
 
