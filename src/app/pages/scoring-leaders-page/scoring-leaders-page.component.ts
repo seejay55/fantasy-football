@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoringLeadersPageComponent implements OnInit {
 
-<<<<<<< HEAD
   teams;
   positions;
 
@@ -18,9 +17,9 @@ export class ScoringLeadersPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.teams = ["All", "GB", "Min", "Det", "Chi", "Emoji Movie"]
+    this.teams = ['All', 'GB', 'Det', 'Chi', 'Emoji Movie'];
 
-    this.positions = ["ALL", "QB", "RB", "WR", "TE", "D/ST", "K", "FLEX"]
+    this.positions = ['ALL', 'QB', 'RB', 'WR', 'TE', 'D/ST', 'K', 'FLEX'];
 
     this.ar12 = JSON.parse('{"PlayerName":"Aaron Rodgers","PlayerPos":"QB","TeamAbbr":"GB","Stats":[{"Name":"Passing Completions","GameStatValue":154},{"Name":"Incomplete Passes","GameStatValue":84},{"Name":"Passing Yards","GameStatValue":1675},{"Name":"Passing Touchdowns","GameStatValue":16},{"Name":"Interceptions Thrown","GameStatValue":6},{"Name":"Every Time Sacked","GameStatValue":22},{"Name":"300-399 Passing Yards Bonus","GameStatValue":3},{"Name":"Rushing Attempts","GameStatValue":24},{"Name":"Rushing Yards","GameStatValue":126},{"Name":"Fumbles Lost","GameStatValue":1},{"Name":"Fumble","GameStatValue":1},{"Name":"Fumbles Recovery","GameStatValue":1},{"Name":"Games Played","GameStatValue":16}]}');
     this.threeJSON = JSON.parse('[{"PlayerName":"San Francisco 49ers","PlayerPos":"DEF","TeamAbbr":"SF","Stats":[{"Name":"Sacks","GameStatValue":30},{"Name":"Interceptions","GameStatValue":10},{"Name":"Fumbles Recovered","GameStatValue":10},{"Name":"Fumbles Forced","GameStatValue":17},{"Name":"Touchdowns","GameStatValue":1},{"Name":"Kickoff and Punt Return Yards","GameStatValue":874},{"Name":"Points Allowed","GameStatValue":375},{"Name":"Points Allowed 7-13","GameStatValue":2},{"Name":"Points Allowed 14-20","GameStatValue":4},{"Name":"Points Allowed 21-27","GameStatValue":7},{"Name":"Points Allowed 28-34","GameStatValue":1},{"Name":"Points Allowed 35+","GameStatValue":2},{"Name":"Yards Allowed","GameStatValue":5625},{"Name":"100-199 Yards Allowed","GameStatValue":1},{"Name":"200-299 Yards Allowed","GameStatValue":2},{"Name":"300-399 Yards Allowed","GameStatValue":8},{"Name":"400-449 Yards Allowed","GameStatValue":3},{"Name":"450-499 Yards Allowed","GameStatValue":1},{"Name":"500+ Yards Allowed","GameStatValue":1},{"Name":"Games Played","GameStatValue":4}]},{"PlayerName":"Jared Abbrederis","PlayerPos":"WR","TeamAbbr":"","Stats":[{"Name":"Receiving Yards","GameStatValue":44},{"Name":"Tackle","GameStatValue":2},{"Name":"Assisted Tackles","GameStatValue":1},{"Name":"Forced Fumble","GameStatValue":1},{"Name":"Games Played","GameStatValue":14}]},{"PlayerName":"Ameer Abdullah","PlayerPos":"RB","TeamAbbr":"DET","Stats":[{"Name":"Rushing Yards","GameStatValue":552},{"Name":"Rushing Touchdowns","GameStatValue":4},{"Name":"Receptions","GameStatValue":25},{"Name":"Receiving Yards","GameStatValue":162},{"Name":"Receiving Touchdowns","GameStatValue":1},{"Name":"Kickoff and Punt Return Yards","GameStatValue":179},{"Name":"Fumbles Lost","GameStatValue":1},{"Name":"Fumble","GameStatValue":2},{"Name":"Tackle","GameStatValue":1},{"Name":"Games Played","GameStatValue":15}]},{"PlayerName":"Sam Acho","PlayerPos":"LB","TeamAbbr":"CHI","Stats":[{"Name":"Tackle","GameStatValue":29},{"Name":"Assisted Tackles","GameStatValue":16},{"Name":"Sack","GameStatValue":3},{"Name":"Forced Fumble","GameStatValue":1},{"Name":"Pass Defended","GameStatValue":1},{"Name":"Tackles for Loss Bonus","GameStatValue":2},{"Name":"QB Hit","GameStatValue":18},{"Name":"Sack Yards","GameStatValue":25},{"Name":"Games Played","GameStatValue":7}]}]')
@@ -37191,11 +37190,4 @@ export class ScoringLeadersPageComponent implements OnInit {
 
 
 
-=======
-  constructor() { }
-
-  ngOnInit() {
-  }
-
->>>>>>> origin/luke_scoringleaders
 }

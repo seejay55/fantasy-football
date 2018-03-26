@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'find-user',                        component: FindUserComponent,         data: { breadcrumb: 'Find User'}},
   { path: 'welcome',                          component: RegisterWelcomeComponent,  data: { breadcrumb: 'Welcome'}},
   { path: 'user/:userName',                   component: UserProfilePageComponent,  data: { breadcrumb: 'Profile Page'}},
-  { path: 'scoring-leaders',    component: ScoringLeadersPageComponent, data: { breadcrumb: 'Scoring Leaders'}},
+  { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent, data: { breadcrumb: 'Scoring Leaders'}},
   { path: '404',                              component: NotFoundPageComponent,     data: { breadcrumb: '404: Page Not Found!'}},
   { path: '**', redirectTo: '404'},
 
