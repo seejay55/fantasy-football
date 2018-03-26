@@ -96,14 +96,14 @@ export class DB {
         return this.query(statement);
     }
 
-    createUser(userEmail: string, userPassword: string, userName: string): any {
+    createUser(userEmail: string, userPassword: string, userName: string, firstName: string, lastName: string): any {
         const statement = mysql.format(
             'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
             [userEmail, userPassword]
         );
         const statement2 = mysql.format(
-            'INSERT INTO userinfo (ID, Username) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?)',
-            [userEmail, userName]
+            'INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)',
+            [userEmail, userName, firstName, lastName]
         );
         return this.query(statement).then(() => {
             this.query(statement2);
