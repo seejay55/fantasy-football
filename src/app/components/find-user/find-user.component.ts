@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,6 +18,12 @@ export class FindUserComponent implements OnInit {
     'Ridley'
   ];
 
+  private availableLeagues = [
+    {"leagueID":88100, "leagueName":"Memes", "openSpots":true, "ownedByMe":true},
+    {"leagueID":88101, "leagueName":"Dreams", "openSpots":true, "ownedByMe":true},
+    {"leagueID":88102, "leagueName":"Sportsball", "openSpots":true, "ownedByMe":true}
+  ];
+
   constructor() { }
 
   ngOnInit() {
@@ -25,6 +32,10 @@ export class FindUserComponent implements OnInit {
 
   private searchListener(searchTerm: String) {
     console.log(searchTerm);
+  }
+
+  private sendListener() {
+    console.log("invite sent");
   }
 
 }

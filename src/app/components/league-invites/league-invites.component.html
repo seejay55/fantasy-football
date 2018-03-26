@@ -1,3 +1,4 @@
+
 <div class="jumbotron">
   <button class="btn btn-secondary" (click)="incomingInvites=[]">TEST NO INVITES</button>
   <!-- no invite message -->
@@ -13,20 +14,11 @@
           <div class="col-md-3">{{i.leagueName}}</div>
           <div class="col-md-4">{{i.sentDate}}</div>
           <div class="col-md-2">
-            <button type="button" id="request{{i}}" class="btn btn-primary" (click)="declineListener()" style="background-color:red;
-                          color:darkred;
-                          font-weight:bold;
-                          border-color:darkred;
-                          clear: left;
-                          float: right">
+            <!-- bootstrap button class to be changed -->
+            <button type="button" id="request{{i}}" class="btn btn-danger" (click)="declineListener()" style="clear: left; float: right">
               &#9747;
             </button>
-            <button type="button" id="request{{i}}" class="btn btn-primary" (click)="acceptListener()" style="background-color:lime;
-                          color:darkgreen;
-                          font-weight:bold;
-                          border-color:darkgreen;
-                          clear: left;
-                          float: right">
+            <button type="button" id="request{{i}}" class="btn btn-success" (click)="acceptListener()" style="clear: left; float: right">
               ACCEPT!
             </button>
           </div>
