@@ -32,6 +32,56 @@ export class DB {
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
                     resolve(queryResult);
+                }).on('end', () => {
+                    con.release();
+                });
+            });
+        });
+    }
+
+    private query2(statement: string): any {
+        let queryResult: any;
+        let formatedJSON = '[';
+        let previousName: any;
+        let check = 0;
+        return new Promise((resolve, reject) => {
+            this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
+                if (conError) {
+                    reject('DB Error(Conn):\n' + conError);
+                }
+                con.query(statement, (error: MysqlError, result: any) => {
+                    if (error) {
+                        reject('DB Error(Query):\n' + error);
+                    }
+                    previousName = '';
+                    queryResult = JSON.parse(JSON.stringify(result));
+                    for (let i = 0; i < queryResult.length; i++) {
+                        if (queryResult[i].PlayerName === previousName) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                        } else if (i === 0) {
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        } else if (check === 0) {
+                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
+                                queryResult[i].GameStatValue + '},');
+                            check = 1;
+                        } else {
+                            check = 0;
+                            formatedJSON = formatedJSON.slice(0, -1);
+                            formatedJSON = formatedJSON + (']},');
+                            previousName = queryResult[i].PlayerName;
+                            formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                        }
+                    }
+                    formatedJSON = formatedJSON.slice(0, -1);
+                    formatedJSON = formatedJSON + ']}]';
+
+                    resolve(JSON.parse(formatedJSON));
 
                 }).on('end', () => {
                     con.release();
@@ -60,15 +110,16 @@ export class DB {
         });
     }
 
-    updateUser(ID: number, userName: string, userPassword: string): any {
+    updateUser(ID: number, email: string, userName: string, userPassword: string): any {
         const statement = mysql.format(
-            'UPDATE userlogin SET Password = ? WHERE ID = ?',
-            [userPassword, ID]
+            'UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?',
+            [userPassword, email, ID]
         );
         const statement2 = mysql.format(
             'UPDATE userinfo SET Username = ? WHERE ID = ?',
             [userName, ID]
         );
+        // console.log(statement + "\n" + statement2);
         return this.query(statement).then(() => {
             this.query(statement2);
         });
@@ -148,8 +199,47 @@ export class DB {
 
     getAllLeagues(): any {
         const statement = mysql.format(
-            'SELECT * FROM leagues',
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID`,
             []
+        );
+        return this.query(statement);
+    }
+
+    getAllLeaguesForUser(userID: number): any {
+        const statement = mysql.format(
+            `SELECT get_league_info.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
+            FROM fantasyfootball18.league_members
+            LEFT JOIN (
+                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+                FROM leagues
+                LEFT JOIN (
+                    SELECT LeagueID, COUNT(UserID) AS NumTeams
+                    FROM league_members
+                    GROUP BY LeagueID
+                ) AS member_count ON member_count.LeagueID = ID
+                LEFT JOIN (
+                    SELECT LeagueID, UserID AS OwnerID
+                    FROM league_members
+                    WHERE Commisioner = TRUE
+                    GROUP BY LeagueID
+                ) AS league_owner ON league_owner.LeagueID = ID
+            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID
+            WHERE UserID = ?`,
+            [userID]
         );
         return this.query(statement);
     }
@@ -166,21 +256,21 @@ export class DB {
     // LeagueInvites
     getAllLeagueInvites(userID: number): any {
         const statement = mysql.format(
-            `SELECT Username, Name, Date, MaxTeams, TeamsInLeague FROM league_invites
-           JOIN leagues ON league_invites.leagueID = leagues.ID
-           JOIN userinfo ON league_invites.SenderID = userinfo.ID
-           WHERE RecieveID = ?`,
+            `SELECT SenderID, Username AS SenderUsername, FirstName AS SenderFirstName, LastName AS SenderLastName,
+            LeagueID, Name AS LeagueName, Date, datediff(NOW(), Date) AS Age
+        FROM league_invites
+        JOIN leagues ON league_invites.leagueID = leagues.ID
+        JOIN userinfo ON league_invites.SenderID = userinfo.ID
+        WHERE RecieveID = ?`,
             [userID]
         );
+
+        return this.query(statement);
     }
 
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
-    insertUserIntoLeague(recieveID: number, leagueID: number, numTeams: number): any {
+    insertUserIntoLeague(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
-            'UPDATE leagues SET TeamsInLeague = ? WHERE ID = ?',
-            [numTeams, leagueID]
-        );
-        const statement1 = mysql.format(
             'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
             [leagueID, recieveID]
         );
@@ -191,9 +281,7 @@ export class DB {
         );
 
         return this.query(statement).then(() => {
-            this.query(statement1).then(() => {
-                this.query(statement2);
-            });
+            this.query(statement2);
         });
     }
 
@@ -205,11 +293,47 @@ export class DB {
         return this.query(statement);
     }
 
-    // Miscellaneous queries to be used
+    //  Find League
     getLeagueInfo(leagueID: number): any {
         const statement = mysql.format(
-            'SELECT * FROM leagues WHERE id = ?',
+            `SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, UserName AS OwnerUserName
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = leagues.ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = leagues.ID
+            LEFT JOIN userinfo ON userinfo.ID = OwnerID
+            WHERE leagues.ID = ?`,
             [leagueID]
+        );
+        return this.query(statement);
+    }
+
+    searchLeaguesByName(searchParams: string): any {
+        searchParams = '%' + searchParams + '%';
+        const statement = mysql.format(
+            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
+            FROM leagues
+            LEFT JOIN (
+                SELECT LeagueID, COUNT(UserID) AS NumTeams
+                FROM league_members
+                GROUP BY LeagueID
+            ) AS member_count ON member_count.LeagueID = ID
+            LEFT JOIN (
+                SELECT LeagueID, UserID AS OwnerID
+                FROM league_members
+                WHERE Commisioner = TRUE
+                GROUP BY LeagueID
+            ) AS league_owner ON league_owner.LeagueID = ID
+            WHERE Name LIKE ?`,
+            [searchParams]
         );
         return this.query(statement);
     }
@@ -261,10 +385,18 @@ export class DB {
         return this.query(statement);
     }
 
-    getUserInfo(userID: number): any {
+    getUserInfoById(userID: number): any {
         const statement = mysql.format(
             'SELECT * FROM userinfo WHERE ID = ?',
             [userID]
+        );
+        return this.query(statement);
+    }
+
+    getUserInfoByUsername(userName: string): any {
+        const statement = mysql.format(
+            'SELECT * FROM userinfo WHERE Username = ?',
+            [userName]
         );
         return this.query(statement);
     }
@@ -378,5 +510,16 @@ export class DB {
             [playerID, year, week]
         );
         return this.query(statement);
+    }
+
+    // Luke Stats
+    getStats(): any {
+        const statement = mysql.format(
+            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM nfl_players
+            JOIN game_stats_totals ON nfl_players.player_id = game_stats_totals.PlayerID
+            JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID`,
+            []
+        );
+        return this.query2(statement);
     }
 }

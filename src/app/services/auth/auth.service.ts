@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs/bundles/Rx';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { User } from '../../models/user';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,10 @@ export class AuthService {
   isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken()); // sets initial loggedIn token value
   currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))); // sets initial currentUser value
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private alertService: AlertService
+  ) { }
 
   // Returns boolean based on localStorage token validitiy
   private hasToken(): boolean {
@@ -33,14 +37,11 @@ export class AuthService {
     this.userAuth(email, password)
       .subscribe(
         (data) => {
-          console.log('email and password both match a user');
           user = <User>data;
-          console.log(user);
           this.setCurrentUser(user);
       },
         (err) => {
-          console.log(err.error);
-          window.alert(err.error);
+          this.alertService.danger(err.name, err.message, false);
         }
       );
   }

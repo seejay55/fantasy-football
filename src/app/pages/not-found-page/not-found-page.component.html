@@ -1,8 +1,12 @@
-<div class="jumbotron bg-dark text-white">
-  <h1 class="display-4 text-danger">{{displayingInsult.header}}</h1>
-  <p class="lead">{{displayingInsult.lead}}</p>
-  <p>{{displayingInsult.small}}</p>
-  <p class="lead">
-    <a class="btn btn-outline-primary btn-lg" routerLink="/homepage" role="button">{{displayingInsult.button}}</a>
-  </p>
+<div class="row">
+  <div class="col">
+    <div class="content-block">
+      <div class="jumbotron text-white" style="margin-bottom: 0px;">
+        <h1 class="display-4 text-danger text-center">{{displayingInsult.header | uppercase}}</h1>
+        <p class="lead text-center">{{displayingInsult.lead | uppercase}}</p>
+        <p class="text-center small text-muted">{{displayingInsult.small | uppercase}}</p>
+        <a class="btn btn-outline-primary btn-md btn-block" routerLink="/homepage" role="button">{{displayingInsult.button | uppercase}}</a>
+      </div>
+    </div>
+  </div>
 </div>
