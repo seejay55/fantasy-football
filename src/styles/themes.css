@@ -42,3 +42,26 @@
   --warning-color: ;
   --info-color: ;
 }
+
+.rodgers-theme {
+  --nav-background-color: #001A14;
+  --nav-foreground-color: white;
+
+  --background-color: #24423C;
+  --foreground-color: white;
+  --inverse-foreground-color: black;
+
+
+  --content-block-color: #24423C;
+  --outline-color: white;
+
+  --content-hover-color: #001A14;
+
+  --primary-color: #F7C345;
+  --primary-foreground-color: #24423C;
+  --secondary-color: silver;
+  --success-color: ;
+  --danger-color: ;
+  --warning-color: ;
+  --info-color: ;
+}

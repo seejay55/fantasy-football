@@ -1,7 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Http } from '@angular/http';
-
-import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-feed-item',
@@ -10,20 +7,10 @@ import 'rxjs/add/operator/map';
 })
 export class FeedItemComponent implements OnInit {
 
-  @Input() url: string;
+  @Input() dataItem;
 
-  data;
+  constructor() { }
 
-  constructor(private http: Http) {
-
-  }
-
-  ngOnInit() {
-    this.http.get(`https://api.rss2json.com/v1/api.json?rss_url=${this.url}&count=10`)
-      .map(res => res.json())
-      .subscribe(res => {
-        this.data = res;
-      });
-  }
+  ngOnInit() { }
 
 }

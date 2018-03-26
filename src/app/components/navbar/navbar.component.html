@@ -39,6 +39,17 @@
             <a class="dropdown-item" routerLink="/find-user">Find User</a>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <!-- Parent Menu Item -->
+          <a class="nav-link" [routerLink]="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MISC
+          </a>
+          <!-- Child Menu -->
+          <div class="dropdown-menu">
+            <!-- Child Menu Item -->
+            <a class="dropdown-item" routerLink="/scoring-leaders">Scoring Leaders</a>
+          </div>
+        </li>
       </ul>
 
       <!-- Log in/Log out Nav Item -->
@@ -81,7 +92,7 @@
                 </div>
                 <div class="form-group text-center">
                   <small>No account?
-                    <a class="link" style="color: var(--primary-color)" data-toggle="dropdown" routerLink="/register-account">Register now.</a>
+                    <a class="link" style="color: var(--primary-color)" data-toggle="dropdown" routerLink="/register">Register now.</a>
                   </small>
                 </div>
               </form>

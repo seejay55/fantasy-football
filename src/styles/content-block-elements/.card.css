@@ -1,0 +1,9 @@
+.content-block .card {
+  color: var(--foreground-color);
+  background-color: var(--content-block-color);
+  border-color: var(--content-block-color);
+}
+
+.content-block .card .list-group .list-group-item .badge {
+  font-size: 13px;
+}

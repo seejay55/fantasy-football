@@ -1,15 +1,25 @@
-<form>
-  <div class="my-3 p-3 card bg-light rounded box-shadow">
-    <div class="form-row">
-      <div class="col-md mb-3">
-        <label for="leagueName">League Name:</label>
-        <input type="text" class="form-control" id="leagueName" placeholder="Name" value="" required minlength="1">
-      </div><!-- Column -->
-    </div><!-- League Name Row -->
-    <div class="form-row">
-      <div class="col-md mb-3">
-        <label>Maximum Number of Teams:</label>
-        <select class="custom-select d-block w-100" id="maxPlayers" required>
+<div class="content-block">
+
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="leagueName">League Name:</label>
+        </div>
+        <input type="text" class="form-control" id="leagueName" value="" required minlength="1">
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+
+  <!-- League Name Row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="maxPlayers">Max Players:</label>
+        </div>
+        <select class="custom-select" id="maxPlayers" required>
           <option value="">Choose...</option>
           <option value="6">6</option>
           <option value="7">7</option>
@@ -22,52 +32,68 @@
         <div class="invalid-feedback">
           Please provide a valid number of teams.
         </div>
-      </div><!-- Column -->
-    </div><!-- Max teams row -->
-    <div class="form-row">
-      <div class="col-md mb-3">
-        <label for="typeScore">Type of Scoring:</label>
-        <select class="custom-select d-block w-100" id="typeScore" required>
-          <option value="">Choose...</option>
+      </div>
+    </div>
+    <!-- Column -->
+  </div>
+
+  <!-- Max teams row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="typeScore">Type of Scoring:</label>
+        </div>
+        <select class="custom-select" id="typeScore" required>
           <option>Head-to-Head</option>
+          <option>Other</option>
         </select>
         <div class="invalid-feedback">
           Please provide a valid scoring type.
         </div>
-      </div><!-- Column -->
-    </div><!-- Scoring Type Row -->
-    <div class="form-row">
-      <div class="col-md mb-3">
-        <label for="privacy">League Privacy:</label>
-        <div class="custom-control custom-radio">
-          <input id="public" name="privacy" type="radio" class="custom-control-input" checked required>
-          <label class="custom-control-label" for="public">Public</label>
+      </div>
+    </div>
+    <!-- Column -->
+  </div>
+
+  <!-- Scoring Type Row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <label for="privacy">League Privacy:</label>
+      <div class="custom-control custom-radio">
+        <input id="public" name="privacy" type="radio" class="custom-control-input" checked required>
+        <label class="custom-control-label" for="public">Public</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="private" name="privacy" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="private">Private</label>
+      </div>
+    </div>
+    <!-- Column -->
+  </div>
+
+  <!--  League Privacy Row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <label for="numTrades">Maximum Trades:</label>
+      <div class="custom-control custom-radio">
+        <input id="unlimited" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = true;" class="custom-control-input"
+          checked required>
+        <label class="custom-control-label" for="unlimited">Unlimited</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="other" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = false;" class="custom-control-input"
+          required>
+        <label class="custom-control-label" for="other">Other </label>
+        <input type="text" id="otherTrades1" name="other" disabled="disabled" minlength="1" />
+        <div class="invalid-feedback">
+          Valid Number is required.
         </div>
-        <div class="custom-control custom-radio">
-          <input id="private" name="privacy" type="radio" class="custom-control-input" required>
-          <label class="custom-control-label" for="private">Private</label>
-        </div>
-      </div><!-- Column -->
-    </div><!--  League Privacy Row -->
-    <div class="form-row">
-      <div class="col-md mb-3">
-        <label for="numTrades">Maximum Trades:</label>
-        <div class="custom-control custom-radio">
-          <input id="unlimited" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = true;" class="custom-control-input"
-            checked required>
-          <label class="custom-control-label" for="unlimited">Unlimited</label>
-        </div>
-        <div class="custom-control custom-radio">
-          <input id="other" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = false;" class="custom-control-input"
-            required>
-          <label class="custom-control-label" for="other">Other </label>
-          <input type="text" id="otherTrades" name="other" disabled="disabled" minlength="1" />
-          <div class="invalid-feedback">
-            Valid Number is required.
-          </div>
-        </div>
-      </div><!-- Column -->
-    </div><!-- Max Trades Row -->
-  </div><!-- Background Card -->
+      </div>
+    </div>
+    <!-- Column -->
+  </div>
+
+  <!-- Max Trades Row -->
   <button class="btn btn-primary" (click)="send()">Confirm</button>
-</form>
+</div>

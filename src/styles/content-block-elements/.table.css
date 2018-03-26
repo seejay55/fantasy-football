@@ -4,7 +4,7 @@
 
 .content-block .table thead th {
   background-color: var(--primary-color);
-  color: var(--foreground-color);
+  color: var(--primary-foreground-color);
   border-top: 1px solid var(--outline-color);
   border-bottom: 1px solid var(--outline-color);
 }
@@ -26,4 +26,5 @@
   border-top: 1px solid var(--outline-color);
   border-bottom: 1px solid var(--outline-color);
   color: var(--foreground-color);
+  vertical-align: middle;
 }

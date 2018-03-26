@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedService } from '../../services/feed/feed.service';
 import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
+  providers: [FeedService]
 })
 export class HomepageComponent implements OnInit {
 
-  backgroundPicture = '';
+  feeds;
 
-  constructor() { }
+  constructor(private feedService: FeedService) { }
 
-  ngOnInit() { }
-
-  rodgerTime() {
-    this.backgroundPicture = 'http://media.bizj.us/view/img/7247332/100715aaron-rodgersprevea-2015*1200xx4396-2473-0-227.jpg';
+  ngOnInit() {
+    this.feeds = this.feedService.getUserFeeds();
   }
 
 }

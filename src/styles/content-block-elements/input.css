@@ -1,0 +1,50 @@
+.content-block input {
+  background-color: var(--background-color) !important;
+  border-color: var(--background-color) !important;
+  color: var(--foreground-color) !important;
+}
+
+.content-block input:focus {
+  border-color: var(--primary-color) !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.content-block .input-group select {
+  background-color: var(--background-color);
+  border-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.content-block .input-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.content-block .input-group-prepend .input-group-text {
+  background-color: var(--background-color);
+  border-color: var(--background-color);
+  color: var(--foreground-color);
+  min-width: 150px;
+  text-align: right;
+  border-bottom: 1px solid var(--primary-color);
+  border-radius: 0px;
+}
+
+/* put in own file */
+
+.content-block form label.col-form-label {
+  background-color: var(--background-color);
+  text-align: right;
+  position: relative;
+}
+
+.content-block form {
+  margin: 5px;
+  border: 1px solid red;
+}

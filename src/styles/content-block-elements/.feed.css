@@ -2,7 +2,7 @@
   min-height: 50px;
   max-height: fit-content ;
   color: var(--foreground-color);
-  background-color: var(--background-color);
+  background-color: var(--content-block-color);
   outline: 1px solid var(--background-color);
   border-radius: 0px !important;
   margin-bottom: 3px !important;

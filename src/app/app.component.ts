@@ -24,7 +24,8 @@ export class AppComponent {
   constructor(private viewContainerRef: ViewContainerRef) {
     this.themes.push(
       new Theme('Light Theme', 'light-theme'),
-      new Theme('Dark Theme', 'dark-theme')
+      new Theme('Dark Theme', 'dark-theme'),
+      new Theme('Rodgers Theme', 'rodgers-theme')
     );
 
     if (localStorage.getItem('theme')) {
