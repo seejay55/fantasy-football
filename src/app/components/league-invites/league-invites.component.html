@@ -1,37 +1,28 @@
-<div style="background-color:rgb(25, 25, 112) !important" class="jumbotron">
-    <button class="btn btn-secondary" (click)="incomingInvitesUsers=[]">TEST NO INVITES</button>
-    <!-- no invite message -->
-    <p style="color:whitesmoke" *ngIf="!incomingInvitesUsers.length">
-      You have no pending invites!
-    </p>
-    <!-- list of invites-->
-    <div *ngFor="let user of incomingInvitesUsers" class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="request{{user}}">
-          <div class="row">
-            <div class="col-md-3">{{user}}</div>
-            <div class="col-md-3">LeagueName</div>
-            <div class="col-md-4"></div>
-            <div class="col-md-2">
-              <button type="button" id="request{{user}}" class="btn btn-primary" style="background-color:red;
-                          color:darkred;
-                          font-weight:bold;
-                          border-color:darkred;
-                          clear: left;
-                          float: right">
-                &#9747;
-              </button>
-              <button type="button" id="request{{user}}" class="btn btn-primary" style="background-color:lime;
-                          color:darkgreen;
-                          font-weight:bold;
-                          border-color:darkgreen;
-                          clear: left;
-                          float: right">
-                ACCEPT!
-              </button>
-            </div>
+<div class="jumbotron">
+  <button class="btn btn-secondary" (click)="incomingInvites=[]">TEST NO INVITES</button>
+  <!-- no invite message -->
+  <p *ngIf="!incomingInvites.length">
+    You have no pending invites!
+  </p>
+  <!-- list of invites-->
+  <div *ngFor="let i of incomingInvites" class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" id="request{{i}}">
+        <div class="row">
+          <div class="col-md-3">{{i.senderName}}</div>
+          <div class="col-md-3">{{i.leagueName}}</div>
+          <div class="col-md-4">{{i.sentDate}}</div>
+          <div class="col-md-2">
+            <!-- bootstrap button class to be changed -->
+            <button type="button" id="request{{i}}" class="btn btn-danger" (click)="declineListener()" style="clear: left; float: right">
+              &#9747;
+            </button>
+            <button type="button" id="request{{i}}" class="btn btn-success" (click)="acceptListener()" style="clear: left; float: right">
+              ACCEPT!
+            </button>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
