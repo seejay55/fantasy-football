@@ -1,42 +1,53 @@
 <div class="my-3 p-3 card bg-light rounded box-shadow">
-    <div class="row">
-      <div class="col-md mb-3">
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md mb-3">
-        <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#advanced">Advanced Search</button>
-        <div class="collapse" id="advanced">
-          <div class="card card-body">
-            <p>Advanced Options:</p>
-          </div>
+  <div class="row">
+    <div class="col-md mb-3">
+      <div class="input-group">
+        <input #searchTerm type="text" class="form-control" placeholder="League Name">
+        <span class="input-group-btn">
+          <button class="btn btn-outline-success ml-3" type="button" (click)="searchListener(searchTerm.value)">
+            Search
+          </button>
+        </span>
+      </div><!-- input group -->
+    </div><!-- col -->
+  </div><!-- row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#advanced">Advanced Search</button>
+      <div class="collapse" id="advanced">
+        <div class="card card-body mt-3">
+          <p>Advanced Options:</p>
+
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md mb-3">
-        <table class="table table-hover table-dark">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">League Name</th>
-              <th scope="col">Teams</th>
-              <th scope="col">Format</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Football is cool</td>
-              <td>8/12</td>
-              <td>Standard</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+      </div><!-- collapsed advanced options -->
+    </div><!-- col -->
+  </div><!-- row -->
+  <div class="row">
+    <div class="col-md mb-3">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">League Name</th>
+            <th scope="col">Teams</th>
+            <th scope="col">Format</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of leagues; index as i" (click)="searchListener('clicked')">
+            <th scope="row">{{i + 1}}</th>
+            <td> {{x.Name}} </td>
+            <td> {{x.Players}} / {{x.MaxPlayers}} </td>
+            <td> Standard </td>
+            <td>
+                <button class="btn" type="button" (click)="joinListener(i)">
+                    Join
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- col -->
+  </div><!-- row -->
+</div>

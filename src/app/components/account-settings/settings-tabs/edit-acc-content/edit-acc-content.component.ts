@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-edit-acc-content',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditAccContentComponent implements OnInit {
 
+  @Input() user: User;
+
   teams;
 
   constructor() { 
@@ -14,6 +17,10 @@ export class EditAccContentComponent implements OnInit {
 
   ngOnInit() {
     this.teams = ["Packers", "Also Packers", "Green Bay Packers", "The Packers"]
+  }
+
+  submitProfileInfo(){
+    
   }
 
 }

@@ -6,16 +6,13 @@
     <div class="card-body">
       <div class="card-text">
         <form>
-          <label>Edit Username</label>
+          <label>First Name</label>
           <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">@</div>
-            </div>
-            <input type="text" class="form-control" placeholder="currentUserName">
+            <input type="text" class="form-control" placeholder="{{user?.firstName}}">
           </div>
-          <label>Edit Birthday</label>
+          <label>Last Name</label>
           <div class="input-group mb-2">
-            <input type="date" class="form-control">
+            <input type="text" class="form-control" placeholder="{{user?.lastName}}">
           </div>
           <label>Edit Favorite Team</label>
           <select class="form-control">
@@ -26,6 +23,6 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-success btn-block">Submit</button>
+      <button type="submit" class="btn btn-success btn-block" (click)="submitProfileInfo()">Submit</button>
     </div>
   </div>

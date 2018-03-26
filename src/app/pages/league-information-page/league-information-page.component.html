@@ -1,0 +1,105 @@
+<h1 align="center">&lt;The_Best_League&gt;<h5><a href="#" class="badge badge-pill badge-dark" >settings</a></h5></h1>
+
+<div class="row">
+  <div class="col-md-6" align="left"></div>
+
+  <div class=col-md-3></div>
+  <div class="col-md-3" align="right">
+      <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="weekDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Week
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+              <a class="dropdown-item">{{number}}</a>
+            </li>
+          </div>
+        </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <h4 align="center">Current Standings</h4>
+    <table class = "table table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Team</th>
+          <th scope="col">Record</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Austin's_Best</td>
+          <td>998-1</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Luke_tried</td>
+          <td>1-998</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Nick_didn't_play</td>
+            <td>0-0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-1"></div>
+
+  <div class="col-md-4">
+    <h4 align="center">Team 1</h4>
+    <table class = "table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Also</th>
+            <th scope="col">Game</th>
+            <th scope="col">Stuff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Austin's_Best</td>
+            <td>998-1</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Luke_tried</td>
+            <td>1-998</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="col-md-4">
+    <h4 align="center">Team 2</h4>
+    <table class = "table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Game</th>
+            <th scope="col">Stuff</th>
+            <th scope="col">Here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Austin's_Best</td>
+            <td>998-1</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Luke_tried</td>
+            <td>1-998</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+</div>
