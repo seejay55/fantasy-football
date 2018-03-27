@@ -16,34 +16,6 @@ export class LeagueInvitesComponent implements OnInit {
   userId: number;
   invites: Invite[] = [];
 
-  private incomingInvites = [
-    {'senderID': 10000, 'senderName': 'SeeJay', 'leagueID': 88100, 'leagueName': 'Sunday Funday', 'sentDate': '03-02-2018'},
-    {'senderID': 10001, 'senderName': 'Kratox', 'leagueID': 88101, 'leagueName': 'Eternal Battlegrounds', 'sentDate': '02-14-2018'},
-    {'senderID': 10002, 'senderName': 'FrozenSoundtrack', 'leagueID': 88102, 'leagueName': `Preston's Game`, 'sentDate': '02-29-2018'}
-  ];
-
-// set up an onclick listener for hitting accept
-// send the user info to the league table
-// remove the invite from the incoming invites table
-acceptListener(leagueId: number) {
-  console.log('invite accepted');
-  this.userService.acceptInvite(this.userId, leagueId).subscribe(
-    (accepted) => {
-      this.invites = this.invites.filter(
-        league => league.leagueId === leagueId
-      );
-    },
-    (err) => { this.alertService.danger(err.status, err.message, false); }
-  );
-
-}
-
-// set up an onclick listener for hitting decline
-// remove the invite from the incoming invites table
-declineListener() {
-  console.log('invite declined');
-}
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
@@ -53,26 +25,59 @@ declineListener() {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.userId = params['userId'];
-        this.userService.getInvites(this.userId).subscribe(
-          (invites) => {
-            invites.forEach((invite) => {
-              const temp = new Invite(
-                invite.SenderId,
-                invite.SenderUsername,
-                invite.SenderFirstName,
-                invite.SenderLastName,
-                invite.LeagueID,
-                invite.LeagueName,
-                invite.Date,
-                invite.Age
-              );
-              this.invites.push(temp);
-            });
-            console.log(this.invites);
-          },
-          (err) => { console.log(err.error); }
-        );
+        this.getInvites(this.userId);
       });
+  }
+
+  private getInvites(userId: number): void {
+    this.userService.getInvites(this.userId).subscribe(
+      (invites) => {
+        invites.forEach((invite) => {
+          const temp = new Invite(
+            invite.SenderId,
+            invite.SenderUsername,
+            invite.SenderFirstName,
+            invite.SenderLastName,
+            invite.LeagueID,
+            invite.LeagueName,
+            invite.Date,
+            invite.Age
+          );
+          this.invites.push(temp);
+        });
+        console.log(this.invites);
+      },
+      (err) => { console.log(err.error); }
+    );
+  }
+
+  // accept league invite based on currentUser id and invite's league id
+  private acceptInvite(leagueId: number): void {
+    this.userService.acceptInvite(this.userId, leagueId).subscribe(
+      (success) => {
+        this.updateInvites(leagueId);
+        this.alertService.success('Success', `You have been added to the league.`, false);
+      },
+      (err) => {
+        console.log(err); this.alertService.danger(err.name, err.message, false);
+      }
+    );
+  }
+
+  private declineInvite(leagueId: number): void {
+    this.userService.declineInvite(this.userId, leagueId).subscribe(
+      (success) => {
+        this.updateInvites(leagueId);
+        this.alertService.success('Success', `Invite has been declined.`, false);
+      },
+      (err) => { console.log(err); this.alertService.danger(err.name, err.message, false); }
+    );
+  }
+
+  private updateInvites(leagueId: number): void {
+    this.invites = this.invites.filter(
+      invite => invite.leagueId !== leagueId
+    );
   }
 
 }

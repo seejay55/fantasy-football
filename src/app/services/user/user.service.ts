@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/bundles/Rx';
 
 
@@ -54,11 +54,11 @@ export class UserService {
   }
 
   public acceptInvite(userId: number, leagueId: number) {
-    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {});
+    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
   }
 
-  public deleteInvite(userId: number, leagueId: number) {
-    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
+  public declineInvite(userId: number, leagueId: number) {
+    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
   }
 
 }
