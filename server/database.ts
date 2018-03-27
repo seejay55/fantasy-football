@@ -24,14 +24,15 @@ export class DB {
         return new Promise((resolve, reject) => {
             this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
                 if (conError) {
-                    reject('DB Error(Conn):\n' + conError);
+                    return reject('DB Error(Conn):\n' + conError);
                 }
                 con.query(statement, (error: MysqlError, result: any) => {
                     if (error) {
-                        reject('DB Error(Query):\n' + error);
+                        return reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    resolve(queryResult);
+                    console.log(queryResult);
+                    return resolve(queryResult);
                 }).on('end', () => {
                     con.release();
                 });
@@ -105,8 +106,8 @@ export class DB {
             'INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)',
             [userEmail, userName, firstName, lastName]
         );
-        return this.query(statement).then(() => {
-            this.query(statement2);
+        return this.query(statement).then((result) => {
+            return this.query(statement2);
         });
     }
 
@@ -119,9 +120,8 @@ export class DB {
             'UPDATE userinfo SET Username = ? WHERE ID = ?',
             [userName, ID]
         );
-        // console.log(statement + "\n" + statement2);
-        return this.query(statement).then(() => {
-            this.query(statement2);
+        return this.query(statement).then((result) => {
+            return this.query(statement2);
         });
     }
 
@@ -154,8 +154,8 @@ export class DB {
             VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)`,
             [leagueName, userID, leagueName]
         );
-        return this.query(statement).then(() => {
-            this.query(staetment2);
+        return this.query(statement).then((result) => {
+            return this.query(staetment2);
         });
     }
 
@@ -264,24 +264,20 @@ export class DB {
         WHERE RecieveID = ?`,
             [userID]
         );
-
         return this.query(statement);
     }
 
-    // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     insertUserIntoLeague(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
             'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
             [leagueID, recieveID]
         );
-
         const statement2 = mysql.format(
             'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
             [recieveID, leagueID]
         );
-
-        return this.query(statement).then(() => {
-            this.query(statement2);
+        return this.query(statement).then((result) => {
+            return this.query(statement2);
         });
     }
 
