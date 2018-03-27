@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'find-user',                        component: FindUserComponent,               data: { breadcrumb: 'Find User'}},
   { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent,     data: { breadcrumb: 'Scoring Leaders'}},
   { path: 'user/:userName',                   component: UserProfilePageComponent,        data: { breadcrumb: 'Profile Page'}},
-  { path: 'user/:userName/invites',           component: LeagueInvitesComponent,          data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invites',             component: LeagueInvitesComponent,          data: { breadcrumb: 'Invites'}},
   { path: 'user/:userName/account-settings',  component: SettingsTabsComponent,           data: { breadcrumb: 'Account Settings'}},
   { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},

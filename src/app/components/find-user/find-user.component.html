@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="content-block">
 
     <!-- search bar -->
     <div class="col-lg-6 p-0">
@@ -13,12 +13,11 @@
     </div>
 
     <!-- no search results message -->
-    <p style="color:whitesmoke">
+    <p style="color: var(--foreground-color);">
       No users match your search!
     </p>
 
     <!-- clicky bit -->
-    <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let user of searchResultsUsers">
 
@@ -40,7 +39,7 @@
                 <div class="card-block">
                   Select the league(s) you want to send an invite for:
                   <div class="form-check" *ngFor="let i of availableLeagues">
-                    <label class="form-check-label">
+                    <label class="form-check-label" style="color: var(--inverse-foreground-color);">
                         <input class="form-check-input" type="checkbox" value=""> {{i.leagueName}}
                       </label>
                   </div>
@@ -56,7 +55,6 @@
 
         </li>
       </ul>
-    </div>
     <!-- end clicky bit -->
 
-  </div>
+</div>

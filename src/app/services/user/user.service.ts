@@ -20,8 +20,9 @@ export class UserService {
   }
 
   // send new user data, create that user, and return that user after database creation
-  public createUser(email: string, userName: string, password: string) {
-    return this.http.post(`${this.endpoint}/users`, { Email: email, Username: userName, Password: password } );
+  public createUser(email: string, userName: string, firstName: string, lastName: string, password: string) {
+    return this.http.post<any>(`${this.endpoint}/users`,
+    { Email: email, Username: userName, FirstName: firstName, LastName: lastName, Password: password } );
   }
 
 
@@ -53,11 +54,11 @@ export class UserService {
   }
 
   public acceptInvite(userId: number, leagueId: number) {
-    return this.http.get(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
+    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {});
   }
 
   public deleteInvite(userId: number, leagueId: number) {
-    return this.http.get(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
+    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
   }
 
 }

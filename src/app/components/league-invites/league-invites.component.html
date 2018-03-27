@@ -5,19 +5,19 @@
     You have no pending invites!
   </p>
   <!-- list of invites-->
-  <div *ngFor="let i of incomingInvites" class="card">
+  <div *ngFor="let i of invites" class="card">
     <ul class="list-group list-group-flush">
       <li class="list-group-item" id="request{{i}}">
         <div class="row">
-          <div class="col-md-3">{{i.senderName}}</div>
+          <div class="col-md-3">{{i.senderUsername}}</div>
           <div class="col-md-3">{{i.leagueName}}</div>
-          <div class="col-md-4">{{i.sentDate}}</div>
+          <div class="col-md-4">{{i.date}}</div>
           <div class="col-md-2">
             <!-- bootstrap button class to be changed -->
             <button type="button" id="request{{i}}" class="btn btn-danger" (click)="declineListener()" style="clear: left; float: right">
               &#9747;
             </button>
-            <button type="button" id="request{{i}}" class="btn btn-success" (click)="acceptListener()" style="clear: left; float: right">
+            <button type="button" id="request{{i}}" class="btn btn-success" (click)="acceptListener(i.leagueId)" style="clear: left; float: right">
               ACCEPT!
             </button>
           </div>
