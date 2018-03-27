@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var mysql = require("mysql");
-var DB = /** @class */ (function () {
+var mysql = require('mysql');
+var DB = (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -255,5 +253,5 @@ var DB = /** @class */ (function () {
         return this.query2(statement);
     };
     return DB;
-}());
+})();
 exports.DB = DB;

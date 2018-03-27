@@ -127,8 +127,8 @@ app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
     db.insertUserIntoLeague(user_id, league_id).then(function (result) {
         if (result == undefined) {
             res.status(500).send("Error Accepting Invite");
-        }
-        else {
+          }
+          else {
             res.send("Successfully Accepted Invite");
         }
     });
@@ -140,8 +140,8 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
     db.deleteInvite(user_id, league_id).then(function (result) {
         if (result == undefined) {
             res.status(500).send("Error Deleting Invite");
-        }
-        else {
+          }
+          else {
             res.send("Successfully Deleted Invite");
         }
     });
