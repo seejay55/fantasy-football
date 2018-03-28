@@ -30,10 +30,10 @@ export class SettingsTabsComponent implements OnInit {
   private updateUser(info: any): void {
     this.userService.updateUser(info.id, info.email, info.userName).subscribe(
       (userUpdated) => {
-        this.alertService.success('Success', 'Your account information has been updated', false);
         const updatedUser: User = this.user;
         updatedUser.email = info.email;
         updatedUser.userName = info.userName;
+        this.alertService.success('Success', 'Your account information has been updated', false);
         this.authService.setCurrentUser(updatedUser);
       },
       (err) => { console.log(err); }
@@ -41,9 +41,11 @@ export class SettingsTabsComponent implements OnInit {
   }
 
   private updateUserPassword(password: string) {
-    //this.userService.updateUserPassword(password).subscribe(
-
-    //);
+    console.log(password);
+    this.userService.updateUserPassword(this.user._id, password).subscribe(
+      (updatedPassword) => { this.alertService.success('Success', 'Password has been updated', true); },
+      (err) => { console.log(err); }
+    );
   }
 
 }

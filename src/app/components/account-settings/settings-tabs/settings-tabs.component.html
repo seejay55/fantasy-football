@@ -25,7 +25,7 @@
       <!-- TAB CONTENT 1 - Username & Password -->
       <div class="tab-pane show active" id="user-pass" role="tabpanel" aria-labelledby="user-pass-tab">
         <!-- app/components/settings-tabs/user-pass-content -->
-        <app-user-pass-content (updateUser)="updateUser($event)" [user]="user"></app-user-pass-content>
+        <app-user-pass-content (updateUser)="updateUser($event)" (updateUserPassword)="updateUserPassword($event)" [user]="user"></app-user-pass-content>
       </div>
       <!-- TAB CONTENT 2 - Edit Profile -->
       <div class="tab-pane" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">

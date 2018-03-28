@@ -22,9 +22,10 @@ export class UserPassContentComponent implements OnInit {
     return false;
   }
 
-  private sendUpdateUserPassword(password: string, confirmPass: string): void {
+  private sendUpdateUserPassword(password: string, confirmPass: string): boolean {
     if (password === confirmPass) { this.updateUserPassword.emit(password); } else {
       console.log('passwords dont match'); }
+    return false;
   }
 
 }

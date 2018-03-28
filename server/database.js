@@ -22,7 +22,7 @@ var DB = (function () {
                         return reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    console.log(queryResult);
+                    // console.log(queryResult);
                     return resolve(queryResult);
                 }).on('end', function () {
                     con.release();

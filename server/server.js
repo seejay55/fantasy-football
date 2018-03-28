@@ -100,19 +100,16 @@ app.patch("/api/user/:user_id", function (req, res) {
   var profilePic = req.body.ProfilePic;
   var password = req.body.Password;
   if (id && username && email) {
-    console.log('user info')
     db.updateUser(id, email, username).then(function (result) {
       db.getUserInfoById(id).then(function (result) {
         res.status(200).send(result);
       });
     });
   } else if (password) {
-    console.log('user password')
     db.updateUserPassword(password, id).then(function (result) {
       res.status(200).send(result);
     })
   } else {
-    console.log('error')
     res.status(500).send('There was an error updating your account.')}
 });
 
