@@ -39,9 +39,14 @@ export class UserService {
   }
 
   // send updated user data, update that user, and return that user after database update
-  public updateUser(userId: number, email: string,  userName: string, password: string, profilePic: string) {
+  public updateUser(userId: number, email: string,  userName: string) {
     return this.http.patch(`${this.endpoint}/user/${userId}`,
-    { Email: email, Username: userName, Password: password , ProfilePic: profilePic} );
+    { Email: email, Username: userName } );
+  }
+
+  public updateUserPassword(userId: number, password: string) {
+    return this.http.patch(`${this.endpoint}/user/${userId}`,
+    { Password: password } );
   }
 
   // send id of user to be deleted, delete that user, then return status code.
@@ -54,11 +59,11 @@ export class UserService {
   }
 
   public acceptInvite(userId: number, leagueId: number) {
-    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
+    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {} );
   }
 
   public declineInvite(userId: number, leagueId: number) {
-    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
+    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
   }
 
 }

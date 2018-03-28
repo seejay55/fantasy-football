@@ -105,10 +105,10 @@ export class DB {
         });
     }
 
-    updateUser(ID: number, email: string, userName: string, userPassword: string): any {
+    updateUser(ID: number, email: string, userName: string): any {
         const statement = mysql.format(
-            'UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?',
-            [userPassword, email, ID]
+            'UPDATE userlogin SET Email = ? WHERE ID = ?',
+            [email, ID]
         );
         const statement2 = mysql.format(
             'UPDATE userinfo SET Username = ? WHERE ID = ?',
@@ -117,6 +117,14 @@ export class DB {
         return this.query(statement).then((result) => {
             return this.query(statement2);
         });
+    }
+
+    updateUserPassword(password: string, ID: number): any {
+      const statement = mysql.format(
+        'UPDATE userlogin SET Password = ? WHERE ID = ?',
+        [password, ID]
+      );
+      return this.query(statement);
     }
 
     updateUserPersonal(ID: number, firstName: string, lastName: string, favoriteTeam: string): any {
