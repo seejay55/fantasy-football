@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var mysql = require("mysql");
-var DB = /** @class */ (function () {
+var mysql = require('mysql');
+var DB = (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -90,13 +88,17 @@ var DB = /** @class */ (function () {
             return _this.query(statement2);
         });
     };
-    DB.prototype.updateUser = function (ID, email, userName, userPassword) {
+    DB.prototype.updateUser = function (ID, email, userName) {
         var _this = this;
-        var statement = mysql.format('UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?', [userPassword, email, ID]);
+        var statement = mysql.format('UPDATE userlogin SET Email = ? WHERE ID = ?', [email, ID]);
         var statement2 = mysql.format('UPDATE userinfo SET Username = ? WHERE ID = ?', [userName, ID]);
         return this.query(statement).then(function (result) {
             return _this.query(statement2);
         });
+    };
+    DB.prototype.updateUserPassword = function (password, ID) {
+        var statement = mysql.format('UPDATE userlogin SET Password = ? WHERE ID = ?', [password, ID]);
+        return this.query(statement);
     };
     DB.prototype.updateUserPersonal = function (ID, firstName, lastName, favoriteTeam) {
         var statement = mysql.format('UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?', [firstName, lastName, favoriteTeam, ID]);
@@ -253,5 +255,5 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     return DB;
-}());
+})();
 exports.DB = DB;

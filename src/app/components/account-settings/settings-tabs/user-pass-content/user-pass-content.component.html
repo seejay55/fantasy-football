@@ -1,40 +1,45 @@
-<div class="card">
-  <div class="card-header">
-    <h4>Username</h4>
-    <p class="card-subtitle text-muted small">Edit your username.</p>
-  </div>
-  <div class="card-body">
-    <div class="card-text">
-      <form>
-        <label>Change Username</label>
-        <div class="input-group mb-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">@</div>
-          </div>
-          <input type="text" class="form-control" placeholder="{{user?.userName}}">
-        </div>
-      </form>
+<div class="content-block">
+  <div class="card">
+    <div class="card-header">
+      <h4>Username & Email</h4>
+      <p class="card-subtitle text-muted small">Edit your username.</p>
     </div>
-  </div>
-  <div class="card-footer">
-    <button type="submit" class="btn btn-success btn-block" (click)="sumbitUsername()">Submit</button>
+    <form (submit)="sendUpdateUser(user._id, email.value, userName.value)">
+      <div class="card-body">
+        <div class="card-text">
+          <label>Change Username</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input #userName type="text" class="form-control" value="{{user?.userName}}" required>
+          </div>
+          <label>Change Email</label>
+          <div class="input-group mb-2">
+            <input #email type="text" class="form-control" value="{{user?.email}}" required>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+      </div>
+    </form>
   </div>
 </div>
 
-<hr/>
-
-<div class="card">
+<div class="content-block">
+  <div class="card">
     <div class="card-header">
       <h4>Password</h4>
       <p class="card-subtitle text-muted small">Edit your password.</p>
     </div>
-    <div class="card-body">
-      <div class="card-text">
-        <form>
-          <div class="form-group">
+    <form>
+      <div class="card-body">
+        <div class="card-text">
+          <!--REMOVING THIS FOR NOW <div class="form-group">
             <label for="currentPassInput">Current Password</label>
             <input type="password" class="form-control" id="currentPassInput">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="newPassInput">New Password</label>
             <input type="password" class="form-control" id="newPassInput">
@@ -43,10 +48,11 @@
             <label for="confirmPassInput">Confirm Password</label>
             <input type="password" class="form-control" id="confirmPassInput">
           </div>
-        </form>
+        </div>
       </div>
-    </div>
-    <div class="card-footer">
-      <button type="submit" class="btn btn-success btn-block" (click)="submitPassowrd()">Submit</button>
-    </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-success btn-block" (click)="submitPassowrd()">Submit</button>
+      </div>
+    </form>
   </div>
+</div>

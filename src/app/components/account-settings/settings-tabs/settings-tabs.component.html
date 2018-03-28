@@ -20,24 +20,22 @@
 
   <!-- Column for Tab Contents -->
   <div class="col-md-4">
-    <div class="content-block">
-      <!-- Tab Contents -->
-      <div class="tab-content">
-        <!-- TAB CONTENT 1 - Username & Password -->
-        <div class="tab-pane show active" id="user-pass" role="tabpanel" aria-labelledby="user-pass-tab">
-          <!-- app/components/settings-tabs/user-pass-content -->
-          <app-user-pass-content [user]="user"></app-user-pass-content>
-        </div>
-        <!-- TAB CONTENT 2 - Edit Profile -->
-        <div class="tab-pane" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
-          <!-- app/components/settings-tabs/edit-profile-content -->
-          <app-edit-acc-content [user]="user"></app-edit-acc-content>
-        </div>
-        <!-- TAB CONTENT 3 - Delete Account -->
-        <div class="tab-pane" id="delete-account" role="tabpanel" aria-labelledby="delete-account-tab">
-          <!-- app/components/settings-tabs/delete-account-content -->
-          <app-delete-acc-content [user]="user"></app-delete-acc-content>
-        </div>
+    <!-- Tab Contents -->
+    <div class="tab-content">
+      <!-- TAB CONTENT 1 - Username & Password -->
+      <div class="tab-pane show active" id="user-pass" role="tabpanel" aria-labelledby="user-pass-tab">
+        <!-- app/components/settings-tabs/user-pass-content -->
+        <app-user-pass-content (updateUser)="updateUser($event)" [user]="user"></app-user-pass-content>
+      </div>
+      <!-- TAB CONTENT 2 - Edit Profile -->
+      <div class="tab-pane" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
+        <!-- app/components/settings-tabs/edit-profile-content -->
+        <app-edit-acc-content [user]="user"></app-edit-acc-content>
+      </div>
+      <!-- TAB CONTENT 3 - Delete Account -->
+      <div class="tab-pane" id="delete-account" role="tabpanel" aria-labelledby="delete-account-tab">
+        <!-- app/components/settings-tabs/delete-account-content -->
+        <app-delete-acc-content [user]="user"></app-delete-acc-content>
       </div>
     </div>
   </div>

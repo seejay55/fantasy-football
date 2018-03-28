@@ -64,11 +64,11 @@ app.get("/api/user/authenticate", function (req, res) {
   });
 });
 
-app.get("/api/user/:user_id/leagues", function(req, res) {
-    var id = req.params.user_id;
-    db.getAllLeaguesForUser(id).then(function (result) {
-        res.send(result);
-    });
+app.get("/api/user/:user_id/leagues", function (req, res) {
+  var id = req.params.user_id;
+  db.getAllLeaguesForUser(id).then(function (result) {
+    res.send(result);
+  });
 });
 
 app.get("/api/user/:user", function (req, res) {
@@ -99,18 +99,28 @@ app.patch("/api/user/:user_id", function (req, res) {
   var email = req.body.Email;
   var profilePic = req.body.ProfilePic;
   var password = req.body.Password;
-  db.updateUser(id, email, username, password).then(function (result) {
-    db.getUserInfoById(id).then(function(result) {
+  if (id && username && email) {
+    console.log('user info')
+    db.updateUser(id, email, username).then(function (result) {
+      db.getUserInfoById(id).then(function (result) {
         res.status(200).send(result);
+      });
     });
-  });
+  } else if (password) {
+    console.log('user password')
+    db.updateUserPassword(password, id).then(function (result) {
+      res.status(200).send(result);
+    })
+  } else {
+    console.log('error')
+    res.status(500).send('There was an error updating your account.')}
 });
 
 app.delete("/api/user/:user_id", function (req, res) {
-    var id = req.params.user_id;
-    db.deleteUser(id).then(function (result) {
-        res.status(204);
-    });
+  var id = req.params.user_id;
+  db.deleteUser(id).then(function (result) {
+    res.status(204);
+  });
 });
 
 app.get("/api/user/:user_id/invites", function (req, res) {
@@ -122,29 +132,29 @@ app.get("/api/user/:user_id/invites", function (req, res) {
 });
 
 app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
-    var user_id = req.params.user_id;
-    var league_id = req.params.league_id;
-    db.insertUserIntoLeague(user_id, league_id).then(function (result) {
-        if (result == undefined) {
-            res.status(500).send("Error Accepting Invite");
-          }
-          else {
-            res.send("Successfully Accepted Invite");
-        }
-    });
+  var user_id = req.params.user_id;
+  var league_id = req.params.league_id;
+  db.insertUserIntoLeague(user_id, league_id).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Accepting Invite");
+    }
+    else {
+      res.send("Successfully Accepted Invite");
+    }
+  });
 });
 
 app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
-    var user_id = req.params.user_id;
-    var league_id = req.params.league_id;
-    db.deleteInvite(user_id, league_id).then(function (result) {
-        if (result == undefined) {
-            res.status(500).send("Error Deleting Invite");
-          }
-          else {
-            res.send("Successfully Deleted Invite");
-        }
-    });
+  var user_id = req.params.user_id;
+  var league_id = req.params.league_id;
+  db.deleteInvite(user_id, league_id).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Deleting Invite");
+    }
+    else {
+      res.send("Successfully Deleted Invite");
+    }
+  });
 });
 
 /**
@@ -158,26 +168,26 @@ app.get("/api/leagues", function (req, res) {
 });
 
 app.post("/api/leagues", function (req, res) {
-    league_name = req.body.LeagueName;
-    owner_id = req.body.UserID;
-    privacy = req.body.LeaguePrivacy;
-    max_trades = req.body.MaxTrades;
-    max_teams = req.body.MaxTeams;
-    db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades).then(function(result) {
-        res.status(204).send();
-    });
+  league_name = req.body.LeagueName;
+  owner_id = req.body.UserID;
+  privacy = req.body.LeaguePrivacy;
+  max_trades = req.body.MaxTrades;
+  max_teams = req.body.MaxTeams;
+  db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades).then(function (result) {
+    res.status(204).send();
   });
+});
 
 app.get("/api/leagues/search", function (req, res) {
-    var query = "";
-    if (req.query.query != undefined) {
-        query = req.query.query;
-    }
-    db.searchLeaguesByName(query).then(function (result) {
-        res.setHeader('Content-Type', 'application/json');
-        res.json(result);
-    });
+  var query = "";
+  if (req.query.query != undefined) {
+    query = req.query.query;
+  }
+  db.searchLeaguesByName(query).then(function (result) {
+    res.setHeader('Content-Type', 'application/json');
+    res.json(result);
   });
+});
 
 app.get("/api/league/:league_id/members", function (req, res) {
   var league_id = req.params.league_id;

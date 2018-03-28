@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../../../models/user';
 
+import { NFLTEAMS } from '../../../../../assets/NFLTeams';
+
 @Component({
   selector: 'app-edit-acc-content',
   templateUrl: './edit-acc-content.component.html',
@@ -10,17 +12,16 @@ export class EditAccContentComponent implements OnInit {
 
   @Input() user: User;
 
-  teams;
+  teams = NFLTEAMS;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
-    this.teams = ["Packers", "Also Packers", "Green Bay Packers", "The Packers"]
   }
 
-  submitProfileInfo(){
-    
+  private updateUser(): void {
+
   }
 
 }
