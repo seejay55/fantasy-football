@@ -35,8 +35,7 @@ var DB = /** @class */ (function () {
         var _this = this;
         var queryResult;
         var formatedJSON = '[';
-        var previousName;
-        var check = 0;
+        var previousName = '';
         return new Promise(function (resolve, reject) {
             _this.pool.getConnection(function (conError, con) {
                 if (conError) {
@@ -46,36 +45,31 @@ var DB = /** @class */ (function () {
                     if (error) {
                         reject('DB Error(Query):\n' + error);
                     }
-                    previousName = '';
                     queryResult = JSON.parse(JSON.stringify(result));
                     for (var i = 0; i < queryResult.length; i++) {
                         if (queryResult[i].PlayerName === previousName) {
-                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
-                                queryResult[i].GameStatValue + '},');
+                            formatedJSON = formatedJSON + ('"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         }
                         else if (i === 0) {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
-                        }
-                        else if (check === 0) {
-                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
-                                queryResult[i].GameStatValue + '},');
-                            check = 1;
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         }
                         else {
-                            check = 0;
                             formatedJSON = formatedJSON.slice(0, -1);
-                            formatedJSON = formatedJSON + (']},');
+                            formatedJSON = formatedJSON + ('}},');
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         }
                     }
                     formatedJSON = formatedJSON.slice(0, -1);
-                    formatedJSON = formatedJSON + ']}]';
+                    formatedJSON = formatedJSON + '}}]';
                     resolve(JSON.parse(formatedJSON));
                 }).on('end', function () {
                     con.release();
@@ -146,7 +140,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getAllLeaguesForUser = function (userID) {
-        var statement = mysql.format("SELECT get_league_info.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM fantasyfootball18.league_members\n            LEFT JOIN (\n                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n                FROM leagues\n                LEFT JOIN (\n                    SELECT LeagueID, COUNT(UserID) AS NumTeams\n                    FROM league_members\n                    GROUP BY LeagueID\n                ) AS member_count ON member_count.LeagueID = ID\n                LEFT JOIN (\n                    SELECT LeagueID, UserID AS OwnerID\n                    FROM league_members\n                    WHERE Commisioner = TRUE\n                    GROUP BY LeagueID\n                ) AS league_owner ON league_owner.LeagueID = ID\n            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID\n            WHERE UserID = ?", [userID]);
+        var statement = mysql.format("SELECT get_league_info.ID, Name, Year, MaxTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM fantasyfootball18.league_members\n            LEFT JOIN (\n                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n                FROM leagues\n                LEFT JOIN (\n                    SELECT LeagueID, COUNT(UserID) AS NumTeams\n                    FROM league_members\n                    GROUP BY LeagueID\n                ) AS member_count ON member_count.LeagueID = ID\n                LEFT JOIN (\n                    SELECT LeagueID, UserID AS OwnerID\n                    FROM league_members\n                    WHERE Commisioner = TRUE\n                    GROUP BY LeagueID\n                ) AS league_owner ON league_owner.LeagueID = ID\n            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID\n            WHERE UserID = ?", [userID]);
         return this.query(statement);
     };
     DB.prototype.searchUserResults = function (senderID, searchParams) {
@@ -162,7 +156,7 @@ var DB = /** @class */ (function () {
     // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
         var _this = this;
-        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)', [leagueID, recieveID]);
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (?, ?, 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
         return this.query(statement).then(function () {
             _this.query(statement2);
@@ -252,8 +246,12 @@ var DB = /** @class */ (function () {
     };
     // Luke Stats
     DB.prototype.getStats = function () {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM nfl_players\n            JOIN game_stats_totals ON nfl_players.player_id = game_stats_totals.PlayerID\n            JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID", []);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals\n            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            ORDER BY PlayerName asc\t", []);
         return this.query2(statement);
+    };
+    DB.prototype.getSeasonPoints = function () {
+        var statement = mysql.format("SELECT nflp.PlayerName, nfls.SeasonPts, nflp.PlayerPos, nflp.TeamAbbr FROM game_stats_totals as gs\n        LEFT JOIN nfl_stats as nfls ON gs.PlayerID = nfls.PlayerID\n        LEFT JOIN nfl_players as nflp ON gs.PlayerID =  nflp.player_id\n        GROUP BY nflp.PlayerName", []);
+        return this.query(statement);
     };
     return DB;
 }());

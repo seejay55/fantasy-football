@@ -5,12 +5,12 @@
   <div class="row">
     <h4 class="col-sm-2">Filters:</h4>
     <h6 class="col-sm-1">Team:</h6>
-    <select class="form-control col-sm-4">
+    <select (change)="onTeamChange($event.target.value)" class="form-control col-sm-4" >
       <option *ngFor="let team of teams">{{team}}</option>
     </select>
     <h6 class="col-sm-1">Pos:</h6>
-    <select class="form-control col-sm-4">
-        <option *ngFor="let position of positions">{{position}}</option>
+    <select (change)="onPlayerPositionChange($event.target.value)" class="form-control col-sm-4">
+        <option *ngFor="let position of playerPos">{{position}}</option>
     </select>
   </div>
   <div>
@@ -33,18 +33,36 @@
                 <th scope="col">Team</th>
               </thead>
               <tbody>
+                <tr *ngFor="let offensive of filteredOffensivePlayers">
+                  <td>
+                    {{offensive.PlayerName || 'NA'}}
+                  </td>
+                  <td>
+                    {{offensive.PlayerPos || 'NA'}}
+                  </td>
+                  <td>
+                    {{offensive.TeamAbbr || 'NA'}}
+                  </td>
+                </tr>
               </tbody>
             </table>
           </td>
           <td>
             <table class="table"> <!-- Passing -->
               <thead>
-                <th scope="col">C/A</th>
+                <th scope="col">P/I</th>
                 <th scope="col">YDS</th>
                 <th scope="col">TD</th>
                 <th scope="col">INT</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                <tr *ngFor="let offensive of filteredOffensivePlayers">
+                  <td>{{offensive.Stats["Passing Completions"] || 0}}</td>
+                  <td>{{offensive.Stats["Passing Yards"] || 0}}</td>
+                  <td>{{offensive.Stats["Passing Touchdowns"] || 0}}</td>
+                  <td>{{offensive.Stats["Interceptions Thrown"] || 0}}</td>
+                </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -54,7 +72,13 @@
                 <th scope="col">YDS</th>
                 <th scope="col">TD</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let offensive of filteredOffensivePlayers">
+                      <td>{{offensive.Stats["Rushing Attempts"] || 0}} </td>
+                      <td>{{offensive.Stats["Rushing Yards"] || 0}}</td>
+                      <td>{{offensive.Stats["Rushing Touchdowns"] || 0}}</td>
+                    </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -64,7 +88,13 @@
                 <th scope="col">YDS</th>
                 <th scope="col">TD</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let offensive of filteredOffensivePlayers">
+                      <td>{{offensive.Stats["Receptions"] || 0}} </td>
+                      <td>{{offensive.Stats["Receiving Yards"] || 0}}</td>
+                      <td>{{offensive.Stats["Receiving Touchdowns"] || 0}}</td>
+                    </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -72,9 +102,15 @@
               <thead>
                 <th scope="col">2PC</th>
                 <th scope="col">Fuml</th>
-                <th scope="col">Ret TD</th>
+                <th scope="col">TD</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let offensive of filteredOffensivePlayers">
+                      <td>{{offensive.Stats["2-Point Conversions"] || 0}} </td>
+                      <td>{{offensive.Stats["Fumble"] || 0}}</td>
+                      <td>{{offensive.Stats["Kickoff and Punt Return Touchdowns"] || 0}}</td>
+                    </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -82,7 +118,11 @@
               <thead>
                 <th scope="col">PTS</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let offensive of filteredOffensiveScore">
+                      <td>{{offensive.SeasonPts || 0}} </td>
+                  </tr>
+              </tbody>
             </table>
           </td>
         </tr>
@@ -105,19 +145,49 @@
                 <th scope="col">Pos</th>
                 <th scope="col">Team</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let kick of filteredKickerPlayers">
+                      <td>
+                        {{kick.PlayerName}}
+                      </td>
+                      <td>
+                        {{kick.PlayerPos}}
+                      </td>
+                      <td>
+                        {{kick.TeamAbbr}}
+                      </td>
+                  </tr>
+              </tbody>
             </table>
           </td>
           <td>
             <table class="table"> <!-- Kicking -->
               <thead>
-                <th scope="col">1-39</th>
-                <th scope="col">40-49</th>
-                <th scope="col">50+</th>
-                <th scope="col">Total</th>
-                <th scope="col">XP</th>
+                <th scope="col">FG Made 0-19</th>
+                <th scope="col">FG Made 20-29</th>
+                <th scope="col">FG Made 30-39</th>
+                <th scope="col">FG Made 40-49</th>
+                <th scope="col">FG Made 50+</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let kick of filteredKickerPlayers">
+                    <td>
+                      {{kick.Stats["FG Made 0-19"] || 0}}
+                    </td>
+                    <td>
+                      {{kick.Stats["FG Made 20-29"] || 0}}
+                    </td>
+                    <td>
+                      {{kick.Stats["FG Made 30-39"] || 0}}
+                    </td>
+                    <td>
+                      {{kick.Stats["FG Made 40-49"] || 0}}
+                    </td>
+                    <td>
+                      {{kick.Stats["FG Made 50+"] || 0}}
+                    </td>
+                  </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -125,7 +195,11 @@
               <thead>
                 <th scope="col">Points</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let scores of filteredKickerScore">
+                      <td>{{scores.SeasonPts}}</td>
+                  </tr>
+              </tbody>
             </table>
           </td>
         </tr>
@@ -147,7 +221,16 @@
                 <th scope="col">Team Name</th>
                 <th scope="col">Team Pos</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let defense of filteredDefensivePlayers">
+                    <td>
+                      {{defense.PlayerName}}
+                    </td>
+                    <td>
+                      {{defense.PlayerPos}}
+                    </td>
+                  </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -161,7 +244,31 @@
                 <th scope="col">Block</th>
                 <th scope="col">PA</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let defense of filteredDefensivePlayers">
+                      <td>
+                        {{defense.Stats.Touchdowns || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats.Interceptions || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats["Fumbles Recovered"] || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats.Sacks || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats.Safeties || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats["Blocked Kicks"] || 0}}
+                      </td>
+                      <td>
+                        {{defense.Stats["Points Allowed"] || 0}}
+                      </td>
+                    </tr>
+              </tbody>
             </table>
           </td>
           <td>
@@ -169,7 +276,11 @@
               <thead>
                 <th scope="col">Points</th>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  <tr *ngFor="let defense of filteredDefensiveScore">
+                    <td>{{defense.SeasonPts || 0}}</td>
+                  </tr>
+              </tbody>
             </table>
           </td>
         </tr>

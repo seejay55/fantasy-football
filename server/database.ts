@@ -42,8 +42,7 @@ export class DB {
     private query2(statement: string): any {
         let queryResult: any;
         let formatedJSON = '[';
-        let previousName: any;
-        let check = 0;
+        let previousName = '';
         return new Promise((resolve, reject) => {
             this.pool.getConnection((conError: MysqlError, con: mysql.PoolConnection) => {
                 if (conError) {
@@ -53,33 +52,29 @@ export class DB {
                     if (error) {
                         reject('DB Error(Query):\n' + error);
                     }
-                    previousName = '';
                     queryResult = JSON.parse(JSON.stringify(result));
                     for (let i = 0; i < queryResult.length; i++) {
                         if (queryResult[i].PlayerName === previousName) {
-                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
-                                queryResult[i].GameStatValue + '},');
+                            formatedJSON = formatedJSON + ('"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         } else if (i === 0) {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
-                        } else if (check === 0) {
-                            formatedJSON = formatedJSON + ('{"Name":' + '"' + queryResult[i].Name + '"' + ',"GameStatValue":' +
-                                queryResult[i].GameStatValue + '},');
-                            check = 1;
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         } else {
-                            check = 0;
                             formatedJSON = formatedJSON.slice(0, -1);
-                            formatedJSON = formatedJSON + (']},');
+                            formatedJSON = formatedJSON + ('}},');
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":[');
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         }
                     }
                     formatedJSON = formatedJSON.slice(0, -1);
-                    formatedJSON = formatedJSON + ']}]';
+                    formatedJSON = formatedJSON + '}}]';
 
                     resolve(JSON.parse(formatedJSON));
 
@@ -220,7 +215,8 @@ export class DB {
 
     getAllLeaguesForUser(userID: number): any {
         const statement = mysql.format(
-            `SELECT get_league_info.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
+            `SELECT get_league_info.ID, Name, Year, MaxTeams,
+            TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM fantasyfootball18.league_members
             LEFT JOIN (
                 SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID
@@ -515,11 +511,23 @@ export class DB {
     // Luke Stats
     getStats(): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM nfl_players
-            JOIN game_stats_totals ON nfl_players.player_id = game_stats_totals.PlayerID
-            JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID`,
+            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals
+            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
+            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID
+            ORDER BY PlayerName asc	`,
             []
         );
         return this.query2(statement);
+    }
+
+    getSeasonPoints(): any {
+      const statement = mysql.format(
+        `SELECT nflp.PlayerName, nfls.SeasonPts, nflp.PlayerPos, nflp.TeamAbbr FROM game_stats_totals as gs
+        LEFT JOIN nfl_stats as nfls ON gs.PlayerID = nfls.PlayerID
+        LEFT JOIN nfl_players as nflp ON gs.PlayerID =  nflp.player_id
+        GROUP BY nflp.PlayerName`,
+        []
+      );
+      return this.query(statement);
     }
 }
