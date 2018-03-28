@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var mysql = require("mysql");
-var DB = /** @class */ (function () {
+var mysql = require('mysql');
+var DB = (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -17,14 +15,15 @@ var DB = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.pool.getConnection(function (conError, con) {
                 if (conError) {
-                    reject('DB Error(Conn):\n' + conError);
+                    return reject('DB Error(Conn):\n' + conError);
                 }
                 con.query(statement, function (error, result) {
                     if (error) {
-                        reject('DB Error(Query):\n' + error);
+                        return reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    resolve(queryResult);
+                    console.log(queryResult);
+                    return resolve(queryResult);
                 }).on('end', function () {
                     con.release();
                 });
@@ -85,17 +84,16 @@ var DB = /** @class */ (function () {
         var _this = this;
         var statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
         var statement2 = mysql.format('INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)', [userEmail, userName, firstName, lastName]);
-        return this.query(statement).then(function () {
-            _this.query(statement2);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2);
         });
     };
     DB.prototype.updateUser = function (ID, email, userName, userPassword) {
         var _this = this;
         var statement = mysql.format('UPDATE userlogin SET Password = ?, Email = ? WHERE ID = ?', [userPassword, email, ID]);
         var statement2 = mysql.format('UPDATE userinfo SET Username = ? WHERE ID = ?', [userName, ID]);
-        // console.log(statement + "\n" + statement2);
-        return this.query(statement).then(function () {
-            _this.query(statement2);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2);
         });
     };
     DB.prototype.updateUserPersonal = function (ID, firstName, lastName, favoriteTeam) {
@@ -112,8 +110,8 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("INSERT INTO leagues (Name, Year, MaxTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
         // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
         var staetment2 = mysql.format("INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner)\n            VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)", [leagueName, userID, leagueName]);
-        return this.query(statement).then(function () {
-            _this.query(staetment2);
+        return this.query(statement).then(function (result) {
+            return _this.query(staetment2);
         });
     };
     DB.prototype.deleteLeague = function (leagueID) {
@@ -153,13 +151,12 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT SenderID, Username AS SenderUsername, FirstName AS SenderFirstName, LastName AS SenderLastName,\n            LeagueID, Name AS LeagueName, Date, datediff(NOW(), Date) AS Age\n        FROM league_invites\n        JOIN leagues ON league_invites.leagueID = leagues.ID\n        JOIN userinfo ON league_invites.SenderID = userinfo.ID\n        WHERE RecieveID = ?", [userID]);
         return this.query(statement);
     };
-    // Preston needs to add 1 to the current team count for the 'numTeams' parameter
     DB.prototype.insertUserIntoLeague = function (recieveID, leagueID) {
         var _this = this;
         var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (?, ?, 0)', [leagueID, recieveID]);
         var statement2 = mysql.format('DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?', [recieveID, leagueID]);
-        return this.query(statement).then(function () {
-            _this.query(statement2);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2);
         });
     };
     DB.prototype.deleteInvite = function (recieveID, leagueID) {
@@ -254,5 +251,5 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     return DB;
-}());
+})();
 exports.DB = DB;

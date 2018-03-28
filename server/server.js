@@ -127,8 +127,8 @@ app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
     db.insertUserIntoLeague(user_id, league_id).then(function (result) {
         if (result == undefined) {
             res.status(500).send("Error Accepting Invite");
-        }
-        else {
+          }
+          else {
             res.send("Successfully Accepted Invite");
         }
     });
@@ -140,8 +140,8 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
     db.deleteInvite(user_id, league_id).then(function (result) {
         if (result == undefined) {
             res.status(500).send("Error Deleting Invite");
-        }
-        else {
+          }
+          else {
             res.send("Successfully Deleted Invite");
         }
     });
@@ -156,6 +156,17 @@ app.get("/api/leagues", function (req, res) {
     res.json(result);
   });
 });
+
+app.post("/api/leagues", function (req, res) {
+    league_name = req.body.LeagueName;
+    owner_id = req.body.UserID;
+    privacy = req.body.LeaguePrivacy;
+    max_trades = req.body.MaxTrades;
+    max_teams = req.body.MaxTeams;
+    db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades).then(function(result) {
+        res.status(204).send();
+    });
+  });
 
 app.get("/api/leagues/search", function (req, res) {
     var query = "";
