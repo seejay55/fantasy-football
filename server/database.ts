@@ -60,16 +60,18 @@ export class DB {
                         } else if (i === 0) {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
-                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
-                                queryResult[i].GameStatValue + '",');
+                            ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                            '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                            ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                            queryResult[i].GameStatValue + '",');
                         } else {
                             formatedJSON = formatedJSON.slice(0, -1);
                             formatedJSON = formatedJSON + ('}},');
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                     }
@@ -514,10 +516,15 @@ export class DB {
     // Luke Stats
     getStats(): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals
-            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
+            `SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, Name, GameStatValue FROM game_stats_totals
+            INNER JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
             INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID
-            ORDER BY PlayerName asc`,
+            JOIN (
+              SELECT DISTINCT(PlayerID), SeasonPts
+                FROM nfl_stats
+                WHERE Year = 2017
+            ) AS temp ON temp.PlayerID = game_stats_totals.PlayerID
+            ORDER BY SeasonPts desc, PlayerName desc`,
             []
         );
         return this.query2(statement);

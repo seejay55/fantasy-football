@@ -16,6 +16,8 @@ export class ScoringLeadersPageComponent implements OnInit {
     filteredPlayerPos = 'All';
     filteredTeamName = 'All';
 
+    allOffensivePlayers = [];
+
     offensivePlayers = [];
     scoreOffensivePlayer = [];
     filteredOffensivePlayers = [];
@@ -46,7 +48,7 @@ export class ScoringLeadersPageComponent implements OnInit {
     }
 
     fillTableForAll() {
-        var i = 0;
+        let i = 0;
         this.allStats.forEach(e => {
             switch (e.PlayerPos) {
                 case 'K':
@@ -57,10 +59,10 @@ export class ScoringLeadersPageComponent implements OnInit {
                 case 'WR':
                 case 'TE':
                     i++;
-                    if(i < 50)
-                    {
+                    if (i < 50) {
                         this.offensivePlayers.push(e);
                     }
+                    this.allOffensivePlayers.push(e);
                     break;
                 case 'DEF':
                     this.defensivePlayer.push(e);
@@ -70,38 +72,11 @@ export class ScoringLeadersPageComponent implements OnInit {
             }
         });
 
-        var j = 0;
-        this.allScores.forEach(e => {
-            switch (e.PlayerPos) {
-                case 'K':
-                    this.scoreKickers.push(e);
-                    break;
-                case 'QB':
-                case 'RB':
-                case 'WR':
-                case 'TE':
-                    j++;
-                    if(j < 50)
-                    {
-                        this.scoreOffensivePlayer.push(e);
-                    }
-                    break;
-                case 'DEF':
-                    this.scoreDefensivePlayer.push(e);
-                    break;
-                default:
-                    break;
-            }
-        });
-
         this.filteredOffensivePlayers = this.offensivePlayers;
-        this.filteredOffensiveScore = this.scoreOffensivePlayer;
 
         this.filteredDefensivePlayers = this.defensivePlayer;
-        this.filteredDefensiveScore = this.scoreDefensivePlayer;
 
         this.filteredKickerPlayers = this.kickers;
-        this.filteredKickerScore = this.scoreKickers;
     }
 
     onTeamChange(team) {
@@ -119,51 +94,36 @@ export class ScoringLeadersPageComponent implements OnInit {
         if (this.filteredTeamName === 'All' && this.filteredPlayerPos === 'All') {
 
             this.filteredOffensivePlayers = this.offensivePlayers;
-            this.filteredOffensiveScore = this.scoreOffensivePlayer;
 
             this.filteredDefensivePlayers = this.defensivePlayer;
-            this.filteredDefensiveScore = this.scoreDefensivePlayer;
 
             this.filteredKickerPlayers = this.kickers;
-            this.filteredKickerScore = this.scoreKickers;
 
         } else if (this.filteredTeamName !== 'All' && this.filteredPlayerPos === 'All') {
 
-            this.filteredOffensivePlayers = this.offensivePlayers.filter(e => e.TeamAbbr === this.filteredTeamName);
-            this.filteredOffensiveScore = this.scoreOffensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName);
+            this.filteredOffensivePlayers = this.allOffensivePlayers.filter(e => e.TeamAbbr === this.filteredTeamName);
 
             this.filteredDefensivePlayers = this.defensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName);
-            this.filteredDefensiveScore = this.scoreDefensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName);
 
             this.filteredKickerPlayers = this.kickers.filter(e => e.TeamAbbr === this.filteredTeamName);
-            this.filteredKickerScore = this.scoreKickers.filter(e => e.TeamAbbr === this.filteredTeamName);
 
         } else if (this.filteredTeamName === 'All' && this.filteredPlayerPos !== 'All') {
 
-            this.filteredOffensivePlayers = this.offensivePlayers.filter(e => e.PlayerPos === this.filteredPlayerPos);
-            this.filteredOffensiveScore = this.scoreOffensivePlayer.filter(e => e.PlayerPos === this.filteredPlayerPos);
+            this.filteredOffensivePlayers = this.allOffensivePlayers.filter(e => e.PlayerPos === this.filteredPlayerPos);
 
             this.filteredDefensivePlayers = this.defensivePlayer.filter(e => e.PlayerPos === this.filteredPlayerPos);
-            this.filteredDefensiveScore = this.scoreDefensivePlayer.filter(e => e.PlayerPos === this.filteredPlayerPos);
 
             this.filteredKickerPlayers = this.kickers.filter(e => e.PlayerPos === this.filteredPlayerPos);
-            this.filteredKickerScore = this.scoreKickers.filter(e => e.PlayerPos === this.filteredPlayerPos);
 
         } else {
 
-            this.filteredOffensivePlayers = this.offensivePlayers.filter(e => e.TeamAbbr === this.filteredTeamName
-                && e.PlayerPos === this.filteredPlayerPos);
-            this.filteredOffensiveScore = this.scoreOffensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName
+            this.filteredOffensivePlayers = this.allOffensivePlayers.filter(e => e.TeamAbbr === this.filteredTeamName
                 && e.PlayerPos === this.filteredPlayerPos);
 
             this.filteredDefensivePlayers = this.defensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName
                 && e.PlayerPos === this.filteredPlayerPos);
-            this.filteredDefensiveScore = this.scoreDefensivePlayer.filter(e => e.TeamAbbr === this.filteredTeamName
-                && e.PlayerPos === this.filteredPlayerPos);
 
             this.filteredKickerPlayers = this.kickers.filter(e => e.TeamAbbr === this.filteredTeamName
-                && e.PlayerPos === this.filteredPlayerPos);
-            this.filteredKickerScore = this.scoreKickers.filter(e => e.TeamAbbr === this.filteredTeamName
                 && e.PlayerPos === this.filteredPlayerPos);
         }
     }

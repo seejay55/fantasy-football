@@ -55,7 +55,8 @@ var DB = /** @class */ (function () {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                         else {
@@ -64,7 +65,8 @@ var DB = /** @class */ (function () {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                     }
@@ -248,7 +250,7 @@ var DB = /** @class */ (function () {
     };
     // Luke Stats
     DB.prototype.getStats = function () {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals\n            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            ORDER BY PlayerName asc", []);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, Name, GameStatValue FROM game_stats_totals\n            INNER JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            JOIN (\n              SELECT DISTINCT(PlayerID), SeasonPts\n                FROM nfl_stats\n                WHERE Year = 2017\n            ) AS temp ON temp.PlayerID = game_stats_totals.PlayerID\n            ORDER BY SeasonPts desc, PlayerName desc", []);
         return this.query2(statement);
     };
     DB.prototype.getSeasonPoints = function () {
