@@ -265,7 +265,7 @@ export class DB {
 
     insertUserIntoLeague(recieveID: number, leagueID: number): any {
         const statement = mysql.format(
-            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (? , ?, 0)',
+            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (?, ?, 0)',
             [leagueID, recieveID]
         );
         const statement2 = mysql.format(
@@ -510,7 +510,7 @@ export class DB {
             `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals
             INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
             INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID
-            ORDER BY PlayerName asc	`,
+            ORDER BY PlayerName asc`,
             []
         );
         return this.query2(statement);
@@ -518,10 +518,11 @@ export class DB {
 
     getSeasonPoints(): any {
       const statement = mysql.format(
-        `SELECT nflp.PlayerName, nfls.SeasonPts, nflp.PlayerPos, nflp.TeamAbbr FROM game_stats_totals as gs
-        LEFT JOIN nfl_stats as nfls ON gs.PlayerID = nfls.PlayerID
-        LEFT JOIN nfl_players as nflp ON gs.PlayerID =  nflp.player_id
-        GROUP BY nflp.PlayerName`,
+        `SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals
+        LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID
+        LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id
+        WHERE Year = 2017
+        GROUP BY PlayerName`,
         []
       );
       return this.query(statement);

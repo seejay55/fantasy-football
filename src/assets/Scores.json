@@ -1,38 +1,18 @@
 [{
-	"PlayerName": "A'Shawn Robinson",
-	"SeasonPts": 37,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "A.J. Bouye",
-	"SeasonPts": 76,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
 	"PlayerName": "A.J. Derby",
-	"SeasonPts": 14,
+	"SeasonPts": 34,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "A.J. Green",
-	"SeasonPts": 120,
+	"SeasonPts": 152,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "A.J. Klein",
-	"SeasonPts": 31,
+	"SeasonPts": 56,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Aaron Colvin",
-	"SeasonPts": 22,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Aaron Donald",
-	"SeasonPts": 67,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Aaron Jones",
 	"SeasonPts": 71,
@@ -40,22 +20,22 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Aaron Lynch",
-	"SeasonPts": 16,
+	"SeasonPts": 11,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Aaron Ripkowski",
-	"SeasonPts": 38,
+	"SeasonPts": 5,
 	"PlayerPos": "RB",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Aaron Rodgers",
-	"SeasonPts": 380,
+	"SeasonPts": 130,
 	"PlayerPos": "QB",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Aaron Wallace",
-	"SeasonPts": 15,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
@@ -64,25 +44,10 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Adam Butler",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Adam Gotsis",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Adam Humphries",
-	"SeasonPts": 78,
+	"SeasonPts": 68,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Adam Jones",
-	"SeasonPts": 71,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Adam Shaheen",
 	"SeasonPts": 31,
@@ -90,12 +55,12 @@
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Adam Thielen",
-	"SeasonPts": 126,
+	"SeasonPts": 149,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Adam Vinatieri",
-	"SeasonPts": 139,
+	"SeasonPts": 119,
 	"PlayerPos": "K",
 	"TeamAbbr": "IND"
 }, {
@@ -104,55 +69,15 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Adolphus Washington",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Adoree' Jackson",
-	"SeasonPts": 92,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "Adrian Amos",
-	"SeasonPts": 70,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Adrian Clayborn",
-	"SeasonPts": 38,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Adrian Colbert",
-	"SeasonPts": 40,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Adrian Peterson",
-	"SeasonPts": 6,
+	"SeasonPts": 68,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "Adrian Phillips",
-	"SeasonPts": 37,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Ahkello Witherspoon",
-	"SeasonPts": 43,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Ahmad Brooks",
-	"SeasonPts": 67,
+	"SeasonPts": 20,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Ahtyba Rubin",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "AJ McCarron",
 	"SeasonPts": 3,
@@ -160,52 +85,27 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Akeem Ayers",
-	"SeasonPts": 26,
+	"SeasonPts": 3,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Akeem Hunt",
-	"SeasonPts": 14,
+	"SeasonPts": 5,
 	"PlayerPos": "RB",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "Akeem Spence",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Akiem Hicks",
-	"SeasonPts": 69,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Al Woods",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Al-Quadin Muhammad",
-	"SeasonPts": 1,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Alan Branch",
-	"SeasonPts": 48,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Alan Cross",
-	"SeasonPts": 10,
+	"SeasonPts": 6,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Albert Wilson",
-	"SeasonPts": 51,
+	"SeasonPts": 74,
 	"PlayerPos": "WR",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Aldrick Robinson",
-	"SeasonPts": 44,
+	"SeasonPts": 38,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SF"
 }, {
@@ -215,7 +115,7 @@
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Alec Ogletree",
-	"SeasonPts": 136,
+	"SeasonPts": 105,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LA"
 }, {
@@ -225,59 +125,44 @@
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Alex Collins",
-	"SeasonPts": 25,
+	"SeasonPts": 148,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Alex Erickson",
-	"SeasonPts": 7,
+	"SeasonPts": 24,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Alex Okafor",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
 	"PlayerName": "Alex Smith",
-	"SeasonPts": 224,
+	"SeasonPts": 295,
 	"PlayerPos": "QB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Alfred Blue",
-	"SeasonPts": 50,
+	"SeasonPts": 38,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Alfred Morris",
-	"SeasonPts": 37,
+	"SeasonPts": 65,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Allen Bailey",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Allen Hurns",
-	"SeasonPts": 66,
+	"SeasonPts": 60,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Allen Robinson",
-	"SeasonPts": 126,
+	"SeasonPts": 2,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Alshon Jeffery",
-	"SeasonPts": 94,
+	"SeasonPts": 139,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Alterraun Verner",
-	"SeasonPts": 25,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Alvin Kamara",
 	"SeasonPts": 233,
@@ -290,72 +175,47 @@
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Amari Cooper",
-	"SeasonPts": 149,
+	"SeasonPts": 110,
 	"PlayerPos": "WR",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Ameer Abdullah",
-	"SeasonPts": 22,
+	"SeasonPts": 99,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Andre Branch",
-	"SeasonPts": 54,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
 	"PlayerName": "Andre Ellington",
-	"SeasonPts": 18,
+	"SeasonPts": 48,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Andre Hal",
-	"SeasonPts": 53,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Andre Holmes",
-	"SeasonPts": 31,
+	"SeasonPts": 30,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Andre Roberts",
-	"SeasonPts": 23,
+	"SeasonPts": -1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Andre Williams",
-	"SeasonPts": 9,
+	"SeasonPts": 3,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Andrew Adams",
-	"SeasonPts": 46,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Andrew Billings",
-	"SeasonPts": 11,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Andrew Gachkar",
-	"SeasonPts": 8,
+	"SeasonPts": 4,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Andrew Sendejo",
-	"SeasonPts": 68,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Andy Dalton",
-	"SeasonPts": 261,
+	"SeasonPts": 211,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Andy Janovich",
-	"SeasonPts": 14,
+	"SeasonPts": 11,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DEN"
 }, {
@@ -364,58 +224,28 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Angelo Blackson",
-	"SeasonPts": 8,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Anthony Barr",
-	"SeasonPts": 66,
+	"SeasonPts": 72,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Anthony Brown",
-	"SeasonPts": 60,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Anthony Chickillo",
-	"SeasonPts": 34,
+	"SeasonPts": 29,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Anthony Fasano",
-	"SeasonPts": 20,
+	"SeasonPts": 17,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Anthony Harris",
-	"SeasonPts": 39,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Anthony Hitchens",
-	"SeasonPts": 63,
+	"SeasonPts": 74,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Anthony Johnson",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Anthony Lanier",
-	"SeasonPts": 2,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Anthony Levine",
-	"SeasonPts": 10,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Anthony Sherman",
-	"SeasonPts": 1,
+	"SeasonPts": 15,
 	"PlayerPos": "RB",
 	"TeamAbbr": "KC"
 }, {
@@ -424,38 +254,18 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Anthony Zettel",
-	"SeasonPts": 14,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Antoine Bethea",
-	"SeasonPts": 112,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Antone Exum",
-	"SeasonPts": 3,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Antonio Brown",
-	"SeasonPts": 201,
+	"SeasonPts": 209,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Antonio Gates",
-	"SeasonPts": 95,
+	"SeasonPts": 50,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Antonio Hamilton",
-	"SeasonPts": 4,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Antonio Morrison",
-	"SeasonPts": 43,
+	"SeasonPts": 87,
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
@@ -464,23 +274,13 @@
 	"PlayerPos": "TE",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Aqib Talib",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "ArDarius Stewart",
 	"SeasonPts": 11,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Arik Armstead",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Arizona Cardinals",
-	"SeasonPts": 144,
+	"SeasonPts": 112,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "ARI"
 }, {
@@ -490,17 +290,12 @@
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Arthur Moats",
-	"SeasonPts": 25,
+	"SeasonPts": 7,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Artie Burns",
-	"SeasonPts": 78,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Atlanta Falcons",
-	"SeasonPts": 109,
+	"SeasonPts": 99,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "ATL"
 }, {
@@ -515,17 +310,12 @@
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Austin Hooper",
-	"SeasonPts": 45,
+	"SeasonPts": 71,
 	"PlayerPos": "TE",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Austin Johnson",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Austin Seferian-Jenkins",
-	"SeasonPts": 21,
+	"SeasonPts": 52,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYJ"
 }, {
@@ -534,48 +324,28 @@
 	"PlayerPos": "TE",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Avery Moss",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Avery Williamson",
-	"SeasonPts": 98,
+	"SeasonPts": 84,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "B.J. Goodson",
-	"SeasonPts": 9,
+	"SeasonPts": 49,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Baltimore Ravens",
-	"SeasonPts": 121,
+	"SeasonPts": 185,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Barkevious Mingo",
-	"SeasonPts": 10,
+	"SeasonPts": 59,
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Barry Church",
-	"SeasonPts": 83,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Bashaud Breeland",
-	"SeasonPts": 91,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Beau Allen",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Ben Braunecker",
-	"SeasonPts": 4,
+	"SeasonPts": 0,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CHI"
 }, {
@@ -585,29 +355,24 @@
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Ben Heeney",
-	"SeasonPts": 14,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Ben Koyack",
-	"SeasonPts": 22,
+	"SeasonPts": 6,
 	"PlayerPos": "TE",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Ben Roethlisberger",
-	"SeasonPts": 252,
+	"SeasonPts": 261,
 	"PlayerPos": "QB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Benardrick McKinney",
-	"SeasonPts": 118,
+	"SeasonPts": 88,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "Bene' Benwikere",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Benjamin Watson",
 	"SeasonPts": 76,
@@ -615,24 +380,14 @@
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Bennie Fowler",
-	"SeasonPts": 27,
+	"SeasonPts": 53,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Bennie Logan",
-	"SeasonPts": 35,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Benny Cunningham",
-	"SeasonPts": 19,
+	"SeasonPts": 37,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Benson Mayowa",
-	"SeasonPts": 36,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Bernard Reedy",
 	"SeasonPts": 3,
@@ -640,12 +395,12 @@
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Bilal Powell",
-	"SeasonPts": 139,
+	"SeasonPts": 122,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Blaine Gabbert",
-	"SeasonPts": 73,
+	"SeasonPts": 62,
 	"PlayerPos": "QB",
 	"TeamAbbr": "ARI"
 }, {
@@ -660,49 +415,29 @@
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Blake Bell",
-	"SeasonPts": 9,
+	"SeasonPts": 4,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Blake Bortles",
-	"SeasonPts": 270,
+	"SeasonPts": 250,
 	"PlayerPos": "QB",
 	"TeamAbbr": "JAX"
 }, {
-	"PlayerName": "Blake Countess",
-	"SeasonPts": 18,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Blake Martinez",
-	"SeasonPts": 66,
+	"SeasonPts": 138,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Bobby McCain",
-	"SeasonPts": 51,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
 	"PlayerName": "Bobby Rainey",
-	"SeasonPts": 20,
+	"SeasonPts": 2,
 	"PlayerPos": "RB",
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Bobby Wagner",
-	"SeasonPts": 144,
+	"SeasonPts": 138,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Bradley McDougald",
-	"SeasonPts": 101,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Bradley Roby",
-	"SeasonPts": 65,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Branden Oliver",
 	"SeasonPts": 11,
@@ -710,57 +445,42 @@
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Brandin Cooks",
-	"SeasonPts": 168,
+	"SeasonPts": 156,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Brandon Bolden",
-	"SeasonPts": 2,
+	"SeasonPts": 7,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Brandon Carr",
-	"SeasonPts": 68,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Brandon Coleman",
-	"SeasonPts": 46,
+	"SeasonPts": 50,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Brandon Graham",
-	"SeasonPts": 68,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Brandon LaFell",
-	"SeasonPts": 122,
+	"SeasonPts": 73,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Brandon Marshall",
-	"SeasonPts": 49,
+	"SeasonPts": 111,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Brandon McManus",
-	"SeasonPts": 126,
+	"SeasonPts": 105,
 	"PlayerPos": "K",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Brandon Mebane",
-	"SeasonPts": 24,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Brandon Tate",
-	"SeasonPts": 17,
+	"SeasonPts": 14,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Brandon Williams",
-	"SeasonPts": 4,
+	"SeasonPts": 12,
 	"PlayerPos": "TE",
 	"TeamAbbr": "IND"
 }, {
@@ -770,52 +490,37 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Braxton Miller",
-	"SeasonPts": 16,
+	"SeasonPts": 22,
 	"PlayerPos": "WR",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Brendan Langley",
-	"SeasonPts": 3,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Brennan Scarlett",
-	"SeasonPts": 10,
+	"SeasonPts": 30,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Brent Celek",
-	"SeasonPts": 16,
+	"SeasonPts": 19,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Brent Grimes",
-	"SeasonPts": 94,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Brent Urban",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Brenton Bersin",
-	"SeasonPts": 2,
+	"SeasonPts": 13,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Breshad Perriman",
-	"SeasonPts": 68,
+	"SeasonPts": 8,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Brett Hundley",
-	"SeasonPts": -2,
+	"SeasonPts": 123,
 	"PlayerPos": "QB",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Brian Cushing",
-	"SeasonPts": 53,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
@@ -825,7 +530,7 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Brian Hoyer",
-	"SeasonPts": 80,
+	"SeasonPts": 64,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NE"
 }, {
@@ -835,67 +540,37 @@
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Brian Orakpo",
-	"SeasonPts": 69,
+	"SeasonPts": 59,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Brian Poole",
-	"SeasonPts": 69,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Brian Quick",
-	"SeasonPts": 74,
+	"SeasonPts": 8,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Brian Robison",
-	"SeasonPts": 45,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Brice Butler",
-	"SeasonPts": 40,
+	"SeasonPts": 50,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Brice McCain",
-	"SeasonPts": 49,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "Briean Boddy-Calhoun",
-	"SeasonPts": 64,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Brittan Golden",
-	"SeasonPts": 12,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Brock Coyle",
-	"SeasonPts": 14,
+	"SeasonPts": 55,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Brock Osweiler",
-	"SeasonPts": 168,
+	"SeasonPts": 68,
 	"PlayerPos": "QB",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Bronson Kaufusi",
-	"SeasonPts": 4,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Brooks Reed",
-	"SeasonPts": 28,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Bruce Carter",
-	"SeasonPts": 14,
+	"SeasonPts": 4,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYJ"
 }, {
@@ -905,72 +580,42 @@
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Bruce Irvin",
-	"SeasonPts": 79,
+	"SeasonPts": 75,
 	"PlayerPos": "LB",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Bryce Callahan",
-	"SeasonPts": 37,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "Bryce Hager",
-	"SeasonPts": 7,
+	"SeasonPts": 16,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Bryce Petty",
-	"SeasonPts": 32,
+	"SeasonPts": 25,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Bryce Treggs",
-	"SeasonPts": 9,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Brynden Trawick",
-	"SeasonPts": 23,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Bud Dupree",
-	"SeasonPts": 34,
+	"SeasonPts": 51,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Budda Baker",
-	"SeasonPts": 80,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Buffalo Bills",
-	"SeasonPts": 102,
+	"SeasonPts": 104,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Buster Skrine",
-	"SeasonPts": 53,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Byron Jones",
-	"SeasonPts": 95,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Byron Marshall",
 	"SeasonPts": 7,
 	"PlayerPos": "RB",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Byron Maxwell",
-	"SeasonPts": 75,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "C.J. Anderson",
-	"SeasonPts": 87,
+	"SeasonPts": 147,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DEN"
 }, {
@@ -980,7 +625,7 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "C.J. Fiedorowicz",
-	"SeasonPts": 80,
+	"SeasonPts": 13,
 	"PlayerPos": "TE",
 	"TeamAbbr": "HOU"
 }, {
@@ -990,19 +635,14 @@
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "C.J. Mosley",
-	"SeasonPts": 90,
+	"SeasonPts": 143,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "C.J. Prosise",
-	"SeasonPts": 44,
+	"SeasonPts": 11,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "C.J. Smith",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "C.J. Spiller",
 	"SeasonPts": 0,
@@ -1010,27 +650,17 @@
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "C.J. Uzomah",
-	"SeasonPts": 29,
+	"SeasonPts": 15,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Cairo Santos",
-	"SeasonPts": 133,
+	"SeasonPts": 26,
 	"PlayerPos": "K",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Calais Campbell",
-	"SeasonPts": 86,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Caleb Brantley",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Caleb Sturgis",
-	"SeasonPts": 143,
+	"SeasonPts": 12,
 	"PlayerPos": "K",
 	"TeamAbbr": "PHI"
 }, {
@@ -1039,120 +669,50 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Calvin Pryor",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Cam Newton",
-	"SeasonPts": 254,
+	"SeasonPts": 299,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Cam Thomas",
-	"SeasonPts": 17,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Cameron Artis-Payne",
-	"SeasonPts": 28,
+	"SeasonPts": 16,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Cameron Brate",
-	"SeasonPts": 114,
+	"SeasonPts": 95,
 	"PlayerPos": "TE",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Cameron Heyward",
-	"SeasonPts": 31,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "Cameron Jordan",
-	"SeasonPts": 72,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Cameron Sutton",
-	"SeasonPts": 6,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "Cameron Wake",
-	"SeasonPts": 63,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Captain Munnerlyn",
-	"SeasonPts": 52,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Carl Davis",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Carl Lawson",
-	"SeasonPts": 29,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Carl Nassib",
-	"SeasonPts": 27,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
-	"PlayerName": "Carlos Dunlap",
-	"SeasonPts": 77,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Carlos Hyde",
-	"SeasonPts": 165,
+	"SeasonPts": 175,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SF"
 }, {
-	"PlayerName": "Carlos Watkins",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Carolina Panthers",
-	"SeasonPts": 122,
+	"SeasonPts": 136,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Carson Palmer",
-	"SeasonPts": 243,
+	"SeasonPts": 102,
 	"PlayerPos": "QB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Carson Wentz",
-	"SeasonPts": 213,
+	"SeasonPts": 282,
 	"PlayerPos": "QB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Case Keenum",
-	"SeasonPts": 111,
+	"SeasonPts": 238,
 	"PlayerPos": "QB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Casey Hayward",
-	"SeasonPts": 95,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Cassius Marsh",
-	"SeasonPts": 31,
+	"SeasonPts": 42,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Cedric Thornton",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Chad Hansen",
 	"SeasonPts": 9,
@@ -1160,7 +720,7 @@
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Chad Henne",
-	"SeasonPts": 0,
+	"SeasonPts": -1,
 	"PlayerPos": "QB",
 	"TeamAbbr": "JAX"
 }, {
@@ -1170,47 +730,32 @@
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Chandler Catanzaro",
-	"SeasonPts": 112,
+	"SeasonPts": 108,
 	"PlayerPos": "K",
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Chandler Jones",
-	"SeasonPts": 81,
+	"SeasonPts": 97,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Charcandrick West",
-	"SeasonPts": 66,
+	"SeasonPts": 46,
 	"PlayerPos": "RB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Charles Clay",
-	"SeasonPts": 79,
+	"SeasonPts": 68,
 	"PlayerPos": "TE",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Charles Harris",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Charles Johnson",
-	"SeasonPts": 36,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Charles Sims",
-	"SeasonPts": 44,
+	"SeasonPts": 38,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Charles Tapper",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Charone Peake",
-	"SeasonPts": 25,
+	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYJ"
 }, {
@@ -1220,32 +765,22 @@
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Chase Daniel",
-	"SeasonPts": 1,
+	"SeasonPts": 0,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Chester Rogers",
-	"SeasonPts": 27,
+	"SeasonPts": 35,
 	"PlayerPos": "WR",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Chicago Bears",
-	"SeasonPts": 83,
+	"SeasonPts": 136,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Chidobe Awuzie",
-	"SeasonPts": 31,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Chris Baker",
-	"SeasonPts": 54,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Chris Boswell",
-	"SeasonPts": 99,
+	"SeasonPts": 150,
 	"PlayerPos": "K",
 	"TeamAbbr": "PIT"
 }, {
@@ -1255,37 +790,27 @@
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Chris Carter",
-	"SeasonPts": 7,
+	"SeasonPts": 6,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Chris Conley",
-	"SeasonPts": 53,
+	"SeasonPts": 18,
 	"PlayerPos": "WR",
 	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Chris Conte",
-	"SeasonPts": 81,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Chris Godwin",
 	"SeasonPts": 59,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Chris Harris",
-	"SeasonPts": 79,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Chris Hogan",
-	"SeasonPts": 91,
+	"SeasonPts": 76,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Chris Ivory",
-	"SeasonPts": 75,
+	"SeasonPts": 64,
 	"PlayerPos": "RB",
 	"TeamAbbr": "JAX"
 }, {
@@ -1294,25 +819,10 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Chris Jones",
-	"SeasonPts": 31,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Chris Long",
-	"SeasonPts": 44,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Chris Manhertz",
-	"SeasonPts": 1,
+	"SeasonPts": 2,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Chris Maragos",
-	"SeasonPts": 11,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Chris Matthews",
 	"SeasonPts": 3,
@@ -1320,12 +830,12 @@
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Chris McCain",
-	"SeasonPts": 1,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Chris Moore",
-	"SeasonPts": 7,
+	"SeasonPts": 48,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
@@ -1334,28 +844,13 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Chris Smith",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Chris Thompson",
 	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Chris Wormley",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Christian Covington",
-	"SeasonPts": 24,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Christian Jones",
-	"SeasonPts": 14,
+	"SeasonPts": 85,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
@@ -1369,105 +864,65 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Christian Ringo",
-	"SeasonPts": 4,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Chuck Clark",
-	"SeasonPts": 15,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Cincinnati Bengals",
-	"SeasonPts": 92,
+	"SeasonPts": 97,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Clay Matthews",
-	"SeasonPts": 37,
+	"SeasonPts": 59,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Clayton Fejedelem",
-	"SeasonPts": 9,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Clayton Geathers",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Cleveland Browns",
-	"SeasonPts": 48,
+	"SeasonPts": 71,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Cliff Avril",
-	"SeasonPts": 66,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Clinton McDonald",
-	"SeasonPts": 38,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Clive Walford",
-	"SeasonPts": 54,
+	"SeasonPts": 8,
 	"PlayerPos": "TE",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Cobi Hamilton",
-	"SeasonPts": 35,
+	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Coby Fleener",
-	"SeasonPts": 87,
+	"SeasonPts": 42,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Cody Core",
-	"SeasonPts": 20,
+	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Cody Davis",
-	"SeasonPts": 17,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Cody Kessler",
-	"SeasonPts": 77,
+	"SeasonPts": 3,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Cody Latimer",
-	"SeasonPts": 8,
+	"SeasonPts": 43,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Cody Parkey",
-	"SeasonPts": 82,
+	"SeasonPts": 91,
 	"PlayerPos": "K",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Cole Beasley",
-	"SeasonPts": 114,
+	"SeasonPts": 55,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Connor Barth",
-	"SeasonPts": 87,
+	"SeasonPts": 52,
 	"PlayerPos": "K",
 	"TeamAbbr": ""
-}, {
-	"PlayerName": "Connor Barwin",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Cooper Kupp",
 	"SeasonPts": 115,
@@ -1480,14 +935,9 @@
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Cordarrelle Patterson",
-	"SeasonPts": 62,
+	"SeasonPts": 55,
 	"PlayerPos": "WR",
 	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Cordrea Tankersley",
-	"SeasonPts": 35,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Corey Clement",
 	"SeasonPts": 82,
@@ -1495,7 +945,7 @@
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Corey Coleman",
-	"SeasonPts": 60,
+	"SeasonPts": 43,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CLE"
 }, {
@@ -1504,70 +954,30 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Corey Graham",
-	"SeasonPts": 90,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Corey Grant",
-	"SeasonPts": 32,
+	"SeasonPts": 39,
 	"PlayerPos": "RB",
 	"TeamAbbr": "JAX"
 }, {
-	"PlayerName": "Corey Liuget",
-	"SeasonPts": 37,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Corey Moore",
-	"SeasonPts": 25,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Corey Nelson",
-	"SeasonPts": 65,
+	"SeasonPts": 3,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Corey Peters",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Cornelius Washington",
-	"SeasonPts": 22,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Cory James",
-	"SeasonPts": 44,
+	"SeasonPts": 52,
 	"PlayerPos": "LB",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Cory Littleton",
-	"SeasonPts": 18,
+	"SeasonPts": 44,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LA"
 }, {
-	"PlayerName": "Coty Sensabaugh",
-	"SeasonPts": 26,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "Courtney Upshaw",
-	"SeasonPts": 27,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Craig Robertson",
-	"SeasonPts": 105,
+	"SeasonPts": 87,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Cre'von LeBlanc",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Curtis Grant",
 	"SeasonPts": 6,
@@ -1585,52 +995,22 @@
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "D.J. Alexander",
-	"SeasonPts": 18,
+	"SeasonPts": 10,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "D.J. Foster",
-	"SeasonPts": 3,
+	"SeasonPts": 15,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "D.J. Hayden",
-	"SeasonPts": 43,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "D.J. Jones",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "D.J. Reader",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "D.J. Swearinger",
-	"SeasonPts": 80,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "D.J. White",
-	"SeasonPts": 16,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Da'Norris Searcy",
-	"SeasonPts": 48,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Dak Prescott",
-	"SeasonPts": 287,
+	"SeasonPts": 261,
 	"PlayerPos": "QB",
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Dallas Cowboys",
-	"SeasonPts": 91,
+	"SeasonPts": 113,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "DAL"
 }, {
@@ -1639,23 +1019,13 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Dalvin Tomlinson",
-	"SeasonPts": 43,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Damarious Randall",
-	"SeasonPts": 52,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Damien Williams",
-	"SeasonPts": 70,
+	"SeasonPts": 40,
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Damien Wilson",
-	"SeasonPts": 33,
+	"SeasonPts": 31,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
@@ -1664,193 +1034,88 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Damon Harrison",
-	"SeasonPts": 79,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Damontae Kazee",
-	"SeasonPts": 23,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Damontre Moore",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Dan Bailey",
-	"SeasonPts": 133,
+	"SeasonPts": 77,
 	"PlayerPos": "K",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Dan McCullers",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Daniel Brown",
-	"SeasonPts": 18,
+	"SeasonPts": 13,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Daniel Lasco",
-	"SeasonPts": 4,
+	"SeasonPts": 0,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Daniel Sorensen",
-	"SeasonPts": 89,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Danielle Hunter",
-	"SeasonPts": 83,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Dannell Ellerbe",
-	"SeasonPts": 49,
+	"SeasonPts": 7,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Danny Amendola",
-	"SeasonPts": 46,
+	"SeasonPts": 78,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Danny Shelton",
-	"SeasonPts": 49,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Danny Trevathan",
-	"SeasonPts": 64,
+	"SeasonPts": 90,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Danny Vitale",
-	"SeasonPts": 3,
+	"SeasonPts": 2,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Danny Woodhead",
-	"SeasonPts": 21,
+	"SeasonPts": 26,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BAL"
 }, {
-	"PlayerName": "Dante Fowler",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "DaQuan Jones",
-	"SeasonPts": 33,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Daren Bates",
-	"SeasonPts": 10,
+	"SeasonPts": 8,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Darian Stewart",
-	"SeasonPts": 78,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
-	"PlayerName": "Darian Thompson",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Darius Butler",
-	"SeasonPts": 45,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Darius Latham",
-	"SeasonPts": 14,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Darius Philon",
-	"SeasonPts": 11,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Darius Slay",
-	"SeasonPts": 65,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Darqueze Dennard",
-	"SeasonPts": 41,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Darrelle Revis",
-	"SeasonPts": 55,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Darren Fells",
-	"SeasonPts": 21,
+	"SeasonPts": 36,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Darren McFadden",
-	"SeasonPts": 10,
+	"SeasonPts": 0,
 	"PlayerPos": "RB",
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Darren Sproles",
-	"SeasonPts": 111,
+	"SeasonPts": 11,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Darrius Heyward-Bey",
-	"SeasonPts": 35,
+	"SeasonPts": 14,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Darron Lee",
-	"SeasonPts": 63,
+	"SeasonPts": 94,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Darryl Roberts",
-	"SeasonPts": 26,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Darryl Tapp",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
-	"PlayerName": "Daryl Worley",
-	"SeasonPts": 89,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Datone Jones",
-	"SeasonPts": 24,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Davante Adams",
-	"SeasonPts": 172,
+	"SeasonPts": 149,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "David Amerson",
-	"SeasonPts": 80,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "David Bass",
-	"SeasonPts": 13,
+	"SeasonPts": 28,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYJ"
 }, {
@@ -1860,32 +1125,22 @@
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "David Harris",
-	"SeasonPts": 82,
+	"SeasonPts": 23,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "David Irving",
-	"SeasonPts": 38,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "David Johnson",
-	"SeasonPts": 328,
+	"SeasonPts": 7,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "David King",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "David Mayo",
-	"SeasonPts": 18,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "David Morgan",
-	"SeasonPts": 0,
+	"SeasonPts": 16,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIN"
 }, {
@@ -1894,45 +1149,15 @@
 	"PlayerPos": "TE",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "David Onyemata",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "David Parry",
-	"SeasonPts": 47,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Davon Godchaux",
-	"SeasonPts": 36,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Davon House",
-	"SeasonPts": 16,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Dawuane Smoot",
-	"SeasonPts": 17,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
-}, {
 	"PlayerName": "De'Angelo Henderson",
 	"SeasonPts": 11,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "De'Anthony Thomas",
-	"SeasonPts": 6,
+	"SeasonPts": 27,
 	"PlayerPos": "WR",
 	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "De'Vante Harris",
-	"SeasonPts": 12,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "De'Veon Smith",
 	"SeasonPts": 3,
@@ -1940,39 +1165,19 @@
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "De'Vondre Campbell",
-	"SeasonPts": 53,
+	"SeasonPts": 87,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Dean Lowry",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "DeAndre Hopkins",
-	"SeasonPts": 119,
+	"SeasonPts": 214,
 	"PlayerPos": "WR",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "DeAndre Houston-Carson",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "DeAndre Washington",
-	"SeasonPts": 68,
+	"SeasonPts": 51,
 	"PlayerPos": "RB",
 	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "DeAngelo Hall",
-	"SeasonPts": 14,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Deatrich Wise",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Dede Westbrook",
 	"SeasonPts": 40,
@@ -1980,17 +1185,12 @@
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Dee Ford",
-	"SeasonPts": 56,
+	"SeasonPts": 19,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "DeForest Buckner",
-	"SeasonPts": 75,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Deion Jones",
-	"SeasonPts": 123,
+	"SeasonPts": 133,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ATL"
 }, {
@@ -2000,74 +1200,49 @@
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Dekoda Watson",
-	"SeasonPts": 19,
+	"SeasonPts": 7,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Delanie Walker",
-	"SeasonPts": 123,
+	"SeasonPts": 101,
 	"PlayerPos": "TE",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Delano Hill",
-	"SeasonPts": 4,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "DeMarco Murray",
-	"SeasonPts": 241,
+	"SeasonPts": 133,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Demarcus Lawrence",
-	"SeasonPts": 14,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Demarcus Robinson",
-	"SeasonPts": 0,
+	"SeasonPts": 21,
 	"PlayerPos": "WR",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "DeMarcus Walker",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Demario Davis",
-	"SeasonPts": 87,
+	"SeasonPts": 131,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Demaryius Thomas",
-	"SeasonPts": 136,
+	"SeasonPts": 123,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Demetrius Harris",
-	"SeasonPts": 20,
+	"SeasonPts": 28,
 	"PlayerPos": "TE",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "Denico Autry",
-	"SeasonPts": 40,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Denver Broncos",
-	"SeasonPts": 151,
+	"SeasonPts": 104,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Denzel Perryman",
-	"SeasonPts": 72,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Deon Bush",
-	"SeasonPts": 21,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Deon King",
 	"SeasonPts": 2,
@@ -2075,77 +1250,57 @@
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Deone Bucannon",
-	"SeasonPts": 85,
+	"SeasonPts": 81,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Deontae Skinner",
-	"SeasonPts": 6,
+	"SeasonPts": 2,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Deonte Thompson",
-	"SeasonPts": 35,
+	"SeasonPts": 67,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Derek Anderson",
-	"SeasonPts": 17,
+	"SeasonPts": 0,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Derek Barnett",
-	"SeasonPts": 46,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Derek Carr",
-	"SeasonPts": 268,
+	"SeasonPts": 206,
 	"PlayerPos": "QB",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Derek Carrier",
-	"SeasonPts": 1,
+	"SeasonPts": 7,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Derek Watt",
-	"SeasonPts": 9,
+	"SeasonPts": 6,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Derek Wolfe",
-	"SeasonPts": 60,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Derrick Henry",
-	"SeasonPts": 93,
+	"SeasonPts": 124,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Derrick Johnson",
-	"SeasonPts": 93,
+	"SeasonPts": 71,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "Derrick Kindred",
-	"SeasonPts": 44,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Derrick Morgan",
-	"SeasonPts": 48,
+	"SeasonPts": 45,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Derrick Shelby",
-	"SeasonPts": 8,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "DeSean Jackson",
-	"SeasonPts": 125,
+	"SeasonPts": 89,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TB"
 }, {
@@ -2154,38 +1309,13 @@
 	"PlayerPos": "QB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "DeShawn Shead",
-	"SeasonPts": 87,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Deshazor Everett",
-	"SeasonPts": 46,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "DeShone Kizer",
 	"SeasonPts": 176,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Desmond King",
-	"SeasonPts": 92,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Desmond Trufant",
-	"SeasonPts": 42,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Destiny Vaeao",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Detroit Lions",
-	"SeasonPts": 84,
+	"SeasonPts": 153,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "DET"
 }, {
@@ -2200,137 +1330,87 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "DeVante Parker",
-	"SeasonPts": 98,
+	"SeasonPts": 73,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Devin Funchess",
-	"SeasonPts": 63,
+	"SeasonPts": 132,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Devin McCourty",
-	"SeasonPts": 88,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Devin Taylor",
-	"SeasonPts": 39,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Devon Kennard",
-	"SeasonPts": 58,
+	"SeasonPts": 45,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Devonta Freeman",
-	"SeasonPts": 230,
+	"SeasonPts": 164,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Devontae Booker",
-	"SeasonPts": 112,
+	"SeasonPts": 61,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Dexter McCoil",
-	"SeasonPts": 30,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Dexter McDonald",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Dez Bryant",
-	"SeasonPts": 130,
+	"SeasonPts": 117,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Dion Jordan",
-	"SeasonPts": 24,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Dion Lewis",
-	"SeasonPts": 38,
+	"SeasonPts": 165,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Dion Sims",
-	"SeasonPts": 50,
+	"SeasonPts": 24,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Domata Peko",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Dominique Alexander",
-	"SeasonPts": 7,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Dominique Rodgers-Cromartie",
-	"SeasonPts": 82,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Don Carey",
-	"SeasonPts": 15,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Dont'a Hightower",
-	"SeasonPts": 59,
+	"SeasonPts": 17,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Dontari Poe",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Donte Moncrief",
-	"SeasonPts": 73,
+	"SeasonPts": 51,
 	"PlayerPos": "WR",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Dontrelle Inman",
-	"SeasonPts": 105,
+	"SeasonPts": 40,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Doug Baldwin",
-	"SeasonPts": 160,
+	"SeasonPts": 148,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Doug Martin",
-	"SeasonPts": 72,
+	"SeasonPts": 67,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Dre Kirkpatrick",
-	"SeasonPts": 57,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Drew Brees",
-	"SeasonPts": 332,
+	"SeasonPts": 263,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Drew Stanton",
-	"SeasonPts": 9,
+	"SeasonPts": 50,
 	"PlayerPos": "QB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Duke Johnson",
-	"SeasonPts": 91,
+	"SeasonPts": 142,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CLE"
 }, {
@@ -2339,34 +1419,24 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Duron Harmon",
-	"SeasonPts": 35,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Dustin Hopkins",
-	"SeasonPts": 144,
+	"SeasonPts": 60,
 	"PlayerPos": "K",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Dwayne Allen",
-	"SeasonPts": 79,
+	"SeasonPts": 15,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Dwayne Harris",
-	"SeasonPts": 5,
+	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Dwayne Washington",
-	"SeasonPts": 39,
+	"SeasonPts": 6,
 	"PlayerPos": "RB",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Dwight Freeney",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Dylan Cole",
@@ -2374,28 +1444,8 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Dylan Donahue",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "E.J. Gaines",
-	"SeasonPts": 63,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Earl Mitchell",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Earl Thomas",
-	"SeasonPts": 58,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Ed Dickson",
-	"SeasonPts": 19,
+	"SeasonPts": 50,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CAR"
 }, {
@@ -2404,68 +1454,38 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Ed Stinson",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Eddie Goldman",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Eddie Jackson",
-	"SeasonPts": 94,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "Eddie Lacy",
-	"SeasonPts": 39,
+	"SeasonPts": 23,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
 }, {
-	"PlayerName": "Eddie Vanderdoes",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Eddie Yarbrough",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Edmond Robinson",
-	"SeasonPts": 2,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "EJ Manuel",
-	"SeasonPts": 7,
+	"SeasonPts": 14,
 	"PlayerPos": "QB",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Elandon Roberts",
-	"SeasonPts": 37,
+	"SeasonPts": 63,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Eli Apple",
-	"SeasonPts": 61,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Eli Harold",
-	"SeasonPts": 40,
+	"SeasonPts": 34,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Eli Manning",
-	"SeasonPts": 224,
+	"SeasonPts": 187,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Eli Rogers",
-	"SeasonPts": 78,
+	"SeasonPts": 19,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PIT"
 }, {
@@ -2479,75 +1499,40 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Elijah Qualls",
-	"SeasonPts": 4,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Elijhaa Penny",
 	"SeasonPts": 28,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Elvis Dumervil",
-	"SeasonPts": 22,
+	"SeasonPts": 24,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Emmanuel Lamur",
-	"SeasonPts": 9,
+	"SeasonPts": 16,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Emmanuel Ogbah",
-	"SeasonPts": 55,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Emmanuel Sanders",
-	"SeasonPts": 134,
+	"SeasonPts": 68,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Eric Berry",
-	"SeasonPts": 103,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Eric Decker",
-	"SeasonPts": 31,
+	"SeasonPts": 62,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Eric Ebron",
-	"SeasonPts": 83,
+	"SeasonPts": 79,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Eric Kendricks",
-	"SeasonPts": 116,
+	"SeasonPts": 106,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Eric Lee",
-	"SeasonPts": 22,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Eric Murray",
-	"SeasonPts": 11,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Eric Reid",
-	"SeasonPts": 64,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Eric Rowe",
-	"SeasonPts": 33,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Eric Saubert",
 	"SeasonPts": 0,
@@ -2559,103 +1544,53 @@
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Eric Weddle",
-	"SeasonPts": 94,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Eric Weems",
-	"SeasonPts": 0,
+	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Erik Walden",
-	"SeasonPts": 65,
+	"SeasonPts": 41,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "Ethan Westbrooks",
-	"SeasonPts": 34,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Evan Engram",
 	"SeasonPts": 110,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Everson Griffen",
-	"SeasonPts": 75,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Ezekiel Ansah",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Ezekiel Elliott",
-	"SeasonPts": 293,
+	"SeasonPts": 177,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Fabian Moreau",
-	"SeasonPts": 12,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "Fitzgerald Toussaint",
-	"SeasonPts": 9,
+	"SeasonPts": 3,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Fletcher Cox",
-	"SeasonPts": 54,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Fozzy Whittaker",
-	"SeasonPts": 47,
+	"SeasonPts": 13,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CAR"
 }, {
-	"PlayerName": "Frank Clark",
-	"SeasonPts": 62,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Frank Gore",
-	"SeasonPts": 176,
+	"SeasonPts": 145,
 	"PlayerPos": "RB",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Frank Zombo",
-	"SeasonPts": 42,
+	"SeasonPts": 40,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Freddie Martino",
-	"SeasonPts": 20,
+	"SeasonPts": 10,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Frostee Rucker",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Gabe Wright",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Gareon Conley",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Garrett Celek",
-	"SeasonPts": 51,
+	"SeasonPts": 58,
 	"PlayerPos": "TE",
 	"TeamAbbr": "SF"
 }, {
@@ -2665,34 +1600,19 @@
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Geneo Grissom",
-	"SeasonPts": 4,
+	"SeasonPts": 2,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Geno Atkins",
-	"SeasonPts": 45,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Geno Smith",
-	"SeasonPts": 8,
+	"SeasonPts": 10,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Geoff Swaim",
-	"SeasonPts": 7,
+	"SeasonPts": 3,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "George Iloka",
-	"SeasonPts": 75,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "George Johnson",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "George Kittle",
 	"SeasonPts": 64,
@@ -2705,17 +1625,12 @@
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Gerald Hodges",
-	"SeasonPts": 85,
+	"SeasonPts": 3,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Gerald McCoy",
-	"SeasonPts": 56,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Geronimo Allison",
-	"SeasonPts": 32,
+	"SeasonPts": 23,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
@@ -2725,42 +1640,32 @@
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Giovani Bernard",
-	"SeasonPts": 83,
+	"SeasonPts": 109,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Glover Quin",
-	"SeasonPts": 73,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Golden Tate",
-	"SeasonPts": 132,
+	"SeasonPts": 133,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Grady Jarrett",
-	"SeasonPts": 43,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Graham Gano",
-	"SeasonPts": 127,
+	"SeasonPts": 121,
 	"PlayerPos": "K",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Green Bay Packers",
-	"SeasonPts": 100,
+	"SeasonPts": 93,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Greg Olsen",
-	"SeasonPts": 127,
+	"SeasonPts": 25,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Greg Zuerlein",
-	"SeasonPts": 84,
+	"SeasonPts": 170,
 	"PlayerPos": "K",
 	"TeamAbbr": "LA"
 }, {
@@ -2769,25 +1674,10 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Grover Stewart",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Ha Ha Clinton-Dix",
-	"SeasonPts": 91,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Haason Reddick",
 	"SeasonPts": 39,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Haloti Ngata",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Hardy Nickerson",
 	"SeasonPts": 15,
@@ -2799,13 +1689,8 @@
 	"PlayerPos": "K",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "Harrison Smith",
-	"SeasonPts": 90,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Harry Douglas",
-	"SeasonPts": 21,
+	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TEN"
 }, {
@@ -2814,38 +1699,23 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Hassan Ridgeway",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Hau'oli Kikaha",
 	"SeasonPts": 17,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Hayes Pullard",
-	"SeasonPts": 7,
+	"SeasonPts": 67,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Henry Anderson",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Houston Texans",
-	"SeasonPts": 95,
+	"SeasonPts": 83,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Howard Jones",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "Hunter Henry",
-	"SeasonPts": 94,
+	"SeasonPts": 82,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LAC"
 }, {
@@ -2854,35 +1724,20 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Ibraheim Campbell",
-	"SeasonPts": 41,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Ifeanyi Momah",
 	"SeasonPts": 5,
 	"PlayerPos": "TE",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Indianapolis Colts",
-	"SeasonPts": 85,
+	"SeasonPts": 83,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Isaac Rochell",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Isaiah Crowell",
-	"SeasonPts": 165,
+	"SeasonPts": 116,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CLE"
-}, {
-	"PlayerName": "Isaiah Johnson",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Isaiah McKenzie",
 	"SeasonPts": -1,
@@ -2890,52 +1745,32 @@
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "J.D. McKissic",
-	"SeasonPts": 2,
+	"SeasonPts": 63,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "J.J. Nelson",
-	"SeasonPts": 105,
+	"SeasonPts": 65,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "J.J. Watt",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "J.J. Wilcox",
-	"SeasonPts": 53,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Jabaal Sheard",
-	"SeasonPts": 41,
+	"SeasonPts": 63,
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Jabrill Peppers",
-	"SeasonPts": 57,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Jace Billingsley",
 	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Jack Crawford",
-	"SeasonPts": 26,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Jack Doyle",
-	"SeasonPts": 86,
+	"SeasonPts": 89,
 	"PlayerPos": "TE",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Jacksonville Jaguars",
-	"SeasonPts": 69,
+	"SeasonPts": 203,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "JAX"
 }, {
@@ -2945,39 +1780,19 @@
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Jacoby Brissett",
-	"SeasonPts": 28,
+	"SeasonPts": 206,
 	"PlayerPos": "QB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Jacquies Smith",
-	"SeasonPts": 1,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Jacquizz Rodgers",
-	"SeasonPts": 78,
+	"SeasonPts": 38,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Jadeveon Clowney",
-	"SeasonPts": 62,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Jaelen Strong",
-	"SeasonPts": 13,
+	"SeasonPts": 10,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Jahleel Addae",
-	"SeasonPts": 59,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Jairus Byrd",
-	"SeasonPts": 76,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Jake Elliott",
 	"SeasonPts": 127,
@@ -2995,29 +1810,9 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Jakeem Grant",
-	"SeasonPts": -2,
+	"SeasonPts": 32,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Jaleel Johnson",
-	"SeasonPts": 1,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Jalen Mills",
-	"SeasonPts": 64,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Jalen Myrick",
-	"SeasonPts": 3,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Jalen Ramsey",
-	"SeasonPts": 86,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Jalen Reeves-Maybin",
 	"SeasonPts": 33,
@@ -3025,17 +1820,17 @@
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Jalen Richard",
-	"SeasonPts": 87,
+	"SeasonPts": 59,
 	"PlayerPos": "RB",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Jalston Fowler",
-	"SeasonPts": 2,
+	"SeasonPts": 6,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Jamaal Charles",
-	"SeasonPts": 11,
+	"SeasonPts": 45,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DEN"
 }, {
@@ -3044,30 +1839,10 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Jamal Adams",
-	"SeasonPts": 89,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Jamal Agnew",
-	"SeasonPts": 19,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Jamar Taylor",
-	"SeasonPts": 71,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Jameis Winston",
-	"SeasonPts": 256,
+	"SeasonPts": 202,
 	"PlayerPos": "QB",
 	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "James Bradberry",
-	"SeasonPts": 67,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "James Burgess",
 	"SeasonPts": 48,
@@ -3080,7 +1855,7 @@
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "James Develin",
-	"SeasonPts": 2,
+	"SeasonPts": 4,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
@@ -3090,44 +1865,34 @@
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "James Harrison",
-	"SeasonPts": 63,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "James O'Shaughnessy",
-	"SeasonPts": 0,
+	"SeasonPts": 21,
 	"PlayerPos": "TE",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "James White",
-	"SeasonPts": 102,
+	"SeasonPts": 78,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Jamie Collins",
-	"SeasonPts": 113,
+	"SeasonPts": 35,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Jamison Crowder",
-	"SeasonPts": 125,
+	"SeasonPts": 94,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Jamize Olawale",
-	"SeasonPts": 45,
+	"SeasonPts": 14,
 	"PlayerPos": "RB",
 	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Janoris Jenkins",
-	"SeasonPts": 81,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Jaquiski Tartt",
-	"SeasonPts": 59,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Jared Abbrederis",
 	"SeasonPts": 4,
@@ -3135,22 +1900,22 @@
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Jared Cook",
-	"SeasonPts": 42,
+	"SeasonPts": 79,
 	"PlayerPos": "TE",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Jared Goff",
-	"SeasonPts": 53,
+	"SeasonPts": 255,
 	"PlayerPos": "QB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Jarius Wright",
-	"SeasonPts": 13,
+	"SeasonPts": 32,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Jaron Brown",
-	"SeasonPts": 25,
+	"SeasonPts": 72,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ARI"
 }, {
@@ -3159,75 +1924,35 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Jarran Reed",
-	"SeasonPts": 30,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Jarrod Wilson",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Jarvis Jenkins",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Jarvis Landry",
-	"SeasonPts": 137,
+	"SeasonPts": 148,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Jason McCourty",
-	"SeasonPts": 83,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Jason Myers",
-	"SeasonPts": 124,
+	"SeasonPts": 48,
 	"PlayerPos": "K",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Jason Pierre-Paul",
-	"SeasonPts": 82,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Jason Verrett",
-	"SeasonPts": 19,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Jason Witten",
-	"SeasonPts": 83,
+	"SeasonPts": 84,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Jatavis Brown",
-	"SeasonPts": 91,
+	"SeasonPts": 70,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Javon Hargrave",
-	"SeasonPts": 35,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Javorius Allen",
-	"SeasonPts": 5,
+	"SeasonPts": 120,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Jay Ajayi",
-	"SeasonPts": 188,
+	"SeasonPts": 111,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Jay Bromley",
-	"SeasonPts": 14,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Jay Cutler",
 	"SeasonPts": 158,
@@ -3235,7 +1960,7 @@
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Jay Prosch",
-	"SeasonPts": 2,
+	"SeasonPts": 3,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
@@ -3243,11 +1968,6 @@
 	"SeasonPts": 17,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Jaylen Watkins",
-	"SeasonPts": 31,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Jaylon Smith",
 	"SeasonPts": 74,
@@ -3259,28 +1979,18 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Jayron Kearse",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Jeff Cumberland",
 	"SeasonPts": 0,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Jeff Heath",
-	"SeasonPts": 24,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Jeff Heuerman",
-	"SeasonPts": 14,
+	"SeasonPts": 26,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Jeff Janis",
-	"SeasonPts": 25,
+	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
@@ -3290,22 +2000,17 @@
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Jelani Jenkins",
-	"SeasonPts": 23,
+	"SeasonPts": 10,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Jerel Worthy",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Jerell Adams",
-	"SeasonPts": 18,
+	"SeasonPts": 9,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Jeremiah Attaochu",
-	"SeasonPts": 15,
+	"SeasonPts": 7,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
 }, {
@@ -3314,28 +2019,18 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Jeremiah Ledbetter",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Jeremy Hill",
-	"SeasonPts": 155,
+	"SeasonPts": 13,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Jeremy Kerley",
-	"SeasonPts": 83,
+	"SeasonPts": 24,
 	"PlayerPos": "WR",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Jeremy Lane",
-	"SeasonPts": 46,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Jeremy Maclin",
-	"SeasonPts": 66,
+	"SeasonPts": 62,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
@@ -3350,59 +2045,39 @@
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Jerick McKinnon",
-	"SeasonPts": 105,
+	"SeasonPts": 127,
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Jermaine Gresham",
-	"SeasonPts": 51,
+	"SeasonPts": 44,
 	"PlayerPos": "TE",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Jermaine Kearse",
-	"SeasonPts": 57,
+	"SeasonPts": 111,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYJ"
 }, {
 	"PlayerName": "Jerrell Freeman",
-	"SeasonPts": 102,
+	"SeasonPts": 9,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Jerry Hughes",
-	"SeasonPts": 59,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Jesse James",
-	"SeasonPts": 52,
+	"SeasonPts": 55,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Jihad Ward",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Jimmie Ward",
-	"SeasonPts": 68,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SF"
-}, {
 	"PlayerName": "Jimmy Garoppolo",
-	"SeasonPts": 35,
+	"SeasonPts": 87,
 	"PlayerPos": "QB",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Jimmy Graham",
-	"SeasonPts": 124,
+	"SeasonPts": 114,
 	"PlayerPos": "TE",
 	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Jimmy Smith",
-	"SeasonPts": 35,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Joe Callahan",
 	"SeasonPts": 0,
@@ -3410,14 +2085,9 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Joe Flacco",
-	"SeasonPts": 242,
+	"SeasonPts": 185,
 	"PlayerPos": "QB",
 	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Joe Haden",
-	"SeasonPts": 60,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Joe Mixon",
 	"SeasonPts": 111,
@@ -3425,12 +2095,12 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Joe Schobert",
-	"SeasonPts": 26,
+	"SeasonPts": 134,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Joe Thomas",
-	"SeasonPts": 72,
+	"SeasonPts": 12,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
@@ -3444,43 +2114,18 @@
 	"PlayerPos": "QB",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Joel Heath",
-	"SeasonPts": 11,
-	"PlayerPos": "DL",
-	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "Joey Bosa",
-	"SeasonPts": 56,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "John Brown",
-	"SeasonPts": 65,
+	"SeasonPts": 49,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "John Hughes",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "John Jenkins",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "John Johnson",
-	"SeasonPts": 78,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "John Kuhn",
-	"SeasonPts": 41,
+	"SeasonPts": 0,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "John Phillips",
-	"SeasonPts": 13,
+	"SeasonPts": 0,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NO"
 }, {
@@ -3490,82 +2135,42 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "John Simon",
-	"SeasonPts": 53,
+	"SeasonPts": 51,
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "John Timu",
-	"SeasonPts": 19,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Johnathan Cyprien",
-	"SeasonPts": 122,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "Johnathan Hankins",
-	"SeasonPts": 46,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Johnathan Joseph",
-	"SeasonPts": 53,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Johnny Holton",
-	"SeasonPts": 6,
+	"SeasonPts": 36,
 	"PlayerPos": "WR",
 	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Johnson Bademosi",
-	"SeasonPts": 28,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Johnthan Banks",
-	"SeasonPts": 6,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
 }, {
 	"PlayerName": "Jon Bostic",
 	"SeasonPts": 84,
 	"PlayerPos": "LB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Jonathan Allen",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "Jonathan Anderson",
-	"SeasonPts": 6,
+	"SeasonPts": 10,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Jonathan Bullard",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "Jonathan Casillas",
-	"SeasonPts": 91,
+	"SeasonPts": 31,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Jonathan Freeny",
-	"SeasonPts": 10,
+	"SeasonPts": 6,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Jonathan Jones",
-	"SeasonPts": 17,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Jonathan Stewart",
-	"SeasonPts": 138,
+	"SeasonPts": 109,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CAR"
 }, {
@@ -3580,17 +2185,17 @@
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Jordan Hicks",
-	"SeasonPts": 97,
+	"SeasonPts": 26,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Jordan Howard",
-	"SeasonPts": 201,
+	"SeasonPts": 177,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Jordan Jenkins",
-	"SeasonPts": 43,
+	"SeasonPts": 55,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYJ"
 }, {
@@ -3599,73 +2204,48 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Jordan Lucas",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
 	"PlayerName": "Jordan Matthews",
-	"SeasonPts": 98,
+	"SeasonPts": 32,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Jordan Phillips",
-	"SeasonPts": 26,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Jordan Poyer",
-	"SeasonPts": 36,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Jordan Reed",
-	"SeasonPts": 103,
+	"SeasonPts": 33,
 	"PlayerPos": "TE",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Jordan Richards",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Jordan Taylor",
-	"SeasonPts": 31,
+	"SeasonPts": 14,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Jordan Todman",
-	"SeasonPts": 6,
+	"SeasonPts": 0,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Jordan Willis",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Jordy Nelson",
-	"SeasonPts": 208,
+	"SeasonPts": 84,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Josh Bellamy",
-	"SeasonPts": 38,
+	"SeasonPts": 44,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Josh Bynes",
-	"SeasonPts": 36,
+	"SeasonPts": 45,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Josh Doctson",
-	"SeasonPts": 7,
+	"SeasonPts": 85,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Josh Ferguson",
-	"SeasonPts": 16,
+	"SeasonPts": 2,
 	"PlayerPos": "RB",
 	"TeamAbbr": "IND"
 }, {
@@ -3674,23 +2254,13 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Josh Hawkins",
-	"SeasonPts": 6,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Josh Hill",
-	"SeasonPts": 21,
+	"SeasonPts": 14,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Josh Jones",
-	"SeasonPts": 77,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Josh Lambo",
-	"SeasonPts": 120,
+	"SeasonPts": 83,
 	"PlayerPos": "K",
 	"TeamAbbr": "JAX"
 }, {
@@ -3699,40 +2269,15 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Josh Mauro",
-	"SeasonPts": 29,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Josh McCown",
-	"SeasonPts": 52,
+	"SeasonPts": 205,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Josh Norman",
-	"SeasonPts": 89,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Josh Reynolds",
 	"SeasonPts": 16,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
-}, {
-	"PlayerName": "Josh Robinson",
-	"SeasonPts": 12,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Josh Shaw",
-	"SeasonPts": 52,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Jourdan Lewis",
-	"SeasonPts": 63,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "JuJu Smith-Schuster",
 	"SeasonPts": 134,
@@ -3740,17 +2285,12 @@
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Julio Jones",
-	"SeasonPts": 177,
+	"SeasonPts": 164,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Julius Peppers",
-	"SeasonPts": 43,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Julius Thomas",
-	"SeasonPts": 52,
+	"SeasonPts": 57,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIA"
 }, {
@@ -3759,73 +2299,43 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Jurrell Casey",
-	"SeasonPts": 53,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "Justin Bethel",
-	"SeasonPts": 58,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Justin Davis",
 	"SeasonPts": 0,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Justin Durant",
-	"SeasonPts": 36,
+	"SeasonPts": 11,
 	"PlayerPos": "LB",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Justin Ellis",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Justin Evans",
-	"SeasonPts": 70,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Justin Hardy",
-	"SeasonPts": 44,
+	"SeasonPts": 40,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Justin Houston",
-	"SeasonPts": 32,
+	"SeasonPts": 85,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Justin Hunter",
-	"SeasonPts": 43,
+	"SeasonPts": 8,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Justin March-Lillard",
-	"SeasonPts": 21,
+	"SeasonPts": 3,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Justin Simmons",
-	"SeasonPts": 40,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Justin Tucker",
-	"SeasonPts": 161,
+	"SeasonPts": 151,
 	"PlayerPos": "K",
 	"TeamAbbr": "BAL"
 }, {
-	"PlayerName": "Juston Burris",
-	"SeasonPts": 22,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "K.J. Wright",
-	"SeasonPts": 116,
+	"SeasonPts": 100,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SEA"
 }, {
@@ -3840,47 +2350,37 @@
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Kai Forbath",
-	"SeasonPts": 58,
+	"SeasonPts": 142,
 	"PlayerPos": "K",
 	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Kalan Reed",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Kalif Raymond",
 	"SeasonPts": -1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Kam Chancellor",
-	"SeasonPts": 83,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Kamalei Correa",
-	"SeasonPts": 7,
+	"SeasonPts": 14,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Kamar Aiken",
-	"SeasonPts": 39,
+	"SeasonPts": 13,
 	"PlayerPos": "WR",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Kamu Grugier-Hill",
-	"SeasonPts": 8,
+	"SeasonPts": 25,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Kansas City Chiefs",
-	"SeasonPts": 166,
+	"SeasonPts": 123,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Kapri Bibbs",
-	"SeasonPts": 26,
+	"SeasonPts": 27,
 	"PlayerPos": "RB",
 	"TeamAbbr": "WAS"
 }, {
@@ -3889,28 +2389,13 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "KC"
 }, {
-	"PlayerName": "Kareem Jackson",
-	"SeasonPts": 69,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Kareem Martin",
-	"SeasonPts": 13,
+	"SeasonPts": 30,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "Karl Joseph",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Karl Klug",
-	"SeasonPts": 24,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Karlos Dansby",
-	"SeasonPts": 102,
+	"SeasonPts": 95,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
@@ -3919,88 +2404,38 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": ""
 }, {
-	"PlayerName": "Kasim Edebali",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Kavon Frazier",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Kawann Short",
-	"SeasonPts": 62,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Kayvon Webster",
-	"SeasonPts": 9,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
-	"PlayerName": "Keanu Neal",
-	"SeasonPts": 110,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Keelan Cole",
 	"SeasonPts": 91,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Keenan Allen",
-	"SeasonPts": 6,
+	"SeasonPts": 182,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Keenan Robinson",
-	"SeasonPts": 76,
+	"SeasonPts": 28,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Keith Tandy",
-	"SeasonPts": 72,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "KeiVarae Russell",
-	"SeasonPts": 4,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Kellen Clemens",
-	"SeasonPts": 0,
+	"SeasonPts": -1,
 	"PlayerPos": "QB",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Kelvin Benjamin",
-	"SeasonPts": 134,
+	"SeasonPts": 87,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Kelvin Sheppard",
-	"SeasonPts": 42,
+	"SeasonPts": 49,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Kemal Ishmael",
-	"SeasonPts": 44,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Ken Crawley",
-	"SeasonPts": 54,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Kendall Fuller",
-	"SeasonPts": 39,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "Kendall Wright",
-	"SeasonPts": 61,
+	"SeasonPts": 67,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CHI"
 }, {
@@ -4015,24 +2450,14 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Kenjon Barner",
-	"SeasonPts": 29,
+	"SeasonPts": 17,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Kenneth Acker",
-	"SeasonPts": 20,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Kenny Britt",
-	"SeasonPts": 128,
+	"SeasonPts": 38,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Kenny Clark",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Kenny Golladay",
 	"SeasonPts": 67,
@@ -4040,107 +2465,62 @@
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Kenny Stills",
-	"SeasonPts": 127,
+	"SeasonPts": 117,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Kenny Vaccaro",
-	"SeasonPts": 77,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Kentrell Brice",
-	"SeasonPts": 28,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Kentrell Brothers",
-	"SeasonPts": 9,
+	"SeasonPts": 11,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Kenyan Drake",
-	"SeasonPts": 35,
+	"SeasonPts": 110,
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Kerry Wynn",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Kerwynn Williams",
-	"SeasonPts": 28,
+	"SeasonPts": 58,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "Kevin Byard",
-	"SeasonPts": 58,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
-}, {
 	"PlayerName": "Kevin Dodd",
-	"SeasonPts": 7,
+	"SeasonPts": 6,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Kevin Hogan",
-	"SeasonPts": 17,
+	"SeasonPts": 34,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Kevin Johnson",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "Kevin King",
-	"SeasonPts": 30,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Kevin Minter",
-	"SeasonPts": 79,
+	"SeasonPts": 24,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Kevin Pierre-Louis",
-	"SeasonPts": 10,
+	"SeasonPts": 39,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Kevin White",
-	"SeasonPts": 20,
+	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Kevon Seymour",
-	"SeasonPts": 24,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Khalil Mack",
-	"SeasonPts": 113,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Kiko Alonso",
-	"SeasonPts": 116,
+	"SeasonPts": 104,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Kirk Cousins",
-	"SeasonPts": 300,
+	"SeasonPts": 278,
 	"PlayerPos": "QB",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Kony Ealy",
-	"SeasonPts": 45,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Korey Toomer",
-	"SeasonPts": 76,
+	"SeasonPts": 56,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
 }, {
@@ -4149,183 +2529,108 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Kurt Coleman",
-	"SeasonPts": 106,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Kurtis Drummond",
-	"SeasonPts": 20,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Kwon Alexander",
-	"SeasonPts": 152,
+	"SeasonPts": 96,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Kyle Emanuel",
-	"SeasonPts": 53,
+	"SeasonPts": 36,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Kyle Fuller",
-	"SeasonPts": 91,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Kyle Juszczyk",
 	"SeasonPts": 37,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SF"
 }, {
-	"PlayerName": "Kyle Love",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Kyle Peko",
-	"SeasonPts": 2,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Kyle Rudolph",
-	"SeasonPts": 126,
+	"SeasonPts": 101,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Kyle Van Noy",
-	"SeasonPts": 51,
+	"SeasonPts": 79,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Kyle Wilber",
-	"SeasonPts": 14,
+	"SeasonPts": 11,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Kyle Williams",
-	"SeasonPts": 63,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Kyler Fackrell",
-	"SeasonPts": 24,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "L.T. Walton",
-	"SeasonPts": 8,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Lamar Miller",
-	"SeasonPts": 160,
+	"SeasonPts": 158,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Lamarcus Joyner",
-	"SeasonPts": 67,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Lamarr Houston",
-	"SeasonPts": 3,
+	"SeasonPts": 37,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Lance Dunbar",
-	"SeasonPts": 21,
+	"SeasonPts": 11,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Lance Kendricks",
-	"SeasonPts": 60,
+	"SeasonPts": 26,
 	"PlayerPos": "TE",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Landon Collins",
-	"SeasonPts": 152,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Landry Jones",
-	"SeasonPts": 34,
+	"SeasonPts": 9,
 	"PlayerPos": "QB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Laquon Treadwell",
-	"SeasonPts": 2,
+	"SeasonPts": 20,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Lardarius Webb",
-	"SeasonPts": 75,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Larry Fitzgerald",
-	"SeasonPts": 137,
+	"SeasonPts": 152,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "Larry Ogunjobi",
-	"SeasonPts": 27,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Latavius Murray",
-	"SeasonPts": 175,
+	"SeasonPts": 143,
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Lavar Edwards",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Lavonte David",
-	"SeasonPts": 110,
+	"SeasonPts": 115,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Lawrence Guy",
-	"SeasonPts": 29,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Lawrence Timmons",
-	"SeasonPts": 112,
+	"SeasonPts": 74,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Le'Veon Bell",
-	"SeasonPts": 242,
+	"SeasonPts": 257,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Lee Smith",
-	"SeasonPts": 3,
+	"SeasonPts": 8,
 	"PlayerPos": "TE",
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "LeGarrette Blount",
-	"SeasonPts": 226,
+	"SeasonPts": 100,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Leger Douzable",
-	"SeasonPts": 38,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Leon McQuay III",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Leonard Floyd",
-	"SeasonPts": 56,
+	"SeasonPts": 47,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
@@ -4334,30 +2639,15 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "JAX"
 }, {
-	"PlayerName": "Leonard Johnson",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Leonard Williams",
-	"SeasonPts": 70,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Leonte Carroo",
-	"SeasonPts": 9,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "LeSean McCoy",
-	"SeasonPts": 248,
+	"SeasonPts": 205,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "LeShaun Sims",
-	"SeasonPts": 30,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "LeShun Daniels",
 	"SeasonPts": 1,
@@ -4365,19 +2655,14 @@
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Levine Toilolo",
-	"SeasonPts": 38,
+	"SeasonPts": 24,
 	"PlayerPos": "TE",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Linval Joseph",
-	"SeasonPts": 73,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Logan Ryan",
-	"SeasonPts": 102,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TEN"
+	"PlayerName": "Logan Paulsen",
+	"SeasonPts": 0,
+	"PlayerPos": "TE",
+	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Logan Thomas",
 	"SeasonPts": 12,
@@ -4385,22 +2670,17 @@
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Lorenzo Alexander",
-	"SeasonPts": 105,
+	"SeasonPts": 80,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Lorenzo Jerome",
-	"SeasonPts": 3,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Los Angeles Chargers",
-	"SeasonPts": 120,
+	"SeasonPts": 158,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Los Angeles Rams",
-	"SeasonPts": 89,
+	"SeasonPts": 162,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "LA"
 }, {
@@ -4410,22 +2690,22 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Luke Kuechly",
-	"SeasonPts": 101,
+	"SeasonPts": 129,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Luke Stocker",
-	"SeasonPts": 2,
+	"SeasonPts": 9,
 	"PlayerPos": "TE",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Luke Willson",
-	"SeasonPts": 25,
+	"SeasonPts": 39,
 	"PlayerPos": "TE",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Mack Brown",
-	"SeasonPts": 14,
+	"SeasonPts": 4,
 	"PlayerPos": "RB",
 	"TeamAbbr": "MIN"
 }, {
@@ -4434,75 +2714,20 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Mackensie Alexander",
-	"SeasonPts": 4,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Malcolm Brown",
-	"SeasonPts": 7,
+	"SeasonPts": 36,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LA"
 }, {
-	"PlayerName": "Malcolm Butler",
-	"SeasonPts": 89,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Malcolm Jenkins",
-	"SeasonPts": 91,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Malcom Brown",
-	"SeasonPts": 47,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Maliek Collins",
-	"SeasonPts": 34,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Malik Hooker",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Malik Jackson",
-	"SeasonPts": 50,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
-}, {
 	"PlayerName": "Manti Te'o",
-	"SeasonPts": 14,
+	"SeasonPts": 57,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Marcedes Lewis",
-	"SeasonPts": 23,
+	"SeasonPts": 64,
 	"PlayerPos": "TE",
 	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Marcell Dareus",
-	"SeasonPts": 40,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
-}, {
-	"PlayerName": "Marcus Burley",
-	"SeasonPts": 8,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
-	"PlayerName": "Marcus Cooper",
-	"SeasonPts": 91,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Marcus Gilchrist",
-	"SeasonPts": 56,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Marcus Johnson",
 	"SeasonPts": 3,
@@ -4510,62 +2735,22 @@
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Marcus Mariota",
-	"SeasonPts": 260,
+	"SeasonPts": 210,
 	"PlayerPos": "QB",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Marcus Maye",
-	"SeasonPts": 76,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Marcus Murphy",
-	"SeasonPts": 0,
+	"SeasonPts": 5,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Marcus Peters",
-	"SeasonPts": 80,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Marcus Sherels",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Marcus Smith",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Marcus Williams",
-	"SeasonPts": 45,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
-	"PlayerName": "Margus Hunt",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Mario Addison",
-	"SeasonPts": 53,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Mario Edwards",
-	"SeasonPts": 2,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Mark Barron",
-	"SeasonPts": 121,
+	"SeasonPts": 92,
 	"PlayerPos": "LB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Mark Ingram",
-	"SeasonPts": 196,
+	"SeasonPts": 220,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NO"
 }, {
@@ -4575,19 +2760,14 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Markus Golden",
-	"SeasonPts": 82,
+	"SeasonPts": 11,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Markus Wheaton",
-	"SeasonPts": 13,
+	"SeasonPts": 5,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Marlon Humphrey",
-	"SeasonPts": 47,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Marlon Mack",
 	"SeasonPts": 82,
@@ -4595,12 +2775,12 @@
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Marqise Lee",
-	"SeasonPts": 109,
+	"SeasonPts": 92,
 	"PlayerPos": "WR",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "MarQueis Gray",
-	"SeasonPts": 17,
+	"SeasonPts": 2,
 	"PlayerPos": "TE",
 	"TeamAbbr": "MIA"
 }, {
@@ -4609,18 +2789,23 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Marqui Christian",
-	"SeasonPts": 2,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
+	"PlayerName": "Marquez Williams",
+	"SeasonPts": 0,
+	"PlayerPos": "RB",
+	"TeamAbbr": "CLE"
+}, {
+	"PlayerName": "Marquis Bundy",
+	"SeasonPts": 0,
+	"PlayerPos": "WR",
+	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Marquis Flowers",
-	"SeasonPts": 10,
+	"SeasonPts": 39,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Marquise Goodwin",
-	"SeasonPts": 61,
+	"SeasonPts": 113,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SF"
 }, {
@@ -4629,23 +2814,18 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Marshon Lattimore",
-	"SeasonPts": 86,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
 	"PlayerName": "Martavis Bryant",
 	"SeasonPts": 83,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Martellus Bennett",
-	"SeasonPts": 113,
+	"SeasonPts": 29,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Martrell Spaight",
-	"SeasonPts": 27,
+	"SeasonPts": 63,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
@@ -4655,22 +2835,17 @@
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Marvin Jones",
-	"SeasonPts": 117,
+	"SeasonPts": 164,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Marwin Evans",
-	"SeasonPts": 6,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Mason Crosby",
-	"SeasonPts": 124,
+	"SeasonPts": 80,
 	"PlayerPos": "K",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Mason Foster",
-	"SeasonPts": 114,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
@@ -4680,12 +2855,12 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Matt Bryant",
-	"SeasonPts": 170,
+	"SeasonPts": 153,
 	"PlayerPos": "K",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Matt Cassel",
-	"SeasonPts": 16,
+	"SeasonPts": 2,
 	"PlayerPos": "QB",
 	"TeamAbbr": "TEN"
 }, {
@@ -4695,7 +2870,7 @@
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Matt Forte",
-	"SeasonPts": 154,
+	"SeasonPts": 83,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYJ"
 }, {
@@ -4705,19 +2880,14 @@
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Matt Jones",
-	"SeasonPts": 67,
+	"SeasonPts": 1,
 	"PlayerPos": "RB",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Matt Judon",
-	"SeasonPts": 32,
+	"SeasonPts": 81,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Matt Longacre",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Matt Milano",
 	"SeasonPts": 55,
@@ -4725,52 +2895,32 @@
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Matt Moore",
-	"SeasonPts": 55,
+	"SeasonPts": 41,
 	"PlayerPos": "QB",
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Matt Prater",
-	"SeasonPts": 138,
+	"SeasonPts": 144,
 	"PlayerPos": "K",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Matt Ryan",
-	"SeasonPts": 347,
+	"SeasonPts": 228,
 	"PlayerPos": "QB",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Matthew Ioannidis",
-	"SeasonPts": 7,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "Matthew Slater",
-	"SeasonPts": -2,
+	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Matthew Stafford",
-	"SeasonPts": 280,
+	"SeasonPts": 274,
 	"PlayerPos": "QB",
 	"TeamAbbr": "DET"
 }, {
-	"PlayerName": "Matthias Farley",
-	"SeasonPts": 10,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Maurice Alexander",
-	"SeasonPts": 54,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
-	"PlayerName": "Maurice Canady",
-	"SeasonPts": 2,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Maurice Harris",
-	"SeasonPts": 7,
+	"SeasonPts": 12,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
@@ -4780,42 +2930,22 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Maxx Williams",
-	"SeasonPts": 0,
+	"SeasonPts": 13,
 	"PlayerPos": "TE",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Melvin Gordon",
-	"SeasonPts": 210,
+	"SeasonPts": 230,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Melvin Ingram",
-	"SeasonPts": 84,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Miami Dolphins",
-	"SeasonPts": 112,
+	"SeasonPts": 87,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Micah Hyde",
-	"SeasonPts": 74,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Michael Bennett",
-	"SeasonPts": 39,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Michael Brockers",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Michael Campanaro",
-	"SeasonPts": 7,
+	"SeasonPts": 28,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
@@ -4825,17 +2955,12 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Michael Crabtree",
-	"SeasonPts": 150,
+	"SeasonPts": 114,
 	"PlayerPos": "WR",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Michael Davis",
-	"SeasonPts": 10,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Michael Floyd",
-	"SeasonPts": 79,
+	"SeasonPts": 8,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
@@ -4844,20 +2969,10 @@
 	"PlayerPos": "TE",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Michael Johnson",
-	"SeasonPts": 49,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Michael Mauti",
-	"SeasonPts": 13,
+	"SeasonPts": 12,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Michael Pierce",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Michael Roberts",
 	"SeasonPts": 5,
@@ -4865,59 +2980,39 @@
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Michael Thomas",
-	"SeasonPts": 60,
+	"SeasonPts": 155,
 	"PlayerPos": "WR",
-	"TeamAbbr": "MIA"
+	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Michael Wilhoite",
-	"SeasonPts": 57,
+	"SeasonPts": 29,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SEA"
 }, {
-	"PlayerName": "Mike Adams",
-	"SeasonPts": 85,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CAR"
-}, {
-	"PlayerName": "Mike Daniels",
-	"SeasonPts": 40,
-	"PlayerPos": "DL",
-	"TeamAbbr": "GB"
-}, {
 	"PlayerName": "Mike Davis",
-	"SeasonPts": 12,
+	"SeasonPts": 37,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Mike Evans",
-	"SeasonPts": 208,
+	"SeasonPts": 132,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Mike Gillislee",
-	"SeasonPts": 117,
+	"SeasonPts": 68,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Mike Glennon",
-	"SeasonPts": 9,
+	"SeasonPts": 34,
 	"PlayerPos": "QB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Mike Hilton",
-	"SeasonPts": 65,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Mike Hull",
-	"SeasonPts": 29,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Mike Mitchell",
-	"SeasonPts": 79,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Mike Nugent",
 	"SeasonPts": 50,
@@ -4925,17 +3020,17 @@
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Mike Thomas",
-	"SeasonPts": 2,
+	"SeasonPts": 9,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Mike Tolbert",
-	"SeasonPts": 25,
+	"SeasonPts": 37,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Mike Wallace",
-	"SeasonPts": 131,
+	"SeasonPts": 99,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
@@ -4944,20 +3039,10 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Miles Killebrew",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Minnesota Vikings",
-	"SeasonPts": 156,
+	"SeasonPts": 117,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Mitch Unrein",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Mitchell Trubisky",
 	"SeasonPts": 135,
@@ -4965,47 +3050,17 @@
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Mohamed Sanu",
-	"SeasonPts": 90,
+	"SeasonPts": 107,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Montae Nicholson",
-	"SeasonPts": 25,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Montravius Adams",
-	"SeasonPts": 2,
-	"PlayerPos": "DL",
-	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Morgan Burnett",
-	"SeasonPts": 103,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Morris Claiborne",
-	"SeasonPts": 34,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Muhammad Wilkerson",
-	"SeasonPts": 60,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Mychal Kendricks",
-	"SeasonPts": 31,
+	"SeasonPts": 77,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Myles Garrett",
-	"SeasonPts": 44,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CLE"
-}, {
 	"PlayerName": "Myles Jack",
-	"SeasonPts": 24,
+	"SeasonPts": 93,
 	"PlayerPos": "LB",
 	"TeamAbbr": "JAX"
 }, {
@@ -5014,43 +3069,18 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Nat Berhe",
-	"SeasonPts": 22,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Nate Allen",
-	"SeasonPts": 36,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Nate Ebner",
-	"SeasonPts": 20,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Nate Gerry",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Nate Hairston",
-	"SeasonPts": 44,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Nate Orchard",
-	"SeasonPts": 3,
+	"SeasonPts": 28,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Nate Palmer",
-	"SeasonPts": 10,
+	"SeasonPts": 9,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Nate Stupar",
-	"SeasonPts": 68,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NO"
 }, {
@@ -5065,62 +3095,42 @@
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "NaVorro Bowman",
-	"SeasonPts": 38,
+	"SeasonPts": 114,
 	"PlayerPos": "LB",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Nazair Jones",
-	"SeasonPts": 26,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Ndamukong Suh",
-	"SeasonPts": 74,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
 	"PlayerName": "Neal Sterling",
-	"SeasonPts": 11,
+	"SeasonPts": 8,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Neiko Thorpe",
-	"SeasonPts": 18,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
 	"PlayerName": "Nelson Agholor",
-	"SeasonPts": 52,
+	"SeasonPts": 132,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Neville Hewitt",
-	"SeasonPts": 57,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Nevin Lawson",
-	"SeasonPts": 61,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "New England Patriots",
-	"SeasonPts": 123,
+	"SeasonPts": 121,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "New Orleans Saints",
-	"SeasonPts": 55,
+	"SeasonPts": 148,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "New York Giants",
-	"SeasonPts": 139,
+	"SeasonPts": 87,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "New York Jets",
-	"SeasonPts": 66,
+	"SeasonPts": 71,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "NYJ"
 }, {
@@ -5135,42 +3145,42 @@
 	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Nick Bellore",
-	"SeasonPts": 85,
+	"SeasonPts": 17,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Nick Boyle",
-	"SeasonPts": 4,
+	"SeasonPts": 22,
 	"PlayerPos": "TE",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Nick Foles",
-	"SeasonPts": 28,
+	"SeasonPts": 34,
 	"PlayerPos": "QB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Nick Folk",
-	"SeasonPts": 109,
+	"SeasonPts": 27,
 	"PlayerPos": "K",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Nick Kwiatkoski",
-	"SeasonPts": 45,
+	"SeasonPts": 51,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Nick Novak",
-	"SeasonPts": 133,
+	"SeasonPts": 46,
 	"PlayerPos": "K",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Nick O'Leary",
-	"SeasonPts": 13,
+	"SeasonPts": 42,
 	"PlayerPos": "TE",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Nick Perry",
-	"SeasonPts": 72,
+	"SeasonPts": 47,
 	"PlayerPos": "LB",
 	"TeamAbbr": "GB"
 }, {
@@ -5180,32 +3190,27 @@
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Nick Vannett",
-	"SeasonPts": 3,
+	"SeasonPts": 18,
 	"PlayerPos": "TE",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Nick Vigil",
-	"SeasonPts": 19,
+	"SeasonPts": 71,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Nick Williams",
-	"SeasonPts": 6,
+	"SeasonPts": 3,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
-	"PlayerName": "Nickell Robey-Coleman",
-	"SeasonPts": 61,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Nigel Bradham",
-	"SeasonPts": 103,
+	"SeasonPts": 95,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Niles Paul",
-	"SeasonPts": 3,
+	"SeasonPts": 10,
 	"PlayerPos": "TE",
 	"TeamAbbr": "WAS"
 }, {
@@ -5214,78 +3219,33 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Noah Spence",
-	"SeasonPts": 38,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Nolan Carroll",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "O.J. Howard",
 	"SeasonPts": 75,
 	"PlayerPos": "TE",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Oakland Raiders",
-	"SeasonPts": 92,
+	"SeasonPts": 68,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Obi Melifonwu",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Obum Gwacham",
-	"SeasonPts": 1,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Odell Beckham",
-	"SeasonPts": 196,
+	"SeasonPts": 49,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Olivier Vernon",
-	"SeasonPts": 76,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Orlando Scandrick",
-	"SeasonPts": 63,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Orleans Darkwa",
-	"SeasonPts": 24,
+	"SeasonPts": 119,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "P.J. Dawson",
-	"SeasonPts": 1,
+	"SeasonPts": 3,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SEA"
 }, {
-	"PlayerName": "P.J. Williams",
-	"SeasonPts": 8,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Pat Sims",
-	"SeasonPts": 29,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Patrick Chung",
-	"SeasonPts": 81,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
 	"PlayerName": "Patrick DiMarco",
-	"SeasonPts": 11,
+	"SeasonPts": 3,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
 }, {
@@ -5300,244 +3260,149 @@
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Patrick Onwuasor",
-	"SeasonPts": 17,
+	"SeasonPts": 87,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Patrick Peterson",
-	"SeasonPts": 62,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Patrick Ricard",
 	"SeasonPts": 13,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BAL"
 }, {
-	"PlayerName": "Patrick Robinson",
-	"SeasonPts": 30,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Paul Perkins",
-	"SeasonPts": 62,
+	"SeasonPts": 14,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Paul Posluszny",
-	"SeasonPts": 123,
+	"SeasonPts": 57,
 	"PlayerPos": "LB",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Paul Richardson",
-	"SeasonPts": 35,
+	"SeasonPts": 106,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Paul Worrilow",
-	"SeasonPts": 24,
+	"SeasonPts": 28,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Paxton Lynch",
-	"SeasonPts": 28,
+	"SeasonPts": 15,
 	"PlayerPos": "QB",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Pernell McPhee",
-	"SeasonPts": 25,
+	"SeasonPts": 33,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Peyton Barber",
-	"SeasonPts": 31,
+	"SeasonPts": 70,
 	"PlayerPos": "RB",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Pharoh Cooper",
-	"SeasonPts": 9,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Phil Dawson",
-	"SeasonPts": 89,
+	"SeasonPts": 127,
 	"PlayerPos": "K",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Philadelphia Eagles",
-	"SeasonPts": 137,
+	"SeasonPts": 160,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Philip Rivers",
-	"SeasonPts": 259,
+	"SeasonPts": 270,
 	"PlayerPos": "QB",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Phillip Dorsett",
-	"SeasonPts": 66,
+	"SeasonPts": 20,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Phillip Gaines",
-	"SeasonPts": 56,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Phillip Supernaw",
-	"SeasonPts": 6,
+	"SeasonPts": 10,
 	"PlayerPos": "TE",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Pierre Garcon",
-	"SeasonPts": 122,
+	"SeasonPts": 50,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Pittsburgh Steelers",
-	"SeasonPts": 104,
+	"SeasonPts": 135,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Preston Brown",
-	"SeasonPts": 118,
+	"SeasonPts": 117,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Preston Smith",
-	"SeasonPts": 48,
+	"SeasonPts": 64,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Prince Amukamara",
-	"SeasonPts": 54,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Quan Bray",
 	"SeasonPts": 4,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Quandre Diggs",
-	"SeasonPts": 45,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "Quincy Wilson",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
-	"PlayerName": "Quinten Rollins",
-	"SeasonPts": 50,
-	"PlayerPos": "DB",
-	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Quintin Demps",
-	"SeasonPts": 70,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
-	"PlayerName": "Quinton Dial",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Quinton Dunbar",
-	"SeasonPts": 37,
-	"PlayerPos": "DB",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Quinton Jefferson",
-	"SeasonPts": 1,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Rafael Bush",
-	"SeasonPts": 59,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
 	"PlayerName": "Raheem Mostert",
 	"SeasonPts": 1,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SF"
 }, {
-	"PlayerName": "Rakeem Nunez-Roches",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Ramik Wilson",
-	"SeasonPts": 80,
+	"SeasonPts": 23,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Ramon Humber",
-	"SeasonPts": 16,
+	"SeasonPts": 80,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Randall Cobb",
-	"SeasonPts": 88,
+	"SeasonPts": 93,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Randall Telfer",
-	"SeasonPts": 0,
+	"SeasonPts": 4,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Randy Bullock",
-	"SeasonPts": 33,
+	"SeasonPts": 87,
 	"PlayerPos": "K",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Rashaan Melvin",
-	"SeasonPts": 24,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Rashard Higgins",
-	"SeasonPts": 8,
+	"SeasonPts": 42,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CLE"
 }, {
-	"PlayerName": "Rashard Robinson",
-	"SeasonPts": 37,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYJ"
-}, {
-	"PlayerName": "Rasul Douglas",
-	"SeasonPts": 39,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Ray-Ray Armstrong",
-	"SeasonPts": 14,
+	"SeasonPts": 66,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Rayshawn Jenkins",
-	"SeasonPts": 13,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Reggie Nelson",
-	"SeasonPts": 84,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
 }, {
 	"PlayerName": "Reggie Ragland",
 	"SeasonPts": 38,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Reshad Jones",
-	"SeasonPts": 48,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Reuben Foster",
 	"SeasonPts": 67,
@@ -5545,44 +3410,29 @@
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Rex Burkhead",
-	"SeasonPts": 59,
+	"SeasonPts": 100,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Rey Maualuga",
-	"SeasonPts": 26,
+	"SeasonPts": 19,
 	"PlayerPos": "LB",
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Rhett Ellison",
-	"SeasonPts": 12,
+	"SeasonPts": 36,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Ricardo Allen",
-	"SeasonPts": 83,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Ricardo Louis",
-	"SeasonPts": 21,
+	"SeasonPts": 36,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Richard Rodgers",
-	"SeasonPts": 39,
+	"SeasonPts": 22,
 	"PlayerPos": "TE",
 	"TeamAbbr": "GB"
-}, {
-	"PlayerName": "Richard Sherman",
-	"SeasonPts": 71,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Ricky Jean Francois",
-	"SeasonPts": 29,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Ricky Seals-Jones",
 	"SeasonPts": 38,
@@ -5590,147 +3440,67 @@
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Rishard Matthews",
-	"SeasonPts": 147,
+	"SeasonPts": 103,
 	"PlayerPos": "WR",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Rob Gronkowski",
-	"SeasonPts": 72,
+	"SeasonPts": 158,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Rob Kelley",
-	"SeasonPts": 121,
+	"SeasonPts": 39,
 	"PlayerPos": "RB",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Robbie Gould",
-	"SeasonPts": 50,
+	"SeasonPts": 153,
 	"PlayerPos": "K",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Robby Anderson",
-	"SeasonPts": 73,
+	"SeasonPts": 137,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Robert Alford",
-	"SeasonPts": 85,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Robert Ayers",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Robert Blanton",
-	"SeasonPts": 31,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
-	"PlayerName": "Robert Golden",
-	"SeasonPts": 30,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "Robert Nkemdiche",
-	"SeasonPts": 2,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Robert Quinn",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
-}, {
-	"PlayerName": "Robert Thomas",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Robert Turbin",
-	"SeasonPts": 82,
+	"SeasonPts": 17,
 	"PlayerPos": "RB",
 	"TeamAbbr": "IND"
 }, {
 	"PlayerName": "Robert Woods",
-	"SeasonPts": 68,
+	"SeasonPts": 107,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Rod Smith",
-	"SeasonPts": 0,
+	"SeasonPts": 73,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Rodney Gunter",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Rodney McLeod",
-	"SeasonPts": 95,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Roger Lewis",
-	"SeasonPts": 22,
+	"SeasonPts": 54,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Romeo Okwara",
-	"SeasonPts": 23,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Ron Parker",
-	"SeasonPts": 75,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Ronald Blair",
-	"SeasonPts": 20,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Ronald Darby",
-	"SeasonPts": 77,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
 }, {
 	"PlayerName": "Roosevelt Nix",
 	"SeasonPts": 13,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Ross Cockrell",
-	"SeasonPts": 71,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
 	"PlayerName": "Ross Travis",
 	"SeasonPts": 8,
 	"PlayerPos": "TE",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Roy Miller",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": ""
-}, {
-	"PlayerName": "Rudy Ford",
-	"SeasonPts": 5,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Russell Shepard",
-	"SeasonPts": 47,
+	"SeasonPts": 28,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Russell Wilson",
-	"SeasonPts": 268,
+	"SeasonPts": 348,
 	"PlayerPos": "QB",
 	"TeamAbbr": "SEA"
 }, {
@@ -5740,67 +3510,47 @@
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Ryan Davis",
-	"SeasonPts": 5,
+	"SeasonPts": 30,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Ryan Fitzpatrick",
-	"SeasonPts": 133,
+	"SeasonPts": 74,
 	"PlayerPos": "QB",
 	"TeamAbbr": "TB"
 }, {
-	"PlayerName": "Ryan Glasgow",
-	"SeasonPts": 20,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CIN"
-}, {
 	"PlayerName": "Ryan Grant",
-	"SeasonPts": 8,
+	"SeasonPts": 81,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Ryan Griffin",
-	"SeasonPts": 54,
+	"SeasonPts": 24,
 	"PlayerPos": "TE",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Ryan Hewitt",
-	"SeasonPts": 1,
+	"SeasonPts": 2,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Ryan Kerrigan",
-	"SeasonPts": 58,
+	"SeasonPts": 81,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Ryan Mallett",
-	"SeasonPts": -2,
+	"SeasonPts": 10,
 	"PlayerPos": "QB",
 	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Ryan Murphy",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Ryan Russell",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Ryan Shazier",
 	"SeasonPts": 101,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Ryan Smith",
-	"SeasonPts": 1,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Ryan Succop",
-	"SeasonPts": 111,
+	"SeasonPts": 140,
 	"PlayerPos": "K",
 	"TeamAbbr": "TEN"
 }, {
@@ -5810,12 +3560,12 @@
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Sam Acho",
-	"SeasonPts": 28,
+	"SeasonPts": 46,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Sam Bradford",
-	"SeasonPts": 221,
+	"SeasonPts": 27,
 	"PlayerPos": "QB",
 	"TeamAbbr": "MIN"
 }, {
@@ -5830,12 +3580,12 @@
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Sammie Coates",
-	"SeasonPts": 57,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Sammy Watkins",
-	"SeasonPts": 55,
+	"SeasonPts": 107,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
 }, {
@@ -5845,62 +3595,47 @@
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "San Francisco 49ers",
-	"SeasonPts": 61,
+	"SeasonPts": 79,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Scooby Wright",
-	"SeasonPts": 1,
+	"SeasonPts": 5,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Scott Tolzien",
-	"SeasonPts": 9,
+	"SeasonPts": 1,
 	"PlayerPos": "QB",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Sealver Siliga",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "Sean Davis",
-	"SeasonPts": 75,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Sean Lee",
-	"SeasonPts": 122,
+	"SeasonPts": 89,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DAL"
 }, {
 	"PlayerName": "Sean Mannion",
-	"SeasonPts": -1,
+	"SeasonPts": 5,
 	"PlayerPos": "QB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Sean McGrath",
-	"SeasonPts": 3,
+	"SeasonPts": 5,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LAC"
 }, {
-	"PlayerName": "Sean Smith",
-	"SeasonPts": 52,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
 	"PlayerName": "Sean Spence",
-	"SeasonPts": 57,
+	"SeasonPts": 17,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Sean Weatherspoon",
-	"SeasonPts": 24,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Seattle Seahawks",
-	"SeasonPts": 113,
+	"SeasonPts": 140,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "SEA"
 }, {
@@ -5910,32 +3645,17 @@
 	"TeamAbbr": "MIA"
 }, {
 	"PlayerName": "Seth DeValve",
-	"SeasonPts": 25,
+	"SeasonPts": 44,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CLE"
 }, {
 	"PlayerName": "Seth Roberts",
-	"SeasonPts": 74,
+	"SeasonPts": 48,
 	"PlayerPos": "WR",
 	"TeamAbbr": "OAK"
 }, {
-	"PlayerName": "Shalom Luani",
-	"SeasonPts": 18,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Shamar Stephen",
-	"SeasonPts": 30,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Shamarko Thomas",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Shane Ray",
-	"SeasonPts": 69,
+	"SeasonPts": 15,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
@@ -5945,117 +3665,47 @@
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Shane Vereen",
-	"SeasonPts": 27,
+	"SeasonPts": 40,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NYG"
 }, {
-	"PlayerName": "Shaq Lawson",
-	"SeasonPts": 17,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Shaq Thompson",
-	"SeasonPts": 65,
+	"SeasonPts": 58,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Shaquil Barrett",
-	"SeasonPts": 39,
+	"SeasonPts": 50,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
-}, {
-	"PlayerName": "Shaquill Griffin",
-	"SeasonPts": 74,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Shareece Wright",
-	"SeasonPts": 56,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Sharrod Neasman",
-	"SeasonPts": 3,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ATL"
-}, {
-	"PlayerName": "Shawn Williams",
-	"SeasonPts": 81,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Shelby Harris",
-	"SeasonPts": 41,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
-	"PlayerName": "Sheldon Day",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
-}, {
-	"PlayerName": "Sheldon Rankins",
-	"SeasonPts": 28,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Sheldon Richardson",
-	"SeasonPts": 61,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Shelton Gibson",
 	"SeasonPts": 1,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Sherrick McManis",
-	"SeasonPts": 16,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CHI"
-}, {
 	"PlayerName": "Shilique Calhoun",
-	"SeasonPts": 9,
+	"SeasonPts": 6,
 	"PlayerPos": "LB",
 	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Sidney Jones",
-	"SeasonPts": 2,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Solomon Thomas",
-	"SeasonPts": 46,
-	"PlayerPos": "DL",
-	"TeamAbbr": "SF"
 }, {
 	"PlayerName": "Stacy Coley",
 	"SeasonPts": 0,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Stacy McGee",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
-}, {
-	"PlayerName": "Star Lotulelei",
-	"SeasonPts": 31,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Stefon Diggs",
-	"SeasonPts": 109,
+	"SeasonPts": 134,
 	"PlayerPos": "WR",
 	"TeamAbbr": "MIN"
 }, {
 	"PlayerName": "Stephen Anderson",
-	"SeasonPts": 15,
+	"SeasonPts": 40,
 	"PlayerPos": "TE",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Stephen Gostkowski",
-	"SeasonPts": 131,
+	"SeasonPts": 164,
 	"PlayerPos": "K",
 	"TeamAbbr": "NE"
 }, {
@@ -6064,33 +3714,13 @@
 	"PlayerPos": "K",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Stephen Paea",
-	"SeasonPts": 10,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Stephon Gilmore",
-	"SeasonPts": 67,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Stephon Tuitt",
-	"SeasonPts": 49,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
-}, {
 	"PlayerName": "Stephone Anthony",
 	"SeasonPts": 14,
 	"PlayerPos": "LB",
 	"TeamAbbr": "MIA"
 }, {
-	"PlayerName": "Sterling Moore",
-	"SeasonPts": 67,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
 	"PlayerName": "Sterling Shepard",
-	"SeasonPts": 119,
+	"SeasonPts": 86,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
@@ -6099,55 +3729,15 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Steve McLendon",
-	"SeasonPts": 33,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Steven Johnson",
-	"SeasonPts": 8,
+	"SeasonPts": 5,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
-	"PlayerName": "Steven Means",
-	"SeasonPts": 9,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
-	"PlayerName": "Steven Nelson",
-	"SeasonPts": 82,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Sylvester Williams",
-	"SeasonPts": 28,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TEN"
-}, {
-	"PlayerName": "T.J. Carrie",
-	"SeasonPts": 34,
-	"PlayerPos": "DB",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "T.J. Green",
-	"SeasonPts": 40,
-	"PlayerPos": "DB",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "T.J. Jones",
-	"SeasonPts": 9,
+	"SeasonPts": 48,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DET"
-}, {
-	"PlayerName": "T.J. McDonald",
-	"SeasonPts": 69,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "T.J. Ward",
-	"SeasonPts": 100,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "T.J. Watt",
 	"SeasonPts": 74,
@@ -6160,47 +3750,37 @@
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "T.J. Yeldon",
-	"SeasonPts": 88,
+	"SeasonPts": 58,
 	"PlayerPos": "RB",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "T.Y. Hilton",
-	"SeasonPts": 183,
+	"SeasonPts": 119,
 	"PlayerPos": "WR",
 	"TeamAbbr": "IND"
 }, {
-	"PlayerName": "Taco Charlton",
-	"SeasonPts": 26,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
 	"PlayerName": "Tahir Whitehead",
-	"SeasonPts": 121,
+	"SeasonPts": 108,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Taiwan Jones",
-	"SeasonPts": 4,
+	"SeasonPts": 1,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Takkarist McKinley",
-	"SeasonPts": 37,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ATL"
-}, {
 	"PlayerName": "Tamba Hali",
-	"SeasonPts": 38,
+	"SeasonPts": 1,
 	"PlayerPos": "LB",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Tampa Bay Buccaneers",
-	"SeasonPts": 133,
+	"SeasonPts": 102,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "TB"
 }, {
 	"PlayerName": "Tank Carradine",
-	"SeasonPts": 14,
+	"SeasonPts": 20,
 	"PlayerPos": "LB",
 	"TeamAbbr": "SF"
 }, {
@@ -6210,7 +3790,7 @@
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Tanner McEvoy",
-	"SeasonPts": 28,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SEA"
 }, {
@@ -6219,48 +3799,23 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "BUF"
 }, {
-	"PlayerName": "Tanoh Kpassagnon",
-	"SeasonPts": 15,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Tanzel Smart",
-	"SeasonPts": 13,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
-}, {
-	"PlayerName": "Tarell Basham",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "IND"
-}, {
 	"PlayerName": "Tarik Cohen",
 	"SeasonPts": 91,
 	"PlayerPos": "RB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Tashaun Gipson",
-	"SeasonPts": 42,
-	"PlayerPos": "DB",
-	"TeamAbbr": "JAX"
-}, {
 	"PlayerName": "Tavarres King",
-	"SeasonPts": 5,
+	"SeasonPts": 42,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Tavon Austin",
-	"SeasonPts": 89,
+	"SeasonPts": 30,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LA"
 }, {
-	"PlayerName": "Tavon Wilson",
-	"SeasonPts": 94,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Taylor Gabriel",
-	"SeasonPts": 105,
+	"SeasonPts": 49,
 	"PlayerPos": "WR",
 	"TeamAbbr": "ATL"
 }, {
@@ -6275,7 +3830,7 @@
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Ted Ginn",
-	"SeasonPts": 105,
+	"SeasonPts": 107,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NO"
 }, {
@@ -6284,98 +3839,63 @@
 	"PlayerPos": "QB",
 	"TeamAbbr": "MIN"
 }, {
-	"PlayerName": "Tedric Thompson",
-	"SeasonPts": 7,
-	"PlayerPos": "DB",
-	"TeamAbbr": "SEA"
-}, {
-	"PlayerName": "Teez Tabor",
-	"SeasonPts": 12,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DET"
-}, {
 	"PlayerName": "Telvin Smith",
-	"SeasonPts": 125,
+	"SeasonPts": 122,
 	"PlayerPos": "LB",
 	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Tennessee Titans",
-	"SeasonPts": 95,
+	"SeasonPts": 111,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "TEN"
 }, {
-	"PlayerName": "Tenny Palepoi",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LAC"
-}, {
-	"PlayerName": "Terence Newman",
-	"SeasonPts": 46,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Terrance Mitchell",
-	"SeasonPts": 77,
-	"PlayerPos": "DB",
-	"TeamAbbr": "KC"
-}, {
 	"PlayerName": "Terrance West",
-	"SeasonPts": 137,
+	"SeasonPts": 26,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Terrance Williams",
-	"SeasonPts": 81,
+	"SeasonPts": 58,
 	"PlayerPos": "WR",
 	"TeamAbbr": "DAL"
 }, {
-	"PlayerName": "Terrell McClain",
-	"SeasonPts": 40,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
-}, {
 	"PlayerName": "Terrell Suggs",
-	"SeasonPts": 58,
+	"SeasonPts": 77,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Terrell Watson",
-	"SeasonPts": 9,
+	"SeasonPts": 1,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Terrelle Pryor",
-	"SeasonPts": 136,
+	"SeasonPts": 30,
 	"PlayerPos": "WR",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Terrence Fede",
-	"SeasonPts": 12,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
 	"PlayerName": "Terron Ward",
-	"SeasonPts": 16,
+	"SeasonPts": 12,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Tevin Coleman",
-	"SeasonPts": 160,
+	"SeasonPts": 141,
 	"PlayerPos": "RB",
 	"TeamAbbr": "ATL"
 }, {
 	"PlayerName": "Theo Riddick",
-	"SeasonPts": 109,
+	"SeasonPts": 101,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Thomas Davis",
-	"SeasonPts": 117,
+	"SeasonPts": 71,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CAR"
 }, {
 	"PlayerName": "Thomas Rawls",
-	"SeasonPts": 63,
+	"SeasonPts": 23,
 	"PlayerPos": "RB",
 	"TeamAbbr": "SEA"
 }, {
@@ -6384,88 +3904,48 @@
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
-	"PlayerName": "Timmy Jernigan",
-	"SeasonPts": 39,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Tion Green",
 	"SeasonPts": 30,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Todd Davis",
-	"SeasonPts": 89,
+	"SeasonPts": 67,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Todd Gurley",
-	"SeasonPts": 155,
+	"SeasonPts": 319,
 	"PlayerPos": "RB",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Tom Brady",
-	"SeasonPts": 259,
+	"SeasonPts": 296,
 	"PlayerPos": "QB",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "Tom Johnson",
-	"SeasonPts": 21,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIN"
-}, {
 	"PlayerName": "Tom Savage",
-	"SeasonPts": 18,
+	"SeasonPts": 51,
 	"PlayerPos": "QB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Tommylee Lewis",
-	"SeasonPts": 9,
+	"SeasonPts": 17,
 	"PlayerPos": "WR",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Tony Jefferson",
-	"SeasonPts": 104,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Tony McDaniel",
-	"SeasonPts": 37,
-	"PlayerPos": "DL",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Torrey Smith",
-	"SeasonPts": 45,
+	"SeasonPts": 55,
 	"PlayerPos": "WR",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Trae Elston",
-	"SeasonPts": 16,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Trae Waynes",
-	"SeasonPts": 63,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Tramaine Brock",
-	"SeasonPts": 72,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Tramon Williams",
-	"SeasonPts": 54,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Travaris Cadet",
-	"SeasonPts": 54,
+	"SeasonPts": 22,
 	"PlayerPos": "RB",
 	"TeamAbbr": "BUF"
 }, {
 	"PlayerName": "Travis Benjamin",
-	"SeasonPts": 85,
+	"SeasonPts": 90,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LAC"
 }, {
@@ -6475,7 +3955,7 @@
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Travis Kelce",
-	"SeasonPts": 138,
+	"SeasonPts": 151,
 	"PlayerPos": "TE",
 	"TeamAbbr": "KC"
 }, {
@@ -6483,11 +3963,6 @@
 	"SeasonPts": 10,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYG"
-}, {
-	"PlayerName": "Tre Boston",
-	"SeasonPts": 61,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Tre Madden",
 	"SeasonPts": 7,
@@ -6499,43 +3974,28 @@
 	"PlayerPos": "WR",
 	"TeamAbbr": "NYJ"
 }, {
-	"PlayerName": "Tre'Davious White",
-	"SeasonPts": 99,
-	"PlayerPos": "DB",
-	"TeamAbbr": "BUF"
-}, {
 	"PlayerName": "Trent Taylor",
 	"SeasonPts": 53,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SF"
 }, {
-	"PlayerName": "Treston Decoud",
-	"SeasonPts": 10,
-	"PlayerPos": "DB",
-	"TeamAbbr": "HOU"
-}, {
 	"PlayerName": "Trevor Davis",
-	"SeasonPts": 6,
+	"SeasonPts": 8,
 	"PlayerPos": "WR",
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Trevor Reilly",
-	"SeasonPts": 2,
+	"SeasonPts": 9,
 	"PlayerPos": "LB",
 	"TeamAbbr": "NE"
 }, {
 	"PlayerName": "Trevor Siemian",
-	"SeasonPts": 192,
+	"SeasonPts": 126,
 	"PlayerPos": "QB",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Trevor Williams",
-	"SeasonPts": 36,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LAC"
-}, {
 	"PlayerName": "Trey Burton",
-	"SeasonPts": 39,
+	"SeasonPts": 57,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PHI"
 }, {
@@ -6544,48 +4004,18 @@
 	"PlayerPos": "RB",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Trey Flowers",
-	"SeasonPts": 53,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NE"
-}, {
-	"PlayerName": "Trey Hendrickson",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Treyvon Hester",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "OAK"
-}, {
-	"PlayerName": "Troy Hill",
-	"SeasonPts": 40,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Troy Niklas",
-	"SeasonPts": 0,
+	"SeasonPts": 19,
 	"PlayerPos": "TE",
 	"TeamAbbr": "ARI"
 }, {
-	"PlayerName": "Trumaine Johnson",
-	"SeasonPts": 67,
-	"PlayerPos": "DB",
-	"TeamAbbr": "LA"
-}, {
 	"PlayerName": "Ty Montgomery",
-	"SeasonPts": 97,
+	"SeasonPts": 69,
 	"PlayerPos": "RB",
 	"TeamAbbr": "GB"
 }, {
-	"PlayerName": "Tyeler Davison",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NO"
-}, {
 	"PlayerName": "Tyler Boyd",
-	"SeasonPts": 70,
+	"SeasonPts": 35,
 	"PlayerPos": "WR",
 	"TeamAbbr": "CIN"
 }, {
@@ -6595,84 +4025,54 @@
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Tyler Eifert",
-	"SeasonPts": 69,
+	"SeasonPts": 5,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Tyler Ervin",
-	"SeasonPts": -2,
+	"SeasonPts": 5,
 	"PlayerPos": "RB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Tyler Higbee",
-	"SeasonPts": 15,
+	"SeasonPts": 36,
 	"PlayerPos": "TE",
 	"TeamAbbr": "LA"
 }, {
 	"PlayerName": "Tyler Kroft",
-	"SeasonPts": 9,
+	"SeasonPts": 82,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Tyler Lockett",
-	"SeasonPts": 83,
+	"SeasonPts": 73,
 	"PlayerPos": "WR",
 	"TeamAbbr": "SEA"
 }, {
 	"PlayerName": "Tyler Matakevich",
-	"SeasonPts": 18,
+	"SeasonPts": 24,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Tyrann Mathieu",
-	"SeasonPts": 44,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
-}, {
 	"PlayerName": "Tyreek Hill",
-	"SeasonPts": 138,
+	"SeasonPts": 164,
 	"PlayerPos": "WR",
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Tyrell Williams",
-	"SeasonPts": 148,
+	"SeasonPts": 95,
 	"PlayerPos": "WR",
 	"TeamAbbr": "LAC"
 }, {
 	"PlayerName": "Tyrod Taylor",
-	"SeasonPts": 271,
+	"SeasonPts": 223,
 	"PlayerPos": "QB",
 	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Tyrone Crawford",
-	"SeasonPts": 35,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Tyrone Holmes",
-	"SeasonPts": 6,
-	"PlayerPos": "DL",
-	"TeamAbbr": "KC"
-}, {
-	"PlayerName": "Tyrunn Walker",
-	"SeasonPts": 25,
-	"PlayerPos": "DL",
-	"TeamAbbr": "LA"
-}, {
-	"PlayerName": "Tyson Alualu",
-	"SeasonPts": 40,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Tyus Bowser",
 	"SeasonPts": 21,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
-}, {
-	"PlayerName": "Tyvon Branch",
-	"SeasonPts": 31,
-	"PlayerPos": "DB",
-	"TeamAbbr": "ARI"
 }, {
 	"PlayerName": "Ufomba Kamalu",
 	"SeasonPts": 2,
@@ -6685,27 +4085,17 @@
 	"TeamAbbr": "KC"
 }, {
 	"PlayerName": "Vance McDonald",
-	"SeasonPts": 63,
+	"SeasonPts": 25,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PIT"
 }, {
-	"PlayerName": "Vernon Butler",
-	"SeasonPts": 19,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Vernon Davis",
-	"SeasonPts": 70,
+	"SeasonPts": 79,
 	"PlayerPos": "TE",
 	"TeamAbbr": "WAS"
 }, {
-	"PlayerName": "Vernon Hargreaves",
-	"SeasonPts": 85,
-	"PlayerPos": "DB",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Vic Beasley",
-	"SeasonPts": 89,
+	"SeasonPts": 40,
 	"PlayerPos": "LB",
 	"TeamAbbr": "ATL"
 }, {
@@ -6720,57 +4110,37 @@
 	"TeamAbbr": "GB"
 }, {
 	"PlayerName": "Vince Mayle",
-	"SeasonPts": 0,
+	"SeasonPts": 6,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Vince Williams",
-	"SeasonPts": 46,
+	"SeasonPts": 98,
 	"PlayerPos": "LB",
 	"TeamAbbr": "PIT"
 }, {
 	"PlayerName": "Vincent Rey",
-	"SeasonPts": 80,
+	"SeasonPts": 72,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CIN"
 }, {
-	"PlayerName": "Vincent Taylor",
-	"SeasonPts": 18,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Vinny Curry",
-	"SeasonPts": 27,
-	"PlayerPos": "DL",
-	"TeamAbbr": "PHI"
-}, {
 	"PlayerName": "Virgil Green",
-	"SeasonPts": 30,
+	"SeasonPts": 25,
 	"PlayerPos": "TE",
 	"TeamAbbr": "DEN"
 }, {
 	"PlayerName": "Von Miller",
-	"SeasonPts": 106,
+	"SeasonPts": 83,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
-	"PlayerName": "Vonn Bell",
-	"SeasonPts": 86,
-	"PlayerPos": "DB",
-	"TeamAbbr": "NO"
-}, {
-	"PlayerName": "Vontae Davis",
-	"SeasonPts": 48,
-	"PlayerPos": "DB",
-	"TeamAbbr": ""
-}, {
 	"PlayerName": "Vontaze Burfict",
-	"SeasonPts": 105,
+	"SeasonPts": 67,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CIN"
 }, {
 	"PlayerName": "Washington Redskins",
-	"SeasonPts": 93,
+	"SeasonPts": 111,
 	"PlayerPos": "DEF",
 	"TeamAbbr": "WAS"
 }, {
@@ -6780,124 +4150,54 @@
 	"TeamAbbr": "NYG"
 }, {
 	"PlayerName": "Wendell Smallwood",
-	"SeasonPts": 41,
+	"SeasonPts": 34,
 	"PlayerPos": "RB",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Wes Horton",
-	"SeasonPts": 20,
-	"PlayerPos": "DL",
-	"TeamAbbr": "CAR"
-}, {
 	"PlayerName": "Wesley Woodyard",
-	"SeasonPts": 61,
+	"SeasonPts": 129,
 	"PlayerPos": "LB",
 	"TeamAbbr": "TEN"
 }, {
 	"PlayerName": "Whitney Mercilus",
-	"SeasonPts": 71,
+	"SeasonPts": 14,
 	"PlayerPos": "LB",
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Wil Lutz",
-	"SeasonPts": 139,
+	"SeasonPts": 148,
 	"PlayerPos": "K",
 	"TeamAbbr": "NO"
 }, {
-	"PlayerName": "Will Clarke",
-	"SeasonPts": 22,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
 	"PlayerName": "Will Compton",
-	"SeasonPts": 97,
+	"SeasonPts": 21,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Will Fuller",
-	"SeasonPts": 75,
+	"SeasonPts": 85,
 	"PlayerPos": "WR",
 	"TeamAbbr": "HOU"
 }, {
-	"PlayerName": "Will Parks",
-	"SeasonPts": 29,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Will Tye",
-	"SeasonPts": 46,
+	"SeasonPts": 4,
 	"PlayerPos": "TE",
 	"TeamAbbr": "NE"
 }, {
-	"PlayerName": "William Gay",
-	"SeasonPts": 63,
-	"PlayerPos": "DB",
-	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "William Gholston",
-	"SeasonPts": 55,
-	"PlayerPos": "DL",
-	"TeamAbbr": "TB"
-}, {
-	"PlayerName": "William Hayes",
-	"SeasonPts": 47,
-	"PlayerPos": "DL",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "William Jackson",
-	"SeasonPts": 46,
-	"PlayerPos": "DB",
-	"TeamAbbr": "CIN"
-}, {
-	"PlayerName": "Willie Henry",
-	"SeasonPts": 45,
-	"PlayerPos": "DL",
-	"TeamAbbr": "BAL"
-}, {
 	"PlayerName": "Willie Snead",
-	"SeasonPts": 120,
+	"SeasonPts": 7,
 	"PlayerPos": "WR",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Willie Young",
-	"SeasonPts": 49,
+	"SeasonPts": 10,
 	"PlayerPos": "LB",
 	"TeamAbbr": "CHI"
 }, {
-	"PlayerName": "Xavien Howard",
-	"SeasonPts": 43,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIA"
-}, {
-	"PlayerName": "Xavier Cooper",
-	"SeasonPts": 16,
-	"PlayerPos": "DL",
-	"TeamAbbr": "NYJ"
-}, {
 	"PlayerName": "Xavier Grimble",
-	"SeasonPts": 24,
+	"SeasonPts": 9,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PIT"
-}, {
-	"PlayerName": "Xavier Rhodes",
-	"SeasonPts": 77,
-	"PlayerPos": "DB",
-	"TeamAbbr": "MIN"
-}, {
-	"PlayerName": "Xavier Williams",
-	"SeasonPts": 5,
-	"PlayerPos": "DL",
-	"TeamAbbr": "ARI"
-}, {
-	"PlayerName": "Xavier Woods",
-	"SeasonPts": 45,
-	"PlayerPos": "DB",
-	"TeamAbbr": "DAL"
-}, {
-	"PlayerName": "Yannick Ngakoue",
-	"SeasonPts": 50,
-	"PlayerPos": "DL",
-	"TeamAbbr": "JAX"
 }, {
 	"PlayerName": "Younghoe Koo",
 	"SeasonPts": 18,
@@ -6905,12 +4205,12 @@
 	"TeamAbbr": ""
 }, {
 	"PlayerName": "Za'Darius Smith",
-	"SeasonPts": 20,
+	"SeasonPts": 30,
 	"PlayerPos": "LB",
 	"TeamAbbr": "BAL"
 }, {
 	"PlayerName": "Zach Brown",
-	"SeasonPts": 141,
+	"SeasonPts": 113,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
@@ -6920,37 +4220,32 @@
 	"TeamAbbr": "HOU"
 }, {
 	"PlayerName": "Zach Ertz",
-	"SeasonPts": 106,
+	"SeasonPts": 128,
 	"PlayerPos": "TE",
 	"TeamAbbr": "PHI"
 }, {
-	"PlayerName": "Zach Kerr",
-	"SeasonPts": 22,
-	"PlayerPos": "DL",
-	"TeamAbbr": "DEN"
-}, {
 	"PlayerName": "Zach Line",
-	"SeasonPts": 2,
+	"SeasonPts": 10,
 	"PlayerPos": "RB",
 	"TeamAbbr": "NO"
 }, {
 	"PlayerName": "Zach Miller",
-	"SeasonPts": 73,
+	"SeasonPts": 36,
 	"PlayerPos": "TE",
 	"TeamAbbr": "CHI"
 }, {
 	"PlayerName": "Zach Vigil",
-	"SeasonPts": 2,
+	"SeasonPts": 54,
 	"PlayerPos": "LB",
 	"TeamAbbr": "WAS"
 }, {
 	"PlayerName": "Zach Zenner",
-	"SeasonPts": 75,
+	"SeasonPts": 9,
 	"PlayerPos": "RB",
 	"TeamAbbr": "DET"
 }, {
 	"PlayerName": "Zaire Anderson",
-	"SeasonPts": 14,
+	"SeasonPts": 29,
 	"PlayerPos": "LB",
 	"TeamAbbr": "DEN"
 }, {
@@ -6963,9 +4258,4 @@
 	"SeasonPts": 44,
 	"PlayerPos": "WR",
 	"TeamAbbr": "BUF"
-}, {
-	"PlayerName": "Ziggy Hood",
-	"SeasonPts": 32,
-	"PlayerPos": "DL",
-	"TeamAbbr": "WAS"
 }]

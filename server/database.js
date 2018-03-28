@@ -1,5 +1,7 @@
-var mysql = require('mysql');
-var DB = (function () {
+"use strict";
+exports.__esModule = true;
+var mysql = require("mysql");
+var DB = /** @class */ (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -243,13 +245,13 @@ var DB = (function () {
     };
     // Luke Stats
     DB.prototype.getStats = function () {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals\n            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            ORDER BY PlayerName asc\t", []);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals\n            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            ORDER BY PlayerName asc", []);
         return this.query2(statement);
     };
     DB.prototype.getSeasonPoints = function () {
-        var statement = mysql.format("SELECT nflp.PlayerName, nfls.SeasonPts, nflp.PlayerPos, nflp.TeamAbbr FROM game_stats_totals as gs\n        LEFT JOIN nfl_stats as nfls ON gs.PlayerID = nfls.PlayerID\n        LEFT JOIN nfl_players as nflp ON gs.PlayerID =  nflp.player_id\n        GROUP BY nflp.PlayerName", []);
+        var statement = mysql.format("SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals\n        LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID\n        LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id\n        WHERE Year = 2017\n        GROUP BY PlayerName", []);
         return this.query(statement);
     };
     return DB;
-})();
+}());
 exports.DB = DB;
