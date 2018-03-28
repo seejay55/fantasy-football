@@ -48,4 +48,13 @@ export class SettingsTabsComponent implements OnInit {
     );
   }
 
+  private deleteUserAccount(): void {
+    console.log("Running deleteUserAccount()")
+    this.userService.deleteUser(this.user._id).subscribe(
+      (deleteUser) => { this.alertService.success('Success', 'User has been deleted', true);},
+      (err) => { console.log(err); }
+    );
+    this.authService.logout();
+  }
+
 }
