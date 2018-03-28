@@ -179,6 +179,17 @@ app.get("/api/leagues/search", function (req, res) {
     });
   });
 
+  app.get("/api/users/search", function (req, res) {
+    var query = "";
+    if (req.query.query != undefined) {
+        query = req.query.query;
+    }
+    db.searchUserByName(query).then(function (result) {
+        res.setHeader('Content-Type', 'application/json');
+        res.json(result);
+    });
+  });
+
 app.get("/api/league/:league_id/members", function (req, res) {
   var league_id = req.params.league_id;
   db.getLeagueMembers(league_id).then(function (result) {

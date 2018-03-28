@@ -31,7 +31,6 @@ export class DB {
                         return reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    console.log(queryResult);
                     return resolve(queryResult);
                 }).on('end', () => {
                     con.release();
@@ -240,11 +239,11 @@ export class DB {
         return this.query(statement);
     }
 
-    searchUserResults(senderID: number, searchParams: string): any {
+    searchUserByName(searchParams: string): any {
         searchParams = '%' + searchParams + '%';
         const statement = mysql.format(
-            'SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?',
-            [senderID, searchParams]
+            'SELECT * from userinfo WHERE Username LIKE ?',
+            [searchParams]
         );
         return this.query(statement);
     }

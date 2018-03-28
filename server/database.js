@@ -24,7 +24,6 @@ var DB = /** @class */ (function () {
                         return reject('DB Error(Query):\n' + error);
                     }
                     queryResult = JSON.parse(JSON.stringify(result));
-                    console.log(queryResult);
                     return resolve(queryResult);
                 }).on('end', function () {
                     con.release();
@@ -143,9 +142,9 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT get_league_info.ID, Name, Year, MaxTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM fantasyfootball18.league_members\n            LEFT JOIN (\n                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n                FROM leagues\n                LEFT JOIN (\n                    SELECT LeagueID, COUNT(UserID) AS NumTeams\n                    FROM league_members\n                    GROUP BY LeagueID\n                ) AS member_count ON member_count.LeagueID = ID\n                LEFT JOIN (\n                    SELECT LeagueID, UserID AS OwnerID\n                    FROM league_members\n                    WHERE Commisioner = TRUE\n                    GROUP BY LeagueID\n                ) AS league_owner ON league_owner.LeagueID = ID\n            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID\n            WHERE UserID = ?", [userID]);
         return this.query(statement);
     };
-    DB.prototype.searchUserResults = function (senderID, searchParams) {
+    DB.prototype.searchUserByName = function (searchParams) {
         searchParams = '%' + searchParams + '%';
-        var statement = mysql.format('SELECT ID, Username from userinfo WHERE ID != ? AND Username LIKE ?', [senderID, searchParams]);
+        var statement = mysql.format('SELECT * from userinfo WHERE Username LIKE ?', [searchParams]);
         return this.query(statement);
     };
     // LeagueInvites
