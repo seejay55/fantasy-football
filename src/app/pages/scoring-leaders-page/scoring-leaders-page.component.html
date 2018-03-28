@@ -50,14 +50,14 @@
           <td>
             <table class="table"> <!-- Passing -->
               <thead>
-                <th scope="col">P/I</th>
+                <th scope="col">C/A</th>
                 <th scope="col">YDS</th>
                 <th scope="col">TD</th>
                 <th scope="col">INT</th>
               </thead>
               <tbody>
                 <tr *ngFor="let offensive of filteredOffensivePlayers">
-                  <td>{{offensive.Stats["Passing Completions"] || 0}}</td>
+                  <td>{{offensive.Stats["Passing Completions"] || 0}} / {{offensive.Stats["Passing Attempts"] || 0}}</td>
                   <td>{{offensive.Stats["Passing Yards"] || 0}}</td>
                   <td>{{offensive.Stats["Passing Touchdowns"] || 0}}</td>
                   <td>{{offensive.Stats["Interceptions Thrown"] || 0}}</td>
