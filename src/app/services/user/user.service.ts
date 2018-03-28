@@ -59,11 +59,11 @@ export class UserService {
   }
 
   public acceptInvite(userId: number, leagueId: number) {
-    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
+    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {} );
   }
 
   public declineInvite(userId: number, leagueId: number) {
-    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {responseType: 'text'});
+    return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
   }
 
 }

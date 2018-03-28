@@ -136,7 +136,7 @@ app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
       res.status(500).send("Error Accepting Invite");
     }
     else {
-      res.send("Successfully Accepted Invite");
+      res.status(200).send();
     }
   });
 });
@@ -149,7 +149,7 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
       res.status(500).send("Error Deleting Invite");
     }
     else {
-      res.send("Successfully Deleted Invite");
+      res.status(200).send();
     }
   });
 });
