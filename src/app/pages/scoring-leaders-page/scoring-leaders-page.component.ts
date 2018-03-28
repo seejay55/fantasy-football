@@ -46,6 +46,7 @@ export class ScoringLeadersPageComponent implements OnInit {
     }
 
     fillTableForAll() {
+        var i = 0;
         this.allStats.forEach(e => {
             switch (e.PlayerPos) {
                 case 'K':
@@ -55,7 +56,11 @@ export class ScoringLeadersPageComponent implements OnInit {
                 case 'RB':
                 case 'WR':
                 case 'TE':
-                    this.offensivePlayers.push(e);
+                    i++;
+                    if(i < 50)
+                    {
+                        this.offensivePlayers.push(e);
+                    }
                     break;
                 case 'DEF':
                     this.defensivePlayer.push(e);
@@ -65,6 +70,7 @@ export class ScoringLeadersPageComponent implements OnInit {
             }
         });
 
+        var j = 0;
         this.allScores.forEach(e => {
             switch (e.PlayerPos) {
                 case 'K':
@@ -74,7 +80,11 @@ export class ScoringLeadersPageComponent implements OnInit {
                 case 'RB':
                 case 'WR':
                 case 'TE':
-                    this.scoreOffensivePlayer.push(e);
+                    j++;
+                    if(j < 50)
+                    {
+                        this.scoreOffensivePlayer.push(e);
+                    }
                     break;
                 case 'DEF':
                     this.scoreDefensivePlayer.push(e);
