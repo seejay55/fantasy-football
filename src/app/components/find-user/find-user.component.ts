@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindUserComponent implements OnInit {
 
-  //this is the results of the search pulled from SQL with a LIKE or whatever it is
+  // this is the results of the search pulled from SQL with a LIKE or whatever it is
   private searchResultsUsers = [
     'Greyhound',
     'Berger and Fries',
@@ -19,9 +19,9 @@ export class FindUserComponent implements OnInit {
   ];
 
   private availableLeagues = [
-    {"leagueID":88100, "leagueName":"Memes", "openSpots":true, "ownedByMe":true},
-    {"leagueID":88101, "leagueName":"Dreams", "openSpots":true, "ownedByMe":true},
-    {"leagueID":88102, "leagueName":"Sportsball", "openSpots":true, "ownedByMe":true}
+    {'leagueID': 88100, 'leagueName': 'Memes', 'openSpots': true, 'ownedByMe': true},
+    {'leagueID': 88101, 'leagueName': 'Dreams', 'openSpots': true, 'ownedByMe': true},
+    {'leagueID': 88102, 'leagueName': 'Sportsball', 'openSpots': true, 'ownedByMe': true}
   ];
 
   constructor() { }
@@ -35,7 +35,7 @@ export class FindUserComponent implements OnInit {
   }
 
   private sendListener() {
-    console.log("invite sent");
+    console.log('invite sent');
   }
 
 }
