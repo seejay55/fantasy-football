@@ -116,7 +116,8 @@ app.patch("/api/user/:user_id", function (req, res) {
 app.delete("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   db.deleteUser(id).then(function (result) {
-    res.status(204);
+    console.log('deleted');
+    res.status(204).send();
   });
 });
 
