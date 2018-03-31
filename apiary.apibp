@@ -1,0 +1,92 @@
+aFORMAT: 1A
+
+# Fantasy Football API
+
+API for accessing/manipulating data for a Fantasy Football application.
+
+## User Collection [/users]
+
+### Get User List [GET /api/users]
+
+Get array of all users
+
++ Response 200
+
+        [{"ID":1,"Username":"test1","ProfilePic":null,"FirstName":"Don't","LastName":"Delete","FavoriteTeam":null},{"ID":2,"Username":"test2","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":3,"Username":"test3","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":4,"Username":"test4","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":5,"Username":"test","ProfilePic":null,"FirstName":"firstname","LastName":"lastname","FavoriteTeam":"fave"},{"ID":9,"Username":"test123","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":10,"Username":"NGrey5","ProfilePic":null,"FirstName":"Nick","LastName":"Grey","FavoriteTeam":null}]
+
+### Create User [POST /api/users]
+
+creates a user with specified information (ID optional)
+
++ Request (application/json)
+
+        {
+            "ID": 8,
+            "Email": "email@delete.me",
+            "Password": "delete",
+            "Username": "delete_me",
+            "FirstName": "DELETE",
+            "LastName": "ME"
+        }
+
++ Response 200
+
+        [{"ID":8,"Email":"email@delete.me","Username":"delete_me","ProfilePic":null,"FirstName":"DELETE","LastName":"ME","FavoriteTeam":null}]
+
+## User [/user]
+
+### Get User [GET /api/user/1]
+
+Get user by ID or Username
+
++ Response 200
+
+        [{"ID":1,"Username":"test1","ProfilePic":null,"FirstName":"Don't","LastName":"Delete","FavoriteTeam":null}]
+
++ Response 200
+
+        [{"ID":1,"Username":"test1","ProfilePic":null,"FirstName":"Don't","LastName":"Delete","FavoriteTeam":null}]
+
++ Response 500
+
+        No user exists with ID: -1
+
++ Response 500
+
+        No user exists with Username: NonExistantUser
+
+### Authenticate User [GET /api/user/authenticate]
+
+Authenticate a user and return user info
+
++ Response 200
+
+        {"_id":1,"email":"test1","userName":"test1","firstName":"Don't","lastName":"Delete"}
+
+### Delete User [DELETE /api/user/8]
+
+Delete a user with a given ID
+
++ Response 204
+
+        
+
+## League Collection [/leagues]
+
+### Get League List [GET /api/leagues]
+
+Get array of all leagues
+
++ Response 200
+
+        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":1,"OwnerUserName":"test1"},{"ID":2,"Name":"TestLeague2","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":5,"OwnerUserName":"test"},{"ID":3,"Name":"TestLeague3","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":3,"OwnerUserName":"test3"},{"ID":4,"Name":"TestLeague4","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":1,"OwnerID":1,"OwnerUserName":"test1"},{"ID":5,"Name":"NicksLeague","Year":"2017","MaxTeams":10,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":2,"OwnerID":10,"OwnerUserName":"NGrey5"}]
+
+## Leagues [/league]
+
+### Get League by ID [GET /api/league/1]
+
+Get information about a league
+
++ Response 200
+
+        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":1,"OwnerUserName":"test1"}]

@@ -93,17 +93,35 @@ export class DB {
         return this.query(statement);
     }
 
-    createUser(userEmail: string, userPassword: string, userName: string, firstName: string, lastName: string): any {
-        const statement = mysql.format(
-            'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
-            [userEmail, userPassword]
-        );
+    createUser(userEmail: string, userPassword: string, userName: string, firstName: string, lastName: string, userID?: number): any {
+        let statement;
+        if (userID) {
+            statement = mysql.format(
+                'INSERT INTO userlogin (ID, Email, Password) VALUES (?, ?, ?)',
+                [userID, userEmail, userPassword]
+            );
+        } else {
+            statement = mysql.format(
+                'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
+                [userEmail, userPassword]
+            );
+        }
         const statement2 = mysql.format(
             'INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)',
             [userEmail, userName, firstName, lastName]
         );
+        const statement3 = mysql.format(
+            `SELECT userinfo.ID, Email, Username, ProfilePic, FirstName, LastName, FavoriteTeam
+            FROM userinfo
+            LEFT JOIN userlogin ON userinfo.ID = userlogin.ID
+            WHERE Email = ?`,
+            [userEmail]
+        );
+
         return this.query(statement).then((result) => {
-            return this.query(statement2);
+            return this.query(statement2).then((result2) => {
+                return this.query(statement3);
+            });
         });
     }
 
@@ -203,19 +221,19 @@ export class DB {
 
     getAllLeagues(): any {
         const statement = mysql.format(
-            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
+            `SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM leagues
             LEFT JOIN (
                 SELECT LeagueID, COUNT(UserID) AS NumTeams
                 FROM league_members
                 GROUP BY LeagueID
-            ) AS member_count ON member_count.LeagueID = ID
+            ) AS member_count ON member_count.LeagueID = leagues.ID
             LEFT JOIN (
                 SELECT LeagueID, UserID AS OwnerID
                 FROM league_members
                 WHERE Commisioner = TRUE
                 GROUP BY LeagueID
-            ) AS league_owner ON league_owner.LeagueID = ID
+            ) AS league_owner ON league_owner.LeagueID = leagues.ID
             LEFT JOIN userinfo ON userinfo.ID = OwnerID`,
             []
         );
