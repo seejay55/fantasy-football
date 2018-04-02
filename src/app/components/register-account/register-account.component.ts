@@ -20,7 +20,7 @@ export class RegisterAccountComponent implements OnInit {
   registerAccount(email: string, userName: string, firstName: string, lastName: string, password: string, confirmPass: string) {
     if (password === confirmPass) {
       this.userService.createUser(email, userName, firstName, lastName, password).subscribe(
-        (success) => { console.log('test'); },
+        (success) => { this.alertService.success('Success', 'Your account has been created.'); },
         (err) => { this.alertService.warning(err.status, err.message, false); }
       );
     } else {

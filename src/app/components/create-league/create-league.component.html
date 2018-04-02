@@ -1,12 +1,12 @@
 <div class="content-block">
-  <form (submit)="createLeague(name.value, 10, privacy.value, numTrades.value, other.value, maxTeams.value)">
+  <form (submit)="createLeague(name.value, 10, public.checked, unlimited.checked, other.value, maxTeams.value)">
     <div class="row">
       <div class="col-md-12 mb-3">
         <div class="input-group">
           <div class="input-group-prepend label">
-            <label #name class="input-group-text" for="leagueName">League Name:</label>
+            <label class="input-group-text" for="leagueName">League Name:</label>
           </div>
-          <input type="text" class="form-control" id="leagueName" value="" required minlength="1">
+          <input #name type="text" class="form-control" id="leagueName" value="" required minlength="1">
         </div>
         <!-- Column -->
       </div>
@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col-md mb-3">
         <label for="privacy">League Privacy:</label>
-        <div #privacy class="custom-control custom-radio">
+        <div class="custom-control custom-radio">
           <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" checked required>
           <label class="custom-control-label" for="public">Public</label>
         </div>
@@ -76,7 +76,7 @@
     <div class="row">
       <div class="col-md mb-3">
         <label for="numTrades">Maximum Trades:</label>
-        <div #numTrades class="custom-control custom-radio">
+        <div class="custom-control custom-radio">
           <input #unlimited id="unlimited" name="numTrades" ng-model="numTrades" type="radio" value="Unlimited" onclick="document.getElementById('otherTrades').disabled = true;" class="custom-control-input"
             checked required>
           <label class="custom-control-label" for="unlimited">Unlimited</label>

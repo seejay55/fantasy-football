@@ -46,7 +46,7 @@
         <tbody>
           <tr *ngFor="let x of searchResults" (click)="searchListener('clicked')">
             <td><a class="link" [routerLink]="['/league', x._id]">{{x.name}}</a> </td>
-            <td> {{x.Players}} / {{x.MaxPlayers}} </td>
+            <td> {{x.maxTeams}} </td>
             <td> Standard </td>
             <td>
               <button class="btn btn-primary" type="button" (click)="joinListener(x)">
