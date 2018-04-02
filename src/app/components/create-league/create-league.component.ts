@@ -17,17 +17,21 @@ export class CreateLeagueComponent implements OnInit {
 
   ngOnInit() {  }
 
-  createLeague(name: string, userId: number, priv: boolean, pub: boolean, unlimited: boolean, other: number, maxTeams: number): boolean {
-    // after computation
-    name = 'NickLeague2';
-    userId = 10;
-    const privacy = 'Public';
-    const maxTrades = 1;
-    maxTeams = 11;
-    /* this.leagueService.createLeague(name, userId, privacy, maxTrades, maxTeams).subscribe(
+  createLeague(name: string, userId: number, privacy: string, unlimited: string, other: string, maxTeams: number): boolean {
+    let maxTrades;
+
+    if(unlimited === "Unlimited")
+    {
+        const maxTrades = Number.MAX_SAFE_INTEGER;
+    } else
+    {
+        const maxTrades = other;
+    }
+
+    this.leagueService.createLeague(name, userId, privacy, maxTrades, maxTeams).subscribe(
       success => this.alertService.success('Success', `League ${name} been created`, false),
       err => console.log(err)
-    ); */
+    );
     return false;
   }
 

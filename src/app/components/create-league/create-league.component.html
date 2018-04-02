@@ -1,5 +1,5 @@
 <div class="content-block">
-  <form (submit)="console.log('test')">
+  <form (submit)="createLeague(name.value, 10, privacy.value, numTrades.value, other.value, maxTeams.value)">
     <div class="row">
       <div class="col-md-12 mb-3">
         <div class="input-group">
@@ -60,12 +60,12 @@
     <div class="row">
       <div class="col-md mb-3">
         <label for="privacy">League Privacy:</label>
-        <div class="custom-control custom-radio">
-          <input #public id="public" name="privacy" type="radio" class="custom-control-input" checked required>
+        <div #privacy class="custom-control custom-radio">
+          <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" checked required>
           <label class="custom-control-label" for="public">Public</label>
         </div>
         <div class="custom-control custom-radio">
-          <input #private id="private" name="privacy" type="radio" class="custom-control-input" required>
+          <input #private id="private" name="privacy" ng-model="privacy" value="Private" type="radio" class="custom-control-input" required>
           <label class="custom-control-label" for="private">Private</label>
         </div>
       </div>
@@ -76,16 +76,16 @@
     <div class="row">
       <div class="col-md mb-3">
         <label for="numTrades">Maximum Trades:</label>
-        <div class="custom-control custom-radio">
-          <input #unlimited id="unlimited" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = true;" class="custom-control-input"
+        <div #numTrades class="custom-control custom-radio">
+          <input #unlimited id="unlimited" name="numTrades" ng-model="numTrades" type="radio" value="Unlimited" onclick="document.getElementById('otherTrades').disabled = true;" class="custom-control-input"
             checked required>
           <label class="custom-control-label" for="unlimited">Unlimited</label>
         </div>
         <div class="custom-control custom-radio">
-          <input #other id="other" name="numTrades" type="radio" onclick="document.getElementById('otherTrades').disabled = false;" class="custom-control-input"
+          <input id="other" name="numTrades" ng-model="numTrades" type="radio" value="Other" onclick="document.getElementById('otherTrades').disabled = false;" class="custom-control-input"
             required>
           <label class="custom-control-label" for="other">Other </label>
-          <input #other type="text" id="otherTrades1" name="other" disabled="disabled" minlength="1" />
+          <input #other type="text" id="otherTrades" name="other" disabled="disabled" minlength="1" />
           <div class="invalid-feedback">
             Valid Number is required.
           </div>
