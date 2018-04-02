@@ -5,7 +5,7 @@
       <div class="input-group">
         <input #searchTerm type="text" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" (click)="searchListener(searchTerm.value)">
+            <button class="btn btn-secondary" type="button" (click)="search(searchTerm.value)">
               Go!
             </button>
           </span>
@@ -19,14 +19,14 @@
 
     <!-- clicky bit -->
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let user of searchResultsUsers">
+        <li class="list-group-item" *ngFor="let user of searchResults">
 
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div>
-              <div role="tab" id="heading{{user}}">
+              <div role="tab" id="user._id">
                 <h5 class="mb-0">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{user}}">
-                      {{user}}
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{user}}" [routerLink]="['/user', user.userName]">
+                      {{user.userName}}
                       <button type="button" class="btn btn-primary" style="clear: left; float: right">
                         Invite
                       </button>
@@ -35,7 +35,7 @@
               </div>
 
               <!-- drop down bit -->
-              <div id="collapse{{user}}" class="collapse" role="tabpanel">
+              <!-- <div id="{{user._id}}" class="collapse" role="tabpanel">
                 <div class="card-block">
                   Select the league(s) you want to send an invite for:
                   <div class="form-check" *ngFor="let i of availableLeagues">
