@@ -61,4 +61,9 @@ export class LeagueService {
     return this.http.get<any[]>(`${this.endpoint}/user/${userId}/leagues`);
   }
 
+  public createLeague(leagueName: string, userId: number, leaguePrivacy: string, maxTrades: number, maxTeams: number) {
+    return this.http.post<any>(`${this.endpoint}/leagues`,
+     {LeagueName: leagueName, UserID: userId, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades, MaxTeams: maxTeams} );
+  }
+
 }

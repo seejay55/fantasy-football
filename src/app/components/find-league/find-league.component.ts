@@ -35,8 +35,26 @@ export class FindLeagueComponent implements OnInit {
   }
 
   private search(term: string): void {
+    this.searchResults = [];
     this.leagueService.getLeaguesBySearchTerm(term).subscribe(
-      (results) => { this.searchResults = results; console.log(this.searchResults); },
+      (results) => {
+        results.forEach((league) => {
+          const temp = new League(
+            league.ID,
+            league.Name,
+            league.OwnerID,
+            league.OwnerUserName,
+            league.NumTeams,
+            league.Year,
+            league.MaxTeams,
+            league.TypeScoring,
+            league.LeaguePrivacy,
+            league.MaxTrades
+          );
+          this.searchResults.push(temp);
+        });
+        console.log(this.searchResults);
+      },
       (err) => { console.log(err.error); }
     );
   }

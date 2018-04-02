@@ -60,16 +60,18 @@ export class DB {
                         } else if (i === 0) {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
-                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
-                                queryResult[i].GameStatValue + '",');
+                            ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                            '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                            ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                            queryResult[i].GameStatValue + '",');
                         } else {
                             formatedJSON = formatedJSON.slice(0, -1);
                             formatedJSON = formatedJSON + ('}},');
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                     }
@@ -91,17 +93,35 @@ export class DB {
         return this.query(statement);
     }
 
-    createUser(userEmail: string, userPassword: string, userName: string, firstName: string, lastName: string): any {
-        const statement = mysql.format(
-            'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
-            [userEmail, userPassword]
-        );
+    createUser(userEmail: string, userPassword: string, userName: string, firstName: string, lastName: string, userID?: number): any {
+        let statement;
+        if (userID) {
+            statement = mysql.format(
+                'INSERT INTO userlogin (ID, Email, Password) VALUES (?, ?, ?)',
+                [userID, userEmail, userPassword]
+            );
+        } else {
+            statement = mysql.format(
+                'INSERT INTO userlogin (Email, Password) VALUES (?, ?)',
+                [userEmail, userPassword]
+            );
+        }
         const statement2 = mysql.format(
             'INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)',
             [userEmail, userName, firstName, lastName]
         );
+        const statement3 = mysql.format(
+            `SELECT userinfo.ID, Email, Username, ProfilePic, FirstName, LastName, FavoriteTeam
+            FROM userinfo
+            LEFT JOIN userlogin ON userinfo.ID = userlogin.ID
+            WHERE Email = ?`,
+            [userEmail]
+        );
+
         return this.query(statement).then((result) => {
-            return this.query(statement2);
+            return this.query(statement2).then((result2) => {
+                return this.query(statement3);
+            });
         });
     }
 
@@ -201,19 +221,19 @@ export class DB {
 
     getAllLeagues(): any {
         const statement = mysql.format(
-            `SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
+            `SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM leagues
             LEFT JOIN (
                 SELECT LeagueID, COUNT(UserID) AS NumTeams
                 FROM league_members
                 GROUP BY LeagueID
-            ) AS member_count ON member_count.LeagueID = ID
+            ) AS member_count ON member_count.LeagueID = leagues.ID
             LEFT JOIN (
                 SELECT LeagueID, UserID AS OwnerID
                 FROM league_members
                 WHERE Commisioner = TRUE
                 GROUP BY LeagueID
-            ) AS league_owner ON league_owner.LeagueID = ID
+            ) AS league_owner ON league_owner.LeagueID = leagues.ID
             LEFT JOIN userinfo ON userinfo.ID = OwnerID`,
             []
         );
@@ -514,10 +534,15 @@ export class DB {
     // Luke Stats
     getStats(): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals
-            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
+            `SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, Name, GameStatValue FROM game_stats_totals
+            INNER JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID
             INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID
-            ORDER BY PlayerName asc`,
+            JOIN (
+              SELECT DISTINCT(PlayerID), SeasonPts
+                FROM nfl_stats
+                WHERE Year = 2017
+            ) AS temp ON temp.PlayerID = game_stats_totals.PlayerID
+            ORDER BY SeasonPts desc, PlayerName desc`,
             []
         );
         return this.query2(statement);

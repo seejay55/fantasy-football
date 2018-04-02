@@ -55,7 +55,8 @@ var DB = /** @class */ (function () {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                         else {
@@ -64,7 +65,8 @@ var DB = /** @class */ (function () {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
                                 ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                                '"' + queryResult[i].TeamAbbr + '"' + ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
                                 queryResult[i].GameStatValue + '",');
                         }
                     }
@@ -81,12 +83,21 @@ var DB = /** @class */ (function () {
         var statement = 'SELECT * FROM userinfo';
         return this.query(statement);
     };
-    DB.prototype.createUser = function (userEmail, userPassword, userName, firstName, lastName) {
+    DB.prototype.createUser = function (userEmail, userPassword, userName, firstName, lastName, userID) {
         var _this = this;
-        var statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
+        var statement;
+        if (userID) {
+            statement = mysql.format('INSERT INTO userlogin (ID, Email, Password) VALUES (?, ?, ?)', [userID, userEmail, userPassword]);
+        }
+        else {
+            statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
+        }
         var statement2 = mysql.format('INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)', [userEmail, userName, firstName, lastName]);
+        var statement3 = mysql.format("SELECT userinfo.ID, Email, Username, ProfilePic, FirstName, LastName, FavoriteTeam\n            FROM userinfo\n            LEFT JOIN userlogin ON userinfo.ID = userlogin.ID\n            WHERE Email = ?", [userEmail]);
         return this.query(statement).then(function (result) {
-            return _this.query(statement2);
+            return _this.query(statement2).then(function (result2) {
+                return _this.query(statement3);
+            });
         });
     };
     DB.prototype.updateUser = function (ID, email, userName) {
@@ -139,7 +150,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getAllLeagues = function () {
-        var statement = mysql.format("SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID", []);
+        var statement = mysql.format("SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = leagues.ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = leagues.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID", []);
         return this.query(statement);
     };
     DB.prototype.getAllLeaguesForUser = function (userID) {
@@ -248,7 +259,7 @@ var DB = /** @class */ (function () {
     };
     // Luke Stats
     DB.prototype.getStats = function () {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Name, GameStatValue FROM game_stats_totals\n            INNER join game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            ORDER BY PlayerName asc", []);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, Name, GameStatValue FROM game_stats_totals\n            INNER JOIN game_stats_numbers ON game_stats_totals.StatID = game_stats_numbers.ID\n            INNER JOIN nfl_players ON nfl_players.player_id = game_stats_totals.PlayerID\n            JOIN (\n              SELECT DISTINCT(PlayerID), SeasonPts\n                FROM nfl_stats\n                WHERE Year = 2017\n            ) AS temp ON temp.PlayerID = game_stats_totals.PlayerID\n            ORDER BY SeasonPts desc, PlayerName desc", []);
         return this.query2(statement);
     };
     DB.prototype.getSeasonPoints = function () {

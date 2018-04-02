@@ -1,0 +1,6 @@
+{
+    "baseUrl": "",
+    "name": "Fantasy Football API",
+    "description": "API for accessing/manipulating data for a Fantasy Football application.",
+    "reporter": "Spec"
+}

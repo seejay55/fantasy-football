@@ -33,14 +33,21 @@ app.get("/api/users", function (req, res) {
 });
 
 app.post("/api/users", function (req, res) {
-  var email = req.body.Email;
-  var password = req.body.Password;
-  var username = req.body.Username;
-  var firstName = req.body.FirstName;
-  var lastName = req.body.LastName;
-  db.createUser(email, password, username, firstName, lastName).then(function (result) {
-    res.status(200);
-  });
+    var email = req.body.Email;
+    var password = req.body.Password;
+    var username = req.body.Username;
+    var firstName = req.body.FirstName;
+    var lastName = req.body.LastName;
+    var id = req.body.ID;
+    if (id) {
+        db.createUser(email, password, username, firstName, lastName, id).then(function (result) {
+            res.status(200).send(result);
+        });
+    } else {
+        db.createUser(email, password, username, firstName, lastName).then(function (result) {
+            res.status(200).send(result);
+        });
+    }
 });
 
 app.get("/api/user/authenticate", function (req, res) {
@@ -116,7 +123,6 @@ app.patch("/api/user/:user_id", function (req, res) {
 app.delete("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   db.deleteUser(id).then(function (result) {
-    console.log('deleted');
     res.status(204).send();
   });
 });
@@ -260,3 +266,5 @@ app.get("/api/league/:league_id/scores", function (req, res) {
     res.send(result);
   });
 });
+
+module.exports = app;

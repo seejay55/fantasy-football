@@ -1,17 +1,21 @@
-<div>
+<div class="content-block">
   <div>
     <h2>Scoring Leaders</h2>
   </div>
   <div class="row">
     <h4 class="col-sm-2">Filters:</h4>
-    <h6 class="col-sm-1">Team:</h6>
-    <select (change)="onTeamChange($event.target.value)" class="form-control col-sm-4" >
-      <option *ngFor="let team of teams">{{team}}</option>
-    </select>
-    <h6 class="col-sm-1">Pos:</h6>
-    <select (change)="onPlayerPositionChange($event.target.value)" class="form-control col-sm-4">
+    <h4 class="col-sm-1">Team:</h4>
+    <div class="col-sm-4">
+      <select (change)="onTeamChange($event.target.value)" class="form-control" >
+        <option *ngFor="let team of teams">{{team}}</option>
+      </select>
+    </div>
+    <h4 class="col-sm-1">Pos:</h4>
+    <div class="col-sm-4">
+      <select (change)="onPlayerPositionChange($event.target.value)" class="form-control">
         <option *ngFor="let position of playerPos">{{position}}</option>
-    </select>
+      </select>
+    </div>
   </div>
   <div>
     <table class="table">
@@ -119,7 +123,7 @@
                 <th scope="col">PTS</th>
               </thead>
               <tbody>
-                  <tr *ngFor="let offensive of filteredOffensiveScore">
+                  <tr *ngFor="let offensive of filteredOffensivePlayers">
                       <td>{{offensive.SeasonPts || 0}} </td>
                   </tr>
               </tbody>
@@ -196,7 +200,7 @@
                 <th scope="col">Points</th>
               </thead>
               <tbody>
-                  <tr *ngFor="let scores of filteredKickerScore">
+                  <tr *ngFor="let scores of filteredKickerPlayers">
                       <td>{{scores.SeasonPts}}</td>
                   </tr>
               </tbody>
@@ -277,7 +281,7 @@
                 <th scope="col">Points</th>
               </thead>
               <tbody>
-                  <tr *ngFor="let defense of filteredDefensiveScore">
+                  <tr *ngFor="let defense of filteredDefensivePlayers">
                     <td>{{defense.SeasonPts || 0}}</td>
                   </tr>
               </tbody>
