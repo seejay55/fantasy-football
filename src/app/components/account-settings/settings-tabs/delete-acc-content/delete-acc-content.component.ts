@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../../../models/user';
 import {UserService} from '../../../../services/user/user.service'
 
@@ -10,6 +10,7 @@ import {UserService} from '../../../../services/user/user.service'
 export class DeleteAccContentComponent implements OnInit {
 
   @Input() user: User;
+  @Output() deleteUser = new EventEmitter<any>();
 
   bool : boolean;
 
@@ -21,9 +22,14 @@ export class DeleteAccContentComponent implements OnInit {
 
   deleteClick(){
     this.bool = true;
-    //this.userService.deleteUser(this.user._id);
-    
   }
+
+  private sendDeleteUser(): boolean {
+    this.deleteUser.emit();
+    console.log("ran sendDeleteUser()");
+    return false;
+  }
+
 
 
 }

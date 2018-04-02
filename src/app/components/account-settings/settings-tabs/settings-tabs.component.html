@@ -35,7 +35,7 @@
       <!-- TAB CONTENT 3 - Delete Account -->
       <div class="tab-pane" id="delete-account" role="tabpanel" aria-labelledby="delete-account-tab">
         <!-- app/components/settings-tabs/delete-account-content -->
-        <app-delete-acc-content [user]="user"></app-delete-acc-content>
+        <app-delete-acc-content (deleteUser)="deleteUserAccount($event)" [user]="user"></app-delete-acc-content>
       </div>
     </div>
   </div>
