@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user';
 
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+
 @Component({
   selector: 'app-find-user',
   templateUrl: './find-user.component.html',
@@ -11,34 +15,31 @@ import { User } from '../../models/user';
 })
 export class FindUserComponent implements OnInit {
 
+  lastResults: User[] = [];
   searchResults: User[] = [];
 
-  private availableLeagues = [
-    {'leagueID': 88100, 'leagueName': 'Memes', 'openSpots': true, 'ownedByMe': true},
-    {'leagueID': 88101, 'leagueName': 'Dreams', 'openSpots': true, 'ownedByMe': true},
-    {'leagueID': 88102, 'leagueName': 'Sportsball', 'openSpots': true, 'ownedByMe': true}
-  ];
+  private searchUpdated: Subject<string> = new Subject<string>();
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.searchUpdated.distinctUntilChanged().debounceTime(500).subscribe(
+      (searchTerm) => {
+        this.search(searchTerm);
+      },
+      (err) => console.log(err)
+    );
   }
 
-
-  private searchListener(searchTerm: String) {
-    console.log(searchTerm);
-  }
-
-  private sendListener() {
-    console.log('invite sent');
+  private searchDebounce(term) {
+    this.searchUpdated.next(term);
   }
 
   private search(term: string): void {
     this.searchResults = [];
     this.userService.getUserLikeUserName(term).subscribe(
-      (results) => { 
-        results.forEach((user) =>{
-            console.log(user);
+      (results) => {
+        results.forEach((user) => {
           const temp = new User(
             user.ID,
             user.Email,
@@ -48,7 +49,7 @@ export class FindUserComponent implements OnInit {
           );
           this.searchResults.push(temp);
         });
-        console.log(this.searchResults); 
+        console.log(this.searchResults);
       },
       (err) => { console.log(err.error); }
     );

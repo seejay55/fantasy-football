@@ -43,8 +43,6 @@ export class UserService {
     return this.http.get<any[]>(`${this.endpoint}/users/search/?query=${userName}`);
   }
 
-  
-
   // send updated user data, update that user, and return that user after database update
   public updateUser(userId: number, email: string,  userName: string) {
     return this.http.patch(`${this.endpoint}/user/${userId}`,

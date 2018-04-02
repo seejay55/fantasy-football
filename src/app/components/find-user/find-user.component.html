@@ -3,7 +3,7 @@
     <!-- search bar -->
     <div class="col-lg-6 p-0">
       <div class="input-group">
-        <input #searchTerm type="text" class="form-control" placeholder="Search for...">
+        <input #searchTerm type="text" class="form-control" placeholder="Search for..." (keyup)="searchDebounce(searchTerm.value)">
         <span class="input-group-btn">
             <button class="btn btn-secondary" type="button" (click)="search(searchTerm.value)">
               Go!
@@ -12,49 +12,24 @@
       </div>
     </div>
 
-    <!-- no search results message -->
-    <p style="color: var(--foreground-color);">
-      No users match your search!
-    </p>
-
-    <!-- clicky bit -->
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let user of searchResults">
-
-          <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div>
-              <div role="tab" id="user._id">
-                <h5 class="mb-0">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{user}}" [routerLink]="['/user', user.userName]">
-                      {{user.userName}}
-                      <button type="button" class="btn btn-primary" style="clear: left; float: right">
-                        Invite
-                      </button>
-                    </a>
-                </h5>
-              </div>
-
-              <!-- drop down bit -->
-              <!-- <div id="{{user._id}}" class="collapse" role="tabpanel">
-                <div class="card-block">
-                  Select the league(s) you want to send an invite for:
-                  <div class="form-check" *ngFor="let i of availableLeagues">
-                    <label class="form-check-label" style="color: var(--inverse-foreground-color);">
-                        <input class="form-check-input" type="checkbox" value=""> {{i.leagueName}}
-                      </label>
-                  </div>
-                </div>
-                <button id="InviteSubmit" type="button" class="btn btn-primary" (click)="sendListener()" style="float: left">
-                    Send!
-                  </button>
-              </div>
-              <!-- end drop down bit -->
-
-            </div>
-          </div>
-
-        </li>
-      </ul>
-    <!-- end clicky bit -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="searchResults.length">
+        <tr *ngFor="let user of searchResults">
+          <td><a class="link" [routerLink]="['/user', user.userName]">{{user.userName}}</a></td>
+          <td>{{user.firstName}} {{user.lastName}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!searchResults.length">
+        <tr>
+            <td colspan="2" class="text-center">No users match your search criteria.</td>
+        </tr>
+      </tbody>
+    </table>
 
 </div>
