@@ -44,8 +44,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let x of leagues" (click)="searchListener('clicked')">
-            <td> {{x.Name}} </td>
+          <tr *ngFor="let x of searchResults" (click)="searchListener('clicked')">
+            <td><a class="link" [routerLink]="['/league', x._id]">{{x.name}}</a> </td>
             <td> {{x.Players}} / {{x.MaxPlayers}} </td>
             <td> Standard </td>
             <td>
