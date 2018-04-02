@@ -33,10 +33,17 @@ export class UserService {
     return this.http.get(`${this.endpoint}/user/${id}`);
   }
 
-  // return json of all users LIKE @userName
+  // return json of all users by @userName
   public getUserByUserName(userName: string): Observable<User> {
     return this.http.get(`${this.endpoint}/user/${userName}`);
   }
+
+  // return json of all users LIKE @userName
+  public getUserLikeUserName(userName: string): Observable<User> {
+    return this.http.get<any[]>(`${this.endpoint}/users/search/?query=${userName}`);
+  }
+
+  
 
   // send updated user data, update that user, and return that user after database update
   public updateUser(userId: number, email: string,  userName: string) {
