@@ -83,12 +83,21 @@ var DB = /** @class */ (function () {
         var statement = 'SELECT * FROM userinfo';
         return this.query(statement);
     };
-    DB.prototype.createUser = function (userEmail, userPassword, userName, firstName, lastName) {
+    DB.prototype.createUser = function (userEmail, userPassword, userName, firstName, lastName, userID) {
         var _this = this;
-        var statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
+        var statement;
+        if (userID) {
+            statement = mysql.format('INSERT INTO userlogin (ID, Email, Password) VALUES (?, ?, ?)', [userID, userEmail, userPassword]);
+        }
+        else {
+            statement = mysql.format('INSERT INTO userlogin (Email, Password) VALUES (?, ?)', [userEmail, userPassword]);
+        }
         var statement2 = mysql.format('INSERT INTO userinfo (ID, Username, FirstName, LastName) VALUES ((SELECT ID FROM userlogin WHERE Email = ?), ?, ?, ?)', [userEmail, userName, firstName, lastName]);
+        var statement3 = mysql.format("SELECT userinfo.ID, Email, Username, ProfilePic, FirstName, LastName, FavoriteTeam\n            FROM userinfo\n            LEFT JOIN userlogin ON userinfo.ID = userlogin.ID\n            WHERE Email = ?", [userEmail]);
         return this.query(statement).then(function (result) {
-            return _this.query(statement2);
+            return _this.query(statement2).then(function (result2) {
+                return _this.query(statement3);
+            });
         });
     };
     DB.prototype.updateUser = function (ID, email, userName) {
@@ -141,7 +150,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getAllLeagues = function () {
-        var statement = mysql.format("SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID", []);
+        var statement = mysql.format("SELECT leagues.ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM leagues\n            LEFT JOIN (\n                SELECT LeagueID, COUNT(UserID) AS NumTeams\n                FROM league_members\n                GROUP BY LeagueID\n            ) AS member_count ON member_count.LeagueID = leagues.ID\n            LEFT JOIN (\n                SELECT LeagueID, UserID AS OwnerID\n                FROM league_members\n                WHERE Commisioner = TRUE\n                GROUP BY LeagueID\n            ) AS league_owner ON league_owner.LeagueID = leagues.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID", []);
         return this.query(statement);
     };
     DB.prototype.getAllLeaguesForUser = function (userID) {
