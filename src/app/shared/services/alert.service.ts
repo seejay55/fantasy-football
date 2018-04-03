@@ -64,6 +64,7 @@ export class AlertService {
   alert(type: AlertType, messageHeader: string, message: string, keepAfterRouteChange = false) {
     this.keepAfterRouteChange = keepAfterRouteChange;
     this.subject.next(<Alert>{ type: type, messageHeader: messageHeader, message: message });
+    document.documentElement.scrollTop = 0;
   }
 
   clear() {
