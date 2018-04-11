@@ -17,7 +17,8 @@
                 </td>
                 <td>{{invite.date}}</td>
                 <td>
-                    <button type="button" id="request{{i}}" class="btn btn-success btn-sm" title="Accept Invite" data-toggle="modal" data-target="#teamNameModal" (click)="acceptingLeagueId = invite.leagueId">
+                    <button type="button" id="request{{i}}" class="btn btn-success btn-sm" title="Accept Invite" data-toggle="modal" data-target="#teamNameModal"
+                        (click)="acceptingLeagueId = invite.leagueId">
                         <i class="fas fa-check"></i>
                     </button>
                     <button type="button" id="request{{i}}" class="btn btn-danger btn-sm" title="Decline Invite" (click)="declineInvite(invite.leagueId)">
@@ -36,30 +37,28 @@
     </table>
 </div>
 
-<h5>{{acceptingLeagueId}}</h5>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamNameModal">
-        modal
-</button>
-
 <!-- enter team name modal -->
 <div class="modal fade" id="teamNameModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Enter A Team Name</h5>
-            </div>
-
-            <!-- input field and submit button -->
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <input #teamName type="text" class="form-control" placeholder="Team Name" >
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" data-dismiss="modal" (click)="acceptInvite(teamName.value)">Submit</button>
+    <div class="modal-dialog" role="document" style="background-color: var(--background-color)">
+        <div class="col">
+        <div class="modal-content" style="background-color: var(--background-color)">
+                <div class="content-block">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Enter A Team Name</h5>
                     </div>
+
+                    <!-- input field and submit button -->
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <input #teamName type="text" class="form-control" placeholder="Team Name">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" data-dismiss="modal" (click)="acceptInvite(teamName.value)">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end input -->
                 </div>
             </div>
-            <!-- end input -->
         </div>
     </div>
 </div>
