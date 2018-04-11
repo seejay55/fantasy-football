@@ -270,7 +270,9 @@ app.get("/api/league/:league_id/record/:user_id", function (req, res) {
 app.get("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   db.getLeagueInfo(league_id).then(function (result) {
-    res.send(result);
+    if (result.length) {
+      res.send(result);
+    } else { res.status(404).send('League not found.'); }
   });
 });
 

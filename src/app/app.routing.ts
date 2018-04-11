@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},
   // Austin
   { path: 'user/:userName/account-settings',  component: AccountSettingsPageComponent,           data: { breadcrumb: 'Account Settings'}},
-  { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
+  { path: 'league/:leagueId',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: 'welcome',                          component: RegisterWelcomePageComponent,        data: { breadcrumb: 'Welcome'}},
   // Luke
   { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},

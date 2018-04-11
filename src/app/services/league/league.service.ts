@@ -21,7 +21,7 @@ export class LeagueService {
 
   // Specific League
   public getLeague(leagueId: number) {
-    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}`);
+    return this.http.get<any>(`${this.endpoint}/league/${leagueId}`);
   }
 
   public getLeagueMembers(leagueId: number) {
