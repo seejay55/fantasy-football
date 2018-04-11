@@ -15,6 +15,7 @@ export class InvitesPageComponent implements OnInit {
 
   userId: number;
   invites: Invite[] = [];
+  acceptingLeagueId = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -52,10 +53,10 @@ export class InvitesPageComponent implements OnInit {
   }
 
   // accept league invite based on currentUser id and invite's league id
-  private acceptInvite(leagueId: number): void {
-    this.userService.acceptInvite(this.userId, leagueId).subscribe(
+  private acceptInvite(teamName: string): void {
+    this.userService.acceptInvite(this.userId, this.acceptingLeagueId, teamName).subscribe(
       (success) => {
-        this.updateInvites(leagueId);
+        this.updateInvites(this.acceptingLeagueId);
         this.alertService.success('Success', `You have been added to the league.`, false);
       },
       (err) => {
