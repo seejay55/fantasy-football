@@ -149,10 +149,10 @@ app.get("/api/user/:user_id/invites", function (req, res) {
   });
 });
 
-app.post("/api/user/:user_id/invites/:league_id/team/:team_name", function (req, res) {
+app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
   var user_id = req.params.user_id;
   var league_id = req.params.league_id;
-  var team_name = req.params.team_name;
+  var team_name = req.body.TeamName;
   db.insertUserIntoLeague(user_id, league_id, team_name).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Accepting Invite");

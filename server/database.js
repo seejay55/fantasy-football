@@ -125,6 +125,10 @@ var DB = /** @class */ (function () {
             return _this.query(staetment2);
         });
     };
+    DB.prototype.updateLeague = function (leagueID, year, leagueName, numberTeams, typeScoring, leaguePrivacy, maxTrades) {
+        var statement = mysql.format("UDPATE leagues\n            SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?\n            WHERE ID = ?", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
+        return this.query(statement);
+    };
     DB.prototype.deleteMultpleLeague = function (leagueID) {
         var _this = this;
         var orStatement = '';
@@ -325,8 +329,6 @@ var DB = /** @class */ (function () {
     DB.prototype.getSeasonPoints = function () {
         var statement = mysql.format("SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals\n        LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID\n        LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id\n        WHERE Year = 2017\n        GROUP BY PlayerName", []);
         return this.query(statement);
-    };
-    DB.prototype.testFunction = function (userID) {
     };
     return DB;
 }());

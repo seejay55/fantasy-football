@@ -173,10 +173,21 @@ export class DB {
             return this.query(staetment2);
         });
     }
+
+    updateLeague(leagueID: number, year: number, leagueName: string, numberTeams: number,
+        typeScoring: string, leaguePrivacy: string, maxTrades: number): any {
+        const statement = mysql.format(
+            `UDPATE leagues
+            SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?
+            WHERE ID = ?`,
+            [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
+        return this.query(statement);
+    }
+
     deleteMultpleLeague(leagueID: number[]): any {
         let orStatement = '';
         for (let i = 1; i < leagueID.length; i++) {
-          orStatement = orStatement + ' OR LeagueID = ?';
+            orStatement = orStatement + ' OR LeagueID = ?';
         }
         const statement = mysql.format(
             'DELETE FROM league_members WHERE LeagueID = ?' + orStatement,
@@ -212,31 +223,31 @@ export class DB {
     }
 
     deleteUser(userID: number): any {
-      const leagueArray = [];
-      const statement = mysql.format(
-          'SELECT LeagueID FROM league_members where UserID = ? and Commisioner = 1',
-          [userID]);
-      const statement2 = mysql.format(
-          'DELETE FROM userlogin WHERE ID = ?',
-          [userID]);
+        const leagueArray = [];
+        const statement = mysql.format(
+            'SELECT LeagueID FROM league_members where UserID = ? and Commisioner = 1',
+            [userID]);
+        const statement2 = mysql.format(
+            'DELETE FROM userlogin WHERE ID = ?',
+            [userID]);
 
-      return this.query(statement).then((result => {
-          if (result.length > 0) {
-              result.forEach(el => {
-                  console.log(el.LeagueID);
-                  leagueArray.push(el.LeagueID);
-              });
+        return this.query(statement).then((result => {
+            if (result.length > 0) {
+                result.forEach(el => {
+                    console.log(el.LeagueID);
+                    leagueArray.push(el.LeagueID);
+                });
 
-              return this.deleteMultpleLeague(leagueArray).then((result2 => {
+                return this.deleteMultpleLeague(leagueArray).then((result2 => {
+                    return this.query(statement2);
+                }));
+
+            } else {
+                console.log('User does not own any leagues');
                 return this.query(statement2);
-              }));
+            }
 
-          } else {
-            console.log('User does not own any leagues');
-            return this.query(statement2);
-          }
-
-      }));
+        }));
     }
 
     deleteLeague(leagueID: number): any {
@@ -648,7 +659,5 @@ export class DB {
         return this.query(statement);
     }
 
-    testFunction(userID: number): any {
 
-    }
 }
