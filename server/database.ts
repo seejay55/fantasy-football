@@ -177,7 +177,7 @@ export class DB {
     updateLeague(leagueID: number, year: number, leagueName: string, numberTeams: number,
         typeScoring: string, leaguePrivacy: string, maxTrades: number): any {
         const statement = mysql.format(
-            `UDPATE leagues
+            `UPDATE leagues
             SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?
             WHERE ID = ?`,
             [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
@@ -565,9 +565,10 @@ export class DB {
         if (week) { params.push(week); }
         params.push(leagueID);
         const statement = mysql.format(
-            `SELECT UserID, week as Week, SUM(WeekPts) AS score
+            `SELECT UserID, Username, week as Week, SUM(WeekPts) AS score
             FROM league_rosters
             JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+            JOIN userinfo ON league_rosters.UserID = userinfo.ID
             WHERE LeagueID = ?
                 AND UserID ` + (userID ? '= ?' : '') + `
                 AND week ` + (week ? '= ?' : '') + `

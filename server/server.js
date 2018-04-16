@@ -100,6 +100,22 @@ app.get("/api/user/:user", function (req, res) {
   }
 });
 
+app.patch("/api/league/:league_id", function(req, res) {
+  var league_id = req.params.league_id;
+  var year = req.body.Year;
+  var leagueName = req.body.LeagueName;
+  var numberTeams = req.body.NumberTeams;
+  var typeScoring = req.body.TypeScoring;
+  var leaguePrivacy = req.body.LeaguePrivacy;
+  var maxTrades = req.body.MaxTrades;
+
+  db.updateLeague(league_id, year, leagueName, numberTeams, typeScoring,
+    leaguePrivacy, maxTrades).then(function(result) {
+    res.status(200).send();
+  });
+
+});
+
 app.patch("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   var username = req.body.Username;
