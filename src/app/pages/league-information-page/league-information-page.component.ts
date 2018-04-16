@@ -16,6 +16,7 @@ import { League } from '@models/league';
 export class LeagueInformationPageComponent implements OnInit {
 
   private league: League;
+  private members: any = [];
 
   constructor(
     private leagueService: LeagueService,
@@ -30,6 +31,7 @@ export class LeagueInformationPageComponent implements OnInit {
         const leagueId = params['leagueId'];
         console.log(`Getting League with ID: ${leagueId}`);
         this.setPageLeague(leagueId);
+        this.setLeagueTeams(leagueId);
       });
   }
 
@@ -50,9 +52,20 @@ export class LeagueInformationPageComponent implements OnInit {
             data.MaxTrades
           );
         });
-        console.log(this.league); }
-        ,
+        console.log(this.league); },
       (err) => {this.alertService.danger('Error', 'League not found', true); this.location.back(); }
+    );
+  }
+
+  private setLeagueTeams(leagueId: number): void {
+    this.leagueService.getLeagueMembers(leagueId).subscribe(
+      (members) => {
+        members.forEach(member => {
+          this.members.push(member);
+        });
+        console.log(this.members);
+      },
+      (err) => {this.alertService.danger('Error', 'Could not get teams', false); }
     );
   }
 

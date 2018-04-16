@@ -53,7 +53,7 @@ export class LeagueService {
   }
 
   public getLeagueLeagueScoresByUser(leagueId: number, userId: number) {
-    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}/scores?week=${userId}`);
+    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}/scores?userId=${userId}`);
   }
 
   // For Specific User
