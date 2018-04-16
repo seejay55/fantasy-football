@@ -582,7 +582,7 @@ export class DB {
 
     getUserRoster(userID: number, leagueID: number, week: number): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts
+            `SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts, Active
             FROM league_rosters
             JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
             JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID

@@ -302,7 +302,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getUserRoster = function (userID, leagueID, week) {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            WHERE UserID = ? AND LeagueID = ? AND Year = 2017 AND Week = ?", [userID, leagueID, week]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts, Active\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            WHERE UserID = ? AND LeagueID = ? AND Year = 2017 AND Week = ?", [userID, leagueID, week]);
         return this.query(statement);
     };
     DB.prototype.getUserSchedule = function (userID, leagueID) {
