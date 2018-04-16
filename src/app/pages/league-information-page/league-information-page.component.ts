@@ -17,6 +17,7 @@ export class LeagueInformationPageComponent implements OnInit {
 
   private league: League;
   private members: any = [];
+  private standings: any = [];
 
   constructor(
     private leagueService: LeagueService,
@@ -32,6 +33,7 @@ export class LeagueInformationPageComponent implements OnInit {
         console.log(`Getting League with ID: ${leagueId}`);
         this.setPageLeague(leagueId);
         this.setLeagueTeams(leagueId);
+        this.setLeagueStandings(leagueId, 1);
       });
   }
 
@@ -66,6 +68,21 @@ export class LeagueInformationPageComponent implements OnInit {
         console.log(this.members);
       },
       (err) => {this.alertService.danger('Error', 'Could not get teams', false); }
+    );
+  }
+
+  private setLeagueStandings(leagueId: number, week: number): void {
+    this.leagueService.getLeagueLeagueScoresByWeek(leagueId, week).subscribe(
+      (standings) => {
+        standings.forEach(standing => {
+          this.standings.push(standing);
+        });
+        console.log(standings);
+        this.standings = this.standings.filter(
+          standing => standing.score >= standing.score
+        );
+      },
+      (err) => { this.alertService.danger('Error', 'Could not get league standings', false); }
     );
   }
 
