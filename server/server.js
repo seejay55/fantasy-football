@@ -144,6 +144,13 @@ app.delete("/api/user/:user_id", function (req, res) {
   });
 });
 
+app.delete("/api/league/:league_id", function (req, res) {
+  var leagueID = req.params.league_id;
+  db.deleteLeague(leagueID).then(function (result) {
+    res.status(204).send();
+  });
+});
+
 app.post("/api/user/:recieve_ID/send/:sender_ID/invites/:league_ID", function (req, res) {
   var recieve_ID = req.params.recieve_ID;
   var sender_ID = req.params.sender_ID;
