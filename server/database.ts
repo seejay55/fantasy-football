@@ -5,6 +5,7 @@ import { PARAMETERS } from '@angular/core/src/util/decorators';
 import { state } from '@angular/core';
 import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { stat } from 'fs';
+import { element } from 'protractor';
 
 export class DB {
     private pool: mysql.Pool;
@@ -60,10 +61,10 @@ export class DB {
                         } else if (i === 0) {
                             previousName = queryResult[i].PlayerName;
                             formatedJSON = formatedJSON + ('{"PlayerName":' + '"' + queryResult[i].PlayerName + '"' +
-                            ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
-                            '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
-                            ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
-                            queryResult[i].GameStatValue + '",');
+                                ',"PlayerPos":' + '"' + queryResult[i].PlayerPos + '"' + ',"TeamAbbr":' +
+                                '"' + queryResult[i].TeamAbbr + '"' + ',"SeasonPts":' + '"' + queryResult[i].SeasonPts + '"' +
+                                ',"Stats":{' + '"' + queryResult[i].Name + '": "' +
+                                queryResult[i].GameStatValue + '",');
                         } else {
                             formatedJSON = formatedJSON.slice(0, -1);
                             formatedJSON = formatedJSON + ('}},');
@@ -140,25 +141,17 @@ export class DB {
     }
 
     updateUserPassword(password: string, ID: number): any {
-      const statement = mysql.format(
-        'UPDATE userlogin SET Password = ? WHERE ID = ?',
-        [password, ID]
-      );
-      return this.query(statement);
+        const statement = mysql.format(
+            'UPDATE userlogin SET Password = ? WHERE ID = ?',
+            [password, ID]
+        );
+        return this.query(statement);
     }
 
     updateUserPersonal(ID: number, firstName: string, lastName: string, favoriteTeam: string): any {
         const statement = mysql.format(
             'UPDATE userinfo SET FirstName = ?, LastName = ?, FavoriteTeam = ? WHERE ID = ?',
             [firstName, lastName, favoriteTeam, ID]
-        );
-        return this.query(statement);
-    }
-
-    deleteUser(ID: number): any {
-        const statement = mysql.format(
-            'DELETE FROM userlogin WHERE ID = ?',
-            [ID]
         );
         return this.query(statement);
     }
@@ -170,7 +163,7 @@ export class DB {
             `INSERT INTO leagues (Name, Year, MaxTeams,
             TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
             [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades]);
-        // might have to change cause names of leagues could be the same, also have to think about how they get their own userID
+
         const staetment2 = mysql.format(
             `INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner)
             VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)`,
@@ -181,11 +174,107 @@ export class DB {
         });
     }
 
+    updateLeague(leagueID: number, year: number, leagueName: string, numberTeams: number,
+        typeScoring: string, leaguePrivacy: string, maxTrades: number): any {
+        const statement = mysql.format(
+            `UPDATE leagues
+            SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?
+            WHERE ID = ?`,
+            [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
+        return this.query(statement);
+    }
+
+    deleteMultpleLeague(leagueID: number[]): any {
+        let orStatement = '';
+        for (let i = 1; i < leagueID.length; i++) {
+            orStatement = orStatement + ' OR LeagueID = ?';
+        }
+        const statement = mysql.format(
+            'DELETE FROM league_members WHERE LeagueID = ?' + orStatement,
+            leagueID);
+        const statement2 = mysql.format(
+            'DELETE FROM league_rosters WHERE LeagueID = ?' + orStatement,
+            leagueID);
+        const statement3 = mysql.format(
+            'DELETE FROM league_schedule WHERE LeagueID = ?' + orStatement,
+            leagueID);
+        const statement4 = mysql.format(
+            'DELETE FROM league_invites WHERE LeagueID = ?' + orStatement,
+            leagueID);
+        const statement5 = mysql.format(
+            'DELETE FROM leagues WHERE ID = ?' + orStatement,
+            leagueID);
+
+        console.log(statement);
+        console.log(statement2);
+        console.log(statement3);
+        console.log(statement4);
+        console.log(statement5);
+
+        return this.query(statement).then((result => {
+            return this.query(statement2).then((result2 => {
+                return this.query(statement3).then((result3 => {
+                    return this.query(statement4).then((result4 => {
+                        return this.query(statement5);
+                    }));
+                }));
+            }));
+        }));
+    }
+
+    deleteUser(userID: number): any {
+        const leagueArray = [];
+        const statement = mysql.format(
+            'SELECT LeagueID FROM league_members where UserID = ? and Commisioner = 1',
+            [userID]);
+        const statement2 = mysql.format(
+            'DELETE FROM userlogin WHERE ID = ?',
+            [userID]);
+
+        return this.query(statement).then((result => {
+            if (result.length > 0) {
+                result.forEach(el => {
+                    console.log(el.LeagueID);
+                    leagueArray.push(el.LeagueID);
+                });
+
+                return this.deleteMultpleLeague(leagueArray).then((result2 => {
+                    return this.query(statement2);
+                }));
+
+            } else {
+                console.log('User does not own any leagues');
+                return this.query(statement2);
+            }
+
+        }));
+    }
+
     deleteLeague(leagueID: number): any {
         const statement = mysql.format(
+            'DELETE FROM league_members WHERE LeagueID = ?',
+            [leagueID]);
+        const statement2 = mysql.format(
+            'DELETE FROM league_rosters WHERE LeagueID = ?',
+            [leagueID]);
+        const statement3 = mysql.format(
+            'DELETE FROM league_schedule WHERE LeagueID = ?',
+            [leagueID]);
+        const statement4 = mysql.format(
+            'DELETE FROM league_invites WHERE LeagueID = ?',
+            [leagueID]);
+        const statement5 = mysql.format(
             'DELETE FROM leagues WHERE ID = ?',
             [leagueID]);
-        return this.query(statement);
+        return this.query(statement).then((result => {
+            return this.query(statement2).then((result2 => {
+                return this.query(statement3).then((result3 => {
+                    return this.query(statement4).then((result4 => {
+                        return this.query(statement5);
+                    }));
+                }));
+            }));
+        }));
     }
 
     // Find User
@@ -198,23 +287,32 @@ export class DB {
     }
 
     // Makes sure the user isn't already in one of their leagues that they commision when inviting
-    // Change if there is a better way of doing this
     getLeaguesToInvite(senderID: number, inviteeID: number): any {
         const statement = mysql.format(
             `SELECT parsedTable.ID, parsedTable.Name FROM
-            (SELECT distinct(ID), Name FROM leagues
-            JOIN league_members ON league_members.LeagueID = leagues.ID
-            WHERE ID NOT IN (Select LeagueID from league_members WHERE UserID = ?)) as parsedTable
-            JOIN league_members ON league_members.LeagueID = parsedTable.ID WHERE Commisioner = 1 AND UserID = ?`,
+            (
+              SELECT distinct(ID), Name FROM leagues
+              JOIN league_members ON league_members.LeagueID = leagues.ID
+              WHERE ID NOT IN (Select LeagueID from league_members WHERE UserID = ?)
+            ) as parsedTable
+            JOIN league_members ON league_members.LeagueID = parsedTable.ID
+            WHERE Commisioner = 1 AND UserID = ?`,
             [inviteeID, senderID]
         );
         return this.query(statement);
     }
 
-    sendInvite(senderID: number, recieveID: number, leagueID: number, date: string): any {
+    sendInvite(senderID: number, recieveID: number, leagueID: number): any {
+        let today = '';
+        const date = new Date();
+        const dd = date.getDate();
+        const mm = date.getMonth() + 1;
+        const yyyy = date.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
         const statement = mysql.format(
             'INSERT INTO league_invites (SenderID, RecieveID, LeagueID, Date) VALUES (?, ?, ?, ?)',
-            [senderID, recieveID, leagueID, date]
+            [senderID, recieveID, leagueID, today]
         );
         return this.query(statement);
     }
@@ -290,10 +388,10 @@ export class DB {
         return this.query(statement);
     }
 
-    insertUserIntoLeague(recieveID: number, leagueID: number): any {
+    insertUserIntoLeague(recieveID: number, leagueID: number, teamName: string): any {
         const statement = mysql.format(
-            'INSERT INTO league_members (LeagueID, UserID, Commisioner) VALUES (?, ?, 0)',
-            [leagueID, recieveID]
+            'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
+            [leagueID, recieveID, teamName]
         );
         const statement2 = mysql.format(
             'DELETE FROM league_invites WHERE RecieveID = ? AND LeagueID = ?',
@@ -467,9 +565,10 @@ export class DB {
         if (week) { params.push(week); }
         params.push(leagueID);
         const statement = mysql.format(
-            `SELECT UserID, week as Week, SUM(WeekPts) AS score
+            `SELECT UserID, Username, week as Week, SUM(WeekPts) AS score
             FROM league_rosters
             JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+            JOIN userinfo ON league_rosters.UserID = userinfo.ID
             WHERE LeagueID = ?
                 AND UserID ` + (userID ? '= ?' : '') + `
                 AND week ` + (week ? '= ?' : '') + `
@@ -480,13 +579,14 @@ export class DB {
         return this.query(statement);
     }
 
-    getUserRoster(userID: number, leagueID: number): any {
+    getUserRoster(userID: number, leagueID: number, week: number): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts
             FROM league_rosters
             JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
-            WHERE UserID = ? AND LeagueID = ?;`,
-            [userID, leagueID]
+            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+            WHERE UserID = ? AND LeagueID = ? AND Year = 2017 AND Week = ?`,
+            [userID, leagueID, week]
         );
         return this.query(statement);
     }
@@ -495,7 +595,7 @@ export class DB {
         const statement = mysql.format(
             `SELECT week, Player1ID, Player2ID
             FROM league_schedule
-            WHERE (Player1ID = 1 OR Player2ID = 1) AND LeagueID = 1;`,
+            WHERE (Player1ID = ? OR Player2ID = ?) AND LeagueID = ?;`,
             [userID, userID, leagueID]
         );
         return this.query(statement);
@@ -549,14 +649,16 @@ export class DB {
     }
 
     getSeasonPoints(): any {
-      const statement = mysql.format(
-        `SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals
+        const statement = mysql.format(
+            `SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals
         LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID
         LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id
         WHERE Year = 2017
         GROUP BY PlayerName`,
-        []
-      );
-      return this.query(statement);
+            []
+        );
+        return this.query(statement);
     }
+
+
 }

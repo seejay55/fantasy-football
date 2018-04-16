@@ -3,72 +3,78 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 // Nick
-import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 import { LeagueTableComponent } from './pages/user-profile-page/components/league-table/league-table.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 // Austin
-import { RegisterWelcomeComponent } from './components/register-welcome/register-welcome.component';
-import { ProfileCardComponent } from './components/account-settings/profile-card/profile-card.component';
-import { SettingsTabsComponent } from './components/account-settings/settings-tabs/settings-tabs.component';
-import { UserPassContentComponent } from './components/account-settings/settings-tabs/user-pass-content/user-pass-content.component';
-import { EditAccContentComponent } from './components/account-settings/settings-tabs/edit-acc-content/edit-acc-content.component';
-import { DeleteAccContentComponent } from './components/account-settings/settings-tabs/delete-acc-content/delete-acc-content.component';
+import { AccountSettingsPageComponent } from './pages/account-settings-page/account-settings-page.component';
+import { ProfileCardComponent } from './pages/account-settings-page/components/profile-card/profile-card.component';
+import { UserPassContentComponent } from './pages/account-settings-page/components/user-pass-content/user-pass-content.component';
+import { EditAccContentComponent } from './pages/account-settings-page/components/edit-acc-content/edit-acc-content.component';
+import { DeleteAccContentComponent } from './pages/account-settings-page/components/delete-acc-content/delete-acc-content.component';
 import { LeagueInformationPageComponent } from './pages/league-information-page/league-information-page.component';
+import { RegisterWelcomePageComponent } from './pages/register-welcome-page/register-welcome-page.component';
 // Luke
-import { HomepageComponent } from './components/homepage/homepage.component';
-import { NewsFeedComponent } from './components/homepage/news-feed/news-feed.component';
-import { RegisterAccountComponent } from './components/register-account/register-account.component';
-import { FeedItemComponent } from './components/homepage/news-feed/feed-item/feed-item.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NewsFeedComponent } from './pages/home-page/components/news-feed/news-feed.component';
+import { FeedItemComponent } from './pages/home-page/components/news-feed/feed-item/feed-item.component';
+import { RegisterAccountPageComponent } from './pages/register-account-page/register-account-page.component';
 import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scoring-leaders-page.component';
+// Riley
+import { FindLeaguePageComponent } from './pages/find-league-page/find-league-page.component';
+import { CreateLeaguePageComponent } from './pages/create-league-page/create-league-page.component';
+// Preston
+import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
+import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
 // CJ
 // Josh
-// Riley
-import { FindLeagueComponent } from './components/find-league/find-league.component';
-import { CreateLeagueComponent } from './components/create-league/create-league.component';
-// Preston
-import { FindUserComponent } from './components/find-user/find-user.component';
-import { LeagueInvitesComponent } from './components/league-invites/league-invites.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
-  { path: 'homepage',                         component: HomepageComponent,               data: { breadcrumb: 'Homepage'}},
-  { path: 'register',                         component: RegisterAccountComponent,        data: { breadcrumb: 'Register Account'}},
-  { path: 'welcome',                          component: RegisterWelcomeComponent,        data: { breadcrumb: 'Welcome'}},
-  { path: 'create-league',                    component: CreateLeagueComponent,           data: { breadcrumb: 'Create League'}},
-  { path: 'find-league',                      component: FindLeagueComponent,             data: { breadcrumb: 'Find League'}},
-  { path: 'find-user',                        component: FindUserComponent,               data: { breadcrumb: 'Find User'}},
-  { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent,     data: { breadcrumb: 'Scoring Leaders'}},
+  // Nick
   { path: 'user/:userName',                   component: UserProfilePageComponent,        data: { breadcrumb: 'Profile Page'}},
-  { path: 'user/:userId/invites',             component: LeagueInvitesComponent,          data: { breadcrumb: 'Invites'}},
-  { path: 'user/:userName/account-settings',  component: SettingsTabsComponent,           data: { breadcrumb: 'Account Settings'}},
-  { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},
+  // Austin
+  { path: 'user/:userName/account-settings',  component: AccountSettingsPageComponent,           data: { breadcrumb: 'Account Settings'}},
+  { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
+  { path: 'welcome',                          component: RegisterWelcomePageComponent,        data: { breadcrumb: 'Welcome'}},
+  // Luke
+  { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},
+  { path: 'register',                         component: RegisterAccountPageComponent,        data: { breadcrumb: 'Register Account'}},
+  { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent,     data: { breadcrumb: 'Scoring Leaders'}},
+  // Riley
+  { path: 'create-league',                    component: CreateLeaguePageComponent,           data: { breadcrumb: 'Create League'}},
+  { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
+  // Preston
+  { path: 'find-user',                        component: FindUserPageComponent,               data: { breadcrumb: 'Find User'}},
+  { path: 'user/:userId/invites',             component: InvitesPageComponent,          data: { breadcrumb: 'Invites'}},
+
   { path: '**', redirectTo: '404'},
 
 ];
 
 @NgModule({
   declarations: [
-    RegisterWelcomeComponent,
-    SettingsTabsComponent,
     ProfileCardComponent,
     UserPassContentComponent,
     EditAccContentComponent,
     DeleteAccContentComponent,
-    HomepageComponent,
     NewsFeedComponent,
     FeedItemComponent,
-    RegisterAccountComponent,
-    LeagueInvitesComponent,
-    CreateLeagueComponent,
-    FindLeagueComponent,
-    FindUserComponent,
     UserProfilePageComponent,
     NotFoundPageComponent,
     LeagueTableComponent,
     ScoringLeadersPageComponent,
-    LeagueInformationPageComponent
+    LeagueInformationPageComponent,
+    AccountSettingsPageComponent,
+    CreateLeaguePageComponent,
+    FindLeaguePageComponent,
+    FindUserPageComponent,
+    HomePageComponent,
+    InvitesPageComponent,
+    RegisterAccountPageComponent,
+    RegisterWelcomePageComponent
   ],
   imports: [
     CommonModule,

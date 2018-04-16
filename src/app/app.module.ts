@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 
 // Nick
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { AlertComponent } from './shared/components/alert/alert.component';
 
 import { FormsModule } from '@angular/forms';

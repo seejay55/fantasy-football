@@ -63,8 +63,8 @@ export class UserService {
     return this.http.get<any[]>(`${this.endpoint}/user/${userId}/invites`);
   }
 
-  public acceptInvite(userId: number, leagueId: number) {
-    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {} );
+  public acceptInvite(userId: number, leagueId: number, teamName: string) {
+    return this.http.post(`${this.endpoint}/user/${userId}/invites/${leagueId}`, {TeamName: teamName} );
   }
 
   public declineInvite(userId: number, leagueId: number) {
