@@ -565,15 +565,16 @@ export class DB {
         if (week) { params.push(week); }
         params.push(leagueID);
         const statement = mysql.format(
-            `SELECT UserID, Username, week as Week, SUM(WeekPts) AS score
+            `SELECT league_rosters.UserID, Username, TeamName, week as Week, SUM(WeekPts) AS score
             FROM league_rosters
             JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
             JOIN userinfo ON league_rosters.UserID = userinfo.ID
-            WHERE LeagueID = ?
-                AND UserID ` + (userID ? '= ?' : '') + `
+            JOIN league_members ON league_rosters.UserID = league_members.UserID
+            WHERE league_rosters.LeagueID = ?
+                AND league_rosters.UserID ` + (userID ? '= ?' : '') + `
                 AND week ` + (week ? '= ?' : '') + `
                 AND year = (SELECT year FROM leagues WHERE id = ?)
-            GROUP BY LeagueID, UserID, year, week;`,
+            GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;`,
             params
         );
         return this.query(statement);

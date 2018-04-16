@@ -298,7 +298,7 @@ var DB = /** @class */ (function () {
             params.push(week);
         }
         params.push(leagueID);
-        var statement = mysql.format("SELECT UserID, Username, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            WHERE LeagueID = ?\n                AND UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY LeagueID, UserID, year, week;", params);
+        var statement = mysql.format("SELECT league_rosters.UserID, Username, TeamName, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            JOIN league_members ON league_rosters.UserID = league_members.UserID\n            WHERE league_rosters.LeagueID = ?\n                AND league_rosters.UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;", params);
         return this.query(statement);
     };
     DB.prototype.getUserRoster = function (userID, leagueID, week) {
