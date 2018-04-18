@@ -63,14 +63,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Username</th>
+              <th>Team</th>
+              <th>User</th>
               <th>Score</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let standing of standings">
               <td>
-                <a class="link" [routerLink]="['/user', standing.Username]">{{standing.Username}}</a>
+                <a class="link" [routerLink]="['/user', standing.Username]">{{standing.TeamName}}</a>
+              </td>
+              <td>
+                <a class="link" [routerLink]="['/team', standing.TeamName]">{{standing.Username}}</a>
               </td>
               <td>{{standing.score}}</td>
             </tr>

@@ -4,8 +4,10 @@ import { Location } from '@angular/common';
 
 import { LeagueService } from '@services/league/league.service';
 import { AlertService } from '@shared/services/alert.service';
+import { AuthService } from '@services/auth/auth.service';
 
 import { League } from '@models/league';
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-league-information-page',
@@ -15,6 +17,9 @@ import { League } from '@models/league';
 })
 export class LeagueInformationPageComponent implements OnInit {
 
+  private isInLeague: Boolean = false;
+  private currentUser: User;
+
   private league: League;
   private members: any = [];
   private standings: any = [];
@@ -23,7 +28,8 @@ export class LeagueInformationPageComponent implements OnInit {
     private leagueService: LeagueService,
     private alertService: AlertService,
     private location: Location,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -36,6 +42,7 @@ export class LeagueInformationPageComponent implements OnInit {
         this.setLeagueStandings(leagueId, 1);
       });
   }
+
 
   private setPageLeague(leagueId: number): void {
     this.leagueService.getLeague(leagueId).subscribe(
@@ -68,6 +75,8 @@ export class LeagueInformationPageComponent implements OnInit {
           this.members.push(member);
         });
         // console.log(this.members);
+        this.isInLeague = this.checkIfInLeague();
+        console.log(this.isInLeague);
       },
       (err) => { this.alertService.danger('Error', 'Could not get teams', false); }
     );
@@ -87,6 +96,19 @@ export class LeagueInformationPageComponent implements OnInit {
       },
       (err) => { this.alertService.danger('Error', 'Could not get league standings', false); }
     );
+  }
+
+  private checkIfInLeague(): boolean {
+    this.authService.getCurrentUser().subscribe(
+      (user) => {
+        this.currentUser = user;
+        this.members.forEach((member) => {
+          if (this.currentUser._id === this.members.ID) { return true; }
+        });
+      },
+      (err) => this.alertService.danger('Error', 'Could not get user', false)
+    );
+    return false;
   }
 
 }
