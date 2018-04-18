@@ -34,13 +34,14 @@ export class CreateLeaguePageComponent implements OnInit {
             maxTrades = Number(other);
         }
 
+        if (!isPublic) {
+            privacy = 'Private';
+        }
+        this.leagueService.createLeague(name, this.userID, privacy, maxTrades, maxTeams).subscribe(
+            success => this.alertService.success('Success', `League ${name} has been created`, false),
+            err => this.alertService.danger('Error', 'There was a problem creating the league.', false)
+        );
+        return false;
     }
-
-    this.leagueService.createLeague(name, userId, privacy, maxTrades, maxTeams).subscribe(
-      success => this.alertService.success('Success', `League ${name} has been created`, false),
-      err => this.alertService.danger('Error', 'There was a problem creating the league.', false)
-    );
-    return false;
-  }
 
 }
