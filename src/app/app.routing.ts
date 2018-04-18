@@ -26,6 +26,7 @@ import { CreateLeaguePageComponent } from './pages/create-league-page/create-lea
 // Preston
 import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
 import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
+import { LeagueOptionsPageComponent } from './pages/league-options-page/league-options-page.component';
 // CJ
 // Josh
 
@@ -74,7 +75,8 @@ const routes: Routes = [
     HomePageComponent,
     InvitesPageComponent,
     RegisterAccountPageComponent,
-    RegisterWelcomePageComponent
+    RegisterWelcomePageComponent,
+    LeagueOptionsPageComponent
   ],
   imports: [
     CommonModule,
