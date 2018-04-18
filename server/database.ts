@@ -457,7 +457,7 @@ export class DB {
 
     getLeagueMembers(leagueID: number): any {
         const statement = mysql.format(
-            `SELECT Username, TeamName, Commisioner
+            `SELECT UserID, Username, TeamName, Commisioner
             FROM league_members
             JOIN userinfo ON UserID = userinfo.ID
             WHERE LeagueID = ?;`,
