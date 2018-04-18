@@ -30,7 +30,7 @@ export class LeagueInformationPageComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         const leagueId = params['leagueId'];
-        console.log(`Getting League with ID: ${leagueId}`);
+        // console.log(`Getting League with ID: ${leagueId}`);
         this.setPageLeague(leagueId);
         this.setLeagueTeams(leagueId);
         this.setLeagueStandings(leagueId, 1);
@@ -54,30 +54,33 @@ export class LeagueInformationPageComponent implements OnInit {
             data.MaxTrades
           );
         });
-        console.log(this.league); },
-      (err) => {this.alertService.danger('Error', 'League not found', true); this.location.back(); }
+        // console.log(this.league);
+      },
+      (err) => { this.alertService.danger('Error', 'League not found', true); this.location.back(); }
     );
   }
 
   private setLeagueTeams(leagueId: number): void {
+    this.members = [];
     this.leagueService.getLeagueMembers(leagueId).subscribe(
       (members) => {
         members.forEach(member => {
           this.members.push(member);
         });
-        console.log(this.members);
+        // console.log(this.members);
       },
-      (err) => {this.alertService.danger('Error', 'Could not get teams', false); }
+      (err) => { this.alertService.danger('Error', 'Could not get teams', false); }
     );
   }
 
   private setLeagueStandings(leagueId: number, week: number): void {
+    this.standings = [];
     this.leagueService.getLeagueLeagueScoresByWeek(leagueId, week).subscribe(
       (standings) => {
         standings.forEach(standing => {
           this.standings.push(standing);
         });
-        console.log(standings);
+        // console.log(standings);
         this.standings = this.standings.filter(
           standing => standing.score >= standing.score
         );
