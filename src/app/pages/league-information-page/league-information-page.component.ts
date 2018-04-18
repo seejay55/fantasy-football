@@ -4,10 +4,15 @@ import { Location } from '@angular/common';
 
 import { LeagueService } from '@services/league/league.service';
 import { AlertService } from '@shared/services/alert.service';
+<<<<<<< HEAD
 import { AuthService } from '@services/auth/auth.service';
 
 import { League } from '@models/league';
 import { User } from '@models/user';
+=======
+
+import { League } from '@models/league';
+>>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
 
 @Component({
   selector: 'app-league-information-page',
@@ -17,25 +22,34 @@ import { User } from '@models/user';
 })
 export class LeagueInformationPageComponent implements OnInit {
 
+<<<<<<< HEAD
   private isInLeague: Boolean = false;
   private currentUser: User;
 
   private league: League;
   private members: any = [];
   private standings: any = [];
+=======
+  private league: League;
+>>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
 
   constructor(
     private leagueService: LeagueService,
     private alertService: AlertService,
     private location: Location,
+<<<<<<< HEAD
     private activatedRoute: ActivatedRoute,
     private authService: AuthService
+=======
+    private activatedRoute: ActivatedRoute
+>>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
   ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         const leagueId = params['leagueId'];
+<<<<<<< HEAD
         // console.log(`Getting League with ID: ${leagueId}`);
         this.setPageLeague(leagueId);
         this.setLeagueTeams(leagueId);
@@ -44,6 +58,13 @@ export class LeagueInformationPageComponent implements OnInit {
   }
 
 
+=======
+        console.log(`Getting League with ID: ${leagueId}`);
+        this.setPageLeague(leagueId);
+      });
+  }
+
+>>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
   private setPageLeague(leagueId: number): void {
     this.leagueService.getLeague(leagueId).subscribe(
       (league) => {
@@ -61,6 +82,7 @@ export class LeagueInformationPageComponent implements OnInit {
             data.MaxTrades
           );
         });
+<<<<<<< HEAD
         // console.log(this.league);
       },
       (err) => { this.alertService.danger('Error', 'League not found', true); this.location.back(); }
@@ -109,6 +131,12 @@ export class LeagueInformationPageComponent implements OnInit {
       (err) => this.alertService.danger('Error', 'Could not get user', false)
     );
     return false;
+=======
+        console.log(this.league); }
+        ,
+      (err) => {this.alertService.danger('Error', 'League not found', true); this.location.back(); }
+    );
+>>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
   }
 
 }
