@@ -3,31 +3,37 @@ import { Component, OnInit } from '@angular/core';
 import { League } from '@models/league';
 
 import { LeagueService } from '@services/league/league.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { AlertService } from '@shared/services/alert.service';
 
 @Component({
-  selector: 'app-create-league-page',
-  templateUrl: './create-league-page.component.html',
-  styleUrls: ['./create-league-page.component.css'],
-  providers: [LeagueService]
+    selector: 'app-create-league-page',
+    templateUrl: './create-league-page.component.html',
+    styleUrls: ['./create-league-page.component.css'],
+    providers: [LeagueService, AuthService]
 })
 export class CreateLeaguePageComponent implements OnInit {
 
-  constructor(private leagueService: LeagueService, private alertService: AlertService) { }
+    constructor(private leagueService: LeagueService, private alertService: AlertService, private authService: AuthService) { }
+    userID: number;
 
-  ngOnInit() {  }
-
-  createLeague(name: string, userId: number, isPublic: boolean, unlimited: boolean, other: string, maxTeams: number): boolean {
-
-    let maxTrades = 99;
-    let privacy = 'Public';
-
-    if (unlimited !== true) {
-        maxTrades = Number(other);
+    ngOnInit() {
+        this.authService.getCurrentUser()
+            .subscribe(user => {
+                this.userID = user._id;
+            }
+            );
     }
 
-    if (!isPublic) {
-      privacy = 'Private';
+    createLeague(name: string, isPublic: boolean, unlimited: boolean, other: string, maxTeams: number, teamName: string): boolean {
+
+        let maxTrades = 99;
+        let privacy = 'Public';
+
+        if (unlimited !== true) {
+            maxTrades = Number(other);
+        }
+
     }
 
     this.leagueService.createLeague(name, userId, privacy, maxTrades, maxTeams).subscribe(
