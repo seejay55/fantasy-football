@@ -148,6 +148,14 @@ app.post("/api/user/sendInvite", function (req, res) {
   var recieve_ID = req.body.RecieveID;
   var sender_ID = req.body.SenderID;
   var league_ID = req.body.LeagueID;
+  db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Sending Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
 
 app.delete("/api/league/:league_id", function (req, res) {
   var leagueID = req.params.league_id;
@@ -155,19 +163,6 @@ app.delete("/api/league/:league_id", function (req, res) {
     res.status(204).send();
   });
 });
-
-app.post("/api/user/:recieve_ID/send/:sender_ID/invites/:league_ID", function (req, res) {
-  var recieve_ID = req.params.recieve_ID;
-  var sender_ID = req.params.sender_ID;
-  var league_ID = req.params.league_ID;
-  db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
-    if (result == undefined) {
-      res.status(500).send("Error Sending Invite");
-    } else {
-      res.status(200).send();
-    }
-  })
-})
 
 app.get("/api/user/:user_id/invites", function (req, res) {
   var id = req.params.user_id;
