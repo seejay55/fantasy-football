@@ -57,10 +57,8 @@ export class InviteToLeaguePageComponent implements OnInit {
                   league.LeaguePrivacy,
                   league.MaxTrades
                 );
-                console.log(temp);
                 this.leagues.push(temp); // Push current League Object to allLeagues array
               });
-              console.log(this.leagues);
               this.filterLeagues(); // filter leagues based on owner
             },
             (err) => { this.alertService.danger('Error', 'Could not get leagues.', false); }
@@ -68,20 +66,17 @@ export class InviteToLeaguePageComponent implements OnInit {
     }
 
     private sendInvite(leagueId: number){
+        let isIn = false;
         this.leagueService.getLeagueMembers(leagueId).subscribe(
             (members) => {
-                let isIn = false;
                 members.forEach((member) => {
-                    console.log(member);
-                    console.log(this.receiveUserId, member.UserID);
-                    if (this.receiveUserId === member.UserID) {
-                        console.log('is In');
+                    if (this.receiveUserId == member.UserID) {
                         isIn = true;
                     }
                 })
-                if (isIn === false) {
+                if (!isIn) {
                     this.userService.sendInvite(this.receiveUserId, this.currentUser._id, leagueId).subscribe(
-                        (sent) => console.log('sent'),
+                        (sent) => this.alertService.success('Success', 'User has been invited to league', false),
                         (err) => this.alertService.danger('Error', 'We fucked up', false)
                     );
                 } else {
