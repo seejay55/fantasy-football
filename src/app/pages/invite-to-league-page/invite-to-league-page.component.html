@@ -1,0 +1,28 @@
+<div class="content-block">
+    <!-- table of leagues-->
+    <table class="table">
+        <thead>
+            <th style="width: 30%;">League</th>
+            <th style="width: 10%;">Invite</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let league of leagues">
+                <td>
+                    <span>{{league.name}}</span>
+                </td>
+                <td>
+                    <button type="button" id="req{{league._id}}" class="btn btn-primary" (click)="sendInvite(league._id)">
+                        Invite
+                    </button>
+                </td>
+            </tr>
+
+            <!-- No Invites Message -->
+            <tr *ngIf="!leagues.length">
+                <td class="text-center" colspan="4">You have no available league to invite anyone to.</td>
+            </tr>
+            <!-- end no invites -->
+
+        </tbody>
+    </table> <!-- end table of leagues -->
+</div><!-- end content block -->

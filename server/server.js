@@ -128,10 +128,10 @@ app.delete("/api/user/:user_id", function (req, res) {
   });
 });
 
-app.post("/api/user/:recieve_ID/send/:sender_ID/invites/:league_ID", function (req, res) {
-  var recieve_ID = req.params.recieve_ID;
-  var sender_ID = req.params.sender_ID;
-  var league_ID = req.params.league_ID;
+app.post("/api/user/sendInvite", function (req, res) {
+  var recieve_ID = req.body.RecieveID;
+  var sender_ID = req.body.SenderID;
+  var league_ID = req.body.LeagueID;
   db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Sending Invite");
