@@ -21,7 +21,7 @@ export class LeagueService {
 
   // Specific League
   public getLeague(leagueId: number) {
-    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}`);
+    return this.http.get<any>(`${this.endpoint}/league/${leagueId}`);
   }
 
   public getLeagueMembers(leagueId: number) {
@@ -53,7 +53,7 @@ export class LeagueService {
   }
 
   public getLeagueLeagueScoresByUser(leagueId: number, userId: number) {
-    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}/scores?week=${userId}`);
+    return this.http.get<any[]>(`${this.endpoint}/league/${leagueId}/scores?userId=${userId}`);
   }
 
   // For Specific User
@@ -64,6 +64,10 @@ export class LeagueService {
   public createLeague(leagueName: string, userId: number, leaguePrivacy: string, maxTrades: number, maxTeams: number) {
     return this.http.post<any>(`${this.endpoint}/leagues`,
      {LeagueName: leagueName, UserID: userId, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades, MaxTeams: maxTeams} );
+  }
+
+  public deleteLeague(leagueId) {
+    return this.http.delete(`${this.endpoint}/league/${leagueId}`);
   }
 
 }

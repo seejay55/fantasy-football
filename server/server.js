@@ -100,6 +100,22 @@ app.get("/api/user/:user", function (req, res) {
   }
 });
 
+app.patch("/api/league/:league_id", function(req, res) {
+  var league_id = req.params.league_id;
+  var year = req.body.Year;
+  var leagueName = req.body.LeagueName;
+  var numberTeams = req.body.NumberTeams;
+  var typeScoring = req.body.TypeScoring;
+  var leaguePrivacy = req.body.LeaguePrivacy;
+  var maxTrades = req.body.MaxTrades;
+
+  db.updateLeague(league_id, year, leagueName, numberTeams, typeScoring,
+    leaguePrivacy, maxTrades).then(function(result) {
+    res.status(200).send();
+  });
+
+});
+
 app.patch("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   var username = req.body.Username;
@@ -132,6 +148,18 @@ app.post("/api/user/sendInvite", function (req, res) {
   var recieve_ID = req.body.RecieveID;
   var sender_ID = req.body.SenderID;
   var league_ID = req.body.LeagueID;
+
+app.delete("/api/league/:league_id", function (req, res) {
+  var leagueID = req.params.league_id;
+  db.deleteLeague(leagueID).then(function (result) {
+    res.status(204).send();
+  });
+});
+
+app.post("/api/user/:recieve_ID/send/:sender_ID/invites/:league_ID", function (req, res) {
+  var recieve_ID = req.params.recieve_ID;
+  var sender_ID = req.params.sender_ID;
+  var league_ID = req.params.league_ID;
   db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Sending Invite");
@@ -270,7 +298,9 @@ app.get("/api/league/:league_id/record/:user_id", function (req, res) {
 app.get("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   db.getLeagueInfo(league_id).then(function (result) {
-    res.send(result);
+    if (result.length) {
+      res.send(result);
+    } else { res.status(404).send('League not found.'); }
   });
 });
 
