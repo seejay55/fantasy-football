@@ -1,18 +1,14 @@
+import { Subject } from 'rxjs/bundles/Rx';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { LeagueService } from '@services/league/league.service';
 import { AlertService } from '@shared/services/alert.service';
-<<<<<<< HEAD
 import { AuthService } from '@services/auth/auth.service';
 
 import { League } from '@models/league';
 import { User } from '@models/user';
-=======
-
-import { League } from '@models/league';
->>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
 
 @Component({
   selector: 'app-league-information-page',
@@ -22,35 +18,29 @@ import { League } from '@models/league';
 })
 export class LeagueInformationPageComponent implements OnInit {
 
-<<<<<<< HEAD
   private isInLeague: Boolean = false;
+  private isComissioner: Boolean = false;
   private currentUser: User;
 
   private league: League;
   private members: any = [];
   private standings: any = [];
-=======
-  private league: League;
->>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
 
   constructor(
     private leagueService: LeagueService,
     private alertService: AlertService,
     private location: Location,
-<<<<<<< HEAD
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
-=======
-    private activatedRoute: ActivatedRoute
->>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         const leagueId = params['leagueId'];
-<<<<<<< HEAD
         // console.log(`Getting League with ID: ${leagueId}`);
+        this.setCurrentUser();
         this.setPageLeague(leagueId);
         this.setLeagueTeams(leagueId);
         this.setLeagueStandings(leagueId, 1);
@@ -58,13 +48,6 @@ export class LeagueInformationPageComponent implements OnInit {
   }
 
 
-=======
-        console.log(`Getting League with ID: ${leagueId}`);
-        this.setPageLeague(leagueId);
-      });
-  }
-
->>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
   private setPageLeague(leagueId: number): void {
     this.leagueService.getLeague(leagueId).subscribe(
       (league) => {
@@ -82,8 +65,8 @@ export class LeagueInformationPageComponent implements OnInit {
             data.MaxTrades
           );
         });
-<<<<<<< HEAD
         // console.log(this.league);
+        this.setIsComissioner();
       },
       (err) => { this.alertService.danger('Error', 'League not found', true); this.location.back(); }
     );
@@ -97,8 +80,7 @@ export class LeagueInformationPageComponent implements OnInit {
           this.members.push(member);
         });
         // console.log(this.members);
-        this.isInLeague = this.checkIfInLeague();
-        console.log(this.isInLeague);
+        this.setIfInLeague();
       },
       (err) => { this.alertService.danger('Error', 'Could not get teams', false); }
     );
@@ -120,23 +102,30 @@ export class LeagueInformationPageComponent implements OnInit {
     );
   }
 
-  private checkIfInLeague(): boolean {
+  private setCurrentUser() {
     this.authService.getCurrentUser().subscribe(
-      (user) => {
-        this.currentUser = user;
-        this.members.forEach((member) => {
-          if (this.currentUser._id === this.members.ID) { return true; }
-        });
-      },
-      (err) => this.alertService.danger('Error', 'Could not get user', false)
+      user => this.currentUser = user,
+      err => this.alertService.danger('Error', 'Could not get user', false)
     );
-    return false;
-=======
-        console.log(this.league); }
-        ,
-      (err) => {this.alertService.danger('Error', 'League not found', true); this.location.back(); }
-    );
->>>>>>> 93a494ebed719820f4bd8680eefc420d657eb5d0
   }
+
+  private setIfInLeague() {
+    this.members.forEach((member) => {
+      if (this.currentUser._id === member.UserID) { this.isInLeague = true; }
+    });
+  }
+   private setIsComissioner() {
+     if (this.league.ownerId === this.currentUser._id) { this.isComissioner = true; }
+   }
+
+   private deleteLeague() {
+     this.leagueService.deleteLeague(this.league._id).subscribe(
+       (deleted) => {
+         this.alertService.success('Deleted', `${this.league.name} has been deleted`, true);
+         this.router.navigateByUrl(`user/${this.currentUser.userName}`);
+        },
+       (err) => this.alertService.danger('Error', 'There was an error deleting the league')
+     );
+   }
 
 }
