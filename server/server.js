@@ -144,6 +144,11 @@ app.delete("/api/user/:user_id", function (req, res) {
   });
 });
 
+app.post("/api/user/sendInvite", function (req, res) {
+  var recieve_ID = req.body.RecieveID;
+  var sender_ID = req.body.SenderID;
+  var league_ID = req.body.LeagueID;
+
 app.delete("/api/league/:league_id", function (req, res) {
   var leagueID = req.params.league_id;
   db.deleteLeague(leagueID).then(function (result) {
