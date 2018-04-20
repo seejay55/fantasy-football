@@ -66,4 +66,8 @@ export class LeagueService {
      {LeagueName: leagueName, UserID: userId, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades, MaxTeams: maxTeams} );
   }
 
+  public deleteLeague(leagueId) {
+    return this.http.delete(`${this.endpoint}/league/${leagueId}`);
+  }
+
 }
