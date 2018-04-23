@@ -663,7 +663,7 @@ export class DB {
 
     getRequestsForLeague(leagueID: number): any {
       const statement = mysql.format(
-        `SELECT SenderID, Username, LeagueID FROM league_request
+        `SELECT SenderID, Username, LeagueID, TeamName FROM league_request
         INNER JOIN userinfo ON league_request.SenderID = userinfo.ID
         WHERE LeagueID = ?`,
         [leagueID]);

@@ -331,7 +331,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getRequestsForLeague = function (leagueID) {
-        var statement = mysql.format("SELECT SenderID, Username, LeagueID FROM league_request\n        INNER JOIN userinfo ON league_request.SenderID = userinfo.ID\n        WHERE LeagueID = ?", [leagueID]);
+        var statement = mysql.format("SELECT SenderID, Username, LeagueID, TeamName FROM league_request\n        INNER JOIN userinfo ON league_request.SenderID = userinfo.ID\n        WHERE LeagueID = ?", [leagueID]);
         return this.query(statement);
     };
     DB.prototype.requestInvite = function (senderID, leagueID, teamName) {
