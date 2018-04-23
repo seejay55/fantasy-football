@@ -314,5 +314,48 @@ app.get("/api/league/:league_id/scores", function (req, res) {
   });
 });
 
+app.get("/api/league/:leagueID/requests", function(req, res) {
+  var league_ID = req.params.leagueID;
+
+  db.getRequestsForLeague(league_ID).then(function(result) {
+      res.send(result);
+  });
+});
+
+app.post("/api/league/requestInvite", function(req, res){
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+
+  db.requestInvite(senderID, leagueID, teamName).then(function(result){
+      res.send(result);
+  });
+});
+
+app.post("/api/league/acceptInvite", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.acceptRequestToLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Accepting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function(req, res) {
+  var leagueID = req.params.leagueID;
+  var senderID = req.params.senderID;
+
+  db.deleteRequestToLeague(senderID, leagueID).then(function(result){
+    if (result == undefined) {
+      res.status(500).send("Error Deleting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
 
 module.exports = app;

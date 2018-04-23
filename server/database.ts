@@ -661,5 +661,44 @@ export class DB {
         return this.query(statement);
     }
 
+    getRequestsForLeague(leagueID: number): any {
+      const statement = mysql.format(
+        `SELECT SenderID, Username, LeagueID FROM league_request
+        INNER JOIN userinfo ON league_request.SenderID = userinfo.ID
+        WHERE LeagueID = ?`,
+        [leagueID]);
+
+      return this.query(statement);
+    }
+
+    requestInvite(senderID: number, leagueID: number, teamName: string): any {
+        const statement = mysql.format(
+          `INSERT INTO league_request (SenderID, LeagueID, TeamName) VALUES (?, ?, ?)`,
+          [senderID, leagueID, teamName]
+        );
+        return this.query(statement);
+    }
+
+    acceptRequestToLeague(senderID: number, leagueID: number, teamName: string): any {
+      const statement = mysql.format(
+        'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
+        [leagueID, senderID, teamName]);
+      const statement2 = mysql.format(
+        `DELETE FROM league_request WHERE SenderID = ? AND LeagueID = ?`,
+        [senderID, leagueID]);
+
+        return this.query(statement).then((result) => {
+          return this.query(statement2);
+      });
+    }
+
+    deleteRequestToLeague(senderID: number, leagueID: number): any {
+      const statement = mysql.format(
+        `DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?`,
+        [senderID, leagueID]);
+
+      return this.query(statement);
+    }
+
 
 }
