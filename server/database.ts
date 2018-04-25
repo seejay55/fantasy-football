@@ -913,10 +913,22 @@ export class DB {
 
     userLeaveLeague(userID: number, leagueID: number): any {
       const statement = mysql.format(
-        `DELETE FROM league_members WHERE LeagueID = ? and UserID = ?`,
+        `DELETE FROM league_members WHERE LeagueID = ? AND UserID = ?`,
         [leagueID, userID]);
+      const statement2 = mysql.format(
+        `DELETE FROM league_rosters WHERE LeagueID = ? AND UserID = ?`,
+       [leagueID, userID]);
+      const statement3 = mysql.format(
+        `DELETE FROM league_schedule WHERE (Player1ID = ? OR Player2ID = ?) AND LeagueID = ?`,
+        [userID, userID, leagueID]
+      );
 
-        return this.query(statement);
+
+        return this.query(statement).then((result) => {
+          return this.query(statement2).then((result2) => {
+            return this.query(statement3);
+          });
+        });
     }
 
 

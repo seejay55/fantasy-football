@@ -493,8 +493,15 @@ var DB = /** @class */ (function () {
         });
     };
     DB.prototype.userLeaveLeague = function (userID, leagueID) {
-        var statement = mysql.format("DELETE FROM league_members WHERE LeagueID = ? and UserID = ?", [leagueID, userID]);
-        return this.query(statement);
+        var _this = this;
+        var statement = mysql.format("DELETE FROM league_members WHERE LeagueID = ? AND UserID = ?", [leagueID, userID]);
+        var statement2 = mysql.format("DELETE FROM league_rosters WHERE LeagueID = ? AND UserID = ?", [leagueID, userID]);
+        var statement3 = mysql.format("DELETE FROM league_schedule WHERE (Player1ID = ? OR Player2ID = ?) AND LeagueID = ?", [userID, userID, leagueID]);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2).then(function (result2) {
+                return _this.query(statement3);
+            });
+        });
     };
     return DB;
 }());
