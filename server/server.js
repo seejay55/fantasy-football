@@ -100,7 +100,7 @@ app.get("/api/user/:user", function (req, res) {
   }
 });
 
-app.patch("/api/league/:league_id", function(req, res) {
+app.patch("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   var year = req.body.Year;
   var leagueName = req.body.LeagueName;
@@ -110,9 +110,9 @@ app.patch("/api/league/:league_id", function(req, res) {
   var maxTrades = req.body.MaxTrades;
 
   db.updateLeague(league_id, year, leagueName, numberTeams, typeScoring,
-    leaguePrivacy, maxTrades).then(function(result) {
-    res.status(200).send();
-  });
+    leaguePrivacy, maxTrades).then(function (result) {
+      res.status(200).send();
+    });
 
 });
 
@@ -197,7 +197,7 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
   });
 });
 
-app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function(req, res){
+app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function (req, res) {
   var user_ID = req.params.user_ID;
   var league_ID = req.params.league_ID;
   var week = req.params.week;
@@ -314,21 +314,21 @@ app.get("/api/league/:league_id/scores", function (req, res) {
   });
 });
 
-app.get("/api/league/:leagueID/requests", function(req, res) {
+app.get("/api/league/:leagueID/requests", function (req, res) {
   var league_ID = req.params.leagueID;
 
-  db.getRequestsForLeague(league_ID).then(function(result) {
-      res.send(result);
+  db.getRequestsForLeague(league_ID).then(function (result) {
+    res.send(result);
   });
 });
 
-app.post("/api/league/requestInvite", function(req, res){
+app.post("/api/league/requestInvite", function (req, res) {
   var senderID = req.body.SenderID;
   var leagueID = req.body.LeagueID;
   var teamName = req.body.TeamName;
 
-  db.requestInvite(senderID, leagueID, teamName).then(function(result){
-      res.send(result);
+  db.requestInvite(senderID, leagueID, teamName).then(function (result) {
+    res.send(result);
   });
 });
 
@@ -345,11 +345,11 @@ app.post("/api/league/acceptInvite", function (req, res) {
   });
 });
 
-app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function(req, res) {
+app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function (req, res) {
   var leagueID = req.params.leagueID;
   var senderID = req.params.senderID;
 
-  db.deleteRequestToLeague(senderID, leagueID).then(function(result){
+  db.deleteRequestToLeague(senderID, leagueID).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Deleting Invite");
     } else {

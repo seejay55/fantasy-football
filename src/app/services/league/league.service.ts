@@ -70,4 +70,27 @@ export class LeagueService {
     return this.http.delete(`${this.endpoint}/league/${leagueId}`);
   }
 
+  public getLeagueRequests(leagueId) {
+    return this.http.get<any>(`${this.endpoint}/league/${leagueId}/requests`);
+  }
+
+  public joinLeague(senderId: number, leagueId: number, teamName: string) {
+    return this.http.post<any>(`${this.endpoint}/league/joinLeague`,
+     {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );
+  }
+
+  public requestToJoinLeague(senderId: number, leagueId: number, teamName: string) {
+    return this.http.post<any>(`${this.endpoint}/league/requestToJoinLeague`,
+     {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );
+  }
+
+  public acceptLeagueRequest(senderId: number, leagueId: number, teamName: string) {
+    return this.http.post<any>(`${this.endpoint}/league/acceptRequest`,
+     {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );
+  }
+
+  public declineRequest(senderId: number, leagueId: number) {
+    return this.http.delete(`${this.endpoint}/league/${leagueId}/user/${senderId}/deleteRequest`);
+  }
+
 }
