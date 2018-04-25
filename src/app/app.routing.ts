@@ -23,10 +23,10 @@ import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scorin
 // Riley
 import { FindLeaguePageComponent } from './pages/find-league-page/find-league-page.component';
 import { CreateLeaguePageComponent } from './pages/create-league-page/create-league-page.component';
+import { LeagueOptionsPageComponent } from './pages/league-options-page/league-options-page.component';
 // Preston
 import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
 import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
-import { LeagueOptionsPageComponent } from './pages/league-options-page/league-options-page.component';
 // CJ
 // Josh
 
@@ -47,6 +47,7 @@ const routes: Routes = [
   // Riley
   { path: 'create-league',                    component: CreateLeaguePageComponent,           data: { breadcrumb: 'Create League'}},
   { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
+  { path: 'league-options',                   component: LeagueOptionsPageComponent,          data: { breadcrumb: 'League Options'}},
   // Preston
   { path: 'find-user',                        component: FindUserPageComponent,               data: { breadcrumb: 'Find User'}},
   { path: 'user/:userId/invites',             component: InvitesPageComponent,          data: { breadcrumb: 'Invites'}},

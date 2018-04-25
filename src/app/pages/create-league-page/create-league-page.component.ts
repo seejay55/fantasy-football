@@ -26,21 +26,26 @@ export class CreateLeaguePageComponent implements OnInit {
     }
 
     createLeague(name: string, isPublic: boolean, unlimited: boolean, other: string, maxTeams: number, teamName: string): boolean {
+        if(this.userID != null)
+        {
+            let maxTrades = 99;
+            let privacy = 'Public';
 
-        let maxTrades = 99;
-        let privacy = 'Public';
+            if (unlimited !== true) {
+                maxTrades = Number(other);
+            }
 
-        if (unlimited !== true) {
-            maxTrades = Number(other);
+            if (!isPublic) {
+                privacy = 'Private';
+            }
+            this.leagueService.createLeague(name, this.userID, privacy, maxTrades, maxTeams).subscribe(
+                success => this.alertService.success('Success', `League ${name} has been created`, false),
+                err => this.alertService.danger('Error', 'There was a problem creating the league.', false)
+            );
+        } else
+        {
+            this.alertService.danger('Error', 'You must be signed in to create a league.', false)
         }
-
-        if (!isPublic) {
-            privacy = 'Private';
-        }
-        this.leagueService.createLeague(name, this.userID, privacy, maxTrades, maxTeams).subscribe(
-            success => this.alertService.success('Success', `League ${name} has been created`, false),
-            err => this.alertService.danger('Error', 'There was a problem creating the league.', false)
-        );
         return false;
     }
 

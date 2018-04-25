@@ -20,6 +20,9 @@ export class LeagueOptionsPageComponent implements OnInit {
     currentUser: User;
     createdLeagues: League[] = [];
     allLeagues: League[] = [];
+    selectedLeague: League;
+    isPublic: Boolean;
+    isUnlimited: Boolean;
 
     constructor(
         public authService: AuthService,
@@ -36,8 +39,20 @@ export class LeagueOptionsPageComponent implements OnInit {
             }
             );
         this.setUserLeagues(); // get the leagues for the page user
-        console.log(this.createdLeagues);
-        console.log(this.allLeagues);
+    }
+
+    private updateForms(id: number): void {
+        this.createdLeagues.forEach( league =>
+            {
+                if (id == league._id)
+                {
+                    this.selectedLeague = league;
+                }
+            }
+        );
+        this.isUnlimited = (this.selectedLeague.maxTrades == 99);
+        this.isPublic = (this.selectedLeague.leaguePrivacy == "Public");
+        console.log(this.selectedLeague);
     }
 
     // Filter leagues based on owner
