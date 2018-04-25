@@ -1,0 +1,11 @@
+.list-group .list-group-item {
+  color: inherit;
+  background-color: var(--content-block-color);
+  border-color: var(--background-color);
+  border-radius: 0px;
+}
+
+.list-group .list-group-item:hover {
+  color: white;
+  background-color: var(--primary-color);
+}

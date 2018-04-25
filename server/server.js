@@ -33,21 +33,21 @@ app.get("/api/users", function (req, res) {
 });
 
 app.post("/api/users", function (req, res) {
-    var email = req.body.Email;
-    var password = req.body.Password;
-    var username = req.body.Username;
-    var firstName = req.body.FirstName;
-    var lastName = req.body.LastName;
-    var id = req.body.ID;
-    if (id) {
-        db.createUser(email, password, username, firstName, lastName, id).then(function (result) {
-            res.status(200).send(result);
-        });
-    } else {
-        db.createUser(email, password, username, firstName, lastName).then(function (result) {
-            res.status(200).send(result);
-        });
-    }
+  var email = req.body.Email;
+  var password = req.body.Password;
+  var username = req.body.Username;
+  var firstName = req.body.FirstName;
+  var lastName = req.body.LastName;
+  var id = req.body.ID;
+  if (id) {
+    db.createUser(email, password, username, firstName, lastName, id).then(function (result) {
+      res.status(200).send(result);
+    });
+  } else {
+    db.createUser(email, password, username, firstName, lastName).then(function (result) {
+      res.status(200).send(result);
+    });
+  }
 });
 
 app.get("/api/user/authenticate", function (req, res) {
@@ -100,6 +100,22 @@ app.get("/api/user/:user", function (req, res) {
   }
 });
 
+app.patch("/api/league/:league_id", function (req, res) {
+  var league_id = req.params.league_id;
+  var year = req.body.Year;
+  var leagueName = req.body.LeagueName;
+  var numberTeams = req.body.NumberTeams;
+  var typeScoring = req.body.TypeScoring;
+  var leaguePrivacy = req.body.LeaguePrivacy;
+  var maxTrades = req.body.MaxTrades;
+
+  db.updateLeague(league_id, year, leagueName, numberTeams, typeScoring,
+    leaguePrivacy, maxTrades).then(function (result) {
+      res.status(200).send();
+    });
+
+});
+
 app.patch("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   var username = req.body.Username;
@@ -117,12 +133,33 @@ app.patch("/api/user/:user_id", function (req, res) {
       res.status(200).send(result);
     })
   } else {
-    res.status(500).send('There was an error updating your account.')}
+    res.status(500).send('There was an error updating your account.')
+  }
 });
 
 app.delete("/api/user/:user_id", function (req, res) {
   var id = req.params.user_id;
   db.deleteUser(id).then(function (result) {
+    res.status(204).send();
+  });
+});
+
+app.post("/api/user/sendInvite", function (req, res) {
+  var recieve_ID = req.body.RecieveID;
+  var sender_ID = req.body.SenderID;
+  var league_ID = req.body.LeagueID;
+  db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Sending Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.delete("/api/league/:league_id", function (req, res) {
+  var leagueID = req.params.league_id;
+  db.deleteLeague(leagueID).then(function (result) {
     res.status(204).send();
   });
 });
@@ -138,11 +175,11 @@ app.get("/api/user/:user_id/invites", function (req, res) {
 app.post("/api/user/:user_id/invites/:league_id", function (req, res) {
   var user_id = req.params.user_id;
   var league_id = req.params.league_id;
-  db.insertUserIntoLeague(user_id, league_id).then(function (result) {
+  var team_name = req.body.TeamName;
+  db.insertUserIntoLeague(user_id, league_id, team_name).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Accepting Invite");
-    }
-    else {
+    } else {
       res.status(200).send();
     }
   });
@@ -154,10 +191,18 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
   db.deleteInvite(user_id, league_id).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Deleting Invite");
-    }
-    else {
+    } else {
       res.status(200).send();
     }
+  });
+});
+
+app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function (req, res) {
+  var user_ID = req.params.user_ID;
+  var league_ID = req.params.league_ID;
+  var week = req.params.week;
+  db.getUserRoster(user_ID, league_ID, week).then(function (result) {
+    res.send(result);
   });
 });
 
@@ -193,16 +238,16 @@ app.get("/api/leagues/search", function (req, res) {
   });
 });
 
-  app.get("/api/users/search", function (req, res) {
-    var query = "";
-    if (req.query.query != undefined) {
-        query = req.query.query;
-    }
-    db.searchUserByName(query).then(function (result) {
-        res.setHeader('Content-Type', 'application/json');
-        res.json(result);
-    });
+app.get("/api/users/search", function (req, res) {
+  var query = "";
+  if (req.query.query != undefined) {
+    query = req.query.query;
+  }
+  db.searchUserByName(query).then(function (result) {
+    res.setHeader('Content-Type', 'application/json');
+    res.json(result);
   });
+});
 
 app.get("/api/league/:league_id/members", function (req, res) {
   var league_id = req.params.league_id;
@@ -248,7 +293,9 @@ app.get("/api/league/:league_id/record/:user_id", function (req, res) {
 app.get("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   db.getLeagueInfo(league_id).then(function (result) {
-    res.send(result);
+    if (result.length) {
+      res.send(result);
+    } else { res.status(404).send('League not found.'); }
   });
 });
 
@@ -264,6 +311,76 @@ app.get("/api/league/:league_id/scores", function (req, res) {
   }
   db.getUserScore(league_id, user_id, week).then(function (result) {
     res.send(result);
+  });
+});
+
+app.get("/api/league/:leagueID/requests", function (req, res) {
+  var league_ID = req.params.leagueID;
+
+  db.getRequestsForLeague(league_ID).then(function (result) {
+    res.send(result);
+  });
+});
+
+app.post("/api/league/requestInvite", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+
+  db.requestInvite(senderID, leagueID, teamName).then(function (result) {
+    res.send(result);
+  });
+});
+
+app.post("/api/league/acceptInvite", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.acceptRequestToLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Accepting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function (req, res) {
+  var leagueID = req.params.leagueID;
+  var senderID = req.params.senderID;
+
+  db.deleteRequestToLeague(senderID, leagueID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Deleting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.post("/api/league/joinLeague", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.joinLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Joining League");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.delete("/api/user/:userID/league/:leagueID/leaveLeague", function (req, res) {
+  var userID = req.params.userID;
+  var leagueID = req.params.leagueID;
+
+  db.userLeaveLeague(userID, leagueID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Leaving From League");
+    } else {
+      res.status(200).send();
+    }
   });
 });
 

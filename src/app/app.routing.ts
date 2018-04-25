@@ -21,13 +21,14 @@ import { FeedItemComponent } from './pages/home-page/components/news-feed/feed-i
 import { RegisterAccountPageComponent } from './pages/register-account-page/register-account-page.component';
 import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scoring-leaders-page.component';
 import { TeamInformationPageComponent } from './pages/team-information-page/team-information-page.component';
+import { UserTeamsComponent } from './pages/home-page/components/user-teams/user-teams.component';
 // Riley
 import { FindLeaguePageComponent } from './pages/find-league-page/find-league-page.component';
 import { CreateLeaguePageComponent } from './pages/create-league-page/create-league-page.component';
 // Preston
 import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
 import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
-import { UserTeamsComponent } from './pages/home-page/components/user-teams/user-teams.component';
+import { InviteToLeaguePageComponent } from './pages/invite-to-league-page/invite-to-league-page.component';
 // CJ
 // Josh
 
@@ -39,7 +40,7 @@ const routes: Routes = [
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},
   // Austin
   { path: 'user/:userName/account-settings',  component: AccountSettingsPageComponent,           data: { breadcrumb: 'Account Settings'}},
-  { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
+  { path: 'league/:leagueId',                 component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: 'welcome',                          component: RegisterWelcomePageComponent,        data: { breadcrumb: 'Welcome'}},
   // Luke
   { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
   // Preston
   { path: 'find-user',                        component: FindUserPageComponent,               data: { breadcrumb: 'Find User'}},
-  { path: 'user/:userId/invites',             component: InvitesPageComponent,          data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invites',             component: InvitesPageComponent,                data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invite',             component: InviteToLeaguePageComponent,                data: { breadcrumb: 'Invite'}},
 
   { path: '**', redirectTo: '404'},
 
@@ -78,6 +80,7 @@ const routes: Routes = [
     InvitesPageComponent,
     RegisterAccountPageComponent,
     RegisterWelcomePageComponent,
+    InviteToLeaguePageComponent,
     TeamInformationPageComponent,
     UserTeamsComponent
   ],
