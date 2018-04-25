@@ -95,7 +95,7 @@ export class LeagueOptionsPageComponent implements OnInit {
     }
 
     updateLeague(name: string, isPublic: boolean, unlimited: boolean, other: string, maxTeams: number, year: number): boolean {
-        if(this.currentUser != null)
+        if(this.currentUser != null && this.selectedLeague != null)
         {
             let maxTrades = 99;
             let privacy = 'Public';
