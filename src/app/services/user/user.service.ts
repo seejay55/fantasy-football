@@ -71,4 +71,8 @@ export class UserService {
     return this.http.delete(`${this.endpoint}/user/${userId}/invites/${leagueId}`);
   }
 
+  public sendInvite(recieveId: number, senderId: number, leagueId: number){
+    return this.http.post(`${this.endpoint}/user/sendInvite`, {RecieveID: recieveId, SenderID: senderId, LeagueID: leagueId});
+  }
+
 }

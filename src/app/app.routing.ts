@@ -26,6 +26,7 @@ import { CreateLeaguePageComponent } from './pages/create-league-page/create-lea
 // Preston
 import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
 import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
+import { InviteToLeaguePageComponent } from './pages/invite-to-league-page/invite-to-league-page.component';
 // CJ
 // Josh
 
@@ -37,7 +38,7 @@ const routes: Routes = [
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},
   // Austin
   { path: 'user/:userName/account-settings',  component: AccountSettingsPageComponent,           data: { breadcrumb: 'Account Settings'}},
-  { path: 'league/:id',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
+  { path: 'league/:leagueId',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: 'welcome',                          component: RegisterWelcomePageComponent,        data: { breadcrumb: 'Welcome'}},
   // Luke
   { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},
@@ -48,7 +49,8 @@ const routes: Routes = [
   { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
   // Preston
   { path: 'find-user',                        component: FindUserPageComponent,               data: { breadcrumb: 'Find User'}},
-  { path: 'user/:userId/invites',             component: InvitesPageComponent,          data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invites',             component: InvitesPageComponent,                data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invite',             component: InviteToLeaguePageComponent,                data: { breadcrumb: 'Invite'}},
 
   { path: '**', redirectTo: '404'},
 
@@ -74,7 +76,8 @@ const routes: Routes = [
     HomePageComponent,
     InvitesPageComponent,
     RegisterAccountPageComponent,
-    RegisterWelcomePageComponent
+    RegisterWelcomePageComponent,
+    InviteToLeaguePageComponent
   ],
   imports: [
     CommonModule,

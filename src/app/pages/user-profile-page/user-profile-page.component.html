@@ -21,7 +21,7 @@
               My Invites
               <span class="badge badge-danger">{{invites?.length}}</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Invite to a League</a>
+            <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame" [routerLink]="['/user', pageUser._id, 'invite']">Invite to a League</a>
             <a href="#" class="list-group-item list-group-item-action" *ngIf="!isSame">Send Message</a>
           </ul>
         </div>

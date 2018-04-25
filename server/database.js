@@ -256,7 +256,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getLeagueMembers = function (leagueID) {
-        var statement = mysql.format("SELECT Username, TeamName, Commisioner\n            FROM league_members\n            JOIN userinfo ON UserID = userinfo.ID\n            WHERE LeagueID = ?;", [leagueID]);
+        var statement = mysql.format("SELECT UserID, Username, TeamName, Commisioner\n            FROM league_members\n            JOIN userinfo ON UserID = userinfo.ID\n            WHERE LeagueID = ?;", [leagueID]);
         return this.query(statement);
     };
     DB.prototype.getLeagueSchedule = function (leagueID, week) {
@@ -300,11 +300,11 @@ var DB = /** @class */ (function () {
             params.push(week);
         }
         params.push(leagueID);
-        var statement = mysql.format("SELECT UserID, Username, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            WHERE LeagueID = ?\n                AND UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY LeagueID, UserID, year, week;", params);
+        var statement = mysql.format("SELECT league_rosters.UserID, Username, TeamName, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            JOIN league_members ON league_rosters.UserID = league_members.UserID\n            WHERE league_rosters.LeagueID = ?\n                AND league_rosters.UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;", params);
         return this.query(statement);
     };
     DB.prototype.getUserRoster = function (userID, leagueID, week) {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            WHERE UserID = ? AND LeagueID = ? AND Year = 2017 AND Week = ?", [userID, leagueID, week]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, SeasonPts, WeekPts, Active\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            WHERE UserID = ? AND LeagueID = ? AND Year = 2017 AND Week = ?", [userID, leagueID, week]);
         return this.query(statement);
     };
     DB.prototype.getUserSchedule = function (userID, leagueID) {
@@ -330,6 +330,30 @@ var DB = /** @class */ (function () {
     };
     DB.prototype.getSeasonPoints = function () {
         var statement = mysql.format("SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals\n        LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID\n        LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id\n        WHERE Year = 2017\n        GROUP BY PlayerName", []);
+        return this.query(statement);
+    };
+    DB.prototype.getRequestsForLeague = function (leagueID) {
+        var statement = mysql.format("SELECT SenderID, Username, LeagueID, TeamName FROM league_request\n          INNER JOIN userinfo ON league_request.SenderID = userinfo.ID\n          WHERE LeagueID = ?", [leagueID]);
+        return this.query(statement);
+    };
+    DB.prototype.requestInvite = function (senderID, leagueID, teamName) {
+        var statement = mysql.format("INSERT INTO league_request (SenderID, LeagueID, TeamName) VALUES (?, ?, ?)", [senderID, leagueID, teamName]);
+        return this.query(statement);
+    };
+    DB.prototype.acceptRequestToLeague = function (senderID, leagueID, teamName) {
+        var _this = this;
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)', [leagueID, senderID, teamName]);
+        var statement2 = mysql.format("DELETE FROM league_request WHERE SenderID = ? AND LeagueID = ?", [senderID, leagueID]);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2);
+        });
+    };
+    DB.prototype.joinLeague = function (senderID, leagueID, teamName) {
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)', [leagueID, senderID, teamName]);
+        return this.query(statement);
+    };
+    DB.prototype.deleteRequestToLeague = function (senderID, leagueID) {
+        var statement = mysql.format("DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?", [senderID, leagueID]);
         return this.query(statement);
     };
     DB.prototype.generateLeagueSchedule = function (leagueID) {

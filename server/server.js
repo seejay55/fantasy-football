@@ -100,7 +100,7 @@ app.get("/api/user/:user", function (req, res) {
   }
 });
 
-app.patch("/api/league/:league_id", function(req, res) {
+app.patch("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   var year = req.body.Year;
   var leagueName = req.body.LeagueName;
@@ -110,9 +110,9 @@ app.patch("/api/league/:league_id", function(req, res) {
   var maxTrades = req.body.MaxTrades;
 
   db.updateLeague(league_id, year, leagueName, numberTeams, typeScoring,
-    leaguePrivacy, maxTrades).then(function(result) {
-    res.status(200).send();
-  });
+    leaguePrivacy, maxTrades).then(function (result) {
+      res.status(200).send();
+    });
 
 });
 
@@ -144,18 +144,25 @@ app.delete("/api/user/:user_id", function (req, res) {
   });
 });
 
-app.post("/api/user/:recieve_ID/send/:sender_ID/invites/:league_ID", function (req, res) {
-  var recieve_ID = req.params.recieve_ID;
-  var sender_ID = req.params.sender_ID;
-  var league_ID = req.params.league_ID;
+app.post("/api/user/sendInvite", function (req, res) {
+  var recieve_ID = req.body.RecieveID;
+  var sender_ID = req.body.SenderID;
+  var league_ID = req.body.LeagueID;
   db.sendInvite(sender_ID, recieve_ID, league_ID).then(function (result) {
     if (result == undefined) {
       res.status(500).send("Error Sending Invite");
     } else {
       res.status(200).send();
     }
-  })
-})
+  });
+});
+
+app.delete("/api/league/:league_id", function (req, res) {
+  var leagueID = req.params.league_id;
+  db.deleteLeague(leagueID).then(function (result) {
+    res.status(204).send();
+  });
+});
 
 app.get("/api/user/:user_id/invites", function (req, res) {
   var id = req.params.user_id;
@@ -190,7 +197,7 @@ app.delete("/api/user/:user_id/invites/:league_id", function (req, res) {
   });
 });
 
-app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function(req, res){
+app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function (req, res) {
   var user_ID = req.params.user_ID;
   var league_ID = req.params.league_ID;
   var week = req.params.week;
@@ -286,7 +293,9 @@ app.get("/api/league/:league_id/record/:user_id", function (req, res) {
 app.get("/api/league/:league_id", function (req, res) {
   var league_id = req.params.league_id;
   db.getLeagueInfo(league_id).then(function (result) {
-    res.send(result);
+    if (result.length) {
+      res.send(result);
+    } else { res.status(404).send('League not found.'); }
   });
 });
 
@@ -305,5 +314,61 @@ app.get("/api/league/:league_id/scores", function (req, res) {
   });
 });
 
+app.get("/api/league/:leagueID/requests", function (req, res) {
+  var league_ID = req.params.leagueID;
+
+  db.getRequestsForLeague(league_ID).then(function (result) {
+    res.send(result);
+  });
+});
+
+app.post("/api/league/requestInvite", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+
+  db.requestInvite(senderID, leagueID, teamName).then(function (result) {
+    res.send(result);
+  });
+});
+
+app.post("/api/league/acceptInvite", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.acceptRequestToLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Accepting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function (req, res) {
+  var leagueID = req.params.leagueID;
+  var senderID = req.params.senderID;
+
+  db.deleteRequestToLeague(senderID, leagueID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Deleting Invite");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
+app.post("/api/league/joinLeague", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.joinLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Joining League");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
 
 module.exports = app;
