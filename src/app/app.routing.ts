@@ -20,6 +20,8 @@ import { NewsFeedComponent } from './pages/home-page/components/news-feed/news-f
 import { FeedItemComponent } from './pages/home-page/components/news-feed/feed-item/feed-item.component';
 import { RegisterAccountPageComponent } from './pages/register-account-page/register-account-page.component';
 import { ScoringLeadersPageComponent } from './pages/scoring-leaders-page/scoring-leaders-page.component';
+import { TeamInformationPageComponent } from './pages/team-information-page/team-information-page.component';
+import { UserTeamsComponent } from './pages/home-page/components/user-teams/user-teams.component';
 // Riley
 import { FindLeaguePageComponent } from './pages/find-league-page/find-league-page.component';
 import { CreateLeaguePageComponent } from './pages/create-league-page/create-league-page.component';
@@ -38,12 +40,13 @@ const routes: Routes = [
   { path: '404',                              component: NotFoundPageComponent,           data: { breadcrumb: '404: Page Not Found!'}},
   // Austin
   { path: 'user/:userName/account-settings',  component: AccountSettingsPageComponent,           data: { breadcrumb: 'Account Settings'}},
-  { path: 'league/:leagueId',                       component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
+  { path: 'league/:leagueId',                 component: LeagueInformationPageComponent,  data: { breadcrumb: 'League Information'}},
   { path: 'welcome',                          component: RegisterWelcomePageComponent,        data: { breadcrumb: 'Welcome'}},
   // Luke
   { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},
   { path: 'register',                         component: RegisterAccountPageComponent,        data: { breadcrumb: 'Register Account'}},
   { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent,     data: { breadcrumb: 'Scoring Leaders'}},
+  { path: 'league/:_id/team',                 component: TeamInformationPageComponent,     data: { breadcrumb: 'Team Info'}},
   // Riley
   { path: 'create-league',                    component: CreateLeaguePageComponent,           data: { breadcrumb: 'Create League'}},
   { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
@@ -77,7 +80,9 @@ const routes: Routes = [
     InvitesPageComponent,
     RegisterAccountPageComponent,
     RegisterWelcomePageComponent,
-    InviteToLeaguePageComponent
+    InviteToLeaguePageComponent,
+    TeamInformationPageComponent,
+    UserTeamsComponent
   ],
   imports: [
     CommonModule,

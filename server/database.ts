@@ -342,7 +342,7 @@ export class DB {
 
     getAllLeaguesForUser(userID: number): any {
         const statement = mysql.format(
-            `SELECT get_league_info.ID, Name, Year, MaxTeams,
+            `SELECT get_league_info.ID, Name, Year, MaxTeams, TeamName,
             TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM fantasyfootball18.league_members
             LEFT JOIN (
@@ -494,7 +494,7 @@ export class DB {
 
     getRoster(leagueID: number, userID: number): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr, Active
             FROM league_rosters
             JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
             WHERE LeagueID = ?
