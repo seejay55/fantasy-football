@@ -38,7 +38,7 @@ export class CreateLeaguePageComponent implements OnInit {
             if (!isPublic) {
                 privacy = 'Private';
             }
-            this.leagueService.createLeague(name, this.userID, privacy, maxTrades, maxTeams).subscribe(
+            this.leagueService.createLeague(name, this.userID, privacy, maxTrades, maxTeams, teamName).subscribe(
                 success => this.alertService.success('Success', `League ${name} has been created`, false),
                 err => this.alertService.danger('Error', 'There was a problem creating the league.', false)
             );

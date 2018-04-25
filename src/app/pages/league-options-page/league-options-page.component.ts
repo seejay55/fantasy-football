@@ -21,6 +21,7 @@ export class LeagueOptionsPageComponent implements OnInit {
     createdLeagues: League[] = [];
     allLeagues: League[] = [];
     selectedLeague: League;
+    
     isPublic: Boolean;
     isUnlimited: Boolean;
 
@@ -52,7 +53,6 @@ export class LeagueOptionsPageComponent implements OnInit {
         );
         this.isUnlimited = (this.selectedLeague.maxTrades == 99);
         this.isPublic = (this.selectedLeague.leaguePrivacy == "Public");
-        console.log(this.selectedLeague);
     }
 
     // Filter leagues based on owner
@@ -92,6 +92,30 @@ export class LeagueOptionsPageComponent implements OnInit {
             // Unsuccessful Data
             (err) => { this.errorHandler(err); } // handle error
         );
+    }
+
+    updateLeague(name: string, isPublic: boolean, unlimited: boolean, other: string, maxTeams: number, year: number): boolean {
+        if(this.currentUser != null)
+        {
+            let maxTrades = 99;
+            let privacy = 'Public';
+
+            if (unlimited !== true) {
+                maxTrades = Number(other);
+            }
+
+            if (!isPublic) {
+                privacy = 'Private';
+            }
+            this.leagueService.updateLeague(this.selectedLeague._id, year, name, maxTeams, "Default", privacy, maxTrades).subscribe(
+                success => this.alertService.success('Success', `League ${name} has been edited`, false),
+                err => this.alertService.danger('Error', 'There was a problem editing the league.', false)
+            );
+        } else
+        {
+            this.alertService.danger('Error', 'You must be signed in to edit a league.', false)
+        }
+        return false;
     }
 
     // Handle any and all errors

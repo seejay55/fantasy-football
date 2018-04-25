@@ -1,5 +1,5 @@
 <div class="content-block">
-    <form (submit)="createLeague(name.value, 10, public.checked, unlimited.checked, other.value, maxTeams.value)">
+    <form (submit)="updateLeague(name.value, public.checked, unlimited.checked, other.value, maxTeams.value, year.value)">
         <div class="row">
             <div class="col-md-12 mb-3">
                 <div class="input-group">
@@ -22,6 +22,18 @@
                         <label class="input-group-text" for="leagueName">League Name:</label>
                     </div>
                     <input #name type="text" class="form-control" id="leagueName" value="{{selectedLeague.name}}" required minlength="1">
+                </div>
+                <!-- Column -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend label">
+                        <label class="input-group-text" for="year">Year:</label>
+                    </div>
+                    <input #year type="text" class="form-control" id="year" value="{{selectedLeague.year}}" pattern="\d{4}" required minlength="1">
                 </div>
                 <!-- Column -->
             </div>
@@ -57,12 +69,12 @@
             <div class="col-md mb-3">
                 <label for="privacy">League Privacy:</label>
                 <div class="custom-control custom-radio">
-                    <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" checked
+                    <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" [checked]="isPublic"
                         required>
                     <label class="custom-control-label" for="public">Public</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input #private id="private" name="privacy" ng-model="privacy" value="Private" type="radio" class="custom-control-input"
+                    <input #private id="private" name="privacy" ng-model="privacy" value="Private" type="radio" class="custom-control-input" [checked]="!isPublic"
                         required>
                     <label class="custom-control-label" for="private">Private</label>
                 </div>
@@ -76,12 +88,12 @@
                 <label for="numTrades">Maximum Trades:</label>
                 <div class="custom-control custom-radio">
                     <input #unlimited id="unlimited" name="numTrades" ng-model="numTrades" type="radio" value="Unlimited" onclick="document.getElementById('otherTrades').disabled = true;"
-                        class="custom-control-input" checked="{{isUnlimited}}" required>
+                        class="custom-control-input" [checked]="isUnlimited" required>
                     <label class="custom-control-label" for="unlimited">Unlimited</label>
                 </div>
                 <div class="custom-control custom-radio">
                     <input id="other" name="numTrades" ng-model="numTrades" type="radio" value="Other" onclick="document.getElementById('otherTrades').disabled = false;"
-                        class="custom-control-input" checked="!{{isUnlimited}}" required>
+                        class="custom-control-input" [checked]="!isUnlimited" required>
                     <label class="custom-control-label" for="other">Other </label>
                     <input #other type="text" value="{{selectedLeague.maxTrades}}" id="otherTrades" name="other" disabled="{{!isUnlimited}}" minlength="1" />
                     <div class="invalid-feedback">

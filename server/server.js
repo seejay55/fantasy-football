@@ -222,7 +222,8 @@ app.post("/api/leagues", function (req, res) {
   privacy = req.body.LeaguePrivacy;
   max_trades = req.body.MaxTrades;
   max_teams = req.body.MaxTeams;
-  db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades).then(function (result) {
+  team_name = req.body.TeamName;
+  db.createLeague(league_name, owner_id, max_teams, "Default", privacy, max_trades, team_name).then(function (result) {
     res.status(204).send();
   });
 });
