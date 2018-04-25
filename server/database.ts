@@ -708,5 +708,13 @@ export class DB {
       return this.query(statement);
     }
 
+    userLeaveLeague(userID: number, leagueID: number): any {
+      const statement = mysql.format(
+        `DELETE FROM league_members WHERE LeagueID = ? and UserID = ?`,
+        [leagueID, userID]);
+
+        return this.query(statement);
+    }
+
 
 }

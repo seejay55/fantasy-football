@@ -371,4 +371,17 @@ app.post("/api/league/joinLeague", function (req, res) {
   });
 });
 
+app.delete("/api/user/:userID/league/:leagueID/leaveLeague", function (req, res) {
+  var userID = req.params.userID;
+  var leagueID = req.params.leagueID;
+
+  db.userLeaveLeague(userID, leagueID).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Leaving From League");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
 module.exports = app;

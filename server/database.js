@@ -354,6 +354,10 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?", [senderID, leagueID]);
         return this.query(statement);
     };
+    DB.prototype.userLeaveLeague = function (userID, leagueID) {
+        var statement = mysql.format("DELETE FROM league_members WHERE LeagueID = ? and UserID = ?", [leagueID, userID]);
+        return this.query(statement);
+    };
     return DB;
 }());
 exports.DB = DB;
