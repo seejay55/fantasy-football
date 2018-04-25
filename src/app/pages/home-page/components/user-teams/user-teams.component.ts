@@ -28,7 +28,7 @@ export class UserTeamsComponent implements OnInit {
   ngOnInit() {
     this.authService.getCurrentUser()
     .subscribe(user => {
-        if(user != null){
+        if (user != null) {
             this.currentUser = user;
             this.getAllTeams(this.currentUser._id);
         }
@@ -37,7 +37,7 @@ export class UserTeamsComponent implements OnInit {
 
   }
 
-  private getAllTeams(userId: number){
+  private getAllTeams(userId: number) {
     this.leagueService.getUserLeagues(userId).subscribe(
         (leagues) => {
             // For every league in array, create League Object

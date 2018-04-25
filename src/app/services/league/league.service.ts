@@ -84,6 +84,10 @@ export class LeagueService {
      {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );
   }
 
+  public leaveLeague(userId: number, leagueId: number) {
+    return this.http.delete(`${this.endpoint}/user/${userId}/league/${leagueId}/leaveLeague`);
+  }
+
   public acceptLeagueRequest(senderId: number, leagueId: number, teamName: string) {
     return this.http.post<any>(`${this.endpoint}/league/acceptRequest`,
      {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );

@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var mysql = require("mysql");
-var DB = /** @class */ (function () {
+var mysql = require('mysql');
+var DB = (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -220,7 +218,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getAllLeaguesForUser = function (userID) {
-        var statement = mysql.format("SELECT get_league_info.ID, Name, Year, MaxTeams,\n            TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM fantasyfootball18.league_members\n            LEFT JOIN (\n                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n                FROM leagues\n                LEFT JOIN (\n                    SELECT LeagueID, COUNT(UserID) AS NumTeams\n                    FROM league_members\n                    GROUP BY LeagueID\n                ) AS member_count ON member_count.LeagueID = ID\n                LEFT JOIN (\n                    SELECT LeagueID, UserID AS OwnerID\n                    FROM league_members\n                    WHERE Commisioner = TRUE\n                    GROUP BY LeagueID\n                ) AS league_owner ON league_owner.LeagueID = ID\n            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID\n            WHERE UserID = ?", [userID]);
+        var statement = mysql.format("SELECT get_league_info.ID, Name, Year, MaxTeams, TeamName,\n            TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName\n            FROM fantasyfootball18.league_members\n            LEFT JOIN (\n                SELECT ID, Name, Year, MaxTeams, TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID\n                FROM leagues\n                LEFT JOIN (\n                    SELECT LeagueID, COUNT(UserID) AS NumTeams\n                    FROM league_members\n                    GROUP BY LeagueID\n                ) AS member_count ON member_count.LeagueID = ID\n                LEFT JOIN (\n                    SELECT LeagueID, UserID AS OwnerID\n                    FROM league_members\n                    WHERE Commisioner = TRUE\n                    GROUP BY LeagueID\n                ) AS league_owner ON league_owner.LeagueID = ID\n            ) AS get_league_info ON league_members.LeagueID = get_league_info.ID\n            LEFT JOIN userinfo ON userinfo.ID = OwnerID\n            WHERE UserID = ?", [userID]);
         return this.query(statement);
     };
     DB.prototype.searchUserByName = function (searchParams) {
@@ -272,7 +270,7 @@ var DB = /** @class */ (function () {
         return this.query(statement);
     };
     DB.prototype.getRoster = function (leagueID, userID) {
-        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE LeagueID = ?\n            AND UserID = ?;", [leagueID, userID]);
+        var statement = mysql.format("SELECT PlayerName, PlayerPos, TeamAbbr, Active\n            FROM league_rosters\n            JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id\n            WHERE LeagueID = ?\n            AND UserID = ?;", [leagueID, userID]);
         return this.query(statement);
     };
     DB.prototype.getUserInfoById = function (userID) {
@@ -361,8 +359,8 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT UserID\n            FROM league_members\n            WHERE LeagueID = ?", [leagueID]);
         return this.query(statement).then(function (result) {
             var users = [];
-            for (var _i = 0, result_1 = result; _i < result_1.length; _i++) {
-                var user = result_1[_i];
+            for (var _i = 0; _i < result.length; _i++) {
+                var user = result[_i];
                 users.push(user.UserID);
             }
             for (var i = 0; i < users.length; i++) {
@@ -429,8 +427,8 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT UserID\n            FROM league_members\n            WHERE LeagueID = ?", [leagueID]);
         return this.query(statement).then(function (result) {
             var users = [];
-            for (var _i = 0, result_2 = result; _i < result_2.length; _i++) {
-                var user = result_2[_i];
+            for (var _i = 0; _i < result.length; _i++) {
+                var user = result[_i];
                 users.push(user.UserID);
                 rosters.push([]);
             }
@@ -439,7 +437,7 @@ var DB = /** @class */ (function () {
             var p = new Promise(function (resolve) {
                 resolve();
             });
-            var _loop_1 = function (round) {
+            for (var round = 0; round < 15; round++) {
                 p = p.then(function (_) { return new Promise(function (resolve) {
                     // randomize draft order
                     for (var i = 0; i < users.length; i++) {
@@ -486,9 +484,6 @@ var DB = /** @class */ (function () {
                     });
                     var _a;
                 }); });
-            };
-            for (var round = 0; round < 15; round++) {
-                _loop_1(round);
             }
         });
     };
@@ -504,5 +499,5 @@ var DB = /** @class */ (function () {
         });
     };
     return DB;
-}());
+})();
 exports.DB = DB;

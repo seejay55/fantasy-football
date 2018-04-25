@@ -64,7 +64,8 @@ export class LeagueInformationPageComponent implements OnInit {
             data.MaxTeams,
             data.TypeScoring,
             data.LeaguePrivacy,
-            data.MaxTrades
+            data.MaxTrades,
+            data.TeamName
           );
         });
         // console.log(this.league);
@@ -152,6 +153,13 @@ export class LeagueInformationPageComponent implements OnInit {
      this.leagueService.requestToJoinLeague(this.currentUser._id, this.league._id, teamName).subscribe(
       (sent) => this.alertService.success('Success', `You have requested to join ${this.league.name} with team: ${teamName}`, false),
       (err) => this.alertService.danger('Error', 'Could not request to join', false)
+     );
+   }
+
+   private leaveLeague(): void {
+     this.leagueService.leaveLeague(this.currentUser._id, this.league._id).subscribe(
+      (removed) => this.alertService.success('Success', 'You have left the league', false),
+      (err) => this.alertService.danger('Error', 'We could not remove you from the league')
      );
    }
 

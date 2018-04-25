@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'homepage',                         component: HomePageComponent,               data: { breadcrumb: 'Homepage'}},
   { path: 'register',                         component: RegisterAccountPageComponent,        data: { breadcrumb: 'Register Account'}},
   { path: 'scoring-leaders',                  component: ScoringLeadersPageComponent,     data: { breadcrumb: 'Scoring Leaders'}},
-  { path: 'league/:_id/team',                 component: TeamInformationPageComponent,     data: { breadcrumb: 'Team Info'}},
+  { path: 'league/:_id/:teamName',                 component: TeamInformationPageComponent,     data: { breadcrumb: 'Team Info'}},
   // Riley
   { path: 'create-league',                    component: CreateLeaguePageComponent,           data: { breadcrumb: 'Create League'}},
   { path: 'find-league',                      component: FindLeaguePageComponent,             data: { breadcrumb: 'Find League'}},
