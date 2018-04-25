@@ -27,6 +27,7 @@ import { LeagueOptionsPageComponent } from './pages/league-options-page/league-o
 // Preston
 import { FindUserPageComponent } from './pages/find-user-page/find-user-page.component';
 import { InvitesPageComponent } from './pages/invites-page/invites-page.component';
+import { InviteToLeaguePageComponent } from './pages/invite-to-league-page/invite-to-league-page.component';
 // CJ
 // Josh
 
@@ -50,7 +51,8 @@ const routes: Routes = [
   { path: 'league-options',                   component: LeagueOptionsPageComponent,          data: { breadcrumb: 'League Options'}},
   // Preston
   { path: 'find-user',                        component: FindUserPageComponent,               data: { breadcrumb: 'Find User'}},
-  { path: 'user/:userId/invites',             component: InvitesPageComponent,          data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invites',             component: InvitesPageComponent,                data: { breadcrumb: 'Invites'}},
+  { path: 'user/:userId/invite',             component: InviteToLeaguePageComponent,                data: { breadcrumb: 'Invite'}},
 
   { path: '**', redirectTo: '404'},
 
@@ -77,7 +79,8 @@ const routes: Routes = [
     InvitesPageComponent,
     RegisterAccountPageComponent,
     RegisterWelcomePageComponent,
-    LeagueOptionsPageComponent
+    LeagueOptionsPageComponent,
+    InviteToLeaguePageComponent
   ],
   imports: [
     CommonModule,

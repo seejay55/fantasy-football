@@ -25,6 +25,7 @@ export class LeagueInformationPageComponent implements OnInit {
   private league: League;
   private members: any = [];
   private standings: any = [];
+  private requests: any = [];
 
   constructor(
     private leagueService: LeagueService,
@@ -44,6 +45,7 @@ export class LeagueInformationPageComponent implements OnInit {
         this.setPageLeague(leagueId);
         this.setLeagueTeams(leagueId);
         this.setLeagueStandings(leagueId, 1);
+        this.setLeagueRequests(leagueId);
       });
   }
 
@@ -102,23 +104,34 @@ export class LeagueInformationPageComponent implements OnInit {
     );
   }
 
-  private setCurrentUser() {
+  private setLeagueRequests(leagueId: number): void {
+    this.leagueService.getLeagueRequests(leagueId).subscribe(
+      (requests) => {
+        requests.forEach(request => {
+          this.requests.push(request);
+        });
+      },
+      (err) => this.alertService.danger('Error', 'Could not get requests', false)
+    );
+  }
+
+  private setCurrentUser(): void {
     this.authService.getCurrentUser().subscribe(
       user => this.currentUser = user,
       err => this.alertService.danger('Error', 'Could not get user', false)
     );
   }
 
-  private setIfInLeague() {
+  private setIfInLeague(): void {
     this.members.forEach((member) => {
       if (this.currentUser._id === member.UserID) { this.isInLeague = true; }
     });
   }
-   private setIsComissioner() {
+   private setIsComissioner(): void {
      if (this.league.ownerId === this.currentUser._id) { this.isComissioner = true; }
    }
 
-   private deleteLeague() {
+   private deleteLeague(): void {
      this.leagueService.deleteLeague(this.league._id).subscribe(
        (deleted) => {
          this.alertService.success('Deleted', `${this.league.name} has been deleted`, true);
@@ -127,5 +140,45 @@ export class LeagueInformationPageComponent implements OnInit {
        (err) => this.alertService.danger('Error', 'There was an error deleting the league')
      );
    }
+
+   private joinLeague(teamName: string): void {
+    this.leagueService.joinLeague(this.currentUser._id, this.league._id, teamName).subscribe(
+      (sent) => this.alertService.success('Success', `You have joined ${this.league.name} with team: ${teamName}`, false),
+      (err) => this.alertService.danger('Error', 'Could not join league', false)
+     );
+   }
+
+   private requestToJoin(teamName: string): void {
+     this.leagueService.requestToJoinLeague(this.currentUser._id, this.league._id, teamName).subscribe(
+      (sent) => this.alertService.success('Success', `You have requested to join ${this.league.name} with team: ${teamName}`, false),
+      (err) => this.alertService.danger('Error', 'Could not request to join', false)
+     );
+   }
+
+   private acceptRequest(senderId: number, userName: string, teamName: string): void {
+     this.leagueService.acceptLeagueRequest(senderId, this.league._id, teamName).subscribe(
+      (accepted) => {
+        this.alertService.success('Success', `${userName} has been added to ${this.league.name}`);
+        this.updateRequests(senderId);
+      },
+      (err) => this.alertService.danger('Error', `Could not add user ${userName}`)
+     );
+   }
+
+   private removeRequest(senderId: number, userName: string): void {
+     this.leagueService.declineRequest(senderId, this.league._id).subscribe(
+      (declined) => {
+        this.alertService.success('Boom', `You have declined ${userName}'s request.`, false);
+        this.updateRequests(senderId);
+    },
+      (err) => this.alertService.danger('Error', `Could not decline ${userName}'s request.`, false)
+     );
+   }
+
+   private updateRequests(senderId: number): void {
+    this.requests = this.requests.filter(
+        request => request.SenderID !== senderId
+    );
+}
 
 }

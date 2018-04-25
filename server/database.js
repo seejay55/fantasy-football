@@ -330,6 +330,30 @@ var DB = /** @class */ (function () {
         var statement = mysql.format("SELECT PlayerName, SeasonPts, PlayerPos, TeamAbbr FROM game_stats_totals\n        LEFT JOIN nfl_stats ON game_stats_totals.PlayerID = nfl_stats.PlayerID\n        LEFT JOIN nfl_players ON game_stats_totals.PlayerID = nfl_players.player_id\n        WHERE Year = 2017\n        GROUP BY PlayerName", []);
         return this.query(statement);
     };
+    DB.prototype.getRequestsForLeague = function (leagueID) {
+        var statement = mysql.format("SELECT SenderID, Username, LeagueID, TeamName FROM league_request\n        INNER JOIN userinfo ON league_request.SenderID = userinfo.ID\n        WHERE LeagueID = ?", [leagueID]);
+        return this.query(statement);
+    };
+    DB.prototype.requestInvite = function (senderID, leagueID, teamName) {
+        var statement = mysql.format("INSERT INTO league_request (SenderID, LeagueID, TeamName) VALUES (?, ?, ?)", [senderID, leagueID, teamName]);
+        return this.query(statement);
+    };
+    DB.prototype.acceptRequestToLeague = function (senderID, leagueID, teamName) {
+        var _this = this;
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)', [leagueID, senderID, teamName]);
+        var statement2 = mysql.format("DELETE FROM league_request WHERE SenderID = ? AND LeagueID = ?", [senderID, leagueID]);
+        return this.query(statement).then(function (result) {
+            return _this.query(statement2);
+        });
+    };
+    DB.prototype.joinLeague = function (senderID, leagueID, teamName) {
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)', [leagueID, senderID, teamName]);
+        return this.query(statement);
+    };
+    DB.prototype.deleteRequestToLeague = function (senderID, leagueID) {
+        var statement = mysql.format("DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?", [senderID, leagueID]);
+        return this.query(statement);
+    };
     return DB;
 }());
 exports.DB = DB;

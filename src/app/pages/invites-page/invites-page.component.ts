@@ -9,7 +9,7 @@ import { AlertService } from '@shared/services/alert.service';
     selector: 'app-invites-page',
     templateUrl: './invites-page.component.html',
     styleUrls: ['./invites-page.component.css'],
-    providers: [UserService]
+    providers: [UserService] 
 })
 export class InvitesPageComponent implements OnInit {
 
