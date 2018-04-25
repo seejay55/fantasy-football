@@ -692,6 +692,14 @@ export class DB {
       });
     }
 
+    joinLeague(senderID: number, leagueID: number, teamName: string): any {
+      const statement = mysql.format(
+        'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
+        [leagueID, senderID, teamName]);
+
+        return this.query(statement);
+    }
+
     deleteRequestToLeague(senderID: number, leagueID: number): any {
       const statement = mysql.format(
         `DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?`,

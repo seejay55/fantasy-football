@@ -346,6 +346,10 @@ var DB = /** @class */ (function () {
             return _this.query(statement2);
         });
     };
+    DB.prototype.joinLeague = function (senderID, leagueID, teamName) {
+        var statement = mysql.format('INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)', [leagueID, senderID, teamName]);
+        return this.query(statement);
+    };
     DB.prototype.deleteRequestToLeague = function (senderID, leagueID) {
         var statement = mysql.format("DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?", [senderID, leagueID]);
         return this.query(statement);

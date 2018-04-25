@@ -358,4 +358,17 @@ app.delete("/api/league/:leagueID/user/:senderID/deleteRequest", function(req, r
   });
 });
 
+app.post("/api/league/joinLeague", function (req, res) {
+  var senderID = req.body.SenderID;
+  var leagueID = req.body.LeagueID;
+  var teamName = req.body.TeamName;
+  db.joinLeague(senderID, leagueID, teamName).then(function (result) {
+    if (result == undefined) {
+      res.status(500).send("Error Joining League");
+    } else {
+      res.status(200).send();
+    }
+  });
+});
+
 module.exports = app;
