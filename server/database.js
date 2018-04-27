@@ -1,5 +1,7 @@
-var mysql = require('mysql');
-var DB = (function () {
+"use strict";
+exports.__esModule = true;
+var mysql = require("mysql");
+var DB = /** @class */ (function () {
     function DB(address, user, pass, database) {
         this.pool = mysql.createPool({
             host: address,
@@ -286,7 +288,7 @@ var DB = (function () {
         return this.query(statement);
     };
     DB.prototype.getUserRecord = function (userID, leagueID) {
-        var statement = mysql.format("SELECT\n            COUNT(IF((Player1ID = ? AND player1_score > player2_score) OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,\n            COUNT(IF((Player1ID = ? AND player1_score < player2_score) OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,\n            COUNT(IF((Player1ID = ? AND player1_score = player2_score) OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties\n            FROM league_schedule\n            LEFT JOIN (\n                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player1_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                GROUP BY LeagueID, UserID, Year, Week\n            ) AS p1_scores\n            ON (p1_scores.UserID = league_schedule.Player1ID)\n                AND (p1_scores.Week = league_schedule.Week)\n            LEFT JOIN (\n                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player2_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                GROUP BY LeagueID, UserID, Year, Week\n            ) AS p2_scores\n            ON (p2_scores.UserID = league_schedule.Player2ID)\n                AND (p2_scores.Week = league_schedule.Week)\n            WHERE league_schedule.LeagueID = ?\n            AND p1_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)\n            AND p2_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)", [userID, userID, userID, userID, userID, userID, leagueID, leagueID, leagueID]);
+        var statement = mysql.format("SELECT\n            COUNT(IF((Player1ID = ? AND player1_score > player2_score) OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,\n            COUNT(IF((Player1ID = ? AND player1_score < player2_score) OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,\n            COUNT(IF((Player1ID = ? AND player1_score = player2_score) OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties\n            FROM league_schedule\n            LEFT JOIN (\n                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player1_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                WHERE Active = 1\n                GROUP BY LeagueID, UserID, Year, Week\n            ) AS p1_scores\n            ON (p1_scores.UserID = league_schedule.Player1ID)\n                AND (p1_scores.Week = league_schedule.Week)\n            LEFT JOIN (\n                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player2_score\n                FROM league_rosters\n                JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n                WHERE Active = 1\n                GROUP BY LeagueID, UserID, Year, Week\n            ) AS p2_scores\n            ON (p2_scores.UserID = league_schedule.Player2ID)\n                AND (p2_scores.Week = league_schedule.Week)\n            WHERE league_schedule.LeagueID = ?\n            AND p1_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)\n            AND p2_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)", [userID, userID, userID, userID, userID, userID, leagueID, leagueID, leagueID]);
         return this.query(statement);
     };
     DB.prototype.getUserScore = function (leagueID, userID, week) {
@@ -298,7 +300,7 @@ var DB = (function () {
             params.push(week);
         }
         params.push(leagueID);
-        var statement = mysql.format("SELECT league_rosters.UserID, Username, TeamName, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            JOIN league_members ON league_rosters.UserID = league_members.UserID\n            WHERE league_rosters.LeagueID = ?\n                AND league_rosters.UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n            GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;", params);
+        var statement = mysql.format("SELECT league_rosters.UserID, Username, TeamName, week as Week, SUM(WeekPts) AS score\n            FROM league_rosters\n            JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID\n            JOIN userinfo ON league_rosters.UserID = userinfo.ID\n            JOIN league_members ON league_rosters.UserID = league_members.UserID\n            WHERE league_rosters.LeagueID = ?\n                AND league_rosters.UserID " + (userID ? '= ?' : '') + "\n                AND week " + (week ? '= ?' : '') + "\n                AND year = (SELECT year FROM leagues WHERE id = ?)\n                AND Active = 1\n            GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;", params);
         return this.query(statement);
     };
     DB.prototype.getUserRoster = function (userID, leagueID, week) {
@@ -359,8 +361,8 @@ var DB = (function () {
         var statement = mysql.format("SELECT UserID\n            FROM league_members\n            WHERE LeagueID = ?", [leagueID]);
         return this.query(statement).then(function (result) {
             var users = [];
-            for (var _i = 0; _i < result.length; _i++) {
-                var user = result[_i];
+            for (var _i = 0, result_1 = result; _i < result_1.length; _i++) {
+                var user = result_1[_i];
                 users.push(user.UserID);
             }
             for (var i = 0; i < users.length; i++) {
@@ -427,8 +429,8 @@ var DB = (function () {
         var statement = mysql.format("SELECT UserID\n            FROM league_members\n            WHERE LeagueID = ?", [leagueID]);
         return this.query(statement).then(function (result) {
             var users = [];
-            for (var _i = 0; _i < result.length; _i++) {
-                var user = result[_i];
+            for (var _i = 0, result_2 = result; _i < result_2.length; _i++) {
+                var user = result_2[_i];
                 users.push(user.UserID);
                 rosters.push([]);
             }
@@ -437,7 +439,7 @@ var DB = (function () {
             var p = new Promise(function (resolve) {
                 resolve();
             });
-            for (var round = 0; round < 15; round++) {
+            var _loop_1 = function (round) {
                 p = p.then(function (_) { return new Promise(function (resolve) {
                     // randomize draft order
                     for (var i = 0; i < users.length; i++) {
@@ -484,6 +486,9 @@ var DB = (function () {
                     });
                     var _a;
                 }); });
+            };
+            for (var round = 0; round < 15; round++) {
+                _loop_1(round);
             }
         });
     };
@@ -499,5 +504,5 @@ var DB = (function () {
         });
     };
     return DB;
-})();
+}());
 exports.DB = DB;

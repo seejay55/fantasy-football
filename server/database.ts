@@ -539,6 +539,7 @@ export class DB {
                 SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player1_score
                 FROM league_rosters
                 JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+                WHERE Active = 1
                 GROUP BY LeagueID, UserID, Year, Week
             ) AS p1_scores
             ON (p1_scores.UserID = league_schedule.Player1ID)
@@ -547,6 +548,7 @@ export class DB {
                 SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player2_score
                 FROM league_rosters
                 JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
+                WHERE Active = 1
                 GROUP BY LeagueID, UserID, Year, Week
             ) AS p2_scores
             ON (p2_scores.UserID = league_schedule.Player2ID)
@@ -574,6 +576,7 @@ export class DB {
                 AND league_rosters.UserID ` + (userID ? '= ?' : '') + `
                 AND week ` + (week ? '= ?' : '') + `
                 AND year = (SELECT year FROM leagues WHERE id = ?)
+                AND Active = 1
             GROUP BY league_rosters.LeagueID, league_rosters.UserID, year, week;`,
             params
         );
