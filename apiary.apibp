@@ -12,7 +12,7 @@ Get array of all users
 
 + Response 200
 
-        [{"ID":1,"Username":"test1","ProfilePic":null,"FirstName":"Don't","LastName":"Delete","FavoriteTeam":null},{"ID":2,"Username":"test2","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":3,"Username":"test3","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":4,"Username":"test4","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":5,"Username":"test","ProfilePic":null,"FirstName":"firstname","LastName":"lastname","FavoriteTeam":"fave"},{"ID":9,"Username":"test123","ProfilePic":null,"FirstName":null,"LastName":null,"FavoriteTeam":null},{"ID":10,"Username":"NGrey5","ProfilePic":null,"FirstName":"Nick","LastName":"Grey","FavoriteTeam":null}]
+        [{"ID":1,"Username":"test1","ProfilePic":null,"FirstName":"Don't","LastName":"Delete","FavoriteTeam":null},{"ID":2,"Username":"test2","ProfilePic":null,"FirstName":"User","LastName":"Two","FavoriteTeam":null},{"ID":3,"Username":"test3","ProfilePic":null,"FirstName":"User","LastName":"Three","FavoriteTeam":null},{"ID":4,"Username":"test4","ProfilePic":null,"FirstName":"User","LastName":"Four","FavoriteTeam":null},{"ID":5,"Username":"test","ProfilePic":null,"FirstName":"firstname","LastName":"lastname","FavoriteTeam":"fave"},{"ID":9,"Username":"test123","ProfilePic":null,"FirstName":"User","LastName":"OneTwoThree","FavoriteTeam":null},{"ID":10,"Username":"NGrey5","ProfilePic":null,"FirstName":"Nick","LastName":"Grey","FavoriteTeam":null},{"ID":675,"Username":"b","ProfilePic":null,"FirstName":"a","LastName":"a","FavoriteTeam":null},{"ID":679,"Username":"c","ProfilePic":null,"FirstName":"a","LastName":"a","FavoriteTeam":null},{"ID":682,"Username":"wow","ProfilePic":null,"FirstName":"wow","LastName":"zers","FavoriteTeam":null}]
 
 ### Create User [POST /api/users]
 
@@ -79,7 +79,7 @@ Get array of all leagues
 
 + Response 200
 
-        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":1,"OwnerUserName":"test1"},{"ID":2,"Name":"TestLeague2","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":5,"OwnerUserName":"test"},{"ID":3,"Name":"TestLeague3","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":3,"OwnerUserName":"test3"},{"ID":4,"Name":"TestLeague4","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":1,"OwnerID":1,"OwnerUserName":"test1"},{"ID":5,"Name":"NicksLeague","Year":"2017","MaxTeams":10,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":2,"OwnerID":10,"OwnerUserName":"NGrey5"}]
+        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":5,"OwnerID":1,"OwnerUserName":"test1"},{"ID":2,"Name":"TestLeague2","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":5,"OwnerUserName":"test"},{"ID":3,"Name":"TestLeague3","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":3,"OwnerUserName":"test3"},{"ID":4,"Name":"TestLeague4","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":1,"OwnerID":1,"OwnerUserName":"test1"},{"ID":5,"Name":"NicksLeague","Year":"2017","MaxTeams":10,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":2,"OwnerID":10,"OwnerUserName":"NGrey5"},{"ID":13,"Name":"In Class League","Year":"2017","MaxTeams":9,"TypeScoring":"Default","LeaguePrivacy":"Public","MaxTrades":99,"NumTeams":1,"OwnerID":10,"OwnerUserName":"NGrey5"}]
 
 ## Leagues [/league]
 
@@ -89,4 +89,4 @@ Get information about a league
 
 + Response 200
 
-        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":4,"OwnerID":1,"OwnerUserName":"test1"}]
+        [{"ID":1,"Name":"Test League","Year":"2016","MaxTeams":null,"TypeScoring":null,"LeaguePrivacy":null,"MaxTrades":null,"NumTeams":5,"OwnerID":1,"OwnerUserName":"test1"}]

@@ -33,7 +33,7 @@ export class ScoringLeadersPageComponent implements OnInit {
     filteredKickerPlayers = [];
     filteredKickerScore = [];
 
-    playerPos = ['All', 'DEF', 'K', 'QB', 'RB', 'TE', 'WR'];
+    playerPos = ['All', 'QB', 'RB', 'TE', 'WR', 'DEF', 'K'];
     selectedPlayerPos = this.playerPos[0];
     teams = ['All', 'ARI', 'ATL', 'BAL', 'BUF', 'CAR',
         'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB',

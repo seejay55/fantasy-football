@@ -39,7 +39,8 @@ export class FindLeaguePageComponent implements OnInit {
             league.MaxTeams,
             league.TypeScoring,
             league.LeaguePrivacy,
-            league.MaxTrades
+            league.MaxTrades,
+            league.TeamName || ''
           );
           this.searchResults.push(temp);
         });

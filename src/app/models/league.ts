@@ -10,6 +10,7 @@ export class League {
   typeScoring: number;
   leaguePrivacy: string;
   maxTrades: number;
+  teamName: string;
 
   constructor(
     _id: number,
@@ -21,7 +22,8 @@ export class League {
     maxTeams: number,
     typeScoring: number,
     leaguePrivacy: string,
-    maxTrades: number
+    maxTrades: number,
+    teamName: string
   ) {
       this._id = _id;
       this.name = name;
@@ -33,6 +35,7 @@ export class League {
       this.typeScoring = typeScoring;
       this.leaguePrivacy = leaguePrivacy;
       this.maxTrades = maxTrades;
+      this.teamName = teamName;
     }
 
 }

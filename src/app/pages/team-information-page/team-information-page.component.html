@@ -1,0 +1,102 @@
+<div class="content-block">
+    <div class="row">
+        <h3 class="col-sm-3">{{league?.teamName}}</h3>
+        <h4 class="col-sm-3">{{league?.name}}</h4>
+        <h4 class="col-sm-3">{{league?.ownerName}}</h4>
+        <h4 class="col-sm-3">Record: {{wins}}-{{losses}}</h4>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <th scope="col">Starters</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="table">
+                            <thead>
+                                <th scope="col">Slot</th>
+                                <th scope="col">Player Name</th>
+                                <th scope="col">Pos</th>
+                                <th scope="col">Team</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let player of qb">
+                                    <td>QB</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of rb">
+                                    <td>RB</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of wr">
+                                    <td>WR</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of te">
+                                    <td>TE</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of flex">
+                                    <td>FLEX</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of def">
+                                    <td>D/ST</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                                <tr *ngFor="let player of k">
+                                    <td>K</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <th scope="col">Bench</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="table">
+                            <thead>
+                                <th scope="col">Slot</th>
+                                <th scope="col">Player Name</th>
+                                <th scope="col">Pos</th>
+                                <th scope="col">Team</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let player of bench">
+                                    <td>BENCH</td>
+                                    <td>{{player.PlayerName}}</td>
+                                    <td>{{player.PlayerPos}}</td>
+                                    <td>{{player.TeamAbbr}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>

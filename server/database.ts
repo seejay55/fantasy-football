@@ -18,6 +18,8 @@ export class DB {
             connectionLimit: 10,
             database: database
         });
+        //this.generateLeagueSchedule(1);
+        //this.randomDraft(1);
     }
 
     private query(statement: string): any {
@@ -340,7 +342,7 @@ export class DB {
 
     getAllLeaguesForUser(userID: number): any {
         const statement = mysql.format(
-            `SELECT get_league_info.ID, Name, Year, MaxTeams,
+            `SELECT get_league_info.ID, Name, Year, MaxTeams, TeamName,
             TypeScoring, LeaguePrivacy, MaxTrades, NumTeams, OwnerID, Username AS OwnerUserName
             FROM fantasyfootball18.league_members
             LEFT JOIN (
@@ -492,7 +494,7 @@ export class DB {
 
     getRoster(leagueID: number, userID: number): any {
         const statement = mysql.format(
-            `SELECT PlayerName, PlayerPos, TeamAbbr
+            `SELECT PlayerName, PlayerPos, TeamAbbr, Active
             FROM league_rosters
             JOIN nfl_players ON league_rosters.PlayerID = nfl_players.player_id
             WHERE LeagueID = ?
@@ -529,32 +531,30 @@ export class DB {
     getUserRecord(userID: number, leagueID: number): any {
         const statement = mysql.format(
             `SELECT
-            COUNT(IF((Player1ID = ? AND player1_score > player2_score)
-                OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS Wins,
-            COUNT(IF((Player1ID = ? AND player1_score < player2_score)
-                OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS Losses,
-            COUNT(IF((Player1ID = ? AND player1_score = player2_score)
-                OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS Ties
+            COUNT(IF((Player1ID = ? AND player1_score > player2_score) OR (Player2ID = ? AND player2_score > player1_score),1,NULL)) AS wins,
+            COUNT(IF((Player1ID = ? AND player1_score < player2_score) OR (Player2ID = ? AND player2_score < player1_score),1,NULL)) AS losses,
+            COUNT(IF((Player1ID = ? AND player1_score = player2_score) OR (Player2ID = ? AND player2_score = player1_score),1,NULL)) AS ties
             FROM league_schedule
-            JOIN (
-                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player1_score
+            LEFT JOIN (
+                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player1_score
                 FROM league_rosters
                 JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
-                GROUP BY LeagueID, UserID, year, week
+                GROUP BY LeagueID, UserID, Year, Week
             ) AS p1_scores
             ON (p1_scores.UserID = league_schedule.Player1ID)
-                AND (p1_scores.week = league_schedule.week)
-            JOIN (
-                SELECT LeagueID, UserID, year, week, SUM(WeekPts) AS player2_score
+                AND (p1_scores.Week = league_schedule.Week)
+            LEFT JOIN (
+                SELECT LeagueID, UserID, Year, Week, SUM(WeekPts) AS player2_score
                 FROM league_rosters
                 JOIN nfl_stats ON league_rosters.PlayerID = nfl_stats.PlayerID
-                GROUP BY LeagueID, UserID, year, week
+                GROUP BY LeagueID, UserID, Year, Week
             ) AS p2_scores
             ON (p2_scores.UserID = league_schedule.Player2ID)
-                AND (p2_scores.week = league_schedule.week)
-            WHERE (Player1ID = ? OR Player2ID = ?)
-            AND league_schedule.LeagueID = ?;`,
-            [userID, userID, userID, userID, userID, userID, userID, userID, leagueID]
+                AND (p2_scores.Week = league_schedule.Week)
+            WHERE league_schedule.LeagueID = ?
+            AND p1_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)
+            AND p2_scores.Year = (SELECT Year FROM leagues WHERE ID = ?)`,
+            [userID, userID, userID, userID, userID, userID, leagueID, leagueID, leagueID]
         );
         return this.query(statement);
     }
@@ -662,50 +662,273 @@ export class DB {
     }
 
     getRequestsForLeague(leagueID: number): any {
-      const statement = mysql.format(
-        `SELECT SenderID, Username, LeagueID, TeamName FROM league_request
-        INNER JOIN userinfo ON league_request.SenderID = userinfo.ID
-        WHERE LeagueID = ?`,
-        [leagueID]);
-
-      return this.query(statement);
-    }
-
-    requestInvite(senderID: number, leagueID: number, teamName: string): any {
         const statement = mysql.format(
-          `INSERT INTO league_request (SenderID, LeagueID, TeamName) VALUES (?, ?, ?)`,
-          [senderID, leagueID, teamName]
-        );
+          `SELECT SenderID, Username, LeagueID, TeamName FROM league_request
+          INNER JOIN userinfo ON league_request.SenderID = userinfo.ID
+          WHERE LeagueID = ?`,
+          [leagueID]);
+
         return this.query(statement);
+      }
+
+      requestInvite(senderID: number, leagueID: number, teamName: string): any {
+          const statement = mysql.format(
+            `INSERT INTO league_request (SenderID, LeagueID, TeamName) VALUES (?, ?, ?)`,
+            [senderID, leagueID, teamName]
+          );
+          return this.query(statement);
+      }
+
+      acceptRequestToLeague(senderID: number, leagueID: number, teamName: string): any {
+        const statement = mysql.format(
+          'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
+          [leagueID, senderID, teamName]);
+        const statement2 = mysql.format(
+          `DELETE FROM league_request WHERE SenderID = ? AND LeagueID = ?`,
+          [senderID, leagueID]);
+
+          return this.query(statement).then((result) => {
+            return this.query(statement2);
+        });
+      }
+
+      joinLeague(senderID: number, leagueID: number, teamName: string): any {
+        const statement = mysql.format(
+          'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
+          [leagueID, senderID, teamName]);
+
+          return this.query(statement);
+      }
+
+      deleteRequestToLeague(senderID: number, leagueID: number): any {
+        const statement = mysql.format(
+          `DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?`,
+          [senderID, leagueID]);
+
+        return this.query(statement);
+      }
+
+    private generateLeagueSchedule(leagueID: number): void {
+        const statement = mysql.format(
+            `SELECT UserID
+            FROM league_members
+            WHERE LeagueID = ?`,
+            [leagueID]
+        );
+        return this.query(statement).then((result) => {
+            let users = [];
+            for (let user of result) {
+                users.push(user.UserID);
+            }
+            for (let i = 0; i < users.length; i++) {
+                // choose a random not-yet-placed item to place there
+                // must be an item AFTER the current item, because the stuff
+                // before has all already been
+                let randomChoiceIndex;
+                do {
+                    randomChoiceIndex = Math.floor(Math.random() * (users.length - 0)) + 0;
+                } while (randomChoiceIndex === i);
+                // place our random choice in the spot by swapping
+                [users[i], users[randomChoiceIndex]] = [users[randomChoiceIndex], users[i]];
+            }
+            console.log(users);
+            let schedule = [];
+            if (users.length % 2 !== 0) {
+                users.push(-1);
+            }
+            let last = users[users.length - 1];
+            let previousRound = [];
+            for (let i = 0; i < users.length / 2; i++) {
+                previousRound.push(users[i]);
+                previousRound.push(users[users.length - i - 1]);
+                schedule.push({week: 1, player1: users[i], player2: users[users.length - i - 1]});
+            }
+            const weeks = 13;
+            for (let i = 2; i <= weeks; i++) {
+                let currentRound = [];
+                const lastFromPreviousRound = previousRound.pop();
+                previousRound.splice(previousRound.findIndex((value: any) => { return value === last; }), 1);
+                schedule.push({week: i, player1: last, player2: lastFromPreviousRound});
+                currentRound.push(last);
+                currentRound.push(lastFromPreviousRound);
+                for (let j = previousRound.length - 1; j > 0; j -= 2) {
+                    const a = previousRound[j - 1];
+                    const b = previousRound[j];
+                    currentRound.push(a);
+                    currentRound.push(b);
+                    schedule.push({week: i, player1: a, player2: b});
+                }
+                previousRound = currentRound;
+            }
+            let inserts = '';
+            let insertValues = [];
+            for (let i = 0; i < schedule.length; i++) {
+                inserts += '(?,?,?,?)';
+                if (i !== schedule.length - 1) {
+                    inserts += ',';
+                }
+                insertValues.push(leagueID);
+                insertValues.push(schedule[i]['week']);
+                insertValues.push(schedule[i]['player1']);
+                insertValues.push(schedule[i]['player2']);
+            }
+            const statement2 = mysql.format(
+                `INSERT INTO league_schedule
+                VALUES ` + inserts,
+                insertValues
+            );
+            console.log(statement2);
+            this.query(statement2);
+        });
     }
 
-    acceptRequestToLeague(senderID: number, leagueID: number, teamName: string): any {
+    private randomDraft(leagueID: number): void {
+        let rosters = [];
+        let statement = mysql.format(
+            `SELECT UserID
+            FROM league_members
+            WHERE LeagueID = ?`,
+            [leagueID]
+        );
+        return this.query(statement).then((result) => {
+            let users = [];
+            for (let user of result) {
+                users.push(user.UserID);
+                rosters.push([]);
+            }
+            const positions = ['QB', 'RB', 'RB', 'WR', 'WR', 'TE', 'FLEX', 'DEF', 'K'];
+            const bench = 6;
+
+            let p = new Promise(resolve => {
+                resolve();
+            });
+            for (let round = 0; round < 15; round++) {
+                p = p.then(_ => new Promise(resolve => {
+                    // randomize draft order
+                    for (let i = 0; i < users.length; i++) {
+                        let randomChoiceIndex;
+                        do {
+                            randomChoiceIndex = Math.floor(Math.random() * (users.length - 0)) + 0;
+                        } while (randomChoiceIndex === i);
+                        [users[i], users[randomChoiceIndex]] = [users[randomChoiceIndex], users[i]];
+                    }
+                    if (round < positions.length) {
+                        const pos = positions[round];
+                        if (pos === 'FLEX') {
+                            statement = mysql.format(
+                                `SELECT DISTINCT(PlayerID), PlayerName, PlayerPos, TeamAbbr
+                                FROM nfl_stats
+                                JOIN nfl_players ON nfl_stats.PlayerID = nfl_players.player_id
+                                WHERE PlayerPos IN ('RB', 'WR', 'TE')
+                                AND PlayerID NOT IN
+                                (
+                                    SELECT PlayerID
+                                    FROM league_rosters
+                                    WHERE LeagueID = ?
+                                )
+                                AND Year = (
+                                    SELECT Year
+                                    FROM leagues
+                                    WHERE ID = ?
+                                )
+                                ORDER BY SeasonPts DESC
+                                LIMIT ?`,
+                                [leagueID, leagueID, users.length]
+                            );
+                        } else {
+                            statement = mysql.format(
+                                `SELECT DISTINCT(PlayerID), PlayerName, PlayerPos, TeamAbbr
+                                FROM nfl_stats
+                                JOIN nfl_players ON nfl_stats.PlayerID = nfl_players.player_id
+                                WHERE PlayerPos = ?
+                                AND PlayerID NOT IN
+                                (
+                                    SELECT PlayerID
+                                    FROM league_rosters
+                                    WHERE LeagueID = ?
+                                )
+                                AND Year = (
+                                    SELECT Year
+                                    FROM leagues
+                                    WHERE ID = ?
+                                )
+                                ORDER BY SeasonPts DESC
+                                LIMIT ?`,
+                                [pos, leagueID, leagueID, users.length]
+                            );
+                        }
+                    } else {
+                        statement = mysql.format(
+                            `SELECT DISTINCT(PlayerID), PlayerName, PlayerPos, TeamAbbr
+                            FROM nfl_stats
+                            JOIN nfl_players ON nfl_stats.PlayerID = nfl_players.player_id
+                            AND PlayerID NOT IN
+                            (
+                                SELECT PlayerID
+                                FROM league_rosters
+                                WHERE LeagueID = ?
+                            )
+                            AND Year = (
+                                SELECT Year
+                                FROM leagues
+                                WHERE ID = ?
+                            )
+                            ORDER BY SeasonPts DESC
+                            LIMIT ?`,
+                            [leagueID, leagueID, users.length]
+                        );
+                    }
+
+                    this.query(statement).then((result2) => {
+                        let inserts = '';
+                        let insertValues = [];
+                        for (let i = 0; i < users.length; i++) {
+                            insertValues.push(leagueID);
+                            insertValues.push(result2[i]['PlayerID']);
+                            insertValues.push(users[i]);
+                            if (round < positions.length) {
+                                insertValues.push(1)
+                            } else {
+                                insertValues.push(0)
+                            }
+                            inserts += '(?,?,?,?)';
+                            if (i !== users.length - 1) {
+                                inserts += ',';
+                            }
+                        }
+                        const statement3 = mysql.format(
+                            `INSERT INTO league_rosters
+                            VALUES ` + inserts,
+                            insertValues
+                        );
+
+                        this.query(statement3).then((result3) => {
+                            resolve();
+                        });
+                    });
+                }));
+            }
+        });
+    }
+
+    userLeaveLeague(userID: number, leagueID: number): any {
       const statement = mysql.format(
-        'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
-        [leagueID, senderID, teamName]);
+        `DELETE FROM league_members WHERE LeagueID = ? AND UserID = ?`,
+        [leagueID, userID]);
       const statement2 = mysql.format(
-        `DELETE FROM league_request WHERE SenderID = ? AND LeagueID = ?`,
-        [senderID, leagueID]);
+        `DELETE FROM league_rosters WHERE LeagueID = ? AND UserID = ?`,
+       [leagueID, userID]);
+      const statement3 = mysql.format(
+        `DELETE FROM league_schedule WHERE (Player1ID = ? OR Player2ID = ?) AND LeagueID = ?`,
+        [userID, userID, leagueID]
+      );
+
 
         return this.query(statement).then((result) => {
-          return this.query(statement2);
-      });
-    }
-
-    joinLeague(senderID: number, leagueID: number, teamName: string): any {
-      const statement = mysql.format(
-        'INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner) VALUES (?, ?, ?, 0)',
-        [leagueID, senderID, teamName]);
-
-        return this.query(statement);
-    }
-
-    deleteRequestToLeague(senderID: number, leagueID: number): any {
-      const statement = mysql.format(
-        `DELETE FROM league_request WHERE SenderID = ? and LeagueID = ?`,
-        [senderID, leagueID]);
-
-      return this.query(statement);
+          return this.query(statement2).then((result2) => {
+            return this.query(statement3);
+          });
+        });
     }
 
 
