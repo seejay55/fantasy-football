@@ -182,7 +182,7 @@ export class DB {
             `UPDATE leagues
             SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?
             WHERE ID = ?`,
-            [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
+            [leagueName, year, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
         return this.query(statement);
     }
 

@@ -21,7 +21,7 @@ export class LeagueOptionsPageComponent implements OnInit {
     createdLeagues: League[] = [];
     allLeagues: League[] = [];
     selectedLeague: League;
-    
+
     isPublic: Boolean;
     isUnlimited: Boolean;
 
@@ -83,7 +83,8 @@ export class LeagueOptionsPageComponent implements OnInit {
                         league.MaxTeams,
                         league.TypeScoring || 'N/A',
                         league.LeaguePrivacy || 'N/A',
-                        league.MaxTrades
+                        league.MaxTrades,
+                        league.TeamName
                     );
                     this.allLeagues.push(temp); // Push current League Object to allLeagues array
                 });

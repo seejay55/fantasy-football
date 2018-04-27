@@ -126,7 +126,7 @@ var DB = (function () {
         });
     };
     DB.prototype.updateLeague = function (leagueID, year, leagueName, numberTeams, typeScoring, leaguePrivacy, maxTrades) {
-        var statement = mysql.format("UPDATE leagues\n            SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?\n            WHERE ID = ?", [leagueName, 2017, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
+        var statement = mysql.format("UPDATE leagues\n            SET Name = ?, Year = ?, MaxTeams = ?, TypeScoring = ?, LeaguePrivacy = ?, MaxTrades = ?\n            WHERE ID = ?", [leagueName, year, numberTeams, typeScoring, leaguePrivacy, maxTrades, leagueID]);
         return this.query(statement);
     };
     DB.prototype.deleteMultpleLeague = function (leagueID) {
