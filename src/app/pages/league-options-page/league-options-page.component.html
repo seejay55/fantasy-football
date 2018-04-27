@@ -1,27 +1,44 @@
 <div class="content-block">
-    <form (submit)="createLeague(name.value, public.checked, unlimited.checked, other.value, maxTeams.value, TeamName.value)">
+    <form (submit)="updateLeague(name.value, public.checked, unlimited.checked, other.value, maxTeams.value, year.value)">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend label">
+                        <label class="input-group-text" for="typeScore">League to Edit:</label>
+                    </div>
+                    <select class="custom-select" id="typeScore" (change)="updateForms($event.target.value)" required>
+                        <option *ngFor="let x of createdLeagues" value={{x._id}}>{{x.name}}</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid scoring type.
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12 mb-3">
                 <div class="input-group">
                     <div class="input-group-prepend label">
                         <label class="input-group-text" for="leagueName">League Name:</label>
                     </div>
-                    <input #name type="text" class="form-control" id="leagueName" value="" required minlength="1">
+                    <input #name type="text" class="form-control" id="leagueName" value="{{selectedLeague.name}}" required minlength="1">
                 </div>
                 <!-- Column -->
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12 mb-3">
                 <div class="input-group">
                     <div class="input-group-prepend label">
-                        <label class="input-group-text" for="teamName">Your Team Name:</label>
+                        <label class="input-group-text" for="year">Year:</label>
                     </div>
-                    <input #TeamName type="text" class="form-control" id="teamName" value="" required minlength="1">
+                    <input #year type="text" class="form-control" id="year" value="{{selectedLeague.year}}" pattern="\d{4}" required minlength="1">
                 </div>
                 <!-- Column -->
             </div>
         </div>
+
         <!-- League Name Row -->
         <div class="row">
             <div class="col-md mb-3">
@@ -29,7 +46,7 @@
                     <div class="input-group-prepend label">
                         <label class="input-group-text" for="maxPlayers">Max Teams:</label>
                     </div>
-                    <select #maxTeams class="custom-select" id="maxPlayers" required>
+                    <select #maxTeams class="custom-select" value="{{selectedLeague.maxTeams}}" id="maxPlayers" required>
                         <option value="">Choose...</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
@@ -50,33 +67,14 @@
         <!-- Max teams row -->
         <div class="row">
             <div class="col-md mb-3">
-                <div class="input-group">
-                    <div class="input-group-prepend label">
-                        <label class="input-group-text" for="typeScore">Type of Scoring:</label>
-                    </div>
-                    <select #scoring class="custom-select" id="typeScore" required>
-                        <option>Head-to-Head</option>
-                        <option>Other</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Please provide a valid scoring type.
-                    </div>
-                </div>
-            </div>
-            <!-- Column -->
-        </div>
-
-        <!-- Scoring Type Row -->
-        <div class="row">
-            <div class="col-md mb-3">
                 <label for="privacy">League Privacy:</label>
                 <div class="custom-control custom-radio">
-                    <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" checked
+                    <input #public id="public" name="privacy" ng-model="privacy" value="Public" type="radio" class="custom-control-input" [checked]="isPublic"
                         required>
                     <label class="custom-control-label" for="public">Public</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input #private id="private" name="privacy" ng-model="privacy" value="Private" type="radio" class="custom-control-input"
+                    <input #private id="private" name="privacy" ng-model="privacy" value="Private" type="radio" class="custom-control-input" [checked]="!isPublic"
                         required>
                     <label class="custom-control-label" for="private">Private</label>
                 </div>
@@ -90,14 +88,14 @@
                 <label for="numTrades">Maximum Trades:</label>
                 <div class="custom-control custom-radio">
                     <input #unlimited id="unlimited" name="numTrades" ng-model="numTrades" type="radio" value="Unlimited" onclick="document.getElementById('otherTrades').disabled = true;"
-                        class="custom-control-input" checked required>
+                        class="custom-control-input" [checked]="isUnlimited" required>
                     <label class="custom-control-label" for="unlimited">Unlimited</label>
                 </div>
                 <div class="custom-control custom-radio">
                     <input id="other" name="numTrades" ng-model="numTrades" type="radio" value="Other" onclick="document.getElementById('otherTrades').disabled = false;"
-                        class="custom-control-input" required>
+                        class="custom-control-input" [checked]="!isUnlimited" required>
                     <label class="custom-control-label" for="other">Other </label>
-                    <input #other type="text" id="otherTrades" name="other" disabled="disabled" minlength="1" />
+                    <input #other type="text" value="{{selectedLeague.maxTrades}}" id="otherTrades" name="other" disabled="{{!isUnlimited}}" minlength="1" />
                     <div class="invalid-feedback">
                         Valid Number is required.
                     </div>
@@ -107,6 +105,6 @@
         </div>
 
         <!-- Max Trades Row -->
-        <button type="submit" class="btn btn-primary">Confirm</button>
+        <button type="submit" class="btn btn-primary">SAVE</button>
     </form>
 </div>

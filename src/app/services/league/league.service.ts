@@ -61,9 +61,9 @@ export class LeagueService {
     return this.http.get<any[]>(`${this.endpoint}/user/${userId}/leagues`);
   }
 
-  public createLeague(leagueName: string, userId: number, leaguePrivacy: string, maxTrades: number, maxTeams: number) {
+  public createLeague(leagueName: string, userId: number, leaguePrivacy: string, maxTrades: number, maxTeams: number, teamName: string) {
     return this.http.post<any>(`${this.endpoint}/leagues`,
-     {LeagueName: leagueName, UserID: userId, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades, MaxTeams: maxTeams} );
+     {LeagueName: leagueName, UserID: userId, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades, MaxTeams: maxTeams, TeamName: teamName} );
   }
 
   public deleteLeague(leagueId) {
@@ -97,4 +97,9 @@ export class LeagueService {
     return this.http.delete(`${this.endpoint}/league/${leagueId}/user/${senderId}/deleteRequest`);
   }
 
+  public updateLeague(leagueId: number, year: number, leagueName: string, numberTeams: number, typeScoring: string, leaguePrivacy: string, maxTrades: number)
+  {
+    return this.http.patch(`${this.endpoint}/league/${leagueId}`,
+    {Year: year, LeagueName: leagueName, NumberTeams: numberTeams, TypeScoring: typeScoring, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades});
+  }
 }

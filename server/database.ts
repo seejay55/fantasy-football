@@ -160,7 +160,7 @@ export class DB {
 
     // Leagues
     createLeague(leagueName: string, userID: number, numberTeams: number, typeScoring: string,
-        leaguePrivacy: string, maxTrades: number): any {
+        leaguePrivacy: string, maxTrades: number, teamName: string): any {
         const statement = mysql.format(
             `INSERT INTO leagues (Name, Year, MaxTeams,
             TypeScoring, LeaguePrivacy, MaxTrades) VALUES (?, ?, ?, ?, ?, ?)`,
@@ -169,7 +169,7 @@ export class DB {
         const staetment2 = mysql.format(
             `INSERT INTO league_members (LeagueID, UserID, TeamName, Commisioner)
             VALUES ((SELECT ID FROM leagues WHERE Name = ?), ?, ?, 1)`,
-            [leagueName, userID, leagueName]
+            [leagueName, userID, teamName]
         );
         return this.query(statement).then((result) => {
             return this.query(staetment2);
