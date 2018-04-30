@@ -14,21 +14,6 @@
     <!-- col -->
   </div>
 
-  <!-- row -->
-  <div class="row">
-    <div class="col-md-12">
-      <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#advanced">Advanced Search</button>
-      <div class="collapse" id="advanced">
-        <div class="card card-body mt-3">
-          <p>Advanced Options:</p>
-
-        </div>
-      </div>
-      <!-- collapsed advanced options -->
-    </div>
-    <!-- col -->
-  </div>
-  <!-- row -->
 </div>
 
 <div class="content-block">
@@ -49,8 +34,8 @@
             <td> {{x.maxTeams}} </td>
             <td> Standard </td>
             <td>
-              <button class="btn btn-primary" type="button" (click)="joinListener(x)">
-                Request to Join
+              <button class="btn btn-primary" type="button" [routerLink]="['/league', x._id]">
+                View League
               </button>
             </td>
           </tr>

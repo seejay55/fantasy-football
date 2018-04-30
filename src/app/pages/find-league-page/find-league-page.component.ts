@@ -20,10 +20,6 @@ export class FindLeaguePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  private joinListener(index: Number) {
-    console.log(index);
-  }
-
   private search(term: string): void {
     this.searchResults = [];
     this.leagueService.getLeaguesBySearchTerm(term).subscribe(

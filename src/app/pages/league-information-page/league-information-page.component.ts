@@ -96,10 +96,8 @@ export class LeagueInformationPageComponent implements OnInit {
         standings.forEach(standing => {
           this.standings.push(standing);
         });
-        // console.log(standings);
-        this.standings = this.standings.filter(
-          standing => standing.score >= standing.score
-        );
+        console.log(standings);
+        this.standings.sort((a, b) => a.score > b.score ? -1 : a.score < b.score ? 1 : 0);
       },
       (err) => { this.alertService.danger('Error', 'Could not get league standings', false); }
     );

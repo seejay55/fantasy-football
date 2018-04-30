@@ -1,10 +1,10 @@
 <div class="card">
-    <div class="card-body" *ngFor="let team of allTeams">
+    <div class="card-body">
         <h5 class="card-title">
-            <a [routerLink]="['/league', team?._id, team?.teamName]">{{team.teamName}}</a>
+            <a [routerLink]="['/league', league?._id, 'team', league?.teamName]">{{league?.teamName}}</a>
         </h5>
         <div class="card-subtitle mb-2">
-            <a class="link" [routerLink]="['/league', team._id]">{{team?.name}}</a>
+            <a class="link" [routerLink]="['/league', league._id]">{{league?.name}}</a>
         </div>
     </div>
 </div>

@@ -22,8 +22,8 @@
   </div>
 
   <div class="col-sm-2">
-    <div class="content-block">
-        <app-user-teams></app-user-teams>
+    <div class="content-block" *ngFor="let league of allLeaguesIn">
+        <app-user-teams [league]="league"></app-user-teams>
     </div>
   </div>
 </div>

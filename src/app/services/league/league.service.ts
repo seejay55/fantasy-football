@@ -97,9 +97,10 @@ export class LeagueService {
     return this.http.delete(`${this.endpoint}/league/${leagueId}/user/${senderId}/deleteRequest`);
   }
 
-  public updateLeague(leagueId: number, year: number, leagueName: string, numberTeams: number, typeScoring: string, leaguePrivacy: string, maxTrades: number)
-  {
+  public updateLeague(leagueId: number, year: number, leagueName: string, numberTeams: number,
+    typeScoring: string, leaguePrivacy: string, maxTrades: number) {
     return this.http.patch(`${this.endpoint}/league/${leagueId}`,
-    {Year: year, LeagueName: leagueName, NumberTeams: numberTeams, TypeScoring: typeScoring, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades});
+    {Year: year, LeagueName: leagueName, NumberTeams: numberTeams,
+      TypeScoring: typeScoring, LeaguePrivacy: leaguePrivacy, MaxTrades: maxTrades});
   }
 }

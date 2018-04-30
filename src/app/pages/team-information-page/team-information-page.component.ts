@@ -32,17 +32,17 @@ export class TeamInformationPageComponent implements OnInit {
   constructor(private leagueService: LeagueService, private activatedRoute: ActivatedRoute, public authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.getCurrentUser().subscribe(
-      user => {
-        this.currentUser = user;
-      }
-    );
-
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         const pageLeagueID = params['_id'];
-        this.setUsersLeague(pageLeagueID);
+          this.authService.getCurrentUser().subscribe(
+            user => {
+              this.currentUser = user;
+              this.setUsersLeague(pageLeagueID);
+            }
+          );
       });
+
   }
 
   private setUsersLeague(pageLeagueID: number) {
