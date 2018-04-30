@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mysql = require('mysql');
 var config = require('../config/config');
-var DB = require('./database')
+var DB = require('./database');
 
 var db_host = config.db_HOST;
 var db_user = config.db_USER;
@@ -12,6 +12,11 @@ var db_database = config.db_DATABASE;
 
 var db = new DB.DB(db_host, db_user, db_password, db_database);
 
+var user = require('./api/user')(db);
+var users = require('./api/users')(db);
+var league = require('./api/league')(db);
+var leagues = require('./api/leagues')(db);
+
 var app = express();
 app.use(bodyParser.json());
 /*app.use(bodyParser.urlencoded({
@@ -19,13 +24,19 @@ app.use(bodyParser.json());
 }));*/
 app.use(cors());
 
+app.use('/api/user', user);
+app.use('/api/users', users);
+app.use('/api/league', league);
+app.use('/api/leagues', leagues);
+
 var server = app.listen(8000, function () {
-  console.log('Server listening on port 8000');
+    console.log('Server listening on port 8000');
 });
 
 /**
  * Users
  */
+/*
 app.get("/api/users", function (req, res) {
   db.getAllUsers().then(function (result) {
     res.send(result);
@@ -205,10 +216,11 @@ app.get("/api/user/:user_ID/league/:league_ID/:week/roster", function (req, res)
     res.send(result);
   });
 });
-
+*/
 /**
  * Leagues
  */
+/*
 app.get("/api/leagues", function (req, res) {
   db.getAllLeagues().then(function (result) {
     res.setHeader('Content-Type', 'application/json');
@@ -384,5 +396,5 @@ app.delete("/api/user/:userID/league/:leagueID/leaveLeague", function (req, res)
     }
   });
 });
-
+*/
 module.exports = app;
