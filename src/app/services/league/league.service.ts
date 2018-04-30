@@ -80,7 +80,7 @@ export class LeagueService {
   }
 
   public requestToJoinLeague(senderId: number, leagueId: number, teamName: string) {
-    return this.http.post<any>(`${this.endpoint}/league/requestToJoinLeague`,
+    return this.http.post<any>(`${this.endpoint}/league/requestInvite`,
      {SenderID: senderId, LeagueID: leagueId, TeamName: teamName} );
   }
 

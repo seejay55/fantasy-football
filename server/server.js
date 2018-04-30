@@ -333,7 +333,7 @@ app.post("/api/league/requestInvite", function (req, res) {
   });
 });
 
-app.post("/api/league/acceptInvite", function (req, res) {
+app.post("/api/league/acceptRequest", function (req, res) {
   var senderID = req.body.SenderID;
   var leagueID = req.body.LeagueID;
   var teamName = req.body.TeamName;
