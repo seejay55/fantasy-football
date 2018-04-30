@@ -35,12 +35,12 @@ export class TeamInformationPageComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         const pageLeagueID = params['_id'];
-          this.authService.getCurrentUser().subscribe(
-            user => {
-              this.currentUser = user;
-              this.setUsersLeague(pageLeagueID);
-            }
-          );
+        this.authService.getCurrentUser().subscribe(
+          user => {
+            this.currentUser = user;
+            this.setUsersLeague(pageLeagueID);
+          }
+        );
       });
 
   }
@@ -50,7 +50,7 @@ export class TeamInformationPageComponent implements OnInit {
       (leagues) => {
         // For every league in array, create League Object
         leagues.forEach(league => {
-          if (league.ID == pageLeagueID) {
+          if (Number(league.ID) === Number(pageLeagueID)) {
             this.league = new League(
               league.ID,
               league.Name,
@@ -80,19 +80,19 @@ export class TeamInformationPageComponent implements OnInit {
           (roster) => {
             roster.forEach(data => {
               if (data.Active === 1) {
-                if (data.PlayerPos == 'QB') {
+                if (data.PlayerPos === 'QB') {
                   this.qb.push(data);
-                } else if (data.PlayerPos == 'RB' && this.rb.length < 2) {
+                } else if (data.PlayerPos === 'RB' && this.rb.length < 2) {
                   this.rb.push(data);
-                } else if (data.PlayerPos == 'WR' && this.wr.length < 2) {
+                } else if (data.PlayerPos === 'WR' && this.wr.length < 2) {
                   this.wr.push(data);
-                } else if (data.PlayerPos == 'TE' && this.te.length < 1) {
+                } else if (data.PlayerPos === 'TE' && this.te.length < 1) {
                   this.te.push(data);
-                } else if (data.PlayerPos == 'RB' || data.PlayerPos === 'WR' || data.PlayerPos == 'TE') {
+                } else if (data.PlayerPos === 'RB' || data.PlayerPos === 'WR' || data.PlayerPos === 'TE') {
                   this.flex.push(data);
-                } else if (data.PlayerPos == 'DEF') {
+                } else if (data.PlayerPos === 'DEF') {
                   this.def.push(data);
-                } else if (data.PlayerPos == 'K') {
+                } else if (data.PlayerPos === 'K') {
                   this.k.push(data);
                 }
               } else {

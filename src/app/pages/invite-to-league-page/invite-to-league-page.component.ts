@@ -71,14 +71,14 @@ export class InviteToLeaguePageComponent implements OnInit {
     this.leagueService.getLeagueMembers(leagueId).subscribe(
       (members) => {
         members.forEach((member) => {
-          if (this.receiveUserId === member.UserID) {
+          if (Number(this.receiveUserId) === Number(member.UserID)) {
             isIn = true;
           }
         });
-        if (!isIn) {
+        if (isIn === false) {
           this.userService.sendInvite(this.receiveUserId, this.currentUser._id, leagueId).subscribe(
             (sent) => this.alertService.success('Success', 'User has been invited to league', false),
-            (err) => this.alertService.danger('Error', 'We fucked up', false)
+            (err) => this.alertService.danger('Error', 'We messed', false)
           );
         } else {
           this.alertService.warning('Error', 'User is already in this league');

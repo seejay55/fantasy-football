@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <!-- <div class="content-block">
+      <div class="content-block">
         <table class="table">
           <thead>
             <tr>
@@ -51,11 +51,11 @@
               <td>
                 <a class="link" [routerLink]="['/user', member.Username]">{{member.Username}}</a>
               </td>
-              <td><a class="link" [routerLink]="['/league', league?._id, member?.TeamName]">{{member.TeamName}}</a></td>
+              <td><a class="link" [routerLink]="['/league', league?._id, 'team', member?.TeamName]">{{member.TeamName}}</a></td>
             </tr>
           </tbody>
         </table>
-      </div> -->
+      </div>
       <div class="content-block">
         <label>Week</label>
         <select (change)="setLeagueStandings(league._id, $event.target.value)">
