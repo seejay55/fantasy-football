@@ -72,10 +72,10 @@
           <tbody>
             <tr *ngFor="let standing of standings">
               <td>
-                <a class="link" [routerLink]="['/user', standing.Username]">{{standing.TeamName}}</a>
+                <a class="link" [routerLink]="['/league', league?._id, 'team', standing?.TeamName]">{{standing.TeamName}}</a>
               </td>
               <td>
-                <a class="link" [routerLink]="['/team', standing.TeamName]">{{standing.Username}}</a>
+                <a class="link" [routerLink]="['/user', standing?.Username]">{{standing.Username}}</a>
               </td>
               <td>{{standing.score}}</td>
             </tr>
