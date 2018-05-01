@@ -89,6 +89,7 @@ export class UserProfilePageComponent implements OnInit {
   // Set pageUser leagues if any
   private setUserLeagues(): void {
     this.allLeagues = []; // Clear all leagues for the page
+    console.log(this.allLeagues);
     // Get all leagues that user is in from database
     this.leagueService.getUserLeagues(this.pageUser._id).subscribe(
       // Successful Data
@@ -123,7 +124,7 @@ export class UserProfilePageComponent implements OnInit {
       league => league.ownerId === this.pageUser._id
     );
     // Set username for created leagues as current user
-    this.createdLeagues.forEach(league => league.ownerName = this.currentUser.userName);
+    this.createdLeagues.forEach(league => league.ownerName = this.pageUser.userName);
   }
 
   // Set user invites if pageUser === currentUser
